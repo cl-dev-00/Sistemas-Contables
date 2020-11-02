@@ -21,6 +21,7 @@ namespace SistemasContables
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
+        private bool Hidden = false;
 
         public MainForm()
         {
@@ -87,15 +88,7 @@ namespace SistemasContables
         private void btnMenu_Click(object sender, EventArgs e)
         {
             disabledButton();
-
-            if (panelNavegacion.Width == 250)
-            {
-                panelNavegacion.Width = 62;
-            }
-            else
-            {
-                panelNavegacion.Width = 250;
-            }
+            timerInicio.Start();
         }
 
         // abre el form de inicio en el panel de contenido
@@ -139,7 +132,33 @@ namespace SistemasContables
             activaButton(this.btnBalanceGeneral, Color.FromArgb(68, 189, 50));
             openFormInPane(new BalanceGeneralForm());
         }
-        
+
+        // metodo a ejecutar cuando timerInicio inicie
+        private void timerInicio_Tick(object sender, EventArgs e)
+        {
+            if (!Hidden)
+            {
+                panelNavegacion.Width -= 2;
+
+                if (panelNavegacion.Width <= 62)
+                {
+                    Hidden = true;
+                    timerInicio.Stop();
+                    this.Refresh();
+                }
+            } else
+            {
+                panelNavegacion.Width += 2;
+
+                if(panelNavegacion.Width >= 250)
+                {
+                    Hidden = false;
+                    timerInicio.Stop();
+                    this.Refresh();
+                }
+            }
+        }
+
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
         private void activaButton(object senderBtn, Color color)
         {
@@ -248,5 +267,6 @@ namespace SistemasContables
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
+
     }
 }

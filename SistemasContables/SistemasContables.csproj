@@ -68,6 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase\Conexion.cs" />
+    <Compile Include="DataBase\IDao.cs" />
     <Compile Include="Views\BalanceDeComprobacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,7 +160,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataBase\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

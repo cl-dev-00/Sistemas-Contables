@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.barraTitulo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -44,6 +45,7 @@
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.timerInicio = new System.Windows.Forms.Timer(this.components);
             this.barraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelNavegacion.SuspendLayout();
@@ -52,7 +54,7 @@
             // 
             // barraTitulo
             // 
-            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
+            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
             this.barraTitulo.Controls.Add(this.pictureBox1);
             this.barraTitulo.Controls.Add(this.btnMinimizar);
             this.barraTitulo.Controls.Add(this.btnRestoreWindow);
@@ -71,7 +73,7 @@
             this.pictureBox1.Image = global::SistemasContables.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(193, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -379,8 +381,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContenido.Location = new System.Drawing.Point(250, 40);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(950, 576);
+            this.panelContenido.Size = new System.Drawing.Size(950, 572);
             this.panelContenido.TabIndex = 3;
+            // 
+            // timerInicio
+            // 
+            this.timerInicio.Interval = 2;
+            this.timerInicio.Tick += new System.EventHandler(this.timerInicio_Tick);
             // 
             // MainForm
             // 
@@ -392,6 +399,7 @@
             this.Controls.Add(this.panelNavegacion);
             this.Controls.Add(this.barraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(720, 640);
             this.Name = "MainForm";
             this.Text = "Sistemas Contables";
             this.barraTitulo.ResumeLayout(false);
@@ -419,6 +427,7 @@
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerInicio;
     }
 }
 

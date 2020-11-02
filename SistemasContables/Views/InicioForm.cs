@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasContables.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace SistemasContables.Views
 {
     public partial class InicioForm : Form
     {
+        private Conexion conexion;
+
         public InicioForm()
         {
             InitializeComponent();
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            conexion = new Conexion();
+            
         }
     }
 }
