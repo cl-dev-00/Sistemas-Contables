@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemasContables
+namespace SistemasContables.Views
 {
-    public partial class MainForm : Form
+    public partial class BalanceGeneralForm : Form
     {
-        public MainForm()
+        public BalanceGeneralForm()
         {
             InitializeComponent();
         }

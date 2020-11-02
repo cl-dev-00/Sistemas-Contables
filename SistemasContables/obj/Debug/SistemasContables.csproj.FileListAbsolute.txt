@@ -18,3 +18,9 @@ C:\Users\carlo\source\repos\SistemasContables\SistemasContables\bin\Debug\Entity
 C:\Users\carlo\source\repos\SistemasContables\SistemasContables\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\carlo\source\repos\SistemasContables\SistemasContables\bin\Debug\System.Data.SQLite.xml
 C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.csproj.CopyComplete
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.LibroDiarioForm.resources
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.BalanceDeComprobacionForm.resources
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.BalanceGeneralForm.resources
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.EstadoDeResultadosForm.resources
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.LibroMayorForm.resources
+C:\Users\carlo\source\repos\SistemasContables\SistemasContables\obj\Debug\SistemasContables.Views.InicioForm.resources

@@ -68,15 +68,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Views\BalanceDeComprobacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Views\BalanceDeComprobacionForm.Designer.cs">
+      <DependentUpon>BalanceDeComprobacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BalanceGeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BalanceGeneralForm.Designer.cs">
+      <DependentUpon>BalanceGeneralForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EstadoDeResultadosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EstadoDeResultadosForm.Designer.cs">
+      <DependentUpon>EstadoDeResultadosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InicioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InicioForm.Designer.cs">
+      <DependentUpon>InicioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibroDiarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LibroDiarioForm.Designer.cs">
+      <DependentUpon>LibroDiarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibroMayorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LibroMayorForm.Designer.cs">
+      <DependentUpon>LibroMayorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Views\BalanceDeComprobacionForm.resx">
+      <DependentUpon>BalanceDeComprobacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BalanceGeneralForm.resx">
+      <DependentUpon>BalanceGeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EstadoDeResultadosForm.resx">
+      <DependentUpon>EstadoDeResultadosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InicioForm.resx">
+      <DependentUpon>InicioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LibroDiarioForm.resx">
+      <DependentUpon>LibroDiarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LibroMayorForm.resx">
+      <DependentUpon>LibroMayorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -87,6 +141,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -105,7 +160,9 @@
   <ItemGroup>
     <Folder Include="DataBase\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
