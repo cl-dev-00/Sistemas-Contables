@@ -143,7 +143,7 @@ namespace SistemasContables
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
         private void activaButton(object senderBtn, Color color)
         {
-            if(senderBtn != null)
+            if(senderBtn != null && panelNavegacion.Width == 250)
             {
                 disabledButton();
 
@@ -154,6 +154,19 @@ namespace SistemasContables
                 btnCurrent.IconColor = color;
                 btnCurrent.ImageAlign = ContentAlignment.MiddleRight;
                 btnCurrent.TextImageRelation = TextImageRelation.TextBeforeImage;
+
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.BackColor = color;
+                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                leftPanelBtn.Visible = true;
+                leftPanelBtn.BringToFront();
+            } else
+            {
+                disabledButton();
+
+                // Estilos del button
+                btnCurrent = (IconButton)senderBtn;
+                btnCurrent.IconColor = color;
 
                 // Estilos del panel izquierdo del button
                 leftPanelBtn.BackColor = color;
