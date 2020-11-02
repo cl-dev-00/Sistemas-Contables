@@ -162,10 +162,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
+    <None Include="Resources\finanzas.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\finanzas.png" />
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
