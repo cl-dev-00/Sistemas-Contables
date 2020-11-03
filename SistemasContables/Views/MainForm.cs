@@ -138,8 +138,7 @@ namespace SistemasContables
         {
             if (!Hidden)
             {
-                panelNavegacion.Width -= 2;
-
+                panelNavegacion.Width -= 10;
                 if (panelNavegacion.Width <= 62)
                 {
                     Hidden = true;
@@ -148,9 +147,9 @@ namespace SistemasContables
                 }
             } else
             {
-                panelNavegacion.Width += 2;
+                panelNavegacion.Width += 10;
 
-                if(panelNavegacion.Width >= 250)
+                if (panelNavegacion.Width >= 252)
                 {
                     Hidden = false;
                     timerInicio.Stop();
@@ -162,7 +161,7 @@ namespace SistemasContables
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
         private void activaButton(object senderBtn, Color color)
         {
-            if(senderBtn != null && panelNavegacion.Width == 250)
+            if(senderBtn != null && panelNavegacion.Width == 252)
             {
                 disabledButton();
 

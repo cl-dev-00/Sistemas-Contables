@@ -58,7 +58,7 @@
             this.btnConectar.Location = new System.Drawing.Point(346, 400);
             this.btnConectar.MaximumSize = new System.Drawing.Size(272, 66);
             this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(272, 66);
+            this.btnConectar.Size = new System.Drawing.Size(270, 66);
             this.btnConectar.TabIndex = 3;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = false;
@@ -68,7 +68,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 572);
+            this.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.ClientSize = new System.Drawing.Size(948, 572);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

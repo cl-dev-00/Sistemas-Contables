@@ -173,7 +173,7 @@
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 40);
             this.panelNavegacion.Name = "panelNavegacion";
-            this.panelNavegacion.Size = new System.Drawing.Size(250, 600);
+            this.panelNavegacion.Size = new System.Drawing.Size(252, 600);
             this.panelNavegacion.TabIndex = 2;
             // 
             // btnBalanceGeneral
@@ -195,7 +195,7 @@
             this.btnBalanceGeneral.Name = "btnBalanceGeneral";
             this.btnBalanceGeneral.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBalanceGeneral.Rotation = 0D;
-            this.btnBalanceGeneral.Size = new System.Drawing.Size(250, 60);
+            this.btnBalanceGeneral.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceGeneral.TabIndex = 21;
             this.btnBalanceGeneral.Text = "Balance general";
             this.btnBalanceGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,7 +222,7 @@
             this.btnEstadoDeResultados.Name = "btnEstadoDeResultados";
             this.btnEstadoDeResultados.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEstadoDeResultados.Rotation = 0D;
-            this.btnEstadoDeResultados.Size = new System.Drawing.Size(250, 60);
+            this.btnEstadoDeResultados.Size = new System.Drawing.Size(252, 60);
             this.btnEstadoDeResultados.TabIndex = 20;
             this.btnEstadoDeResultados.Text = "Estado de resultados";
             this.btnEstadoDeResultados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,7 +249,7 @@
             this.btnBalanceDeComprobacion.Name = "btnBalanceDeComprobacion";
             this.btnBalanceDeComprobacion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBalanceDeComprobacion.Rotation = 0D;
-            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(250, 60);
+            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceDeComprobacion.TabIndex = 19;
             this.btnBalanceDeComprobacion.Text = "Balance de comprobacion";
             this.btnBalanceDeComprobacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +276,7 @@
             this.btnLibroMayor.Name = "btnLibroMayor";
             this.btnLibroMayor.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLibroMayor.Rotation = 0D;
-            this.btnLibroMayor.Size = new System.Drawing.Size(250, 60);
+            this.btnLibroMayor.Size = new System.Drawing.Size(252, 60);
             this.btnLibroMayor.TabIndex = 18;
             this.btnLibroMayor.Text = "Libro Mayor";
             this.btnLibroMayor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,7 +303,7 @@
             this.btnLibroDiario.Name = "btnLibroDiario";
             this.btnLibroDiario.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLibroDiario.Rotation = 0D;
-            this.btnLibroDiario.Size = new System.Drawing.Size(250, 60);
+            this.btnLibroDiario.Size = new System.Drawing.Size(252, 60);
             this.btnLibroDiario.TabIndex = 17;
             this.btnLibroDiario.Text = "Libro Diario";
             this.btnLibroDiario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,9 +330,10 @@
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnInicio.Rotation = 0D;
-            this.btnInicio.Size = new System.Drawing.Size(250, 60);
+            this.btnInicio.Size = new System.Drawing.Size(252, 60);
             this.btnInicio.TabIndex = 16;
             this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
@@ -356,9 +357,10 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenu.Rotation = 0D;
-            this.btnMenu.Size = new System.Drawing.Size(250, 60);
+            this.btnMenu.Size = new System.Drawing.Size(252, 60);
             this.btnMenu.TabIndex = 15;
             this.btnMenu.Text = "Menu";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
@@ -369,7 +371,7 @@
             this.pictureBox2.Image = global::SistemasContables.Properties.Resources.finanzas;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 114);
+            this.pictureBox2.Size = new System.Drawing.Size(252, 114);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
@@ -386,7 +388,7 @@
             // 
             // timerInicio
             // 
-            this.timerInicio.Interval = 2;
+            this.timerInicio.Interval = 10;
             this.timerInicio.Tick += new System.EventHandler(this.timerInicio_Tick);
             // 
             // MainForm
