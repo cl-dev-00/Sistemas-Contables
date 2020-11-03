@@ -1,3 +1,3 @@
 # Sistemas-Contables
 
-## Lider: **MArlon Coreas**
+## Lider: **Marlon Coreas**
