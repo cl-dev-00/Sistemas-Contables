@@ -28,31 +28,256 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
+            this.btnModificar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnImprimir = new FontAwesome.Sharp.IconButton();
+            this.panelTabla = new System.Windows.Forms.Panel();
+            this.tableEstadoDeResultados = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColumnOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.panelTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableEstadoDeResultados)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // txtTitulo
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.Location = new System.Drawing.Point(336, 57);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.ReadOnly = true;
+            this.txtTitulo.Size = new System.Drawing.Size(266, 28);
+            this.txtTitulo.TabIndex = 12;
+            this.txtTitulo.Text = "Estado de Resultados";
+            this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAgregar.IconColor = System.Drawing.Color.White;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.IconSize = 40;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(745, 241);
+            this.btnAgregar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnAgregar.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Rotation = 0D;
+            this.btnAgregar.Size = new System.Drawing.Size(140, 50);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnModificar.IconColor = System.Drawing.Color.White;
+            this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnModificar.IconSize = 40;
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(745, 321);
+            this.btnModificar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnModificar.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Rotation = 0D;
+            this.btnModificar.Size = new System.Drawing.Size(140, 50);
+            this.btnModificar.TabIndex = 10;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnEliminar.IconColor = System.Drawing.Color.White;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.IconSize = 40;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(745, 401);
+            this.btnEliminar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnEliminar.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Rotation = 0D;
+            this.btnEliminar.Size = new System.Drawing.Size(140, 50);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileExport;
+            this.btnImprimir.IconColor = System.Drawing.Color.White;
+            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImprimir.IconSize = 40;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(745, 161);
+            this.btnImprimir.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnImprimir.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Rotation = 0D;
+            this.btnImprimir.Size = new System.Drawing.Size(140, 50);
+            this.btnImprimir.TabIndex = 8;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            // 
+            // panelTabla
+            // 
+            this.panelTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(342, 278);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Estado de resultados";
+            this.panelTabla.Controls.Add(this.tableEstadoDeResultados);
+            this.panelTabla.Location = new System.Drawing.Point(63, 161);
+            this.panelTabla.Name = "panelTabla";
+            this.panelTabla.Size = new System.Drawing.Size(624, 353);
+            this.panelTabla.TabIndex = 7;
+            // 
+            // tableEstadoDeResultados
+            // 
+            this.tableEstadoDeResultados.AllowUserToAddRows = false;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.tableEstadoDeResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableEstadoDeResultados.BackgroundColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableEstadoDeResultados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableEstadoDeResultados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.tableEstadoDeResultados.ColumnHeadersHeight = 50;
+            this.tableEstadoDeResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnOperacion,
+            this.ColumnCuentas,
+            this.ColumnTotales});
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableEstadoDeResultados.DefaultCellStyle = dataGridViewCellStyle21;
+            this.tableEstadoDeResultados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableEstadoDeResultados.DoubleBuffered = true;
+            this.tableEstadoDeResultados.EnableHeadersVisualStyles = false;
+            this.tableEstadoDeResultados.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            this.tableEstadoDeResultados.HeaderForeColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.Location = new System.Drawing.Point(0, 0);
+            this.tableEstadoDeResultados.Name = "tableEstadoDeResultados";
+            this.tableEstadoDeResultados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableEstadoDeResultados.RowHeadersVisible = false;
+            this.tableEstadoDeResultados.RowTemplate.Height = 40;
+            this.tableEstadoDeResultados.Size = new System.Drawing.Size(624, 353);
+            this.tableEstadoDeResultados.TabIndex = 0;
+            // 
+            // ColumnOperacion
+            // 
+            this.ColumnOperacion.HeaderText = "Operacion";
+            this.ColumnOperacion.Name = "ColumnOperacion";
+            // 
+            // ColumnCuentas
+            // 
+            this.ColumnCuentas.HeaderText = "Cuentas";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            // 
+            // ColumnTotales
+            // 
+            this.ColumnTotales.HeaderText = "Totales";
+            this.ColumnTotales.Name = "ColumnTotales";
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 10;
+            this.bunifuElipse1.TargetControl = this.btnImprimir;
+            // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 10;
+            this.bunifuElipse2.TargetControl = this.btnAgregar;
+            // 
+            // bunifuElipse3
+            // 
+            this.bunifuElipse3.ElipseRadius = 10;
+            this.bunifuElipse3.TargetControl = this.btnModificar;
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 10;
+            this.bunifuElipse4.TargetControl = this.btnEliminar;
             // 
             // EstadoDeResultadosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 572);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.panelTabla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EstadoDeResultadosForm";
             this.Text = "EstadoDeResultadosForm";
+            this.panelTabla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tableEstadoDeResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -60,6 +285,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private FontAwesome.Sharp.IconButton btnAgregar;
+        private FontAwesome.Sharp.IconButton btnModificar;
+        private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton btnImprimir;
+        private System.Windows.Forms.Panel panelTabla;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid tableEstadoDeResultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOperacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
     }
 }

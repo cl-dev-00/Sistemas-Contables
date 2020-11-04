@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.panelNavegacion = new System.Windows.Forms.Panel();
@@ -46,7 +50,9 @@
             this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
             this.btnMaximizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.timerInicio = new System.Windows.Forms.Timer(this.components);
+            this.AnimacionPanelNavegacion = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.AnimacionIconSidebar = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelContenedor.SuspendLayout();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,6 +65,9 @@
             this.panelContenedor.Controls.Add(this.panelContenido);
             this.panelContenedor.Controls.Add(this.panelNavegacion);
             this.panelContenedor.Controls.Add(this.barraTitulo);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
@@ -67,6 +76,10 @@
             // 
             // panelContenido
             // 
+            this.panelContenido.BackColor = System.Drawing.SystemColors.Control;
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(252, 40);
             this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
@@ -76,7 +89,7 @@
             // 
             // panelNavegacion
             // 
-            this.panelNavegacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.panelNavegacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
             this.panelNavegacion.Controls.Add(this.btnBalanceGeneral);
             this.panelNavegacion.Controls.Add(this.btnEstadoDeResultados);
             this.panelNavegacion.Controls.Add(this.btnBalanceDeComprobacion);
@@ -85,6 +98,9 @@
             this.panelNavegacion.Controls.Add(this.btnInicio);
             this.panelNavegacion.Controls.Add(this.btnMenu);
             this.panelNavegacion.Controls.Add(this.pictureBox2);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelNavegacion, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelNavegacion, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.panelNavegacion, BunifuAnimatorNS.DecorationType.None);
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 40);
             this.panelNavegacion.Name = "panelNavegacion";
@@ -94,6 +110,9 @@
             // btnBalanceGeneral
             // 
             this.btnBalanceGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnBalanceGeneral, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnBalanceGeneral, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnBalanceGeneral, BunifuAnimatorNS.DecorationType.None);
             this.btnBalanceGeneral.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBalanceGeneral.FlatAppearance.BorderSize = 0;
             this.btnBalanceGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -121,6 +140,9 @@
             // btnEstadoDeResultados
             // 
             this.btnEstadoDeResultados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnEstadoDeResultados, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnEstadoDeResultados, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnEstadoDeResultados, BunifuAnimatorNS.DecorationType.None);
             this.btnEstadoDeResultados.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEstadoDeResultados.FlatAppearance.BorderSize = 0;
             this.btnEstadoDeResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -148,6 +170,9 @@
             // btnBalanceDeComprobacion
             // 
             this.btnBalanceDeComprobacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnBalanceDeComprobacion, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnBalanceDeComprobacion, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnBalanceDeComprobacion, BunifuAnimatorNS.DecorationType.None);
             this.btnBalanceDeComprobacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBalanceDeComprobacion.FlatAppearance.BorderSize = 0;
             this.btnBalanceDeComprobacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -175,6 +200,9 @@
             // btnLibroMayor
             // 
             this.btnLibroMayor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnLibroMayor, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnLibroMayor, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnLibroMayor, BunifuAnimatorNS.DecorationType.None);
             this.btnLibroMayor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLibroMayor.FlatAppearance.BorderSize = 0;
             this.btnLibroMayor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -202,6 +230,9 @@
             // btnLibroDiario
             // 
             this.btnLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnLibroDiario, BunifuAnimatorNS.DecorationType.None);
             this.btnLibroDiario.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLibroDiario.FlatAppearance.BorderSize = 0;
             this.btnLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -229,6 +260,9 @@
             // btnInicio
             // 
             this.btnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnInicio, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnInicio, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnInicio, BunifuAnimatorNS.DecorationType.None);
             this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -256,6 +290,9 @@
             // btnMenu
             // 
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
             this.btnMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -282,6 +319,9 @@
             // 
             // pictureBox2
             // 
+            this.AnimacionIconSidebar.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox2.Image = global::SistemasContables.Properties.Resources.finanzas;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
@@ -293,12 +333,15 @@
             // 
             // barraTitulo
             // 
-            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
+            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.barraTitulo.Controls.Add(this.pictureBox1);
             this.barraTitulo.Controls.Add(this.btnMinimizar);
             this.barraTitulo.Controls.Add(this.btnRestoreWindow);
             this.barraTitulo.Controls.Add(this.btnMaximizar);
             this.barraTitulo.Controls.Add(this.btnExit);
+            this.AnimacionPanelNavegacion.SetDecoration(this.barraTitulo, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.barraTitulo, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.barraTitulo, BunifuAnimatorNS.DecorationType.None);
             this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraTitulo.Location = new System.Drawing.Point(0, 0);
             this.barraTitulo.Name = "barraTitulo";
@@ -308,6 +351,9 @@
             // 
             // pictureBox1
             // 
+            this.AnimacionIconSidebar.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = global::SistemasContables.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -319,6 +365,9 @@
             // 
             // btnMinimizar
             // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnMinimizar, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnMinimizar, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnMinimizar, BunifuAnimatorNS.DecorationType.None);
             this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -339,6 +388,9 @@
             // 
             // btnRestoreWindow
             // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnRestoreWindow, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnRestoreWindow, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnRestoreWindow, BunifuAnimatorNS.DecorationType.None);
             this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
             this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -360,6 +412,9 @@
             // 
             // btnMaximizar
             // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnMaximizar, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnMaximizar, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnMaximizar, BunifuAnimatorNS.DecorationType.None);
             this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMaximizar.FlatAppearance.BorderSize = 0;
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -380,6 +435,9 @@
             // 
             // btnExit
             // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnExit, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnExit, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionIconSidebar.SetDecoration(this.btnExit, BunifuAnimatorNS.DecorationType.None);
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -398,10 +456,69 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // timerInicio
+            // AnimacionPanelNavegacion
             // 
-            this.timerInicio.Interval = 10;
-            this.timerInicio.Tick += new System.EventHandler(this.timerInicio_Tick);
+            this.AnimacionPanelNavegacion.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
+            this.AnimacionPanelNavegacion.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation1;
+            // 
+            // AnimacionPanelNavegacionBack
+            // 
+            this.AnimacionPanelNavegacionBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.AnimacionPanelNavegacionBack.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacionBack.DefaultAnimation = animation2;
+            // 
+            // AnimacionIconSidebar
+            // 
+            this.AnimacionIconSidebar.AnimationType = BunifuAnimatorNS.AnimationType.HorizBlind;
+            this.AnimacionIconSidebar.Cursor = null;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.AnimacionIconSidebar.DefaultAnimation = animation3;
+            this.AnimacionIconSidebar.Interval = 1;
             // 
             // MainForm
             // 
@@ -410,6 +527,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1200, 640);
             this.Controls.Add(this.panelContenedor);
+            this.AnimacionIconSidebar.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(720, 640);
             this.Name = "MainForm";
@@ -425,7 +545,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Timer timerInicio;
         private System.Windows.Forms.Panel panelNavegacion;
         private FontAwesome.Sharp.IconButton btnBalanceGeneral;
         private FontAwesome.Sharp.IconButton btnEstadoDeResultados;
@@ -434,7 +553,6 @@
         private FontAwesome.Sharp.IconButton btnLibroDiario;
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnMenu;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel barraTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton btnMinimizar;
@@ -442,6 +560,10 @@
         private FontAwesome.Sharp.IconButton btnMaximizar;
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Panel panelContenido;
+        private BunifuAnimatorNS.BunifuTransition AnimacionPanelNavegacionBack;
+        private BunifuAnimatorNS.BunifuTransition AnimacionPanelNavegacion;
+        private BunifuAnimatorNS.BunifuTransition AnimacionIconSidebar;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

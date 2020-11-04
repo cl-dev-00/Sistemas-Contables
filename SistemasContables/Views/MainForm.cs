@@ -21,7 +21,6 @@ namespace SistemasContables
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
-        private bool Hidden = false;
 
         public MainForm()
         {
@@ -88,109 +87,118 @@ namespace SistemasContables
         private void btnMenu_Click(object sender, EventArgs e)
         {
             disabledButton();
-            timerInicio.Start();
+
+            if(panelNavegacion.Width == 252)
+            {
+                panelNavegacion.Visible = false;
+
+                panelNavegacion.Width = 62;
+
+                AnimacionPanelNavegacion.Show(panelNavegacion);
+            } else
+            {
+                panelNavegacion.Visible = false;
+
+                panelNavegacion.Width = 252;
+
+                AnimacionPanelNavegacionBack.Show(panelNavegacion);
+            }
+
         }
 
         // abre el form de inicio en el panel de contenido
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnInicio, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnInicio);
             openFormInPane(new InicioForm());
         }
 
         // abre el form del libro diario en el panel de contenido
         private void btnLibroDiario_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnLibroDiario, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnLibroDiario);
             openFormInPane(new LibroDiarioForm());
         }
 
         // abre el form del libro mayor en el panel de contenido
         private void btnLibroMayor_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnLibroMayor, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnLibroMayor);
             openFormInPane(new LibroMayorForm());
         }
 
         // abre el form de balance de comprobacion en el panel de contenido
         private void btnBalanceDeComprobacion_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnBalanceDeComprobacion, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnBalanceDeComprobacion);
             openFormInPane(new BalanceDeComprobacionForm());
         }
 
         // abre el form de estado de resultados en el panel de contenido
         private void btnEstadoDeResultados_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnEstadoDeResultados, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnEstadoDeResultados);
             openFormInPane(new EstadoDeResultadosForm());
         }
 
         // abre el form de balance general en el panel de contenido
         private void btnBalanceGeneral_Click(object sender, EventArgs e)
         {
-            activaButton(this.btnBalanceGeneral, Color.FromArgb(68, 189, 50));
+            activaButton(this.btnBalanceGeneral);
             openFormInPane(new BalanceGeneralForm());
         }
 
-        // metodo a ejecutar cuando timerInicio inicie
-        private void timerInicio_Tick(object sender, EventArgs e)
-        {
-            if (!Hidden)
-            {
-                panelNavegacion.Width -= 10;
-                if (panelNavegacion.Width <= 62)
-                {
-                    Hidden = true;
-                    timerInicio.Stop();
-                    this.Refresh();
-                }
-            } else
-            {
-                panelNavegacion.Width += 10;
-
-                if (panelNavegacion.Width >= 252)
-                {
-                    Hidden = false;
-                    timerInicio.Stop();
-                    this.Refresh();
-                }
-            }
-        }
-
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
-        private void activaButton(object senderBtn, Color color)
+        private void activaButton(object senderBtn)
         {
             if(senderBtn != null && panelNavegacion.Width == 252)
             {
                 disabledButton();
 
+                Color color = Color.FromArgb(47, 54, 64);
+
                 // Estilos del button
                 btnCurrent = (IconButton)senderBtn;
-                btnCurrent.ForeColor = color;
-                btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
-                btnCurrent.IconColor = color;
-                btnCurrent.ImageAlign = ContentAlignment.MiddleRight;
-                btnCurrent.TextImageRelation = TextImageRelation.TextBeforeImage;
+                btnCurrent.BackColor = color;
+                btnCurrent.Visible = false;
+                AnimacionIconSidebar.Show(btnCurrent);
 
-                // Estilos del panel izquierdo del button
-                leftPanelBtn.BackColor = color;
-                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                leftPanelBtn.Visible = true;
-                leftPanelBtn.BringToFront();
+                //// Estilos del button
+                //btnCurrent = (IconButton)senderBtn;
+                //btnCurrent.ForeColor = color;
+                //btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
+                //btnCurrent.IconColor = color;
+                //btnCurrent.ImageAlign = ContentAlignment.MiddleRight;
+                //btnCurrent.TextImageRelation = TextImageRelation.TextBeforeImage;
+
+                //// Estilos del panel izquierdo del button
+                //leftPanelBtn.BackColor = color;
+                //leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                //leftPanelBtn.Visible = true;
+                //leftPanelBtn.BringToFront();
             } else
             {
                 disabledButton();
 
+                Color color = Color.FromArgb(47, 54, 64);
+
                 // Estilos del button
                 btnCurrent = (IconButton)senderBtn;
-                btnCurrent.IconColor = color;
+                btnCurrent.BackColor = color;
+                btnCurrent.Visible = false;
+                AnimacionIconSidebar.Show(btnCurrent);
 
-                // Estilos del panel izquierdo del button
-                leftPanelBtn.BackColor = color;
-                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                leftPanelBtn.Visible = true;
-                leftPanelBtn.BringToFront();
+                //// Estilos del button
+                //btnCurrent = (IconButton)senderBtn;
+                //btnCurrent.IconColor = color;
+
+                //// Estilos del panel izquierdo del button
+                //leftPanelBtn.BackColor = color;
+                //leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                //leftPanelBtn.Visible = true;
+                //leftPanelBtn.BringToFront();
+
+
             }
         }
 
@@ -200,14 +208,20 @@ namespace SistemasContables
             if (btnCurrent != null)
             {
                 // Estilos del button
-                btnCurrent.ForeColor = Color.White;
-                btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
-                btnCurrent.IconColor = Color.White;
-                btnCurrent.ImageAlign = ContentAlignment.MiddleLeft;
-                btnCurrent.TextImageRelation = TextImageRelation.ImageBeforeText;
+                btnCurrent.Visible = false;
+                btnCurrent.BackColor = Color.FromArgb(56, 103, 214);
+                AnimacionIconSidebar.Show(btnCurrent);
 
-                // Estilos del panel izquierdo del button
-                leftPanelBtn.Visible = false;
+                //// Estilos del button
+                //btnCurrent.ForeColor = Color.White;
+                //btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
+                //btnCurrent.IconColor = Color.White;
+                //btnCurrent.ImageAlign = ContentAlignment.MiddleLeft;
+                //btnCurrent.TextImageRelation = TextImageRelation.ImageBeforeText;
+
+                //// Estilos del panel izquierdo del button
+                //leftPanelBtn.Visible = false;
+
             }
         }
 
