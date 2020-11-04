@@ -255,7 +255,7 @@ namespace SistemasContables
             var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
             sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
             region.Exclude(sizeGripRectangle);
-            this.panelContenido.Region = region;
+            this.panelContenedor.Region = region;
             this.Invalidate();
         }
         //----------------COLOR Y GRIP DE RECTANGULO INFERIOR

@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.barraTitulo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
-            this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
-            this.btnMaximizar = new FontAwesome.Sharp.IconButton();
-            this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelContenido = new System.Windows.Forms.Panel();
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
             this.btnEstadoDeResultados = new FontAwesome.Sharp.IconButton();
@@ -44,120 +40,39 @@
             this.btnInicio = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panelContenido = new System.Windows.Forms.Panel();
+            this.barraTitulo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
+            this.btnMaximizar = new FontAwesome.Sharp.IconButton();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
             this.timerInicio = new System.Windows.Forms.Timer(this.components);
-            this.barraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelContenedor.SuspendLayout();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.barraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // barraTitulo
+            // panelContenedor
             // 
-            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
-            this.barraTitulo.Controls.Add(this.pictureBox1);
-            this.barraTitulo.Controls.Add(this.btnMinimizar);
-            this.barraTitulo.Controls.Add(this.btnRestoreWindow);
-            this.barraTitulo.Controls.Add(this.btnMaximizar);
-            this.barraTitulo.Controls.Add(this.btnExit);
-            this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.barraTitulo.Name = "barraTitulo";
-            this.barraTitulo.Size = new System.Drawing.Size(1200, 40);
-            this.barraTitulo.TabIndex = 1;
-            this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
+            this.panelContenedor.Controls.Add(this.panelContenido);
+            this.panelContenedor.Controls.Add(this.panelNavegacion);
+            this.panelContenedor.Controls.Add(this.barraTitulo);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1200, 640);
+            this.panelContenedor.TabIndex = 3;
             // 
-            // pictureBox1
+            // panelContenido
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::SistemasContables.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(193, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMinimizar.IconColor = System.Drawing.Color.White;
-            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMinimizar.IconSize = 35;
-            this.btnMinimizar.Location = new System.Drawing.Point(996, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Rotation = 0D;
-            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
-            this.btnMinimizar.TabIndex = 4;
-            this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnRestoreWindow
-            // 
-            this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
-            this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreWindow.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnRestoreWindow.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.btnRestoreWindow.IconColor = System.Drawing.Color.White;
-            this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRestoreWindow.IconSize = 35;
-            this.btnRestoreWindow.Location = new System.Drawing.Point(1047, 0);
-            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRestoreWindow.Name = "btnRestoreWindow";
-            this.btnRestoreWindow.Rotation = 0D;
-            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
-            this.btnRestoreWindow.TabIndex = 3;
-            this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRestoreWindow.UseVisualStyleBackColor = true;
-            this.btnRestoreWindow.Visible = false;
-            this.btnRestoreWindow.Click += new System.EventHandler(this.btnRestoreWindow_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btnMaximizar.IconColor = System.Drawing.Color.White;
-            this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMaximizar.IconSize = 35;
-            this.btnMaximizar.Location = new System.Drawing.Point(1098, 0);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Rotation = 0D;
-            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
-            this.btnMaximizar.TabIndex = 2;
-            this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.btnExit.IconColor = System.Drawing.Color.White;
-            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnExit.IconSize = 35;
-            this.btnExit.Location = new System.Drawing.Point(1149, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Rotation = 0D;
-            this.btnExit.Size = new System.Drawing.Size(51, 40);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenido.Location = new System.Drawing.Point(252, 40);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContenido.Name = "panelContenido";
+            this.panelContenido.Size = new System.Drawing.Size(948, 600);
+            this.panelContenido.TabIndex = 4;
             // 
             // panelNavegacion
             // 
@@ -174,7 +89,7 @@
             this.panelNavegacion.Location = new System.Drawing.Point(0, 40);
             this.panelNavegacion.Name = "panelNavegacion";
             this.panelNavegacion.Size = new System.Drawing.Size(252, 600);
-            this.panelNavegacion.TabIndex = 2;
+            this.panelNavegacion.TabIndex = 3;
             // 
             // btnBalanceGeneral
             // 
@@ -376,15 +291,112 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // panelContenido
+            // barraTitulo
             // 
-            this.panelContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContenido.Location = new System.Drawing.Point(250, 40);
-            this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(950, 572);
-            this.panelContenido.TabIndex = 3;
+            this.barraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
+            this.barraTitulo.Controls.Add(this.pictureBox1);
+            this.barraTitulo.Controls.Add(this.btnMinimizar);
+            this.barraTitulo.Controls.Add(this.btnRestoreWindow);
+            this.barraTitulo.Controls.Add(this.btnMaximizar);
+            this.barraTitulo.Controls.Add(this.btnExit);
+            this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.barraTitulo.Name = "barraTitulo";
+            this.barraTitulo.Size = new System.Drawing.Size(1200, 40);
+            this.barraTitulo.TabIndex = 2;
+            this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SistemasContables.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(193, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btnMinimizar.IconColor = System.Drawing.Color.White;
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimizar.IconSize = 35;
+            this.btnMinimizar.Location = new System.Drawing.Point(996, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Rotation = 0D;
+            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
+            this.btnMinimizar.TabIndex = 4;
+            this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnRestoreWindow
+            // 
+            this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
+            this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreWindow.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnRestoreWindow.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnRestoreWindow.IconColor = System.Drawing.Color.White;
+            this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRestoreWindow.IconSize = 35;
+            this.btnRestoreWindow.Location = new System.Drawing.Point(1047, 0);
+            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRestoreWindow.Name = "btnRestoreWindow";
+            this.btnRestoreWindow.Rotation = 0D;
+            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
+            this.btnRestoreWindow.TabIndex = 3;
+            this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRestoreWindow.UseVisualStyleBackColor = true;
+            this.btnRestoreWindow.Visible = false;
+            this.btnRestoreWindow.Click += new System.EventHandler(this.btnRestoreWindow_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.btnMaximizar.IconColor = System.Drawing.Color.White;
+            this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaximizar.IconSize = 35;
+            this.btnMaximizar.Location = new System.Drawing.Point(1098, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Rotation = 0D;
+            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
+            this.btnMaximizar.TabIndex = 2;
+            this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.btnExit.IconColor = System.Drawing.Color.White;
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExit.IconSize = 35;
+            this.btnExit.Location = new System.Drawing.Point(1149, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Rotation = 0D;
+            this.btnExit.Size = new System.Drawing.Size(51, 40);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // timerInicio
             // 
@@ -397,30 +409,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1200, 640);
-            this.Controls.Add(this.panelContenido);
-            this.Controls.Add(this.panelNavegacion);
-            this.Controls.Add(this.barraTitulo);
+            this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(720, 640);
             this.Name = "MainForm";
             this.Text = "Sistemas Contables";
-            this.barraTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelContenedor.ResumeLayout(false);
             this.panelNavegacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.barraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel barraTitulo;
-        private FontAwesome.Sharp.IconButton btnExit;
-        private FontAwesome.Sharp.IconButton btnMinimizar;
-        private FontAwesome.Sharp.IconButton btnRestoreWindow;
-        private FontAwesome.Sharp.IconButton btnMaximizar;
+        private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Timer timerInicio;
         private System.Windows.Forms.Panel panelNavegacion;
-        private System.Windows.Forms.Panel panelContenido;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton btnBalanceGeneral;
         private FontAwesome.Sharp.IconButton btnEstadoDeResultados;
         private FontAwesome.Sharp.IconButton btnBalanceDeComprobacion;
@@ -428,8 +434,14 @@
         private FontAwesome.Sharp.IconButton btnLibroDiario;
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnMenu;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel barraTitulo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timerInicio;
+        private FontAwesome.Sharp.IconButton btnMinimizar;
+        private FontAwesome.Sharp.IconButton btnRestoreWindow;
+        private FontAwesome.Sharp.IconButton btnMaximizar;
+        private FontAwesome.Sharp.IconButton btnExit;
+        private System.Windows.Forms.Panel panelContenido;
     }
 }
 
