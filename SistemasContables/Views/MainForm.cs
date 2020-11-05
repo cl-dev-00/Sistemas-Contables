@@ -275,6 +275,5 @@ namespace SistemasContables
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
-
     }
 }

@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -176,6 +177,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\capital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Costo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gasto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ingresos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasivo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

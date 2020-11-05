@@ -184,7 +184,7 @@
             this.panelTabla.Controls.Add(this.tableBalanceGeneral);
             this.panelTabla.Location = new System.Drawing.Point(63, 161);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(624, 353);
+            this.panelTabla.Size = new System.Drawing.Size(624, 491);
             this.panelTabla.TabIndex = 7;
             // 
             // tableBalanceGeneral
@@ -230,7 +230,7 @@
             this.tableBalanceGeneral.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableBalanceGeneral.RowHeadersVisible = false;
             this.tableBalanceGeneral.RowTemplate.Height = 40;
-            this.tableBalanceGeneral.Size = new System.Drawing.Size(624, 353);
+            this.tableBalanceGeneral.Size = new System.Drawing.Size(624, 491);
             this.tableBalanceGeneral.TabIndex = 0;
             // 
             // ColumnActivos
@@ -287,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 572);
+            this.ClientSize = new System.Drawing.Size(948, 710);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnModificar);

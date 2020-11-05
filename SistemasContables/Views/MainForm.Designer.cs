@@ -42,7 +42,6 @@
             this.btnInicio = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.panelContenido = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -50,6 +49,7 @@
             this.btnMaximizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.panelContenido = new System.Windows.Forms.Panel();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelContenedor.SuspendLayout();
@@ -93,7 +93,7 @@
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 0);
             this.panelNavegacion.Name = "panelNavegacion";
-            this.panelNavegacion.Size = new System.Drawing.Size(252, 640);
+            this.panelNavegacion.Size = new System.Drawing.Size(252, 750);
             this.panelNavegacion.TabIndex = 2;
             // 
             // btnBalanceGeneral
@@ -312,30 +312,18 @@
             this.pbLogo.TabIndex = 8;
             this.pbLogo.TabStop = false;
             // 
-            // panelContenido
-            // 
-            this.panelContenido.BackColor = System.Drawing.SystemColors.Control;
-            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
-            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenido.Location = new System.Drawing.Point(252, 0);
-            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
-            this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(948, 640);
-            this.panelContenido.TabIndex = 4;
-            // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.SystemColors.Control;
-            this.panelContenedor.Controls.Add(this.panelTitulo);
             this.panelContenedor.Controls.Add(this.panelContenido);
+            this.panelContenedor.Controls.Add(this.panelTitulo);
             this.panelContenedor.Controls.Add(this.panelNavegacion);
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1200, 640);
+            this.panelContenedor.Size = new System.Drawing.Size(1200, 750);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelTitulo
@@ -352,6 +340,7 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(948, 40);
             this.panelTitulo.TabIndex = 5;
+            this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
             // 
             // btnMinimizar
             // 
@@ -464,12 +453,24 @@
             animation2.TransparencyCoeff = 0F;
             this.AnimacionPanelNavegacionBack.DefaultAnimation = animation2;
             // 
+            // panelContenido
+            // 
+            this.panelContenido.BackColor = System.Drawing.SystemColors.Control;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
+            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenido.Location = new System.Drawing.Point(252, 40);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContenido.Name = "panelContenido";
+            this.panelContenido.Size = new System.Drawing.Size(948, 710);
+            this.panelContenido.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 640);
+            this.ClientSize = new System.Drawing.Size(1200, 750);
             this.Controls.Add(this.panelContenedor);
             this.AnimacionPanelNavegacionBack.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
@@ -497,13 +498,13 @@
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Panel panelTitulo;
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnRestoreWindow;
         private FontAwesome.Sharp.IconButton btnMaximizar;
         private FontAwesome.Sharp.IconButton btnExit;
+        private System.Windows.Forms.Panel panelContenido;
     }
 }
 

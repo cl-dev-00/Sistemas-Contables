@@ -60,7 +60,7 @@
             this.panelTabla.Controls.Add(this.tableLibroDiario);
             this.panelTabla.Location = new System.Drawing.Point(73, 169);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(624, 353);
+            this.panelTabla.Size = new System.Drawing.Size(624, 491);
             this.panelTabla.TabIndex = 1;
             // 
             // tableLibroDiario
@@ -104,7 +104,7 @@
             this.tableLibroDiario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableLibroDiario.RowHeadersVisible = false;
             this.tableLibroDiario.RowTemplate.Height = 40;
-            this.tableLibroDiario.Size = new System.Drawing.Size(624, 353);
+            this.tableLibroDiario.Size = new System.Drawing.Size(624, 491);
             this.tableLibroDiario.TabIndex = 0;
             // 
             // ColumnFecha
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 572);
+            this.ClientSize = new System.Drawing.Size(948, 710);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnModificar);

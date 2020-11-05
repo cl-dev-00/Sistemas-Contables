@@ -18,12 +18,18 @@ namespace SistemasContables.Views
         public InicioForm()
         {
             InitializeComponent();
+            this.chart.Series["grafico"].Points.AddXY("LUNES", 10);
+            this.chart.Series["grafico"].Points.AddXY("Martes", 20);
+            this.chart.Series["grafico"].Points.AddXY("Miercoles", 40);
+            this.chart.Series["grafico"].Points.AddXY("Jueves", 25);
+            this.chart.Series["grafico"].Points.AddXY("Viernes", 60);
+            this.chart.Series["grafico"].Points.AddXY("Sabado", 40);
+            this.chart.Series["grafico"].Points.AddXY("Domingo", 65);
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
             conexion = new Conexion();
-            
         }
     }
 }
