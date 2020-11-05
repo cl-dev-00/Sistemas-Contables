@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using SistemasContables.Views;
 using FontAwesome.Sharp;
+using System.Resources;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace SistemasContables
 {
@@ -21,14 +23,15 @@ namespace SistemasContables
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
+        private Color color = Color.FromArgb(27, 156, 252);
 
         public MainForm()
         {
             InitializeComponent();
-            openFormInPane(new InicioForm());
             leftPanelBtn = new Panel();
             leftPanelBtn.Size = new Size(7, btnInicio.Height);
             panelNavegacion.Controls.Add(leftPanelBtn);
+            openFormInPane(new InicioForm());
         }
 
         // DLL para el evento de mover la ventana con la barra de titulo
@@ -93,6 +96,7 @@ namespace SistemasContables
                 panelNavegacion.Visible = false;
 
                 panelNavegacion.Width = 62;
+                pbLogo.Image = Properties.Resources.icon;
 
                 AnimacionPanelNavegacion.Show(panelNavegacion);
             } else
@@ -100,6 +104,7 @@ namespace SistemasContables
                 panelNavegacion.Visible = false;
 
                 panelNavegacion.Width = 252;
+                pbLogo.Image = Properties.Resources.logo;
 
                 AnimacionPanelNavegacionBack.Show(panelNavegacion);
             }
@@ -155,13 +160,9 @@ namespace SistemasContables
             {
                 disabledButton();
 
-                Color color = Color.FromArgb(47, 54, 64);
-
                 // Estilos del button
                 btnCurrent = (IconButton)senderBtn;
-                btnCurrent.BackColor = color;
-                btnCurrent.Visible = false;
-                AnimacionIconSidebar.Show(btnCurrent);
+                //btnCurrent.BackColor = color;
 
                 //// Estilos del button
                 //btnCurrent = (IconButton)senderBtn;
@@ -172,31 +173,27 @@ namespace SistemasContables
                 //btnCurrent.TextImageRelation = TextImageRelation.TextBeforeImage;
 
                 //// Estilos del panel izquierdo del button
-                //leftPanelBtn.BackColor = color;
-                //leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                //leftPanelBtn.Visible = true;
-                //leftPanelBtn.BringToFront();
+                leftPanelBtn.BackColor = color;
+                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                leftPanelBtn.Visible = true;
+                leftPanelBtn.BringToFront();
             } else
             {
                 disabledButton();
 
-                Color color = Color.FromArgb(47, 54, 64);
-
                 // Estilos del button
                 btnCurrent = (IconButton)senderBtn;
-                btnCurrent.BackColor = color;
-                btnCurrent.Visible = false;
-                AnimacionIconSidebar.Show(btnCurrent);
+                //btnCurrent.BackColor = color;
 
                 //// Estilos del button
                 //btnCurrent = (IconButton)senderBtn;
                 //btnCurrent.IconColor = color;
 
-                //// Estilos del panel izquierdo del button
-                //leftPanelBtn.BackColor = color;
-                //leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                //leftPanelBtn.Visible = true;
-                //leftPanelBtn.BringToFront();
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.BackColor = color;
+                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                leftPanelBtn.Visible = true;
+                leftPanelBtn.BringToFront();
 
 
             }
@@ -208,9 +205,7 @@ namespace SistemasContables
             if (btnCurrent != null)
             {
                 // Estilos del button
-                btnCurrent.Visible = false;
-                btnCurrent.BackColor = Color.FromArgb(56, 103, 214);
-                AnimacionIconSidebar.Show(btnCurrent);
+                //btnCurrent.BackColor = color;
 
                 //// Estilos del button
                 //btnCurrent.ForeColor = Color.White;
@@ -219,8 +214,8 @@ namespace SistemasContables
                 //btnCurrent.ImageAlign = ContentAlignment.MiddleLeft;
                 //btnCurrent.TextImageRelation = TextImageRelation.ImageBeforeText;
 
-                //// Estilos del panel izquierdo del button
-                //leftPanelBtn.Visible = false;
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.Visible = false;
 
             }
         }
