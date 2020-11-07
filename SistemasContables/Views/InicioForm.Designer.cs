@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtTitulo = new System.Windows.Forms.TextBox();
@@ -83,21 +83,23 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Location = new System.Drawing.Point(575, 149);
-            this.panel4.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel4.Location = new System.Drawing.Point(581, 143);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel4.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(280, 140);
+            this.panel4.Size = new System.Drawing.Size(280, 130);
             this.panel4.TabIndex = 20;
             // 
-            // pictureBox4
+            // label7
             // 
-            this.pictureBox4.Image = global::SistemasContables.Properties.Resources.Gasto;
-            this.pictureBox4.Location = new System.Drawing.Point(22, 19);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(133, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 26);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "$1000";
             // 
             // label8
             // 
@@ -110,16 +112,15 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Total Gastos";
             // 
-            // label7
+            // pictureBox4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(134, 85);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 26);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "$1000";
+            this.pictureBox4.Image = global::SistemasContables.Properties.Resources.Gasto;
+            this.pictureBox4.Location = new System.Drawing.Point(22, 19);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
             // 
             // panel5
             // 
@@ -129,11 +130,34 @@
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.pictureBox5);
-            this.panel5.Location = new System.Drawing.Point(289, 149);
-            this.panel5.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel5.Location = new System.Drawing.Point(293, 143);
+            this.panel5.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel5.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(280, 140);
+            this.panel5.Size = new System.Drawing.Size(280, 130);
             this.panel5.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(128, 93);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 26);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "$1000";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(126, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 24);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Total Costos";
             // 
             // pictureBox5
             // 
@@ -145,28 +169,6 @@
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(127, 31);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 24);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Total Costos";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(126, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 26);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "$1000";
-            // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -175,32 +177,12 @@
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Location = new System.Drawing.Point(3, 149);
-            this.panel6.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel6.Location = new System.Drawing.Point(5, 143);
+            this.panel6.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel6.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(280, 140);
+            this.panel6.Size = new System.Drawing.Size(280, 130);
             this.panel6.TabIndex = 18;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::SistemasContables.Properties.Resources.Ingresos;
-            this.pictureBox6.Location = new System.Drawing.Point(22, 19);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(129, 31);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(142, 24);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Total Ingresos";
             // 
             // label11
             // 
@@ -213,49 +195,71 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "$1000";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(129, 31);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(142, 24);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Total Ingresos";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SistemasContables.Properties.Resources.Ingresos;
+            this.pictureBox6.Location = new System.Drawing.Point(22, 19);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(69)))), ((int)(((byte)(89)))));
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(575, 3);
-            this.panel3.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel3.Location = new System.Drawing.Point(581, 3);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel3.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(280, 140);
+            this.panel3.Size = new System.Drawing.Size(280, 130);
             this.panel3.TabIndex = 17;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::SistemasContables.Properties.Resources.pasivo;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 21);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(134, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 24);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Total Pasivos";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(134, 89);
+            this.label5.Location = new System.Drawing.Point(134, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 26);
             this.label5.TabIndex = 2;
             this.label5.Text = "$1000";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(134, 25);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 24);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Total Pasivos";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SistemasContables.Properties.Resources.pasivo;
+            this.pictureBox3.Location = new System.Drawing.Point(22, 15);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // panel2
             // 
@@ -265,43 +269,44 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(289, 3);
-            this.panel2.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel2.Location = new System.Drawing.Point(293, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel2.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(280, 140);
+            this.panel2.Size = new System.Drawing.Size(280, 130);
             this.panel2.TabIndex = 16;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SistemasContables.Properties.Resources.capital;
-            this.pictureBox2.Location = new System.Drawing.Point(22, 21);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(128, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Total Capital";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(128, 89);
+            this.label3.Location = new System.Drawing.Point(128, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "$1000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(128, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 24);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Total Capital";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SistemasContables.Properties.Resources.capital;
+            this.pictureBox2.Location = new System.Drawing.Point(22, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
@@ -311,43 +316,44 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.MinimumSize = new System.Drawing.Size(280, 140);
+            this.panel1.Location = new System.Drawing.Point(5, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5, 3, 3, 7);
+            this.panel1.MinimumSize = new System.Drawing.Size(280, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 140);
+            this.panel1.Size = new System.Drawing.Size(280, 130);
             this.panel1.TabIndex = 15;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemasContables.Properties.Resources.activos;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(128, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Total Activos";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(128, 89);
+            this.label2.Location = new System.Drawing.Point(128, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "$1000";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(128, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Total Activos";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemasContables.Properties.Resources.activos;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // flowLayoutPanel1
             // 
@@ -361,7 +367,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(45, 72);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(865, 303);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(865, 290);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // chart
@@ -371,31 +377,31 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart.BackColor = System.Drawing.SystemColors.Control;
             this.chart.BorderlineWidth = 0;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(45, 427);
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
+            this.chart.Location = new System.Drawing.Point(45, 399);
             this.chart.Name = "chart";
-            series1.BorderWidth = 5;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            series1.Legend = "Legend1";
-            series1.Name = "grafico";
-            this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(852, 271);
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            series2.Legend = "Legend1";
+            series2.Name = "grafico";
+            this.chart.Series.Add(series2);
+            this.chart.Size = new System.Drawing.Size(852, 299);
             this.chart.TabIndex = 23;
             this.chart.Text = "x";
             // 
@@ -406,7 +412,7 @@
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitulo.Location = new System.Drawing.Point(42, 28);
+            this.txtTitulo.Location = new System.Drawing.Point(50, 28);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.ReadOnly = true;
             this.txtTitulo.Size = new System.Drawing.Size(260, 28);
@@ -420,7 +426,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(42, 393);
+            this.textBox1.Location = new System.Drawing.Point(50, 368);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(294, 25);

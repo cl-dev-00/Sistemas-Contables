@@ -50,4 +50,3 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\Siste
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.csproj.CopyComplete
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.exe
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.pdb
-C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\Bunifu_UI_v1.5.3.dll
