@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation9 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation10 = new BunifuAnimatorNS.Animation();
             this.AnimacionPanelNavegacion = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
@@ -42,40 +42,42 @@
             this.btnInicio = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.panelTop = new System.Windows.Forms.Panel();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
             this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
             this.btnMaximizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.MoverVentanaLogo = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.MoverVentanaPanelTop = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.panelContenedor.SuspendLayout();
-            this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnimacionPanelNavegacion
             // 
             this.AnimacionPanelNavegacion.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.AnimacionPanelNavegacion.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 1;
-            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 2F;
-            animation1.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation1;
+            animation9.AnimateOnlyDifferences = true;
+            animation9.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.BlindCoeff")));
+            animation9.LeafCoeff = 0F;
+            animation9.MaxTime = 1F;
+            animation9.MinTime = 0F;
+            animation9.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicCoeff")));
+            animation9.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicShift")));
+            animation9.MosaicSize = 1;
+            animation9.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation9.RotateCoeff = 0F;
+            animation9.RotateLimit = 0F;
+            animation9.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.ScaleCoeff")));
+            animation9.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.SlideCoeff")));
+            animation9.TimeCoeff = 2F;
+            animation9.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation9;
             // 
             // panelNavegacion
             // 
@@ -312,35 +314,20 @@
             this.pbLogo.TabIndex = 8;
             this.pbLogo.TabStop = false;
             // 
-            // panelContenedor
+            // panelTop
             // 
-            this.panelContenedor.BackColor = System.Drawing.SystemColors.Control;
-            this.panelContenedor.Controls.Add(this.panelContenido);
-            this.panelContenedor.Controls.Add(this.panelTitulo);
-            this.panelContenedor.Controls.Add(this.panelNavegacion);
-            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1200, 750);
-            this.panelContenedor.TabIndex = 3;
-            // 
-            // panelTitulo
-            // 
-            this.panelTitulo.BackColor = System.Drawing.SystemColors.Control;
-            this.panelTitulo.Controls.Add(this.btnMinimizar);
-            this.panelTitulo.Controls.Add(this.btnRestoreWindow);
-            this.panelTitulo.Controls.Add(this.btnMaximizar);
-            this.panelTitulo.Controls.Add(this.btnExit);
-            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelTitulo, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelTitulo, BunifuAnimatorNS.DecorationType.None);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitulo.Location = new System.Drawing.Point(252, 0);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(948, 40);
-            this.panelTitulo.TabIndex = 5;
-            this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
+            this.panelTop.BackColor = System.Drawing.SystemColors.Control;
+            this.panelTop.Controls.Add(this.btnMinimizar);
+            this.panelTop.Controls.Add(this.btnRestoreWindow);
+            this.panelTop.Controls.Add(this.btnMaximizar);
+            this.panelTop.Controls.Add(this.btnExit);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelTop, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelTop, BunifuAnimatorNS.DecorationType.None);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(252, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(948, 40);
+            this.panelTop.TabIndex = 5;
             // 
             // btnMinimizar
             // 
@@ -432,26 +419,19 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // AnimacionPanelNavegacionBack
+            // panelContenedor
             // 
-            this.AnimacionPanelNavegacionBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
-            this.AnimacionPanelNavegacionBack.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacionBack.DefaultAnimation = animation2;
+            this.panelContenedor.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContenedor.Controls.Add(this.panelContenido);
+            this.panelContenedor.Controls.Add(this.panelTop);
+            this.panelContenedor.Controls.Add(this.panelNavegacion);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1200, 750);
+            this.panelContenedor.TabIndex = 3;
             // 
             // panelContenido
             // 
@@ -464,6 +444,41 @@
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(948, 710);
             this.panelContenido.TabIndex = 6;
+            // 
+            // AnimacionPanelNavegacionBack
+            // 
+            this.AnimacionPanelNavegacionBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.AnimacionPanelNavegacionBack.Cursor = null;
+            animation10.AnimateOnlyDifferences = true;
+            animation10.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.BlindCoeff")));
+            animation10.LeafCoeff = 0F;
+            animation10.MaxTime = 1F;
+            animation10.MinTime = 0F;
+            animation10.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicCoeff")));
+            animation10.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation10.MosaicShift")));
+            animation10.MosaicSize = 0;
+            animation10.Padding = new System.Windows.Forms.Padding(0);
+            animation10.RotateCoeff = 0F;
+            animation10.RotateLimit = 0F;
+            animation10.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.ScaleCoeff")));
+            animation10.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation10.SlideCoeff")));
+            animation10.TimeCoeff = 0F;
+            animation10.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacionBack.DefaultAnimation = animation10;
+            // 
+            // MoverVentanaLogo
+            // 
+            this.MoverVentanaLogo.Fixed = true;
+            this.MoverVentanaLogo.Horizontal = true;
+            this.MoverVentanaLogo.TargetControl = this.pbLogo;
+            this.MoverVentanaLogo.Vertical = true;
+            // 
+            // MoverVentanaPanelTop
+            // 
+            this.MoverVentanaPanelTop.Fixed = true;
+            this.MoverVentanaPanelTop.Horizontal = true;
+            this.MoverVentanaPanelTop.TargetControl = this.panelTop;
+            this.MoverVentanaPanelTop.Vertical = true;
             // 
             // MainForm
             // 
@@ -480,8 +495,8 @@
             this.Text = "Sistemas Contables";
             this.panelNavegacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            this.panelTop.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
-            this.panelTitulo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -498,13 +513,15 @@
         private FontAwesome.Sharp.IconButton btnInicio;
         private FontAwesome.Sharp.IconButton btnMenu;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Panel panelTitulo;
+        private System.Windows.Forms.Panel panelTop;
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnRestoreWindow;
         private FontAwesome.Sharp.IconButton btnMaximizar;
         private FontAwesome.Sharp.IconButton btnExit;
+        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Panel panelContenido;
+        private Bunifu.Framework.UI.BunifuDragControl MoverVentanaLogo;
+        private Bunifu.Framework.UI.BunifuDragControl MoverVentanaPanelTop;
     }
 }
 

@@ -18,7 +18,7 @@ namespace SistemasContables.Views
         public InicioForm()
         {
             InitializeComponent();
-            this.chart.Series["grafico"].Points.AddXY("LUNES", 10);
+            this.chart.Series["grafico"].Points.AddXY("Lunes", 10);
             this.chart.Series["grafico"].Points.AddXY("Martes", 20);
             this.chart.Series["grafico"].Points.AddXY("Miercoles", 40);
             this.chart.Series["grafico"].Points.AddXY("Jueves", 25);
