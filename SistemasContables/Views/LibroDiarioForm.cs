@@ -35,7 +35,9 @@ namespace SistemasContables.Views
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             agregarPartidaForm = new AgregarPartidaForm();
+            this.Parent.Parent.Parent.Visible = false;
             agregarPartidaForm.ShowDialog();
+            this.Parent.Parent.Parent.Visible = true;
         }
     }
 }

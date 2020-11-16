@@ -21,6 +21,8 @@ namespace SistemasContables.Views
         {
             InitializeComponent();
 
+            cbCuenta.selectedIndex = 0;
+
             tablePartida.Rows.Add(1, 0, 0, 0, 0);
             tablePartida.Rows.Add(2, 0, 0, 0, 0);
             tablePartida.Rows.Add(3, 0, 0, 0, 0);
