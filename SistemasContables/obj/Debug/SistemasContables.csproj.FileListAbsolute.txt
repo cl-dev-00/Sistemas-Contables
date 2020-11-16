@@ -50,3 +50,4 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\Siste
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.csproj.CopyComplete
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.exe
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.pdb
+C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.AgregarPartidaForm.resources

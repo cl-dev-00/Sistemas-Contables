@@ -32,9 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableEstadoDeResultados = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColumnOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -45,28 +47,11 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ColumnOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableEstadoDeResultados)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitulo.Location = new System.Drawing.Point(336, 57);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.ReadOnly = true;
-            this.txtTitulo.Size = new System.Drawing.Size(266, 28);
-            this.txtTitulo.TabIndex = 12;
-            this.txtTitulo.Text = "Estado de Resultados";
-            this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelTabla
             // 
@@ -85,7 +70,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tableEstadoDeResultados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableEstadoDeResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tableEstadoDeResultados.BackgroundColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableEstadoDeResultados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableEstadoDeResultados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -121,6 +106,21 @@
             this.tableEstadoDeResultados.RowTemplate.Height = 40;
             this.tableEstadoDeResultados.Size = new System.Drawing.Size(624, 491);
             this.tableEstadoDeResultados.TabIndex = 0;
+            // 
+            // ColumnOperacion
+            // 
+            this.ColumnOperacion.HeaderText = "Operacion";
+            this.ColumnOperacion.Name = "ColumnOperacion";
+            // 
+            // ColumnCuentas
+            // 
+            this.ColumnCuentas.HeaderText = "Cuenta";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            // 
+            // ColumnTotales
+            // 
+            this.ColumnTotales.HeaderText = "Totales";
+            this.ColumnTotales.Name = "ColumnTotales";
             // 
             // bunifuElipse1
             // 
@@ -234,6 +234,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(746, 161);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(146, 293);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(146, 293);
             this.flowLayoutPanel1.TabIndex = 13;
@@ -271,28 +272,26 @@
             this.bunifuElipse5.ElipseRadius = 10;
             this.bunifuElipse5.TargetControl = this.btnEliminar;
             // 
-            // ColumnOperacion
+            // lblTitulo
             // 
-            this.ColumnOperacion.HeaderText = "Operacion";
-            this.ColumnOperacion.Name = "ColumnOperacion";
-            // 
-            // ColumnCuentas
-            // 
-            this.ColumnCuentas.HeaderText = "Cuenta";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            // 
-            // ColumnTotales
-            // 
-            this.ColumnTotales.HeaderText = "Totales";
-            this.ColumnTotales.Name = "ColumnTotales";
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(336, 57);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(295, 33);
+            this.lblTitulo.TabIndex = 17;
+            this.lblTitulo.Text = "Estado de Resultados";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EstadoDeResultadosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.panelTabla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EstadoDeResultadosForm";
@@ -301,13 +300,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableEstadoDeResultados)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableEstadoDeResultados;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
@@ -323,5 +319,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

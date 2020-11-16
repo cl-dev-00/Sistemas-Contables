@@ -18,18 +18,20 @@ namespace SistemasContables.Views
         public InicioForm()
         {
             InitializeComponent();
-            this.chart.Series["grafico"].Points.AddXY("Lunes", 10);
-            this.chart.Series["grafico"].Points.AddXY("Martes", 20);
-            this.chart.Series["grafico"].Points.AddXY("Miercoles", 40);
-            this.chart.Series["grafico"].Points.AddXY("Jueves", 25);
-            this.chart.Series["grafico"].Points.AddXY("Viernes", 60);
-            this.chart.Series["grafico"].Points.AddXY("Sabado", 40);
-            this.chart.Series["grafico"].Points.AddXY("Domingo", 65);
+            this.chart.Series["grafico"].Points.AddXY("Enero", 10);
+            this.chart.Series["grafico"].Points.AddXY("Febrero", 20);
+            this.chart.Series["grafico"].Points.AddXY("Marzo", 40);
+            this.chart.Series["grafico"].Points.AddXY("Abril", 25);
+            this.chart.Series["grafico"].Points.AddXY("Mayo", 60);
+            this.chart.Series["grafico"].Points.AddXY("Junio", 40);
+            this.chart.Series["grafico"].Points.AddXY("Julio", 65);
+            this.chart.Series["grafico"].Points.AddXY("Agosto", 40);
+            this.chart.Series["grafico"].Points.AddXY("Septiembre", 25);
+            this.chart.Series["grafico"].Points.AddXY("Octubre", 60);
+            this.chart.Series["grafico"].Points.AddXY("Noviembre", 40);
+            this.chart.Series["grafico"].Points.AddXY("Diciembre", 65);
+
         }
 
-        private void btnConectar_Click(object sender, EventArgs e)
-        {
-            conexion = new Conexion();
-        }
     }
 }

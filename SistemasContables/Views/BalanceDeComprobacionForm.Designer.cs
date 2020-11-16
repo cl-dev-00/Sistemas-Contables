@@ -32,9 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableBalanceDeComprobacion = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -45,29 +48,11 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitulo.Location = new System.Drawing.Point(329, 57);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.ReadOnly = true;
-            this.txtTitulo.Size = new System.Drawing.Size(314, 28);
-            this.txtTitulo.TabIndex = 12;
-            this.txtTitulo.Text = "Balance de Comprobacion";
-            this.txtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelTabla
             // 
@@ -86,7 +71,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tableBalanceDeComprobacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableBalanceDeComprobacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tableBalanceDeComprobacion.BackgroundColor = System.Drawing.Color.White;
+            this.tableBalanceDeComprobacion.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableBalanceDeComprobacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableBalanceDeComprobacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -123,6 +108,26 @@
             this.tableBalanceDeComprobacion.RowTemplate.Height = 40;
             this.tableBalanceDeComprobacion.Size = new System.Drawing.Size(624, 491);
             this.tableBalanceDeComprobacion.TabIndex = 0;
+            // 
+            // ColumnN
+            // 
+            this.ColumnN.HeaderText = "N°";
+            this.ColumnN.Name = "ColumnN";
+            // 
+            // ColumnCuentas
+            // 
+            this.ColumnCuentas.HeaderText = "Cuentas";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            // 
+            // ColumnDeudor
+            // 
+            this.ColumnDeudor.HeaderText = "Deudor";
+            this.ColumnDeudor.Name = "ColumnDeudor";
+            // 
+            // ColumnAcreedor
+            // 
+            this.ColumnAcreedor.HeaderText = "Acreedor";
+            this.ColumnAcreedor.Name = "ColumnAcreedor";
             // 
             // bunifuElipse1
             // 
@@ -236,6 +241,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(746, 161);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(146, 293);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(146, 293);
             this.flowLayoutPanel1.TabIndex = 14;
@@ -273,33 +279,26 @@
             this.bunifuElipse5.ElipseRadius = 10;
             this.bunifuElipse5.TargetControl = this.btnEliminar;
             // 
-            // ColumnN
+            // lblTitulo
             // 
-            this.ColumnN.HeaderText = "N°";
-            this.ColumnN.Name = "ColumnN";
-            // 
-            // ColumnCuentas
-            // 
-            this.ColumnCuentas.HeaderText = "Cuentas";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            // 
-            // ColumnDeudor
-            // 
-            this.ColumnDeudor.HeaderText = "Deudor";
-            this.ColumnDeudor.Name = "ColumnDeudor";
-            // 
-            // ColumnAcreedor
-            // 
-            this.ColumnAcreedor.HeaderText = "Acreedor";
-            this.ColumnAcreedor.Name = "ColumnAcreedor";
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(329, 57);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(345, 33);
+            this.lblTitulo.TabIndex = 15;
+            this.lblTitulo.Text = "Balance de Comprobacion";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BalanceDeComprobacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.panelTabla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BalanceDeComprobacionForm";
@@ -308,13 +307,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableBalanceDeComprobacion;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
@@ -331,5 +327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeudor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAcreedor;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

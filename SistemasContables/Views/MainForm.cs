@@ -57,7 +57,7 @@ namespace SistemasContables
             this.btnRestoreWindow.Visible = true;
         }
 
-        // restaurar el tamaño de la ventana al tamaño original (1200x640)
+        // restaurar el tamaño de la ventana al tamaño antes de maximizar
         private void btnRestoreWindow_Click(object sender, EventArgs e)
         {
             this.Size = new Size(WindowWidth,WindowHeight);
