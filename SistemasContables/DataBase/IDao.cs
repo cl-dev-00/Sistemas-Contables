@@ -8,9 +8,9 @@ namespace SistemasContables.DataBase
 {
     public interface IDao
     {
-        void Insert(object item);
+        bool Insert(object item);
         List<object> getList();
-        void update(object item);
-        void delete(object item);
+        bool update(object item);
+        bool delete(object item);
     }
 }

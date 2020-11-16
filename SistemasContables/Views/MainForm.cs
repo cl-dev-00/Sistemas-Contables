@@ -12,6 +12,7 @@ using SistemasContables.Views;
 using FontAwesome.Sharp;
 using System.Resources;
 using Microsoft.VisualBasic.CompilerServices;
+using SistemasContables.DataBase;
 
 namespace SistemasContables
 {
@@ -37,6 +38,7 @@ namespace SistemasContables
         // cierra el programa
         private void btnExit_Click(object sender, EventArgs e)
         {
+            Conexion.ClosedConnection();
             Application.Exit();
         }
 

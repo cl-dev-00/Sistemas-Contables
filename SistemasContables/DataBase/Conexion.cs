@@ -7,49 +7,81 @@ using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 
+// Para establecer la conexion a la database se utilizo Singleton Pattern
+
 namespace SistemasContables.DataBase
 {
 
     public class Conexion
     {
-        public string connectionString { get; set; }
-        private string connection;
+        //public string connectionString { get; set; }
+        //private string connection;
 
-        private SQLiteConnection conn;
-        public SQLiteConnection Conn
+        private const string dataConnection = @"Data Source=./database.db; Version=3";
+
+        static private SQLiteConnection conn = null;
+        static public SQLiteConnection Conn
         {
             get
             {
-                return this.conn;
-            }
-            set
-            {
-                this.conn = value;
+
+                if(conn == null)
+                {
+                    try
+                    {
+                        conn = new SQLiteConnection(dataConnection);
+
+                        conn.Open();
+
+                    } catch(Exception exception)
+                    {
+                        MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
+                    }
+                }
+
+                return conn;
             }
         }
 
-        public void getConnection()
+        static public void ClosedConnection()
         {
-            connection = @"Data Source=./database.db; Version=3";
-            connectionString = connection;
+            if (conn != null)
+            {
+                try
+                {
+
+                    conn.Close();
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
+                }
+            }
         }
+
+        //public void getConnection()
+        //{
+        //    connection = @"Data Source=./database.db; Version=3";
+        //    connectionString = connection;
+        //}
 
         public Conexion()
         {
-            try
-            {
-                getConnection();
-                conn = new SQLiteConnection(connectionString);
+            //try
+            //{
+            //    getConnection();
+            //    conn = new SQLiteConnection(connectionString);
 
-                conn.Open();
-                conn.Close();
+            //    conn.Open();
+            //    conn.Close();
 
-                MessageBox.Show("Exito");
+            //    MessageBox.Show("Exito");
 
-            } catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //} catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
             /*
 

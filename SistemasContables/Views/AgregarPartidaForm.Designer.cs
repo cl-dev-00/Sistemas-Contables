@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarPartidaForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregarPartida = new FontAwesome.Sharp.IconButton();
-            this.btnAgregarCuenta = new FontAwesome.Sharp.IconButton();
+            this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
             this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
             this.txtBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txtDescripcion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -86,6 +86,8 @@
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panelContenedor.SuspendLayout();
             this.panelContenido.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -147,7 +149,7 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btnAgregarPartida);
-            this.flowLayoutPanel1.Controls.Add(this.btnAgregarCuenta);
+            this.flowLayoutPanel1.Controls.Add(this.btnNuevaCuenta);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminarCuenta);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(43, 587);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -181,31 +183,31 @@
             this.btnAgregarPartida.UseVisualStyleBackColor = false;
             this.btnAgregarPartida.Click += new System.EventHandler(this.btnAgregarPartida_Click);
             // 
-            // btnAgregarCuenta
+            // btnNuevaCuenta
             // 
-            this.btnAgregarCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnNuevaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnAgregarCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarCuenta.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCuenta.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAgregarCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCuenta.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarCuenta.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnAgregarCuenta.IconColor = System.Drawing.Color.White;
-            this.btnAgregarCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarCuenta.IconSize = 40;
-            this.btnAgregarCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCuenta.Location = new System.Drawing.Point(199, 3);
-            this.btnAgregarCuenta.MinimumSize = new System.Drawing.Size(190, 50);
-            this.btnAgregarCuenta.Name = "btnAgregarCuenta";
-            this.btnAgregarCuenta.Rotation = 0D;
-            this.btnAgregarCuenta.Size = new System.Drawing.Size(190, 50);
-            this.btnAgregarCuenta.TabIndex = 15;
-            this.btnAgregarCuenta.Text = "Nueva cuenta";
-            this.btnAgregarCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarCuenta.UseVisualStyleBackColor = false;
+            this.btnNuevaCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnNuevaCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevaCuenta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaCuenta.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnNuevaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCuenta.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaCuenta.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnNuevaCuenta.IconColor = System.Drawing.Color.White;
+            this.btnNuevaCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNuevaCuenta.IconSize = 40;
+            this.btnNuevaCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaCuenta.Location = new System.Drawing.Point(199, 3);
+            this.btnNuevaCuenta.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnNuevaCuenta.Name = "btnNuevaCuenta";
+            this.btnNuevaCuenta.Rotation = 0D;
+            this.btnNuevaCuenta.Size = new System.Drawing.Size(190, 50);
+            this.btnNuevaCuenta.TabIndex = 15;
+            this.btnNuevaCuenta.Text = "Nueva cuenta";
+            this.btnNuevaCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevaCuenta.UseVisualStyleBackColor = false;
             // 
             // btnEliminarCuenta
             // 
@@ -235,8 +237,6 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.txtBuscar.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -249,7 +249,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(428, 65);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(267, 35);
+            this.txtBuscar.Size = new System.Drawing.Size(219, 35);
             this.txtBuscar.TabIndex = 45;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -260,7 +260,7 @@
             this.txtDescripcion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(428, 184);
+            this.txtDescripcion.Location = new System.Drawing.Point(691, 184);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(267, 117);
@@ -268,10 +268,9 @@
             // 
             // label14
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(747, 30);
+            this.label14.Location = new System.Drawing.Point(424, 131);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(146, 23);
             this.label14.TabIndex = 41;
@@ -293,7 +292,7 @@
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(424, 135);
+            this.label12.Location = new System.Drawing.Point(687, 135);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 23);
             this.label12.TabIndex = 39;
@@ -338,7 +337,6 @@
             // 
             // cbCuenta
             // 
-            this.cbCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCuenta.BackColor = System.Drawing.Color.Transparent;
             this.cbCuenta.BorderRadius = 3;
             this.cbCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -350,7 +348,7 @@
         "Item 1",
         "Item 2",
         "Item 3"};
-            this.cbCuenta.Location = new System.Drawing.Point(751, 65);
+            this.cbCuenta.Location = new System.Drawing.Point(428, 166);
             this.cbCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
@@ -511,10 +509,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(747, 135);
+            this.label3.Location = new System.Drawing.Point(687, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 23);
             this.label3.TabIndex = 14;
@@ -562,17 +559,16 @@
             // 
             // dpFecha
             // 
-            this.dpFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dpFecha.BackColor = System.Drawing.Color.SeaGreen;
+            this.dpFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(72)))));
             this.dpFecha.BorderRadius = 0;
             this.dpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFecha.ForeColor = System.Drawing.Color.White;
             this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dpFecha.FormatCustom = null;
-            this.dpFecha.Location = new System.Drawing.Point(751, 184);
+            this.dpFecha.Location = new System.Drawing.Point(691, 65);
             this.dpFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(219, 44);
+            this.dpFecha.Size = new System.Drawing.Size(267, 35);
             this.dpFecha.TabIndex = 2;
             this.dpFecha.Value = new System.DateTime(2020, 11, 15, 10, 20, 18, 864);
             // 
@@ -590,20 +586,20 @@
             // tablePartida
             // 
             this.tablePartida.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.tablePartida.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.tablePartida.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.tablePartida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablePartida.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tablePartida.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablePartida.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablePartida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablePartida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.tablePartida.ColumnHeadersHeight = 50;
             this.tablePartida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
@@ -611,14 +607,14 @@
             this.ColumnDetalle,
             this.Column1Debe,
             this.ColumnHaber});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablePartida.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablePartida.DefaultCellStyle = dataGridViewCellStyle18;
             this.tablePartida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePartida.DoubleBuffered = true;
             this.tablePartida.EnableHeadersVisualStyles = false;
@@ -803,18 +799,28 @@
             // 
             // bunifuElipse3
             // 
-            this.bunifuElipse3.ElipseRadius = 7;
+            this.bunifuElipse3.ElipseRadius = 20;
             this.bunifuElipse3.TargetControl = this.dpFecha;
             // 
             // bunifuElipse4
             // 
-            this.bunifuElipse4.ElipseRadius = 7;
+            this.bunifuElipse4.ElipseRadius = 20;
             this.bunifuElipse4.TargetControl = this.cbCuenta;
             // 
             // bunifuElipse5
             // 
-            this.bunifuElipse5.ElipseRadius = 5;
-            this.bunifuElipse5.TargetControl = this;
+            this.bunifuElipse5.ElipseRadius = 20;
+            this.bunifuElipse5.TargetControl = this.btnAgregarPartida;
+            // 
+            // bunifuElipse6
+            // 
+            this.bunifuElipse6.ElipseRadius = 20;
+            this.bunifuElipse6.TargetControl = this.btnNuevaCuenta;
+            // 
+            // bunifuElipse7
+            // 
+            this.bunifuElipse7.ElipseRadius = 20;
+            this.bunifuElipse7.TargetControl = this.btnEliminarCuenta;
             // 
             // AgregarPartidaForm
             // 
@@ -888,8 +894,10 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnAgregarPartida;
-        private FontAwesome.Sharp.IconButton btnAgregarCuenta;
+        private FontAwesome.Sharp.IconButton btnNuevaCuenta;
         private FontAwesome.Sharp.IconButton btnEliminarCuenta;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
     }
 }

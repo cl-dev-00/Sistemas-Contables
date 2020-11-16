@@ -136,7 +136,7 @@
             // 
             // bunifuElipse2
             // 
-            this.bunifuElipse2.ElipseRadius = 10;
+            this.bunifuElipse2.ElipseRadius = 20;
             this.bunifuElipse2.TargetControl = this.btnImprimir;
             // 
             // btnImprimir
@@ -168,7 +168,7 @@
             // 
             // bunifuElipse3
             // 
-            this.bunifuElipse3.ElipseRadius = 10;
+            this.bunifuElipse3.ElipseRadius = 20;
             this.bunifuElipse3.TargetControl = this.btnAgregar;
             // 
             // btnAgregar
@@ -201,7 +201,7 @@
             // 
             // bunifuElipse4
             // 
-            this.bunifuElipse4.ElipseRadius = 10;
+            this.bunifuElipse4.ElipseRadius = 20;
             this.bunifuElipse4.TargetControl = this.btnModificar;
             // 
             // btnModificar
@@ -276,7 +276,7 @@
             // 
             // bunifuElipse5
             // 
-            this.bunifuElipse5.ElipseRadius = 10;
+            this.bunifuElipse5.ElipseRadius = 20;
             this.bunifuElipse5.TargetControl = this.btnEliminar;
             // 
             // lblTitulo
