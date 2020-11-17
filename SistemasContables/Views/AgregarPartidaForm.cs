@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasContables.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace SistemasContables.Views
 {
     public partial class AgregarPartidaForm : Form
     {
+        private CuentasController cuentaController;
+        private List<Cuenta> lista;
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
@@ -20,6 +23,14 @@ namespace SistemasContables.Views
         public AgregarPartidaForm()
         {
             InitializeComponent();
+
+            cuentaController = new CuentasController();
+            this.lista = this.cuentaController.getList();
+
+            foreach(Cuenta cuenta in lista)
+            {
+                cbCuenta.AddItem(cuenta.Nombre);
+            }
 
             cbCuenta.selectedIndex = 0;
 

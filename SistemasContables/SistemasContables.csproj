@@ -75,8 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuentasController.cs" />
     <Compile Include="DataBase\Conexion.cs" />
-    <Compile Include="DataBase\IDao.cs" />
+    <Compile Include="DataBase\CuentasDAO.cs" />
+    <Compile Include="DataBase\IDAO.cs" />
+    <Compile Include="Models\Cuenta.cs" />
+    <Compile Include="Models\LibroDiario.cs" />
     <Compile Include="Views\AgregarPartidaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,9 +179,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\finanzas.png" />
   </ItemGroup>

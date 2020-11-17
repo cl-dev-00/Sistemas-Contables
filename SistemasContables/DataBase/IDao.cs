@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SistemasContables.DataBase
 {
-    public interface IDao
+    public interface IDAO
     {
         bool Insert(object item);
         List<object> getList();
         bool update(object item);
         bool delete(object item);
+
     }
 }

@@ -14,10 +14,7 @@ namespace SistemasContables.DataBase
 
     public class Conexion
     {
-        //public string connectionString { get; set; }
-        //private string connection;
-
-        private const string dataConnection = @"Data Source=./database.db; Version=3";
+        private const string dataConnection = @"Data Source=./database.db; PRAGMA foreign_keys=ON; UTF8Encoding=True; Version=3";
 
         static private SQLiteConnection conn = null;
         static public SQLiteConnection Conn
@@ -27,87 +24,100 @@ namespace SistemasContables.DataBase
 
                 if(conn == null)
                 {
-                    try
-                    {
-                        conn = new SQLiteConnection(dataConnection);
+                    conn = new SQLiteConnection(dataConnection);
 
-                        conn.Open();
-
-                    } catch(Exception exception)
+                    if (!File.Exists("./database.db"))
                     {
-                        MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
+                        CreateDataBase();
                     }
+
                 }
 
                 return conn;
             }
         }
 
-        static public void ClosedConnection()
-        {
-            if (conn != null)
-            {
-                try
-                {
-
-                    conn.Close();
-
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK);
-                }
-            }
-        }
-
-        //public void getConnection()
-        //{
-        //    connection = @"Data Source=./database.db; Version=3";
-        //    connectionString = connection;
-        //}
-
         public Conexion()
         {
-            //try
-            //{
-            //    getConnection();
-            //    conn = new SQLiteConnection(connectionString);
+            
+        }
 
-            //    conn.Open();
-            //    conn.Close();
+        static private void CreateDataBase() {
 
-            //    MessageBox.Show("Exito");
+            SQLiteConnection.CreateFile("./database.db");
 
-            //} catch(Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            conn.Open();
 
-            /*
-
-            if (!File.Exists("./database.db"))
+            using(SQLiteCommand command = new SQLiteCommand())
             {
-                SQLiteConnection.CreateFile("./database.bd");
-                getConnection();
+                string sql = @"PRAGMA foreign_keys = ON;";
 
-                using(SQLiteConnection Connect = new SQLiteConnection(connection))
-                {
-                    SQLiteCommand command = new SQLiteCommand();
-                    Connect.Open();
+                sql += "CREATE TABLE librodiario(";
+                sql += "n_libro INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "periodo text(200)";
+                sql += ");";
 
-                    string sql = @"CREATE TABLE user(id Integer(11), username Text(25))";
+                sql += "CREATE TABLE plantilla(";
+                sql += "idPlantilla INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "nombrePlantilla TEXT(200),";
+                sql += "cuentaDefault TEXT(200),";
+                sql += "tipoIVA TEXT(100)";
+                sql += ");";
 
-                    command.CommandText = sql;
-                    command.Connection = Connect;
-                    command.ExecuteNonQuery();
+                sql += "CREATE TABLE cuenta(";
+                sql += "idCuenta INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "codigo INTEGER(10),";
+                sql += "nivel INTEGER(10),";
+                sql += "nombreCuenta TEXT(100),";
+                sql += "tipoSaldo TEXT(100)";
+                sql += ");";
 
-                    Connect.Close();
-                }
-                
-            } else
-            {
-                MessageBox.Show("Error Conexion a la base de datos");
-            } */
+                sql += "CREATE TABLE partida(";
+                sql += "idPartida INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "fecha TEXT(100),";
+                sql += "concepto TEXT,";
+                sql += "n_partida INTEGER,";
+                sql += "n_libro INTEGER,";
+                sql += "FOREIGN KEY(n_libro) REFERENCES librodiario(n_libro) ";
+                sql += "ON DELETE CASCADE ";
+                sql += "ON UPDATE CASCADE";
+                sql += ");";
+
+                sql += "CREATE TABLE cuenta_en_plantilla(";
+                sql += "idCuentaEnPlantilla INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "idCuenta INTEGER,";
+                sql += "debe TEXT(50),";
+                sql += "haber TEXT(50),";
+                sql += "idPlantilla INTEGER,";
+                sql += "FOREIGN KEY(idCuenta) REFERENCES cuenta(idCuenta) ";
+                sql += "ON DELETE CASCADE ";
+                sql += "ON UPDATE CASCADE ";
+                sql += "FOREIGN KEY(idPlantilla) REFERENCES plantilla(idPlantilla) ";
+                sql += "ON DELETE CASCADE ";
+                sql += "ON UPDATE CASCADE";
+                sql += ");";
+
+                sql += "CREATE TABLE cuenta_partida(";
+                sql += "id_cuenta_partida INTEGER PRIMARY KEY AUTOINCREMENT,";
+                sql += "idCuenta INTEGER,";
+                sql += "idPartida INTEGER,";
+                sql += "debe REAL,";
+                sql += "haber REAL,";
+                sql += "FOREIGN KEY(idCuenta) REFERENCES cuenta(idCuenta) ";
+                sql += "ON DELETE CASCADE ON UPDATE CASCADE ";
+                sql += "FOREIGN KEY(idPartida) REFERENCES plantilla(idPartida) ";
+                sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                sql += ");";
+
+
+                command.CommandText = sql;
+                command.Connection = conn;
+                command.ExecuteNonQuery();
+
+            }
+
+            conn.Close();
+
         }
 
     }
