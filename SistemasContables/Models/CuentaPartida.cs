@@ -13,6 +13,12 @@ namespace SistemasContables.Models
         private int idPartida;
         private double debe;
         private double haber;
+        private Cuenta cuenta;
+
+        public CuentaPartida()
+        {
+            cuenta = new Cuenta();
+        }
 
         public int IdCuentaPartida
         {
@@ -71,6 +77,18 @@ namespace SistemasContables.Models
             set
             {
                 this.haber = value;
+            }
+        }
+
+        public Cuenta Cuenta
+        {
+            get
+            {
+                return this.cuenta;
+            }
+            set
+            {
+                this.cuenta = value;
             }
         }
 

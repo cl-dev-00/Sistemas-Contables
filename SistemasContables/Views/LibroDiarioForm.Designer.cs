@@ -34,10 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroDiario = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -49,6 +45,11 @@
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -85,6 +86,7 @@
             this.tableLibroDiario.ColumnHeadersHeight = 50;
             this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
+            this.ColumnCodigo,
             this.ColumnDetalle,
             this.Column1Debe,
             this.ColumnHaber});
@@ -108,26 +110,6 @@
             this.tableLibroDiario.RowTemplate.Height = 40;
             this.tableLibroDiario.Size = new System.Drawing.Size(624, 491);
             this.tableLibroDiario.TabIndex = 0;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            // 
-            // ColumnDetalle
-            // 
-            this.ColumnDetalle.HeaderText = "Detalle";
-            this.ColumnDetalle.Name = "ColumnDetalle";
-            // 
-            // Column1Debe
-            // 
-            this.Column1Debe.HeaderText = "Debe";
-            this.Column1Debe.Name = "Column1Debe";
-            // 
-            // ColumnHaber
-            // 
-            this.ColumnHaber.HeaderText = "Haber";
-            this.ColumnHaber.Name = "ColumnHaber";
             // 
             // bunifuElipse1
             // 
@@ -294,6 +276,31 @@
             this.lblTitulo.Text = "Libro Diario";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            // 
+            // ColumnDetalle
+            // 
+            this.ColumnDetalle.HeaderText = "Detalle";
+            this.ColumnDetalle.Name = "ColumnDetalle";
+            // 
+            // Column1Debe
+            // 
+            this.Column1Debe.HeaderText = "Debe ($)";
+            this.Column1Debe.Name = "Column1Debe";
+            // 
+            // ColumnHaber
+            // 
+            this.ColumnHaber.HeaderText = "Haber ($)";
+            this.ColumnHaber.Name = "ColumnHaber";
+            // 
             // LibroDiarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,10 +323,6 @@
         #endregion
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableLibroDiario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
@@ -331,5 +334,10 @@
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
     }
 }

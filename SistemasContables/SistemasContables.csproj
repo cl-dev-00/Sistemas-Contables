@@ -75,10 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CuentasController.cs" />
+    <Compile Include="controller\CuentasController.cs" />
+    <Compile Include="controller\PartidasController.cs" />
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
     <Compile Include="DataBase\IDAO.cs" />
+    <Compile Include="DataBase\LibroDiarioDAO.cs" />
+    <Compile Include="DataBase\PartidasDAO.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\CuentaEnPlantilla.cs" />
     <Compile Include="Models\CuentaPartida.cs" />
