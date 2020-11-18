@@ -80,7 +80,11 @@
     <Compile Include="DataBase\CuentasDAO.cs" />
     <Compile Include="DataBase\IDAO.cs" />
     <Compile Include="Models\Cuenta.cs" />
+    <Compile Include="Models\CuentaEnPlantilla.cs" />
+    <Compile Include="Models\CuentaPartida.cs" />
     <Compile Include="Models\LibroDiario.cs" />
+    <Compile Include="Models\Partida.cs" />
+    <Compile Include="Models\Plantilla.cs" />
     <Compile Include="Views\AgregarPartidaForm.cs">
       <SubType>Form</SubType>
     </Compile>

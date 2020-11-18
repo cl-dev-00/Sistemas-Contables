@@ -68,7 +68,7 @@ namespace SistemasContables.DataBase
                             Cuenta cuenta = new Cuenta();
 
                             cuenta.IdCuenta = Convert.ToInt32(result[ID_CUENTA]);
-                            cuenta.Codigo = Convert.ToInt32(result[CODIGO]);
+                            cuenta.Codigo = result[CODIGO].ToString();
                             cuenta.Nivel = Convert.ToInt32(result[NIVEL]);
                             cuenta.Nombre = result[NOMBRE_CUENTA].ToString();
                             cuenta.TipoSaldo = result[TIPO_SALDO].ToString();

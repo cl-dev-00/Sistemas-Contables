@@ -10,7 +10,7 @@ namespace SistemasContables.Models
     {
         private int idCuenta;
         private string nombre;
-        private int codigo;
+        private string codigo;
         private int nivel;
         private string tipoSaldo;
 
@@ -38,7 +38,7 @@ namespace SistemasContables.Models
             }
         }
 
-        public int Codigo
+        public string Codigo
         {
             get {
                 return this.codigo;

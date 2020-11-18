@@ -8,18 +8,18 @@ namespace SistemasContables.Models
 {
     public class LibroDiario
     {
-        private int numeroLibroDiario;
+        private int idLibroDiario;
         private string periodo;
 
-        public int NumeroLibroDiario
+        public int IdLibroDiario
         {
             get
             {
-                return this.numeroLibroDiario;
+                return this.idLibroDiario;
             }
             set
             {
-                this.numeroLibroDiario = value;
+                this.idLibroDiario = value;
             }
         }
 
