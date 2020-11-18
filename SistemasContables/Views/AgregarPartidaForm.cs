@@ -34,19 +34,6 @@ namespace SistemasContables.Views
 
             cbCuenta.selectedIndex = 0;
 
-            tablePartida.Rows.Add(1, 0, 0, 0, 0);
-            tablePartida.Rows.Add(2, 0, 0, 0, 0);
-            tablePartida.Rows.Add(3, 0, 0, 0, 0);
-            tablePartida.Rows.Add(4, 0, 0, 0, 0);
-            tablePartida.Rows.Add(5, 0, 0, 0, 0);
-            tablePartida.Rows.Add(6, 0, 0, 0, 0);
-            tablePartida.Rows.Add(1, 0, 0, 0, 0);
-            tablePartida.Rows.Add(2, 0, 0, 0, 0);
-            tablePartida.Rows.Add(3, 0, 0, 0, 0);
-            tablePartida.Rows.Add(4, 0, 0, 0, 0);
-            tablePartida.Rows.Add(5, 0, 0, 0, 0);
-            tablePartida.Rows.Add(6, 0, 0, 0, 0);
-
         }
 
         // cierra el programa

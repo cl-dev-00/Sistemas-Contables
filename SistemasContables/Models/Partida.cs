@@ -13,6 +13,8 @@ namespace SistemasContables.Models
         private string detalle;
         private int n_partida;
         private int idLibro;
+        private List<CuentaPartida> listaCuentasPartida;
+
 
         public int IdPartida
         {
@@ -71,6 +73,18 @@ namespace SistemasContables.Models
             set
             {
                 this.idLibro = value;
+            }
+        }
+
+        public List<CuentaPartida> ListaCuentasPartida
+        {
+            get
+            {
+                return this.listaCuentasPartida;
+            }
+            set
+            {
+                this.listaCuentasPartida = value;
             }
         }
 

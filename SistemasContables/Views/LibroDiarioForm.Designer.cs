@@ -46,7 +46,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +85,6 @@
             this.tableLibroDiario.ColumnHeadersHeight = 50;
             this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
-            this.ColumnCodigo,
             this.ColumnDetalle,
             this.Column1Debe,
             this.ColumnHaber});
@@ -281,11 +279,6 @@
             this.ColumnFecha.HeaderText = "Fecha";
             this.ColumnFecha.Name = "ColumnFecha";
             // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Codigo";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            // 
             // ColumnDetalle
             // 
             this.ColumnDetalle.HeaderText = "Detalle";
@@ -335,7 +328,6 @@
         private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;

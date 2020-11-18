@@ -11,8 +11,6 @@ namespace SistemasContables.controller
     public class PartidasController
     {
         private PartidasDAO partidasDAO;
-        private List<Partida> lista;
-        private List<CuentaPartida> listaCuentasPartida;
 
         public PartidasController()
         {
@@ -21,16 +19,9 @@ namespace SistemasContables.controller
 
         public List<Partida> getList(int idLibroDiario)
         {
-            this.lista = this.partidasDAO.getList(idLibroDiario);
+            List<Partida> lista = this.partidasDAO.getList(idLibroDiario);
 
-            return this.lista;
-        }
-
-        public List<CuentaPartida> getListCuentasPartida(int idPartida)
-        {
-            this.listaCuentasPartida = this.partidasDAO.getListCuentasPartida(idPartida);
-
-            return this.listaCuentasPartida;
+            return lista;
         }
 
     }

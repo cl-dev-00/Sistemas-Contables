@@ -17,7 +17,6 @@ namespace SistemasContables.Views
         private AgregarPartidaForm agregarPartidaForm;
         private PartidasController partidasControlles;
         private List<Partida> lista;
-        private List<CuentaPartida> listaCuentasPartida;
 
         public LibroDiarioForm()
         {
@@ -29,16 +28,14 @@ namespace SistemasContables.Views
 
             foreach(Partida partida in lista)
             {
-                tableLibroDiario.Rows.Add(partida.Fecha, "", "Partida " + partida.N_Partida, "", "");
+                tableLibroDiario.Rows.Add(partida.Fecha, "Partida " + partida.N_Partida, "", "");
 
-                listaCuentasPartida = partidasControlles.getListCuentasPartida(partida.IdPartida);
-
-                foreach(CuentaPartida cuentaPartida in listaCuentasPartida)
+                foreach(CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                 {
-                    tableLibroDiario.Rows.Add("", cuentaPartida.Cuenta.Codigo, cuentaPartida.Cuenta.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                    tableLibroDiario.Rows.Add("", cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
                 }
 
-                tableLibroDiario.Rows.Add("", "", partida.Detalle, "", "");
+                tableLibroDiario.Rows.Add("", partida.Detalle, "", "");
             }
 
         }

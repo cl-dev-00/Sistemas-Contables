@@ -13,7 +13,6 @@ namespace SistemasContables.DataBase
     {
         private SQLiteConnection conn;
         private List<Partida> lista;
-        private List<CuentaPartida> listaCuentasPartida;
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";
@@ -34,22 +33,9 @@ namespace SistemasContables.DataBase
         private const string NOMBRE_CUENTA = "nombreCuenta";
         private const string TIPO_SALDO = "tipoSaldo";
 
-        public List<Partida> Lista
-        {
-            get
-            {
-                return this.lista;
-            }
-            set
-            {
-                this.lista = value;
-            }
-        }
-
         public PartidasDAO()
         {
             this.lista = new List<Partida>();
-            this.listaCuentasPartida = new List<CuentaPartida>();
         }
 
         public List<Partida> getList(int idLibroDiario)
@@ -87,6 +73,7 @@ namespace SistemasContables.DataBase
                             partida.Detalle = result[CONCEPTO].ToString();
                             partida.N_Partida = Convert.ToInt32(result[N_PARTIDA].ToString());
                             partida.IdLibro = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
+                            partida.ListaCuentasPartida = getListCuentasPartida(partida.IdPartida);
 
                             lista.Add(partida);
                         }
@@ -107,14 +94,12 @@ namespace SistemasContables.DataBase
 
         }
 
-        public List<CuentaPartida> getListCuentasPartida(int idPartida)
+        private List<CuentaPartida> getListCuentasPartida(int idPartida)
         {
+            List<CuentaPartida> listaCuentasPartida = new List<CuentaPartida>(); ;
 
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
@@ -139,8 +124,8 @@ namespace SistemasContables.DataBase
                         {
                             CuentaPartida cuentaPartida = new CuentaPartida();
 
-                            cuentaPartida.Cuenta.Codigo = result[CODIGO].ToString();
-                            cuentaPartida.Cuenta.Nombre = result[NOMBRE_CUENTA].ToString();
+                            cuentaPartida.Codigo = result[CODIGO].ToString();
+                            cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
                             cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
                             cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
 
@@ -150,16 +135,13 @@ namespace SistemasContables.DataBase
 
                 }
 
-                conn.Close();
-
-
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return this.listaCuentasPartida;
+            return listaCuentasPartida;
 
         }
     }
