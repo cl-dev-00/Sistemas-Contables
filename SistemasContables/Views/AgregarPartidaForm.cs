@@ -1,4 +1,5 @@
-﻿using SistemasContables.Models;
+﻿using Bunifu.Framework.UI;
+using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -131,6 +132,50 @@ namespace SistemasContables.Views
             e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
+        }
+
+        private void switchDebito_Click(object sender, EventArgs e)
+        {
+            //if (!switchDebito.Value)
+            //{
+            //    switchCredito.Value = false;
+            //    switchDebito.Value = true;
+            //}
+        }
+
+        private void switchCredito_Click(object sender, EventArgs e)
+        {
+            //if (!switchCredito.Value)
+            //{
+            //    switchDebito.Value = false;
+            //    switchCredito.Value = true;
+            //}
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // permite del 0 al 9, backspace, y punto decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // comprueba que solo sea un decimal
+            if (e.KeyChar == 46)
+            {
+                if ((sender as BunifuMetroTextbox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+
+                if ((sender as BunifuMetroTextbox).Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+
+            }
+
         }
     }
 }
