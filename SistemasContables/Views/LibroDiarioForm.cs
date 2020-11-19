@@ -17,20 +17,46 @@ namespace SistemasContables.Views
         private AgregarPartidaForm agregarPartidaForm;
         private PartidasController partidasControlles;
         private List<Partida> lista;
+        private int numeroPartidas;
+        private int libroIdario = 1;
 
         public LibroDiarioForm()
         {
             InitializeComponent();
 
-            partidasControlles = new PartidasController();
+            this.partidasControlles = new PartidasController();
 
-            this.lista = this.partidasControlles.getList(1);
+            llenarTabla();
 
-            foreach(Partida partida in lista)
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            agregarPartidaForm = new AgregarPartidaForm(this.partidasControlles,libroIdario ,numeroPartidas);
+            this.Parent.Parent.Parent.Visible = false;
+            agregarPartidaForm.ShowDialog();
+            this.Parent.Parent.Parent.Visible = true;
+            llenarTabla();
+        }
+
+        //el metodo llena la tabla del libro diario
+        public void llenarTabla()
+        {
+            if(this.tableLibroDiario.Rows.Count > 0 && this.lista.Count > 0)
             {
-                tableLibroDiario.Rows.Add(partida.Fecha, "Partida " + partida.N_Partida, "", "");
+                this.tableLibroDiario.Rows.Clear();
+                this.lista.Clear();
+            }
 
-                foreach(CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
+            this.lista = this.partidasControlles.getList(this.libroIdario);
+
+            this.numeroPartidas = lista.Count;
+
+            foreach (Partida partida in lista)
+            {
+                tableLibroDiario.Rows.Add(partida.Fecha, "Partida No " + partida.N_Partida, "", "");
+
+                foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                 {
                     tableLibroDiario.Rows.Add("", cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
                 }
@@ -40,12 +66,5 @@ namespace SistemasContables.Views
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            agregarPartidaForm = new AgregarPartidaForm();
-            this.Parent.Parent.Parent.Visible = false;
-            agregarPartidaForm.ShowDialog();
-            this.Parent.Parent.Parent.Visible = true;
-        }
     }
 }

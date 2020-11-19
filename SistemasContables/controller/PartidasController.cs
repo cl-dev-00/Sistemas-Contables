@@ -17,6 +17,11 @@ namespace SistemasContables.controller
             this.partidasDAO = new PartidasDAO();
         }
 
+        public void insert(Partida partida)
+        {
+            partidasDAO.insert(partida);
+        }
+
         public List<Partida> getList(int idLibroDiario)
         {
             List<Partida> lista = this.partidasDAO.getList(idLibroDiario);

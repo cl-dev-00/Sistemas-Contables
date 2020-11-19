@@ -13,6 +13,8 @@ namespace SistemasContables.DataBase
     {
         private SQLiteConnection conn;
         private List<Partida> lista;
+        private int idPartidaIngresada;
+        private int idCuenta;
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";
@@ -37,6 +39,129 @@ namespace SistemasContables.DataBase
         {
             this.lista = new List<Partida>();
         }
+
+        public void insert(Partida partida)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"INSERT INTO {TABLE_PARTIDA}({ID_PARTIDA}, {FECHA}, {CONCEPTO}, {N_PARTIDA}, {ID_LIBRO_DIARIO}) ";
+                    sql += "VALUES(NULL, @fecha, @concepto, @n_partida, @id_libro_diario);";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@fecha", partida.Fecha));
+                    command.Parameters.Add(new SQLiteParameter("@concepto", partida.Detalle));
+                    command.Parameters.Add(new SQLiteParameter("@n_partida", partida.N_Partida));
+                    command.Parameters.Add(new SQLiteParameter("@id_libro_diario", partida.IdLibro));
+                    command.ExecuteNonQuery();
+
+                    //Ingreso las cuentasPartidas a sus respectivas partidas en la database
+
+                    this.idPartidaIngresada = obtenerIdPartidaInsertada(partida.IdLibro);
+
+                    foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
+                    {
+                        this.idCuenta = obtenerIdCuentaActual(cuentaPartida.Codigo);
+                        cuentaPartida.IdCuenta = this.idCuenta;
+                        cuentaPartida.IdPartida = this.idPartidaIngresada;
+
+                        insertarCuentaPartida(cuentaPartida);
+                    }
+
+                }
+
+                conn.Close();
+
+
+                MessageBox.Show("Se ingreso la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void insertarCuentaPartida(CuentaPartida cuentaPartida)
+        {
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"INSERT INTO  {TABLE_CUENTA_PARTIDA}({ID_CUENTA_PARTIDA}, {ID_CUENTA}, {ID_PARTIDA}, {DEBE}, {HABER}) ";
+                sql += "VALUES (NULL, @idCuenta, @idPartida, @debe, @haber);";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idCuenta", cuentaPartida.IdCuenta));
+                command.Parameters.Add(new SQLiteParameter("@idPartida", cuentaPartida.IdPartida));
+                command.Parameters.Add(new SQLiteParameter("@debe", cuentaPartida.Debe));
+                command.Parameters.Add(new SQLiteParameter("@haber", cuentaPartida.Haber));
+                command.ExecuteNonQuery();
+
+            }
+
+        }
+
+        private int obtenerIdPartidaInsertada(int idLibroDiario)
+        {
+            int id = 0;
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} =@idLibroDiario ORDER BY {ID_PARTIDA} DESC LIMIT 1;";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                SQLiteDataReader result = command.ExecuteReader();
+
+
+                if (result.HasRows)
+                {
+                    while (result.Read())
+                    {
+
+                        id = Convert.ToInt32(result[ID_PARTIDA].ToString());
+
+                    }
+                }
+
+            }
+
+            return id;
+        }
+
+        private int obtenerIdCuentaActual(string codigoCuenta)
+        {
+            int id = 0;
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"SELECT {ID_CUENTA} FROM {TABLE_CUENTA} WHERE {CODIGO} = @codigo";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@codigo", codigoCuenta));
+                SQLiteDataReader result = command.ExecuteReader();
+
+                if (result.HasRows)
+                {
+                    while (result.Read())
+                    {
+
+                        id = Convert.ToInt32(result[ID_CUENTA].ToString());
+
+                    }
+                }
+
+            }
+
+            return id;
+        }
+
 
         public List<Partida> getList(int idLibroDiario)
         {
@@ -98,48 +223,41 @@ namespace SistemasContables.DataBase
         {
             List<CuentaPartida> listaCuentasPartida = new List<CuentaPartida>(); ;
 
-            try
+
+            using (SQLiteCommand command = new SQLiteCommand())
             {
+                string sql = $"SELECT {TABLE_CUENTA}.{CODIGO}, {TABLE_CUENTA}.{NOMBRE_CUENTA}, {TABLE_CUENTA_PARTIDA}.{DEBE}, {TABLE_CUENTA_PARTIDA}.{HABER} FROM {TABLE_CUENTA} ";
+                sql += $"INNER JOIN {TABLE_CUENTA_PARTIDA} ON {TABLE_CUENTA}.{ID_CUENTA} = {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} WHERE {ID_PARTIDA} = @idPartida";
 
-                using (SQLiteCommand command = new SQLiteCommand())
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                SQLiteDataReader result = command.ExecuteReader();
+
+
+                if (result.HasRows)
                 {
-                    string sql = $"SELECT {TABLE_CUENTA}.{CODIGO}, {TABLE_CUENTA}.{NOMBRE_CUENTA}, {TABLE_CUENTA_PARTIDA}.{DEBE}, {TABLE_CUENTA_PARTIDA}.{HABER} FROM {TABLE_CUENTA} ";
-                    sql += $"INNER JOIN {TABLE_CUENTA_PARTIDA} ON {TABLE_CUENTA}.{ID_CUENTA} = {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} WHERE {ID_PARTIDA} = @idPartida";
 
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
-                    SQLiteDataReader result = command.ExecuteReader();
-
-
-                    if (result.HasRows)
+                    if (listaCuentasPartida.Count > 0)
                     {
-
-                        if (listaCuentasPartida.Count > 0)
-                        {
-                            listaCuentasPartida.Clear();
-                        }
-
-                        while (result.Read())
-                        {
-                            CuentaPartida cuentaPartida = new CuentaPartida();
-
-                            cuentaPartida.Codigo = result[CODIGO].ToString();
-                            cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
-                            cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
-                            cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
-
-                            listaCuentasPartida.Add(cuentaPartida);
-                        }
+                        listaCuentasPartida.Clear();
                     }
 
+                    while (result.Read())
+                    {
+                        CuentaPartida cuentaPartida = new CuentaPartida();
+
+                        cuentaPartida.Codigo = result[CODIGO].ToString();
+                        cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
+                        cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
+                        cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
+
+                        listaCuentasPartida.Add(cuentaPartida);
+                    }
                 }
 
             }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
 
             return listaCuentasPartida;
 

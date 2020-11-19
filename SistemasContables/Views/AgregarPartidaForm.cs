@@ -1,4 +1,5 @@
 ﻿using Bunifu.Framework.UI;
+using SistemasContables.controller;
 using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,34 @@ namespace SistemasContables.Views
 {
     public partial class AgregarPartidaForm : Form
     {
+        const double IVA = 0.13;
+
         private CuentasController cuentaController;
         private List<Cuenta> lista;
+        Partida partida;
+        PartidasController partidasController;
+
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
+        private string fecha;
+        int libroDiario = 0;
+        int numeroPartida;        
 
-        public AgregarPartidaForm()
+        public AgregarPartidaForm(PartidasController partidasController, int libroDiario, int numeroPartida)
         {
             InitializeComponent();
+
+            this.partidasController = partidasController;
+
+            this.libroDiario = libroDiario;
+
+
+            this.numeroPartida = numeroPartida;
+            this.numeroPartida++;
+
+            this.lblPartida.Text += this.numeroPartida;
 
             cuentaController = new CuentasController();
             this.lista = this.cuentaController.getList();
@@ -34,7 +53,11 @@ namespace SistemasContables.Views
             }
 
             cbCuenta.selectedIndex = 0;
+            cbTipoTransaccion.selectedIndex = 0;
 
+            fecha = FormatoFecha();
+
+            tablePartida.Rows.Add(fecha, "", "Partida No "  + this.numeroPartida, "", "");
         }
 
         // cierra el programa
@@ -80,20 +103,157 @@ namespace SistemasContables.Views
         //el metodo agrega la partida
         private void btnAgregarPartida_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1) {
+
+                partida = new Partida();
+
+                partida.Fecha = this.fecha;
+                partida.Detalle = this.txtDescripcion.Text;
+                partida.IdLibro = this.libroDiario;
+                partida.N_Partida = this.numeroPartida;
+
+                LlenarCuentasPartida(ref partida);
+
+                this.partidasController.insert(partida);
+
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Debe poner una descripcion de la partida\ny debe tener al menos una cuenta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         //el metodo agrega una cuenta
         private void btnNuevaCuenta_Click(object sender, EventArgs e)
         {
 
+            if(!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.selectedIndex != 0 && cbCuenta.selectedIndex != 0)
+            {
+                int index = cbCuenta.selectedIndex - 1;
+
+                double monto = Convert.ToDouble(txtMonto.Text);
+                double ivaMonto = monto * IVA;
+                double montoTotal = MontoConIVA(monto, ivaMonto);
+
+                if (cbTipoTransaccion.selectedValue == "Debe")
+                {
+                    tablePartida.Rows.Add("", lista[index].Codigo, lista[index].Nombre, montoTotal, "0");
+
+                    if(switchDebito.Value)
+                    {
+                        tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
+                    } 
+                    else if(switchCredito.Value)
+                    {
+                        tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
+                    }
+
+                }
+                else if (cbTipoTransaccion.selectedValue == "Haber")
+                {
+                    tablePartida.Rows.Add("", lista[index].Codigo, lista[index].Nombre, "0", montoTotal);
+
+                    if (switchDebito.Value)
+                    {
+                        tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
+                    }
+                    else if (switchCredito.Value)
+                    {
+                        tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
+                    }
+                }
+
+                txtMonto.Text = null;
+
+            }
+
+            else
+            {
+                MessageBox.Show("Todos los campos son necesarios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
+
+
 
         //el metodo elimina una cuenta
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
         {
+            int fila = tablePartida.CurrentRow.Index;
+
+            if(fila != 0)
+            {
+                this.tablePartida.Rows.RemoveAt(fila);
+            }
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // permite del 0 al 9, backspace, y punto decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // comprueba que solo sea un decimal
+            if (e.KeyChar == 46)
+            {
+                if ((sender as BunifuMetroTextbox).Text.IndexOf(e.KeyChar) != -1 || (sender as BunifuMetroTextbox).Text.Length == 0)
+                {
+                    e.Handled = true;
+                }
+
+            }
 
         }
+
+
+        // evalua el iva y el debito y credito fiscal para insertar la respectiva fila
+        private double MontoConIVA(double monto, double ivaMonto)
+        {
+            double montoTotal = 0;
+
+            montoTotal = monto;
+
+            if(switchIncluido.Value)
+            {
+                montoTotal = monto - ivaMonto;
+            }
+
+            return montoTotal;
+
+        }
+
+
+        // el metodo llena las cuentas de la partida
+        private void LlenarCuentasPartida(ref Partida partida)
+        {
+
+            partida.ListaCuentasPartida = new List<CuentaPartida>();
+
+            for (int i = 1; i < tablePartida.Rows.Count; i++)
+            {
+                CuentaPartida cuentaPartida = new CuentaPartida();
+
+                cuentaPartida.Codigo = tablePartida.Rows[i].Cells[1].Value.ToString();
+                cuentaPartida.Nombre = tablePartida.Rows[i].Cells[2].Value.ToString();
+                cuentaPartida.Debe = Convert.ToDouble(tablePartida.Rows[i].Cells[3].Value);
+                cuentaPartida.Haber = Convert.ToDouble(tablePartida.Rows[i].Cells[4].Value);
+
+                partida.ListaCuentasPartida.Add(cuentaPartida);
+            }
+
+        }
+
+        // devulve la fecha seleccionada en formato dd/mm/YY
+        private string FormatoFecha()
+        {
+            string[] fechaCompleto = dpFecha.Value.ToString().Split(' ');
+            return fechaCompleto[0];
+        }
+
 
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
@@ -134,48 +294,32 @@ namespace SistemasContables.Views
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
 
-        private void switchDebito_Click(object sender, EventArgs e)
+        private void switchDebito_OnValueChange(object sender, EventArgs e)
         {
-            //if (!switchDebito.Value)
+            //if (switchDebito.Value == false && switchCredito.Value == true)
             //{
-            //    switchCredito.Value = false;
             //    switchDebito.Value = true;
+            //    switchCredito.Value = false;
+            //    this.Refresh();
             //}
         }
 
-        private void switchCredito_Click(object sender, EventArgs e)
+        private void switchCredito_OnValueChange(object sender, EventArgs e)
         {
-            //if (!switchCredito.Value)
+            //if (switchDebito.Value == true && switchCredito.Value == false)
             //{
             //    switchDebito.Value = false;
             //    switchCredito.Value = true;
+            //    MessageBox.Show(switchDebito.Value + " " + switchCredito.Value);
+            //    this.Refresh();
             //}
         }
 
-        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        private void dpFecha_onValueChanged(object sender, EventArgs e)
         {
-            // permite del 0 al 9, backspace, y punto decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
+            fecha = FormatoFecha();
 
-            // comprueba que solo sea un decimal
-            if (e.KeyChar == 46)
-            {
-                if ((sender as BunifuMetroTextbox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-
-                if ((sender as BunifuMetroTextbox).Text.Length == 0)
-                {
-                    e.Handled = true;
-                }
-
-            }
-
+            tablePartida.Rows[0].Cells[0].Value = fecha;
         }
     }
 }

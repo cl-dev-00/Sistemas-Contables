@@ -29,18 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarPartidaForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarPartidaForm));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
-            this.switchCredito = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.label8 = new System.Windows.Forms.Label();
-            this.switchDebito = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbTipoTransaccion = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblPartida = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDescripcion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,6 +62,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tablePartida = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,10 +78,14 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.switchCredito = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.label8 = new System.Windows.Forms.Label();
+            this.switchDebito = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelContenido.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -110,7 +112,9 @@
             this.panelContenido.Controls.Add(this.switchDebito);
             this.panelContenido.Controls.Add(this.label9);
             this.panelContenido.Controls.Add(this.label7);
-            this.panelContenido.Controls.Add(this.label15);
+            this.panelContenido.Controls.Add(this.label10);
+            this.panelContenido.Controls.Add(this.cbTipoTransaccion);
+            this.panelContenido.Controls.Add(this.lblPartida);
             this.panelContenido.Controls.Add(this.label12);
             this.panelContenido.Controls.Add(this.txtDescripcion);
             this.panelContenido.Controls.Add(this.label3);
@@ -137,77 +141,48 @@
             this.panelContenido.Size = new System.Drawing.Size(1000, 730);
             this.panelContenido.TabIndex = 7;
             // 
-            // switchCredito
+            // label10
             // 
-            this.switchCredito.BackColor = System.Drawing.Color.Transparent;
-            this.switchCredito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchCredito.BackgroundImage")));
-            this.switchCredito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchCredito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchCredito.Location = new System.Drawing.Point(332, 150);
-            this.switchCredito.Name = "switchCredito";
-            this.switchCredito.OffColor = System.Drawing.Color.Gray;
-            this.switchCredito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.switchCredito.Size = new System.Drawing.Size(35, 20);
-            this.switchCredito.TabIndex = 61;
-            this.switchCredito.Value = false;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(42, 129);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(179, 23);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "Tipo de transacción";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // cbTipoTransaccion
             // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(246, 147);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 23);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "Credito";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTipoTransaccion.BackColor = System.Drawing.Color.Transparent;
+            this.cbTipoTransaccion.BorderRadius = 3;
+            this.cbTipoTransaccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTipoTransaccion.DisabledColor = System.Drawing.Color.Gray;
+            this.cbTipoTransaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoTransaccion.ForeColor = System.Drawing.Color.White;
+            this.cbTipoTransaccion.Items = new string[] {
+        "Seleccione",
+        "Debe",
+        "Haber"};
+            this.cbTipoTransaccion.Location = new System.Drawing.Point(43, 164);
+            this.cbTipoTransaccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbTipoTransaccion.Name = "cbTipoTransaccion";
+            this.cbTipoTransaccion.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
+            this.cbTipoTransaccion.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
+            this.cbTipoTransaccion.selectedIndex = -1;
+            this.cbTipoTransaccion.Size = new System.Drawing.Size(178, 35);
+            this.cbTipoTransaccion.TabIndex = 62;
             // 
-            // switchDebito
+            // lblPartida
             // 
-            this.switchDebito.BackColor = System.Drawing.Color.Transparent;
-            this.switchDebito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchDebito.BackgroundImage")));
-            this.switchDebito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchDebito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchDebito.Location = new System.Drawing.Point(332, 101);
-            this.switchDebito.Name = "switchDebito";
-            this.switchDebito.OffColor = System.Drawing.Color.Gray;
-            this.switchDebito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.switchDebito.Size = new System.Drawing.Size(35, 20);
-            this.switchDebito.TabIndex = 59;
-            this.switchDebito.Value = true;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(246, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 23);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Debito";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(246, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 23);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "Tipo de transaccion";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(39, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(139, 23);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Cuenta nueva";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.lblPartida.ForeColor = System.Drawing.Color.Black;
+            this.lblPartida.Location = new System.Drawing.Point(42, 13);
+            this.lblPartida.Name = "lblPartida";
+            this.lblPartida.Size = new System.Drawing.Size(179, 23);
+            this.lblPartida.TabIndex = 16;
+            this.lblPartida.Text = "Partida No ";
+            this.lblPartida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -261,6 +236,7 @@
             this.dpFecha.Size = new System.Drawing.Size(318, 35);
             this.dpFecha.TabIndex = 53;
             this.dpFecha.Value = new System.DateTime(2020, 11, 15, 10, 20, 18, 864);
+            this.dpFecha.onValueChanged += new System.EventHandler(this.dpFecha_onValueChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -385,7 +361,7 @@
             this.label14.Size = new System.Drawing.Size(146, 23);
             this.label14.TabIndex = 41;
             this.label14.Text = "Tipo de cuenta";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
             // 
@@ -396,7 +372,7 @@
             this.label13.Size = new System.Drawing.Size(137, 23);
             this.label13.TabIndex = 40;
             this.label13.Text = "Buscar Cuenta";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbCuenta
             // 
@@ -413,8 +389,8 @@
             this.cbCuenta.Location = new System.Drawing.Point(668, 164);
             this.cbCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbCuenta.Name = "cbCuenta";
-            this.cbCuenta.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.cbCuenta.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.cbCuenta.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
+            this.cbCuenta.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(103)))), ((int)(((byte)(214)))));
             this.cbCuenta.selectedIndex = -1;
             this.cbCuenta.Size = new System.Drawing.Size(279, 35);
             this.cbCuenta.TabIndex = 31;
@@ -425,24 +401,24 @@
             this.switchExcento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchExcento.BackgroundImage")));
             this.switchExcento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchExcento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchExcento.Location = new System.Drawing.Point(595, 135);
+            this.switchExcento.Location = new System.Drawing.Point(425, 100);
             this.switchExcento.Name = "switchExcento";
             this.switchExcento.OffColor = System.Drawing.Color.Gray;
             this.switchExcento.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.switchExcento.Size = new System.Drawing.Size(35, 20);
             this.switchExcento.TabIndex = 23;
-            this.switchExcento.Value = false;
+            this.switchExcento.Value = true;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(440, 132);
+            this.label5.Location = new System.Drawing.Point(270, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 23);
             this.label5.TabIndex = 22;
             this.label5.Text = "Excento";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // switchIncluido
             // 
@@ -450,7 +426,7 @@
             this.switchIncluido.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchIncluido.BackgroundImage")));
             this.switchIncluido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchIncluido.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchIncluido.Location = new System.Drawing.Point(595, 170);
+            this.switchIncluido.Location = new System.Drawing.Point(425, 177);
             this.switchIncluido.Name = "switchIncluido";
             this.switchIncluido.OffColor = System.Drawing.Color.Gray;
             this.switchIncluido.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
@@ -464,57 +440,57 @@
             this.switchMasIva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchMasIva.BackgroundImage")));
             this.switchMasIva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchMasIva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchMasIva.Location = new System.Drawing.Point(595, 98);
+            this.switchMasIva.Location = new System.Drawing.Point(425, 139);
             this.switchMasIva.Name = "switchMasIva";
             this.switchMasIva.OffColor = System.Drawing.Color.Gray;
             this.switchMasIva.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.switchMasIva.Size = new System.Drawing.Size(35, 20);
             this.switchMasIva.TabIndex = 20;
-            this.switchMasIva.Value = true;
+            this.switchMasIva.Value = false;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(440, 167);
+            this.label6.Location = new System.Drawing.Point(270, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 23);
             this.label6.TabIndex = 19;
             this.label6.Text = "Incluido";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(440, 95);
+            this.label4.Location = new System.Drawing.Point(270, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 15;
             this.label4.Text = "+ IVA";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(440, 55);
+            this.label2.Location = new System.Drawing.Point(270, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Configuracion del IVA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(39, 48);
+            this.label1.Location = new System.Drawing.Point(42, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Monto ($)";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtMonto
             // 
@@ -526,7 +502,7 @@
             this.txtMonto.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMonto.isPassword = false;
-            this.txtMonto.Location = new System.Drawing.Point(43, 95);
+            this.txtMonto.Location = new System.Drawing.Point(43, 90);
             this.txtMonto.Margin = new System.Windows.Forms.Padding(5);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(178, 35);
@@ -565,6 +541,7 @@
             this.tablePartida.ColumnHeadersHeight = 50;
             this.tablePartida.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
+            this.ColumnCodigo,
             this.ColumnDetalle,
             this.Column1Debe,
             this.ColumnHaber});
@@ -596,6 +573,12 @@
             this.ColumnFecha.HeaderText = "Fecha";
             this.ColumnFecha.Name = "ColumnFecha";
             this.ColumnFecha.ReadOnly = true;
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
             // 
             // ColumnDetalle
             // 
@@ -757,11 +740,6 @@
             this.bunifuElipse3.ElipseRadius = 20;
             this.bunifuElipse3.TargetControl = this;
             // 
-            // bunifuElipse4
-            // 
-            this.bunifuElipse4.ElipseRadius = 0;
-            this.bunifuElipse4.TargetControl = this.cbCuenta;
-            // 
             // bunifuElipse5
             // 
             this.bunifuElipse5.ElipseRadius = 20;
@@ -776,6 +754,67 @@
             // 
             this.bunifuElipse7.ElipseRadius = 20;
             this.bunifuElipse7.TargetControl = this.btnEliminarCuenta;
+            // 
+            // switchCredito
+            // 
+            this.switchCredito.BackColor = System.Drawing.Color.Transparent;
+            this.switchCredito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchCredito.BackgroundImage")));
+            this.switchCredito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.switchCredito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchCredito.Location = new System.Drawing.Point(585, 157);
+            this.switchCredito.Name = "switchCredito";
+            this.switchCredito.OffColor = System.Drawing.Color.Gray;
+            this.switchCredito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.switchCredito.Size = new System.Drawing.Size(35, 20);
+            this.switchCredito.TabIndex = 68;
+            this.switchCredito.Value = false;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(499, 154);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 23);
+            this.label8.TabIndex = 67;
+            this.label8.Text = "Credito";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // switchDebito
+            // 
+            this.switchDebito.BackColor = System.Drawing.Color.Transparent;
+            this.switchDebito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchDebito.BackgroundImage")));
+            this.switchDebito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.switchDebito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchDebito.Location = new System.Drawing.Point(585, 108);
+            this.switchDebito.Name = "switchDebito";
+            this.switchDebito.OffColor = System.Drawing.Color.Gray;
+            this.switchDebito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.switchDebito.Size = new System.Drawing.Size(35, 20);
+            this.switchDebito.TabIndex = 66;
+            this.switchDebito.Value = false;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(499, 105);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 23);
+            this.label9.TabIndex = 65;
+            this.label9.Text = "Debito";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(499, 62);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(129, 23);
+            this.label7.TabIndex = 64;
+            this.label7.Text = "Tipo de pago";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AgregarPartidaForm
             // 
@@ -828,7 +867,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnAgregarPartida;
         private FontAwesome.Sharp.IconButton btnNuevaCuenta;
@@ -836,15 +874,18 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
         private System.Windows.Forms.Label label12;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescripcion;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuDatepicker dpFecha;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblPartida;
+        private System.Windows.Forms.Label label10;
+        private Bunifu.Framework.UI.BunifuDropdown cbTipoTransaccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
         private Bunifu.Framework.UI.BunifuiOSSwitch switchCredito;
         private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuiOSSwitch switchDebito;

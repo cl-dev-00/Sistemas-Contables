@@ -15,7 +15,6 @@ namespace SistemasContables.Models
         private int idLibro;
         private List<CuentaPartida> listaCuentasPartida;
 
-
         public int IdPartida
         {
             get
