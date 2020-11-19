@@ -29,44 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarPartidaForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarPartidaForm));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dpFecha = new Bunifu.Framework.UI.BunifuDatepicker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregarPartida = new FontAwesome.Sharp.IconButton();
             this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
             this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
             this.txtBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txtDescripcion = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.switchHaber = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.cbCuenta = new Bunifu.Framework.UI.BunifuDropdown();
-            this.switchDebe = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.switchCFI = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.label8 = new System.Windows.Forms.Label();
-            this.switchDFI = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.switchExcento = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.label5 = new System.Windows.Forms.Label();
             this.switchIncluido = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.switchMasIva = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMonto = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.dpFecha = new Bunifu.Framework.UI.BunifuDatepicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tablePartida = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
@@ -83,10 +79,11 @@
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.switchCredito = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.label8 = new System.Windows.Forms.Label();
+            this.switchDebito = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panelContenedor.SuspendLayout();
             this.panelContenido.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -102,46 +99,107 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1000, 720);
+            this.panelContenedor.Size = new System.Drawing.Size(1000, 770);
             this.panelContenedor.TabIndex = 0;
             // 
             // panelContenido
             // 
             this.panelContenido.BackColor = System.Drawing.Color.White;
-            this.panelContenido.Controls.Add(this.flowLayoutPanel1);
-            this.panelContenido.Controls.Add(this.txtBuscar);
-            this.panelContenido.Controls.Add(this.txtDescripcion);
-            this.panelContenido.Controls.Add(this.label14);
-            this.panelContenido.Controls.Add(this.label13);
-            this.panelContenido.Controls.Add(this.label12);
-            this.panelContenido.Controls.Add(this.label11);
-            this.panelContenido.Controls.Add(this.label10);
-            this.panelContenido.Controls.Add(this.switchHaber);
-            this.panelContenido.Controls.Add(this.cbCuenta);
-            this.panelContenido.Controls.Add(this.switchDebe);
-            this.panelContenido.Controls.Add(this.switchCFI);
+            this.panelContenido.Controls.Add(this.switchCredito);
             this.panelContenido.Controls.Add(this.label8);
-            this.panelContenido.Controls.Add(this.switchDFI);
+            this.panelContenido.Controls.Add(this.switchDebito);
             this.panelContenido.Controls.Add(this.label9);
             this.panelContenido.Controls.Add(this.label7);
+            this.panelContenido.Controls.Add(this.label15);
+            this.panelContenido.Controls.Add(this.label12);
+            this.panelContenido.Controls.Add(this.txtDescripcion);
+            this.panelContenido.Controls.Add(this.label3);
+            this.panelContenido.Controls.Add(this.dpFecha);
+            this.panelContenido.Controls.Add(this.flowLayoutPanel1);
+            this.panelContenido.Controls.Add(this.txtBuscar);
+            this.panelContenido.Controls.Add(this.label14);
+            this.panelContenido.Controls.Add(this.label13);
+            this.panelContenido.Controls.Add(this.cbCuenta);
             this.panelContenido.Controls.Add(this.switchExcento);
             this.panelContenido.Controls.Add(this.label5);
             this.panelContenido.Controls.Add(this.switchIncluido);
             this.panelContenido.Controls.Add(this.switchMasIva);
             this.panelContenido.Controls.Add(this.label6);
             this.panelContenido.Controls.Add(this.label4);
-            this.panelContenido.Controls.Add(this.label3);
             this.panelContenido.Controls.Add(this.label2);
             this.panelContenido.Controls.Add(this.label1);
             this.panelContenido.Controls.Add(this.txtMonto);
-            this.panelContenido.Controls.Add(this.dpFecha);
             this.panelContenido.Controls.Add(this.panel1);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(0, 40);
             this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(1000, 680);
+            this.panelContenido.Size = new System.Drawing.Size(1000, 730);
             this.panelContenido.TabIndex = 7;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(39, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(139, 23);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Cuenta nueva";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(39, 518);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 23);
+            this.label12.TabIndex = 55;
+            this.label12.Text = "Descripcion / Detalle";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(43, 554);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(906, 66);
+            this.txtDescripcion.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(39, 430);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 23);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Fecha";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dpFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(71)))), ((int)(((byte)(87)))));
+            this.dpFecha.BorderRadius = 0;
+            this.dpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFecha.ForeColor = System.Drawing.Color.White;
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dpFecha.FormatCustom = null;
+            this.dpFecha.Location = new System.Drawing.Point(43, 465);
+            this.dpFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(318, 35);
+            this.dpFecha.TabIndex = 53;
+            this.dpFecha.Value = new System.DateTime(2020, 11, 15, 10, 20, 18, 864);
             // 
             // flowLayoutPanel1
             // 
@@ -150,7 +208,8 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAgregarPartida);
             this.flowLayoutPanel1.Controls.Add(this.btnNuevaCuenta);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminarCuenta);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(43, 587);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(347, 652);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 66);
             this.flowLayoutPanel1.TabIndex = 46;
@@ -171,7 +230,7 @@
             this.btnAgregarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregarPartida.IconSize = 40;
             this.btnAgregarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPartida.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregarPartida.Location = new System.Drawing.Point(409, 3);
             this.btnAgregarPartida.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnAgregarPartida.Name = "btnAgregarPartida";
             this.btnAgregarPartida.Rotation = 0D;
@@ -198,7 +257,7 @@
             this.btnNuevaCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNuevaCuenta.IconSize = 40;
             this.btnNuevaCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevaCuenta.Location = new System.Drawing.Point(199, 3);
+            this.btnNuevaCuenta.Location = new System.Drawing.Point(213, 3);
             this.btnNuevaCuenta.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnNuevaCuenta.Name = "btnNuevaCuenta";
             this.btnNuevaCuenta.Rotation = 0D;
@@ -207,6 +266,7 @@
             this.btnNuevaCuenta.Text = "Nueva cuenta";
             this.btnNuevaCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevaCuenta.UseVisualStyleBackColor = false;
+            this.btnNuevaCuenta.Click += new System.EventHandler(this.btnNuevaCuenta_Click);
             // 
             // btnEliminarCuenta
             // 
@@ -224,7 +284,7 @@
             this.btnEliminarCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminarCuenta.IconSize = 40;
             this.btnEliminarCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCuenta.Location = new System.Drawing.Point(395, 3);
+            this.btnEliminarCuenta.Location = new System.Drawing.Point(9, 3);
             this.btnEliminarCuenta.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnEliminarCuenta.Name = "btnEliminarCuenta";
             this.btnEliminarCuenta.Rotation = 0D;
@@ -233,9 +293,12 @@
             this.btnEliminarCuenta.Text = "Eliminar Cuenta";
             this.btnEliminarCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminarCuenta.UseVisualStyleBackColor = false;
+            this.btnEliminarCuenta.Click += new System.EventHandler(this.btnEliminarCuenta_Click);
             // 
             // txtBuscar
             // 
+            this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.txtBuscar.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -245,31 +308,18 @@
             this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBuscar.isPassword = false;
-            this.txtBuscar.Location = new System.Drawing.Point(428, 65);
+            this.txtBuscar.Location = new System.Drawing.Point(668, 90);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(219, 35);
+            this.txtBuscar.Size = new System.Drawing.Size(282, 35);
             this.txtBuscar.TabIndex = 45;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(691, 184);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(267, 117);
-            this.txtDescripcion.TabIndex = 42;
             // 
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(424, 131);
+            this.label14.Location = new System.Drawing.Point(664, 129);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(146, 23);
             this.label14.TabIndex = 41;
@@ -280,62 +330,17 @@
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(424, 30);
+            this.label13.Location = new System.Drawing.Point(664, 55);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(137, 23);
             this.label13.TabIndex = 40;
             this.label13.Text = "Buscar Cuenta";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(687, 135);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(182, 23);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Descripcion / Detalle";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(254, 30);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 23);
-            this.label11.TabIndex = 37;
-            this.label11.Text = "Debe";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(337, 30);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 23);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "Haber";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // switchHaber
-            // 
-            this.switchHaber.BackColor = System.Drawing.Color.Transparent;
-            this.switchHaber.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchHaber.BackgroundImage")));
-            this.switchHaber.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchHaber.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchHaber.Location = new System.Drawing.Point(341, 75);
-            this.switchHaber.Name = "switchHaber";
-            this.switchHaber.OffColor = System.Drawing.Color.Gray;
-            this.switchHaber.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.switchHaber.Size = new System.Drawing.Size(35, 20);
-            this.switchHaber.TabIndex = 35;
-            this.switchHaber.Value = false;
-            // 
             // cbCuenta
             // 
+            this.cbCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCuenta.BackColor = System.Drawing.Color.Transparent;
             this.cbCuenta.BorderRadius = 3;
             this.cbCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -344,89 +349,14 @@
             this.cbCuenta.ForeColor = System.Drawing.Color.White;
             this.cbCuenta.Items = new string[] {
         "Seleccionar Cuenta"};
-            this.cbCuenta.Location = new System.Drawing.Point(428, 166);
+            this.cbCuenta.Location = new System.Drawing.Point(668, 164);
             this.cbCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.cbCuenta.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.cbCuenta.selectedIndex = -1;
-            this.cbCuenta.Size = new System.Drawing.Size(219, 35);
+            this.cbCuenta.Size = new System.Drawing.Size(279, 35);
             this.cbCuenta.TabIndex = 31;
-            // 
-            // switchDebe
-            // 
-            this.switchDebe.BackColor = System.Drawing.Color.Transparent;
-            this.switchDebe.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchDebe.BackgroundImage")));
-            this.switchDebe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchDebe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchDebe.Location = new System.Drawing.Point(258, 75);
-            this.switchDebe.Name = "switchDebe";
-            this.switchDebe.OffColor = System.Drawing.Color.Gray;
-            this.switchDebe.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.switchDebe.Size = new System.Drawing.Size(35, 20);
-            this.switchDebe.TabIndex = 29;
-            this.switchDebe.Value = true;
-            // 
-            // switchCFI
-            // 
-            this.switchCFI.BackColor = System.Drawing.Color.Transparent;
-            this.switchCFI.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchCFI.BackgroundImage")));
-            this.switchCFI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchCFI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchCFI.Location = new System.Drawing.Point(341, 234);
-            this.switchCFI.Name = "switchCFI";
-            this.switchCFI.OffColor = System.Drawing.Color.Gray;
-            this.switchCFI.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.switchCFI.Size = new System.Drawing.Size(35, 20);
-            this.switchCFI.TabIndex = 28;
-            this.switchCFI.Value = false;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(276, 231);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 23);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "CFI";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // switchDFI
-            // 
-            this.switchDFI.BackColor = System.Drawing.Color.Transparent;
-            this.switchDFI.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchDFI.BackgroundImage")));
-            this.switchDFI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.switchDFI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchDFI.Location = new System.Drawing.Point(341, 184);
-            this.switchDFI.Name = "switchDFI";
-            this.switchDFI.OffColor = System.Drawing.Color.Gray;
-            this.switchDFI.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.switchDFI.Size = new System.Drawing.Size(35, 20);
-            this.switchDFI.TabIndex = 26;
-            this.switchDFI.Value = false;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(276, 181);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 23);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "DFI";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(267, 135);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 23);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Tipo de Iva";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // switchExcento
             // 
@@ -434,7 +364,7 @@
             this.switchExcento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchExcento.BackgroundImage")));
             this.switchExcento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchExcento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchExcento.Location = new System.Drawing.Point(194, 281);
+            this.switchExcento.Location = new System.Drawing.Point(595, 132);
             this.switchExcento.Name = "switchExcento";
             this.switchExcento.OffColor = System.Drawing.Color.Gray;
             this.switchExcento.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
@@ -446,7 +376,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(39, 278);
+            this.label5.Location = new System.Drawing.Point(440, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 23);
             this.label5.TabIndex = 22;
@@ -459,7 +389,7 @@
             this.switchIncluido.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchIncluido.BackgroundImage")));
             this.switchIncluido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchIncluido.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchIncluido.Location = new System.Drawing.Point(194, 231);
+            this.switchIncluido.Location = new System.Drawing.Point(595, 170);
             this.switchIncluido.Name = "switchIncluido";
             this.switchIncluido.OffColor = System.Drawing.Color.Gray;
             this.switchIncluido.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
@@ -473,7 +403,7 @@
             this.switchMasIva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchMasIva.BackgroundImage")));
             this.switchMasIva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchMasIva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchMasIva.Location = new System.Drawing.Point(194, 181);
+            this.switchMasIva.Location = new System.Drawing.Point(595, 98);
             this.switchMasIva.Name = "switchMasIva";
             this.switchMasIva.OffColor = System.Drawing.Color.Gray;
             this.switchMasIva.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
@@ -485,7 +415,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(39, 228);
+            this.label6.Location = new System.Drawing.Point(440, 167);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 23);
             this.label6.TabIndex = 19;
@@ -496,29 +426,18 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(39, 178);
+            this.label4.Location = new System.Drawing.Point(440, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 23);
             this.label4.TabIndex = 15;
             this.label4.Text = "+ IVA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(687, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 23);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Fecha";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(39, 135);
+            this.label2.Location = new System.Drawing.Point(440, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(198, 23);
             this.label2.TabIndex = 13;
@@ -529,7 +448,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(39, 23);
+            this.label1.Location = new System.Drawing.Point(39, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 37);
             this.label1.TabIndex = 12;
@@ -546,27 +465,12 @@
             this.txtMonto.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.txtMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMonto.isPassword = false;
-            this.txtMonto.Location = new System.Drawing.Point(43, 65);
+            this.txtMonto.Location = new System.Drawing.Point(43, 95);
             this.txtMonto.Margin = new System.Windows.Forms.Padding(5);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(170, 35);
             this.txtMonto.TabIndex = 5;
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // dpFecha
-            // 
-            this.dpFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(72)))));
-            this.dpFecha.BorderRadius = 0;
-            this.dpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpFecha.ForeColor = System.Drawing.Color.White;
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dpFecha.FormatCustom = null;
-            this.dpFecha.Location = new System.Drawing.Point(691, 65);
-            this.dpFecha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(267, 35);
-            this.dpFecha.TabIndex = 2;
-            this.dpFecha.Value = new System.DateTime(2020, 11, 15, 10, 20, 18, 864);
             // 
             // panel1
             // 
@@ -574,9 +478,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.tablePartida);
-            this.panel1.Location = new System.Drawing.Point(43, 332);
+            this.panel1.Location = new System.Drawing.Point(40, 214);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(906, 222);
+            this.panel1.Size = new System.Drawing.Size(906, 203);
             this.panel1.TabIndex = 0;
             // 
             // tablePartida
@@ -622,8 +526,32 @@
             this.tablePartida.RowHeadersVisible = false;
             this.tablePartida.RowTemplate.Height = 40;
             this.tablePartida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablePartida.Size = new System.Drawing.Size(906, 222);
+            this.tablePartida.Size = new System.Drawing.Size(906, 203);
             this.tablePartida.TabIndex = 1;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            // 
+            // ColumnDetalle
+            // 
+            this.ColumnDetalle.HeaderText = "Detalle";
+            this.ColumnDetalle.Name = "ColumnDetalle";
+            this.ColumnDetalle.ReadOnly = true;
+            // 
+            // Column1Debe
+            // 
+            this.Column1Debe.HeaderText = "Debe";
+            this.Column1Debe.Name = "Column1Debe";
+            this.Column1Debe.ReadOnly = true;
+            // 
+            // ColumnHaber
+            // 
+            this.ColumnHaber.HeaderText = "Haber";
+            this.ColumnHaber.Name = "ColumnHaber";
+            this.ColumnHaber.ReadOnly = true;
             // 
             // panelTop
             // 
@@ -765,11 +693,11 @@
             // bunifuElipse3
             // 
             this.bunifuElipse3.ElipseRadius = 20;
-            this.bunifuElipse3.TargetControl = this.dpFecha;
+            this.bunifuElipse3.TargetControl = this;
             // 
             // bunifuElipse4
             // 
-            this.bunifuElipse4.ElipseRadius = 20;
+            this.bunifuElipse4.ElipseRadius = 0;
             this.bunifuElipse4.TargetControl = this.cbCuenta;
             // 
             // bunifuElipse5
@@ -787,35 +715,72 @@
             this.bunifuElipse7.ElipseRadius = 20;
             this.bunifuElipse7.TargetControl = this.btnEliminarCuenta;
             // 
-            // ColumnFecha
+            // switchCredito
             // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
+            this.switchCredito.BackColor = System.Drawing.Color.Transparent;
+            this.switchCredito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchCredito.BackgroundImage")));
+            this.switchCredito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.switchCredito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchCredito.Location = new System.Drawing.Point(332, 150);
+            this.switchCredito.Name = "switchCredito";
+            this.switchCredito.OffColor = System.Drawing.Color.Gray;
+            this.switchCredito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.switchCredito.Size = new System.Drawing.Size(35, 20);
+            this.switchCredito.TabIndex = 61;
+            this.switchCredito.Value = false;
             // 
-            // ColumnDetalle
+            // label8
             // 
-            this.ColumnDetalle.HeaderText = "Detalle";
-            this.ColumnDetalle.Name = "ColumnDetalle";
-            this.ColumnDetalle.ReadOnly = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(246, 147);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 23);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Credito";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Column1Debe
+            // switchDebito
             // 
-            this.Column1Debe.HeaderText = "Debe";
-            this.Column1Debe.Name = "Column1Debe";
-            this.Column1Debe.ReadOnly = true;
+            this.switchDebito.BackColor = System.Drawing.Color.Transparent;
+            this.switchDebito.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchDebito.BackgroundImage")));
+            this.switchDebito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.switchDebito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchDebito.Location = new System.Drawing.Point(332, 101);
+            this.switchDebito.Name = "switchDebito";
+            this.switchDebito.OffColor = System.Drawing.Color.Gray;
+            this.switchDebito.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.switchDebito.Size = new System.Drawing.Size(35, 20);
+            this.switchDebito.TabIndex = 59;
+            this.switchDebito.Value = true;
             // 
-            // ColumnHaber
+            // label9
             // 
-            this.ColumnHaber.HeaderText = "Haber";
-            this.ColumnHaber.Name = "ColumnHaber";
-            this.ColumnHaber.ReadOnly = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(246, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 23);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Debito";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(246, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(179, 23);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Tipo de transaccion";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AgregarPartidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 720);
+            this.ClientSize = new System.Drawing.Size(1000, 770);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarPartidaForm";
@@ -846,28 +811,15 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tablePartida;
         private Bunifu.Framework.UI.BunifuElipse bordesTabla;
-        private Bunifu.Framework.UI.BunifuDatepicker dpFecha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuiOSSwitch switchIncluido;
         private Bunifu.Framework.UI.BunifuiOSSwitch switchMasIva;
         private Bunifu.Framework.UI.BunifuiOSSwitch switchExcento;
         private System.Windows.Forms.Label label5;
-        private Bunifu.Framework.UI.BunifuiOSSwitch switchCFI;
-        private System.Windows.Forms.Label label8;
-        private Bunifu.Framework.UI.BunifuiOSSwitch switchDFI;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private Bunifu.Framework.UI.BunifuDropdown cbCuenta;
-        private Bunifu.Framework.UI.BunifuiOSSwitch switchDebe;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private Bunifu.Framework.UI.BunifuiOSSwitch switchHaber;
-        private System.Windows.Forms.Label label12;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescripcion;
         private System.Windows.Forms.Label label14;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtMonto;
         private System.Windows.Forms.Label label13;
@@ -887,5 +839,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
+        private System.Windows.Forms.Label label12;
+        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescripcion;
+        private System.Windows.Forms.Label label3;
+        private Bunifu.Framework.UI.BunifuDatepicker dpFecha;
+        private System.Windows.Forms.Label label15;
+        private Bunifu.Framework.UI.BunifuiOSSwitch switchCredito;
+        private System.Windows.Forms.Label label8;
+        private Bunifu.Framework.UI.BunifuiOSSwitch switchDebito;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
     }
 }

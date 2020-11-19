@@ -75,6 +75,25 @@ namespace SistemasContables.Views
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+        //el metodo agrega la partida
+        private void btnAgregarPartida_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //el metodo agrega una cuenta
+        private void btnNuevaCuenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //el metodo elimina una cuenta
+        private void btnEliminarCuenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
         private const int WM_NCHITTEST = 132;
@@ -112,11 +131,6 @@ namespace SistemasContables.Views
             e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
-        }
-
-        private void btnAgregarPartida_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
