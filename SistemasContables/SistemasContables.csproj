@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controller\CuentasController.cs" />
+    <Compile Include="controller\LibroDiariosController.cs" />
     <Compile Include="controller\PartidasController.cs" />
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />

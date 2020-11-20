@@ -34,6 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroDiario = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
@@ -45,10 +49,7 @@
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPeriodo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -103,11 +104,37 @@
             this.tableLibroDiario.HeaderForeColor = System.Drawing.Color.White;
             this.tableLibroDiario.Location = new System.Drawing.Point(0, 0);
             this.tableLibroDiario.Name = "tableLibroDiario";
+            this.tableLibroDiario.ReadOnly = true;
             this.tableLibroDiario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableLibroDiario.RowHeadersVisible = false;
             this.tableLibroDiario.RowTemplate.Height = 40;
+            this.tableLibroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableLibroDiario.Size = new System.Drawing.Size(624, 491);
             this.tableLibroDiario.TabIndex = 0;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            // 
+            // ColumnDetalle
+            // 
+            this.ColumnDetalle.HeaderText = "Detalle";
+            this.ColumnDetalle.Name = "ColumnDetalle";
+            this.ColumnDetalle.ReadOnly = true;
+            // 
+            // Column1Debe
+            // 
+            this.Column1Debe.HeaderText = "Debe ($)";
+            this.Column1Debe.Name = "Column1Debe";
+            this.Column1Debe.ReadOnly = true;
+            // 
+            // ColumnHaber
+            // 
+            this.ColumnHaber.HeaderText = "Haber ($)";
+            this.ColumnHaber.Name = "ColumnHaber";
+            this.ColumnHaber.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
@@ -246,6 +273,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -267,32 +295,24 @@
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(394, 59);
+            this.lblTitulo.Location = new System.Drawing.Point(179, 24);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(153, 33);
+            this.lblTitulo.Size = new System.Drawing.Size(595, 33);
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "Libro Diario";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ColumnFecha
+            // lblPeriodo
             // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            // 
-            // ColumnDetalle
-            // 
-            this.ColumnDetalle.HeaderText = "Detalle";
-            this.ColumnDetalle.Name = "ColumnDetalle";
-            // 
-            // Column1Debe
-            // 
-            this.Column1Debe.HeaderText = "Debe ($)";
-            this.Column1Debe.Name = "Column1Debe";
-            // 
-            // ColumnHaber
-            // 
-            this.ColumnHaber.HeaderText = "Haber ($)";
-            this.ColumnHaber.Name = "ColumnHaber";
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.TabIndex = 9;
+            this.lblPeriodo.Text = "texto periodo";
+            this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LibroDiarioForm
             // 
@@ -300,6 +320,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelTabla);
@@ -331,5 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
+        private System.Windows.Forms.Label lblPeriodo;
     }
 }

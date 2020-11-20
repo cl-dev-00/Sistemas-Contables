@@ -38,11 +38,8 @@
             this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblPeriodo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableEstadoDeResultados)).BeginInit();
             this.SuspendLayout();
@@ -95,9 +92,11 @@
             this.tableEstadoDeResultados.HeaderForeColor = System.Drawing.Color.White;
             this.tableEstadoDeResultados.Location = new System.Drawing.Point(0, 0);
             this.tableEstadoDeResultados.Name = "tableEstadoDeResultados";
+            this.tableEstadoDeResultados.ReadOnly = true;
             this.tableEstadoDeResultados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableEstadoDeResultados.RowHeadersVisible = false;
             this.tableEstadoDeResultados.RowTemplate.Height = 40;
+            this.tableEstadoDeResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableEstadoDeResultados.Size = new System.Drawing.Size(818, 491);
             this.tableEstadoDeResultados.TabIndex = 0;
             // 
@@ -105,49 +104,48 @@
             // 
             this.ColumnOperacion.HeaderText = "Operacion";
             this.ColumnOperacion.Name = "ColumnOperacion";
+            this.ColumnOperacion.ReadOnly = true;
             // 
             // ColumnCuentas
             // 
             this.ColumnCuentas.HeaderText = "Cuenta";
             this.ColumnCuentas.Name = "ColumnCuentas";
+            this.ColumnCuentas.ReadOnly = true;
             // 
             // ColumnTotales
             // 
             this.ColumnTotales.HeaderText = "Totales";
             this.ColumnTotales.Name = "ColumnTotales";
+            this.ColumnTotales.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 7;
             this.bunifuElipse1.TargetControl = this.tableEstadoDeResultados;
             // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 20;
-            // 
-            // bunifuElipse3
-            // 
-            this.bunifuElipse3.ElipseRadius = 20;
-            // 
-            // bunifuElipse4
-            // 
-            this.bunifuElipse4.ElipseRadius = 20;
-            // 
-            // bunifuElipse5
-            // 
-            this.bunifuElipse5.ElipseRadius = 20;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(336, 57);
+            this.lblTitulo.Location = new System.Drawing.Point(336, 24);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(295, 33);
             this.lblTitulo.TabIndex = 17;
             this.lblTitulo.Text = "Estado de Resultados";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.TabIndex = 18;
+            this.lblPeriodo.Text = "texto periodo";
+            this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EstadoDeResultadosForm
             // 
@@ -155,6 +153,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelTabla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -170,13 +169,10 @@
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableEstadoDeResultados;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOperacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblPeriodo;
     }
 }

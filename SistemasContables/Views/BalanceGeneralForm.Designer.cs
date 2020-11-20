@@ -40,10 +40,9 @@
             this.ColumnHaberPasivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.btnImprimir = new FontAwesome.Sharp.IconButton();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblPeriodo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceGeneral)).BeginInit();
             this.SuspendLayout();
@@ -54,9 +53,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableBalanceGeneral);
-            this.panelTabla.Location = new System.Drawing.Point(63, 161);
+            this.panelTabla.Location = new System.Drawing.Point(63, 236);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(816, 491);
+            this.panelTabla.Size = new System.Drawing.Size(816, 416);
             this.panelTabla.TabIndex = 7;
             // 
             // tableBalanceGeneral
@@ -97,31 +96,37 @@
             this.tableBalanceGeneral.HeaderForeColor = System.Drawing.Color.White;
             this.tableBalanceGeneral.Location = new System.Drawing.Point(0, 0);
             this.tableBalanceGeneral.Name = "tableBalanceGeneral";
+            this.tableBalanceGeneral.ReadOnly = true;
             this.tableBalanceGeneral.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableBalanceGeneral.RowHeadersVisible = false;
             this.tableBalanceGeneral.RowTemplate.Height = 40;
-            this.tableBalanceGeneral.Size = new System.Drawing.Size(816, 491);
+            this.tableBalanceGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableBalanceGeneral.Size = new System.Drawing.Size(816, 416);
             this.tableBalanceGeneral.TabIndex = 0;
             // 
             // ColumnActivos
             // 
             this.ColumnActivos.HeaderText = "Activos";
             this.ColumnActivos.Name = "ColumnActivos";
+            this.ColumnActivos.ReadOnly = true;
             // 
             // ColumnDebeActivos
             // 
             this.ColumnDebeActivos.HeaderText = "Cantidad ($)";
             this.ColumnDebeActivos.Name = "ColumnDebeActivos";
+            this.ColumnDebeActivos.ReadOnly = true;
             // 
             // ColumnPasivos
             // 
             this.ColumnPasivos.HeaderText = "Pasivos y Capital";
             this.ColumnPasivos.Name = "ColumnPasivos";
+            this.ColumnPasivos.ReadOnly = true;
             // 
             // ColumnHaberPasivo
             // 
             this.ColumnHaberPasivo.HeaderText = "Cantidad ($)";
             this.ColumnHaberPasivo.Name = "ColumnHaberPasivo";
+            this.ColumnHaberPasivo.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
@@ -131,30 +136,59 @@
             // bunifuElipse2
             // 
             this.bunifuElipse2.ElipseRadius = 20;
+            this.bunifuElipse2.TargetControl = this.btnImprimir;
             // 
-            // bunifuElipse3
+            // btnImprimir
             // 
-            this.bunifuElipse3.ElipseRadius = 20;
-            // 
-            // bunifuElipse4
-            // 
-            this.bunifuElipse4.ElipseRadius = 20;
-            // 
-            // bunifuElipse5
-            // 
-            this.bunifuElipse5.ElipseRadius = 20;
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileExport;
+            this.btnImprimir.IconColor = System.Drawing.Color.White;
+            this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImprimir.IconSize = 40;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(739, 171);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnImprimir.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnImprimir.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Rotation = 0D;
+            this.btnImprimir.Size = new System.Drawing.Size(140, 50);
+            this.btnImprimir.TabIndex = 18;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(368, 54);
+            this.lblTitulo.Location = new System.Drawing.Point(368, 24);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(228, 33);
             this.lblTitulo.TabIndex = 16;
             this.lblTitulo.Text = "Balance General";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.TabIndex = 17;
+            this.lblPeriodo.Text = "texto periodo";
+            this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BalanceGeneralForm
             // 
@@ -162,6 +196,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelTabla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -178,13 +214,12 @@
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableBalanceGeneral;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActivos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebeActivos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPasivos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaberPasivo;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblPeriodo;
+        private FontAwesome.Sharp.IconButton btnImprimir;
     }
 }

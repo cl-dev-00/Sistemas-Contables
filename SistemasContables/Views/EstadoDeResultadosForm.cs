@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasContables.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace SistemasContables.Views
 {
     public partial class EstadoDeResultadosForm : Form
     {
-        public EstadoDeResultadosForm()
+        public EstadoDeResultadosForm(LibroDiario libroDiario)
         {
             InitializeComponent();
+
+            lblPeriodo.Text = libroDiario.Periodo;
         }
     }
 }

@@ -32,11 +32,12 @@ namespace SistemasContables.DataBase
 
         public LibroDiarioDAO()
         {
-            this.lista = new List<LibroDiario>();
+            
         }
 
-        public List<LibroDiario> getList(int idLibroDiario)
+        public LibroDiario getPeriodoLibroDiario(int idLibroDiario)
         {
+            LibroDiario libroDiario = null;
 
             try
             {
@@ -56,19 +57,12 @@ namespace SistemasContables.DataBase
                     if (result.HasRows)
                     {
 
-                        if (lista.Count > 0)
-                        {
-                            lista.Clear();
-                        }
-
                         while (result.Read())
                         {
-                            LibroDiario libroDiario = new LibroDiario();
+                            libroDiario = new LibroDiario();
 
                             libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
                             libroDiario.Periodo = result[PERIODO].ToString();
-
-                            lista.Add(libroDiario);
                         }
                     }
 
@@ -83,7 +77,7 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return this.lista;
+            return libroDiario;
 
         }
     }

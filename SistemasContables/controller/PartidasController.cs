@@ -29,5 +29,10 @@ namespace SistemasContables.controller
             return lista;
         }
 
+        public void delete(int n_partida)
+        {
+            partidasDAO.delete(n_partida);
+        }
+
     }
 }

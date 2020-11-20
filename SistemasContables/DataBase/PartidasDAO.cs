@@ -13,7 +13,7 @@ namespace SistemasContables.DataBase
     {
         private SQLiteConnection conn;
         private List<Partida> lista;
-        private int idPartidaIngresada;
+        private int idPartida;
         private int idCuenta;
 
         private const string TABLE_PARTIDA = "partida";
@@ -62,13 +62,13 @@ namespace SistemasContables.DataBase
 
                     //Ingreso las cuentasPartidas a sus respectivas partidas en la database
 
-                    this.idPartidaIngresada = obtenerIdPartidaInsertada(partida.IdLibro);
+                    this.idPartida = obtenerIdPartidaInsertada(partida.IdLibro);
 
                     foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                     {
                         this.idCuenta = obtenerIdCuentaActual(cuentaPartida.Codigo);
                         cuentaPartida.IdCuenta = this.idCuenta;
-                        cuentaPartida.IdPartida = this.idPartidaIngresada;
+                        cuentaPartida.IdPartida = this.idPartida;
 
                         insertarCuentaPartida(cuentaPartida);
                     }
@@ -262,5 +262,98 @@ namespace SistemasContables.DataBase
             return listaCuentasPartida;
 
         }
+
+        public void delete(int n_partida)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+
+                    idPartida = obtenerIdPartida(n_partida);
+
+                    deleteCuentaPartida(idPartida); ;
+
+                    string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida ";
+
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                    command.ExecuteNonQuery();
+
+                    reorderPartidas(n_partida);
+
+                }
+
+                conn.Close();
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteCuentaPartida(int idPartida)
+        {
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"DELETE FROM {TABLE_CUENTA_PARTIDA} WHERE {ID_PARTIDA} = @idPartida ";
+
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                command.ExecuteNonQuery();
+
+            }
+        }
+
+        private int obtenerIdPartida(int n_partida)
+        {
+            int id = 0;
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida;";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                SQLiteDataReader result = command.ExecuteReader();
+
+
+                if (result.HasRows)
+                {
+                    while (result.Read())
+                    {
+
+                        id = Convert.ToInt32(result[ID_PARTIDA].ToString());
+
+                    }
+                }
+
+            }
+
+            return id;
+        }
+
+        private void reorderPartidas(int n_partida)
+        {
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"UPDATE {TABLE_PARTIDA} SET {N_PARTIDA} = {N_PARTIDA} - 1  WHERE {N_PARTIDA} > @n_partida";
+
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                command.ExecuteNonQuery();
+
+            }
+        }
+
     }
 }

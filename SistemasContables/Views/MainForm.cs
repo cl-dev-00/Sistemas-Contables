@@ -12,18 +12,24 @@ using SistemasContables.Views;
 using FontAwesome.Sharp;
 using System.Resources;
 using Microsoft.VisualBasic.CompilerServices;
+using SistemasContables.Models;
+using SistemasContables.controller;
 
 namespace SistemasContables
 {
     public partial class MainForm : Form
     {
+        private LibroDiario libroDiario;
+        private LibroDiariosController libroDiarioController;
         private IconButton btnCurrent;
         private Panel leftPanelBtn;
+        private Color color = Color.FromArgb(27, 156, 252);
+
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
-        private Color color = Color.FromArgb(27, 156, 252);
+        
 
         public MainForm()
         {
@@ -32,6 +38,10 @@ namespace SistemasContables
             leftPanelBtn.Size = new Size(7, btnInicio.Height);
             panelNavegacion.Controls.Add(leftPanelBtn);
             openFormInPane(new InicioForm());
+
+            libroDiarioController = new LibroDiariosController();
+
+            libroDiario = libroDiarioController.getPeriodoLibroDiario(1);
         }
 
         // cierra el programa
@@ -116,35 +126,35 @@ namespace SistemasContables
         private void btnLibroDiario_Click(object sender, EventArgs e)
         {
             activaButton(this.btnLibroDiario);
-            openFormInPane(new LibroDiarioForm());
+            openFormInPane(new LibroDiarioForm(libroDiario));
         }
 
         // abre el form del libro mayor en el panel de contenido
         private void btnLibroMayor_Click(object sender, EventArgs e)
         {
             activaButton(this.btnLibroMayor);
-            openFormInPane(new LibroMayorForm());
+            openFormInPane(new LibroMayorForm(libroDiario));
         }
 
         // abre el form de balance de comprobacion en el panel de contenido
         private void btnBalanceDeComprobacion_Click(object sender, EventArgs e)
         {
             activaButton(this.btnBalanceDeComprobacion);
-            openFormInPane(new BalanceDeComprobacionForm());
+            openFormInPane(new BalanceDeComprobacionForm(libroDiario));
         }
 
         // abre el form de estado de resultados en el panel de contenido
         private void btnEstadoDeResultados_Click(object sender, EventArgs e)
         {
             activaButton(this.btnEstadoDeResultados);
-            openFormInPane(new EstadoDeResultadosForm());
+            openFormInPane(new EstadoDeResultadosForm(libroDiario));
         }
 
         // abre el form de balance general en el panel de contenido
         private void btnBalanceGeneral_Click(object sender, EventArgs e)
         {
             activaButton(this.btnBalanceGeneral);
-            openFormInPane(new BalanceGeneralForm());
+            openFormInPane(new BalanceGeneralForm(libroDiario));
         }
 
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemasContables.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace SistemasContables.Views
 {
     public partial class BalanceGeneralForm : Form
     {
-        public BalanceGeneralForm()
+        public BalanceGeneralForm(LibroDiario libroDiario)
         {
             InitializeComponent();
+
+            lblPeriodo.Text = libroDiario.Periodo;
         }
     }
 }
