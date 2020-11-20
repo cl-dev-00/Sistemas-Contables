@@ -49,6 +49,7 @@
             this.dpFecha = new Bunifu.Framework.UI.BunifuDatepicker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregarPartida = new FontAwesome.Sharp.IconButton();
+            this.btnEditarPartida = new FontAwesome.Sharp.IconButton();
             this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
             this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
             this.txtBuscar = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -83,6 +84,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse7 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -230,7 +232,7 @@
             this.cbTipoTransaccion.Name = "cbTipoTransaccion";
             this.cbTipoTransaccion.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
             this.cbTipoTransaccion.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
-            this.cbTipoTransaccion.selectedIndex = -1;
+            this.cbTipoTransaccion.selectedIndex = 0;
             this.cbTipoTransaccion.Size = new System.Drawing.Size(178, 35);
             this.cbTipoTransaccion.TabIndex = 62;
             // 
@@ -304,12 +306,13 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btnAgregarPartida);
+            this.flowLayoutPanel1.Controls.Add(this.btnEditarPartida);
             this.flowLayoutPanel1.Controls.Add(this.btnNuevaCuenta);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminarCuenta);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(348, 654);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(149, 654);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(801, 55);
             this.flowLayoutPanel1.TabIndex = 46;
             // 
             // btnAgregarPartida
@@ -328,16 +331,43 @@
             this.btnAgregarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregarPartida.IconSize = 40;
             this.btnAgregarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPartida.Location = new System.Drawing.Point(409, 3);
+            this.btnAgregarPartida.Location = new System.Drawing.Point(608, 3);
             this.btnAgregarPartida.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnAgregarPartida.Name = "btnAgregarPartida";
             this.btnAgregarPartida.Rotation = 0D;
             this.btnAgregarPartida.Size = new System.Drawing.Size(190, 50);
-            this.btnAgregarPartida.TabIndex = 6;
+            this.btnAgregarPartida.TabIndex = 16;
             this.btnAgregarPartida.Text = "Agregar Partida";
             this.btnAgregarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregarPartida.UseVisualStyleBackColor = false;
             this.btnAgregarPartida.Click += new System.EventHandler(this.btnAgregarPartida_Click);
+            // 
+            // btnEditarPartida
+            // 
+            this.btnEditarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditarPartida.FlatAppearance.BorderSize = 0;
+            this.btnEditarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarPartida.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEditarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPartida.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnEditarPartida.IconColor = System.Drawing.Color.White;
+            this.btnEditarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditarPartida.IconSize = 40;
+            this.btnEditarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarPartida.Location = new System.Drawing.Point(412, 3);
+            this.btnEditarPartida.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnEditarPartida.Name = "btnEditarPartida";
+            this.btnEditarPartida.Rotation = 0D;
+            this.btnEditarPartida.Size = new System.Drawing.Size(190, 50);
+            this.btnEditarPartida.TabIndex = 6;
+            this.btnEditarPartida.Text = "Editar Partida";
+            this.btnEditarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarPartida.UseVisualStyleBackColor = false;
+            this.btnEditarPartida.Click += new System.EventHandler(this.btnEditarPartida_Click);
             // 
             // btnNuevaCuenta
             // 
@@ -355,7 +385,7 @@
             this.btnNuevaCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNuevaCuenta.IconSize = 40;
             this.btnNuevaCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevaCuenta.Location = new System.Drawing.Point(213, 3);
+            this.btnNuevaCuenta.Location = new System.Drawing.Point(216, 3);
             this.btnNuevaCuenta.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnNuevaCuenta.Name = "btnNuevaCuenta";
             this.btnNuevaCuenta.Rotation = 0D;
@@ -382,7 +412,7 @@
             this.btnEliminarCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminarCuenta.IconSize = 40;
             this.btnEliminarCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCuenta.Location = new System.Drawing.Point(9, 3);
+            this.btnEliminarCuenta.Location = new System.Drawing.Point(12, 3);
             this.btnEliminarCuenta.MinimumSize = new System.Drawing.Size(190, 50);
             this.btnEliminarCuenta.Name = "btnEliminarCuenta";
             this.btnEliminarCuenta.Rotation = 0D;
@@ -452,7 +482,7 @@
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
             this.cbCuenta.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
-            this.cbCuenta.selectedIndex = -1;
+            this.cbCuenta.selectedIndex = 0;
             this.cbCuenta.Size = new System.Drawing.Size(279, 35);
             this.cbCuenta.TabIndex = 31;
             // 
@@ -682,7 +712,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(157, 40);
             this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Nueva partida";
+            this.lblTitulo.Text = "Texto Accion";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnMinimizar
@@ -799,22 +829,27 @@
             // bunifuElipse3
             // 
             this.bunifuElipse3.ElipseRadius = 20;
-            this.bunifuElipse3.TargetControl = this;
+            this.bunifuElipse3.TargetControl = this.btnAgregarPartida;
+            // 
+            // bunifuElipse4
+            // 
+            this.bunifuElipse4.ElipseRadius = 20;
+            this.bunifuElipse4.TargetControl = this.btnEditarPartida;
             // 
             // bunifuElipse5
             // 
             this.bunifuElipse5.ElipseRadius = 20;
-            this.bunifuElipse5.TargetControl = this.btnAgregarPartida;
+            this.bunifuElipse5.TargetControl = this.btnNuevaCuenta;
             // 
             // bunifuElipse6
             // 
             this.bunifuElipse6.ElipseRadius = 20;
-            this.bunifuElipse6.TargetControl = this.btnNuevaCuenta;
+            this.bunifuElipse6.TargetControl = this.btnEliminarCuenta;
             // 
             // bunifuElipse7
             // 
-            this.bunifuElipse7.ElipseRadius = 20;
-            this.bunifuElipse7.TargetControl = this.btnEliminarCuenta;
+            this.bunifuElipse7.ElipseRadius = 10;
+            this.bunifuElipse7.TargetControl = this.dpFecha;
             // 
             // AgregarPartidaForm
             // 
@@ -868,12 +903,12 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private FontAwesome.Sharp.IconButton btnAgregarPartida;
+        private FontAwesome.Sharp.IconButton btnEditarPartida;
         private FontAwesome.Sharp.IconButton btnNuevaCuenta;
         private FontAwesome.Sharp.IconButton btnEliminarCuenta;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
         private System.Windows.Forms.Label label12;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtDescripcion;
         private System.Windows.Forms.Label label3;
@@ -891,5 +926,7 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch switchDebito;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
+        private FontAwesome.Sharp.IconButton btnAgregarPartida;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse7;
     }
 }

@@ -12,9 +12,9 @@ namespace SistemasContables.DataBase
     public class PartidasDAO
     {
         private SQLiteConnection conn;
-        private List<Partida> lista;
         private int idPartida;
         private int idCuenta;
+        List<Partida> lista = null;
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";
@@ -37,7 +37,7 @@ namespace SistemasContables.DataBase
 
         public PartidasDAO()
         {
-            this.lista = new List<Partida>();
+            lista = new List<Partida>();
         }
 
         public void insert(Partida partida)
@@ -60,7 +60,7 @@ namespace SistemasContables.DataBase
                     command.Parameters.Add(new SQLiteParameter("@id_libro_diario", partida.IdLibro));
                     command.ExecuteNonQuery();
 
-                    //Ingreso las cuentasPartidas a sus respectivas partidas en la database
+                    //Ingreso las cuentasPartidas a sus respectiva partida a la database
 
                     this.idPartida = obtenerIdPartidaInsertada(partida.IdLibro);
 
@@ -86,6 +86,191 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
+        }
+
+        public List<Partida> getList(int idLibroDiario)
+        {
+
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"SELECT * FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @n_libro";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
+                    SQLiteDataReader result = command.ExecuteReader();
+
+                    if (result.HasRows)
+                    {
+
+                        if (lista.Count > 0)
+                        {
+                            lista.Clear();
+                        }
+
+                        while (result.Read())
+                        {
+                            Partida partida = new Partida();
+
+                            partida.IdPartida = Convert.ToInt32(result[ID_PARTIDA].ToString());
+                            partida.Fecha = result[FECHA].ToString();
+                            partida.Detalle = result[CONCEPTO].ToString();
+                            partida.N_Partida = Convert.ToInt32(result[N_PARTIDA].ToString());
+                            partida.IdLibro = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
+                            partida.ListaCuentasPartida = getListCuentasPartida(partida.IdPartida);
+
+                            lista.Add(partida);
+                        }
+                    }
+
+                }
+
+                conn.Close();
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return lista;
+
+        }
+
+        public void update(Partida partida)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"UPDATE {TABLE_PARTIDA} SET {FECHA} = @fecha, {CONCEPTO} = @concepto WHERE {N_PARTIDA} =  @n_partida";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@fecha", partida.Fecha));
+                    command.Parameters.Add(new SQLiteParameter("@concepto", partida.Detalle));
+                    command.Parameters.Add(new SQLiteParameter("@n_partida", partida.N_Partida));
+                    command.ExecuteNonQuery();
+
+                    //Ingreso las cuentasPartidas a sus respectiva partida a la database
+
+                    idPartida = obtenerIdPartida(partida.N_Partida, partida.IdLibro);
+
+                    deleteCuentaPartida(idPartida);
+
+                    foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
+                    {
+                        this.idCuenta = obtenerIdCuentaActual(cuentaPartida.Codigo);
+                        cuentaPartida.IdCuenta = this.idCuenta;
+                        cuentaPartida.IdPartida = this.idPartida;
+
+                        insertarCuentaPartida(cuentaPartida);
+                    }
+
+                }
+
+                conn.Close();
+
+                MessageBox.Show("Se ha modificado la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void delete(int n_partida, int idLibro)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+
+                    idPartida = obtenerIdPartida(n_partida, idLibro);
+
+                    deleteCuentaPartida(idPartida);
+
+                    string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida";
+
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                    command.ExecuteNonQuery();
+
+                    reorderPartidas(n_partida);
+
+                }
+
+                conn.Close();
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public Partida getPartida(int n_partida, int idLibro)
+        {
+            Partida partida = null;
+
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    idPartida = obtenerIdPartida(n_partida, idLibro);
+
+                    string sql = $"SELECT {FECHA}, {CONCEPTO} FROM {TABLE_PARTIDA} WHERE {ID_PARTIDA} = @idPartida";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                    SQLiteDataReader result = command.ExecuteReader();
+
+                    if (result.HasRows)
+                    {
+
+                        while (result.Read())
+                        {
+                            partida = new Partida();
+
+                            partida.Fecha = result[FECHA].ToString();
+                            partida.Detalle = result[CONCEPTO].ToString();
+
+                        }
+                    }
+
+                }
+
+                conn.Close();
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return partida;
 
         }
 
@@ -162,63 +347,6 @@ namespace SistemasContables.DataBase
             return id;
         }
 
-
-        public List<Partida> getList(int idLibroDiario)
-        {
-
-            try
-            {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
-                {
-                    string sql = $"SELECT * FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @n_libro";
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
-                    SQLiteDataReader result = command.ExecuteReader();
-
-
-                    if (result.HasRows)
-                    {
-
-                        if (lista.Count > 0)
-                        {
-                            lista.Clear();
-                        }
-
-                        while (result.Read())
-                        {
-                            Partida partida = new Partida();
-
-                            partida.IdPartida = Convert.ToInt32(result[ID_PARTIDA].ToString());
-                            partida.Fecha = result[FECHA].ToString();
-                            partida.Detalle = result[CONCEPTO].ToString();
-                            partida.N_Partida = Convert.ToInt32(result[N_PARTIDA].ToString());
-                            partida.IdLibro = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
-                            partida.ListaCuentasPartida = getListCuentasPartida(partida.IdPartida);
-
-                            lista.Add(partida);
-                        }
-                    }
-
-                }
-
-                conn.Close();
-
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return this.lista;
-
-        }
-
         private List<CuentaPartida> getListCuentasPartida(int idPartida)
         {
             List<CuentaPartida> listaCuentasPartida = new List<CuentaPartida>(); ;
@@ -263,42 +391,6 @@ namespace SistemasContables.DataBase
 
         }
 
-        public void delete(int n_partida)
-        {
-            try
-            {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
-                {
-
-                    idPartida = obtenerIdPartida(n_partida);
-
-                    deleteCuentaPartida(idPartida); ;
-
-                    string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida ";
-
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
-                    command.ExecuteNonQuery();
-
-                    reorderPartidas(n_partida);
-
-                }
-
-                conn.Close();
-
-
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void deleteCuentaPartida(int idPartida)
         {
             using (SQLiteCommand command = new SQLiteCommand())
@@ -313,16 +405,17 @@ namespace SistemasContables.DataBase
             }
         }
 
-        private int obtenerIdPartida(int n_partida)
+        private int obtenerIdPartida(int n_partida, int idLibro)
         {
             int id = 0;
 
             using (SQLiteCommand command = new SQLiteCommand())
             {
-                string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida;";
+                string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida AND {ID_LIBRO_DIARIO} = @idLibro;";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                command.Parameters.Add(new SQLiteParameter("@idLibro", idLibro));
                 SQLiteDataReader result = command.ExecuteReader();
 
 
@@ -345,7 +438,7 @@ namespace SistemasContables.DataBase
         {
             using (SQLiteCommand command = new SQLiteCommand())
             {
-                string sql = $"UPDATE {TABLE_PARTIDA} SET {N_PARTIDA} = {N_PARTIDA} - 1  WHERE {N_PARTIDA} > @n_partida";
+                string sql = $"UPDATE {TABLE_PARTIDA} SET {N_PARTIDA} = {N_PARTIDA} - 1  WHERE {N_PARTIDA} > @n_partida;";
 
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;

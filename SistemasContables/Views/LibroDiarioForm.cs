@@ -20,6 +20,7 @@ namespace SistemasContables.Views
 
         private int numeroPartidas;
         private int idLibroIdario;
+        private string accion;
 
         public LibroDiarioForm(LibroDiario libroDiario)
         {
@@ -36,11 +37,40 @@ namespace SistemasContables.Views
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            agregarPartidaForm = new AgregarPartidaForm(this.partidasControlles,idLibroIdario ,numeroPartidas);
+            accion = "ingresar";
+            agregarPartidaForm = new AgregarPartidaForm(this.partidasControlles, idLibroIdario, numeroPartidas, accion);
             this.Parent.Parent.Parent.Visible = false;
             agregarPartidaForm.ShowDialog();
             this.Parent.Parent.Parent.Visible = true;
             llenarTabla();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            int indexFila = tableLibroDiario.CurrentRow.Index;
+
+            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells[1].Value.ToString();
+
+            if (celdaPartida.Contains("Partida"))
+            {
+                string[] partidaString = celdaPartida.Split(' ');
+                int numeroPartida = Convert.ToInt32(partidaString[2]);
+
+
+                accion = "editar";
+                agregarPartidaForm = new AgregarPartidaForm(this.partidasControlles, idLibroIdario, numeroPartida, accion);
+                this.Parent.Parent.Parent.Visible = false;
+                agregarPartidaForm.ShowDialog();
+                this.Parent.Parent.Parent.Visible = true;
+                llenarTabla();
+
+            }
+            else
+            {
+                MessageBox.Show("Para editar una partida Selecciona la fila que corresponda\n a la partidano, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
 
@@ -50,34 +80,35 @@ namespace SistemasContables.Views
 
             string celdaPartida = tableLibroDiario.Rows[indexFila].Cells[1].Value.ToString();
 
-            if(celdaPartida.Contains("Partida"))
+            if (celdaPartida.Contains("Partida"))
             {
                 string[] partidaString = celdaPartida.Split(' ');
                 int numeroPartida = Convert.ToInt32(partidaString[2]);
 
 
-                partidasControlles.delete(numeroPartida);
+                partidasControlles.delete(numeroPartida, idLibroIdario);
 
                 llenarTabla();
-                
-            } else
+
+            }
+            else
             {
-                MessageBox.Show("Para eliminar una partida Selecciona la celda que corresponda\n a la partida no seleccione una cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         //el metodo llena la tabla del libro diario
         public void llenarTabla()
         {
-            if (this.tableLibroDiario.Rows.Count > 0 && this.lista.Count > 0)
+            if (tableLibroDiario.Rows.Count > 0 && lista.Count > 0)
             {
-                this.tableLibroDiario.Rows.Clear();
-                this.lista.Clear();
+                tableLibroDiario.Rows.Clear();
+                lista.Clear();
             }
 
-            this.lista = this.partidasControlles.getList(this.idLibroIdario);
+            lista = partidasControlles.getList(idLibroIdario);
 
-            this.numeroPartidas = lista.Count;
+            numeroPartidas = lista.Count;
 
             foreach (Partida partida in lista)
             {
@@ -92,7 +123,5 @@ namespace SistemasContables.Views
             }
 
         }
-
-
     }
 }

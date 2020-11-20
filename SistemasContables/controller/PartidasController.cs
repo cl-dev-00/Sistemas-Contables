@@ -29,9 +29,21 @@ namespace SistemasContables.controller
             return lista;
         }
 
-        public void delete(int n_partida)
+        public void update(Partida partida)
         {
-            partidasDAO.delete(n_partida);
+            partidasDAO.update(partida);
+        }
+
+        public void delete(int n_partida, int idLibro)
+        {
+            partidasDAO.delete(n_partida, idLibro);
+        }
+
+        public Partida getPartida(int n_partida, int idLibro)
+        {
+            Partida partida = partidasDAO.getPartida(n_partida, idLibro);
+
+            return partida;
         }
 
     }

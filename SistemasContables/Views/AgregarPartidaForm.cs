@@ -18,46 +18,37 @@ namespace SistemasContables.Views
         const double IVA = 0.13;
 
         private CuentasController cuentaController;
+        private PartidasController partidasController;
+        private CuentaPartidaController cuentaPartidaController;
         private List<Cuenta> lista;
-        Partida partida;
-        PartidasController partidasController;
+        List<CuentaPartida> listaCuentasPartida;
+        private Partida partida;
 
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
         private string fecha;
-        int libroDiario = 0;
-        int numeroPartida;        
+        private int libroDiario;
+        private int numeroPartida;        
 
-        public AgregarPartidaForm(PartidasController partidasController, int libroDiario, int numeroPartida)
+        public AgregarPartidaForm(PartidasController partidasController, int libroDiario, int numeroPartida, string accion)
         {
             InitializeComponent();
+
+            llenarCuentas();
 
             this.partidasController = partidasController;
 
             this.libroDiario = libroDiario;
 
-
+            fecha = FormatoFecha();
             this.numeroPartida = numeroPartida;
-            this.numeroPartida++;
+
+            VerificarAccion(accion);
 
             this.lblPartida.Text += this.numeroPartida;
 
-            cuentaController = new CuentasController();
-            this.lista = this.cuentaController.getList();
-
-            foreach(Cuenta cuenta in lista)
-            {
-                cbCuenta.AddItem(cuenta.Nombre);
-            }
-
-            cbCuenta.selectedIndex = 0;
-            cbTipoTransaccion.selectedIndex = 0;
-
-            fecha = FormatoFecha();
-
-            tablePartida.Rows.Add(fecha, "", "Partida No "  + this.numeroPartida, "", "");
         }
 
         // cierra el programa
@@ -103,7 +94,8 @@ namespace SistemasContables.Views
         //el metodo agrega la partida
         private void btnAgregarPartida_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1) {
+            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+            {
 
                 partida = new Partida();
 
@@ -117,11 +109,36 @@ namespace SistemasContables.Views
                 this.partidasController.insert(partida);
 
                 this.Close();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Debe poner una descripcion de la partida\ny debe tener al menos una cuenta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
 
+        // el metodo modifica la partidas y sus partidas
+        private void btnEditarPartida_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+            {
+
+                partida = new Partida();
+
+                partida.Fecha = this.fecha;
+                partida.Detalle = this.txtDescripcion.Text;
+                partida.IdLibro = this.libroDiario;
+                partida.N_Partida = this.numeroPartida;
+
+                LlenarCuentasPartida(ref partida);
+
+                this.partidasController.update(partida);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe poner una descripcion de la partida\ny debe tener al menos una cuenta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         //el metodo agrega una cuenta
@@ -209,6 +226,75 @@ namespace SistemasContables.Views
 
         }
 
+        private void dpFecha_onValueChanged(object sender, EventArgs e)
+        {
+            fecha = FormatoFecha();
+
+            tablePartida.Rows[0].Cells[0].Value = fecha;
+        }
+
+        private void switchDebito_OnValueChange(object sender, EventArgs e)
+        {
+            //if (switchDebito.Value == false && switchCredito.Value == true)
+            //{
+            //    switchDebito.Value = true;
+            //    switchCredito.Value = false;
+            //    this.Refresh();
+            //}
+        }
+
+        private void switchCredito_OnValueChange(object sender, EventArgs e)
+        {
+            //if (switchDebito.Value == true && switchCredito.Value == false)
+            //{
+            //    switchDebito.Value = false;
+            //    switchCredito.Value = true;
+            //    MessageBox.Show(switchDebito.Value + " " + switchCredito.Value);
+            //    this.Refresh();
+            //}
+        }
+
+        // verifica si la accion del formulario es ingresar o editar una partida
+        private void VerificarAccion(string accion)
+        {
+            if (accion == "ingresar")
+            {
+                btnEditarPartida.Visible = false;
+
+                numeroPartida++;
+
+                lblTitulo.Text = "Nueva Partida";
+
+                tablePartida.Rows.Add(fecha, "", "Partida No " + numeroPartida, "", "");
+            }
+            else if (accion == "editar")
+            {
+                btnAgregarPartida.Visible = false;
+
+                lblTitulo.Text = "Editar Partida";
+
+                partida = partidasController.getPartida(numeroPartida, libroDiario);
+
+                txtDescripcion.Text = partida.Detalle;
+
+                tablePartida.Rows.Add(partida.Fecha, "", "Partida No " + numeroPartida, "", "");
+
+                cuentaPartidaController = new CuentaPartidaController();
+
+                listaCuentasPartida = cuentaPartidaController.getList(numeroPartida, libroDiario);
+
+                foreach(CuentaPartida cuentaPartida in listaCuentasPartida)
+                {
+                    tablePartida.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error en la accion del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.Close();
+            }
+        }
 
         // evalua el iva y el debito y credito fiscal para insertar la respectiva fila
         private double MontoConIVA(double monto, double ivaMonto)
@@ -245,6 +331,18 @@ namespace SistemasContables.Views
                 partida.ListaCuentasPartida.Add(cuentaPartida);
             }
 
+        }
+
+        // el metodo llena el combobox de cuenta
+        private void llenarCuentas()
+        {
+            cuentaController = new CuentasController();
+            lista = cuentaController.getList();
+
+            foreach (Cuenta cuenta in lista)
+            {
+                cbCuenta.AddItem(cuenta.Nombre);
+            }
         }
 
         // devulve la fecha seleccionada en formato dd/mm/YY
@@ -294,32 +392,6 @@ namespace SistemasContables.Views
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
 
-        private void switchDebito_OnValueChange(object sender, EventArgs e)
-        {
-            //if (switchDebito.Value == false && switchCredito.Value == true)
-            //{
-            //    switchDebito.Value = true;
-            //    switchCredito.Value = false;
-            //    this.Refresh();
-            //}
-        }
 
-        private void switchCredito_OnValueChange(object sender, EventArgs e)
-        {
-            //if (switchDebito.Value == true && switchCredito.Value == false)
-            //{
-            //    switchDebito.Value = false;
-            //    switchCredito.Value = true;
-            //    MessageBox.Show(switchDebito.Value + " " + switchCredito.Value);
-            //    this.Refresh();
-            //}
-        }
-
-        private void dpFecha_onValueChanged(object sender, EventArgs e)
-        {
-            fecha = FormatoFecha();
-
-            tablePartida.Rows[0].Cells[0].Value = fecha;
-        }
     }
 }
