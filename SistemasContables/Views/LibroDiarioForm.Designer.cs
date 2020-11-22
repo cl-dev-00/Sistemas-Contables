@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroDiario = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -50,6 +50,13 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
+            this.btnAjusteIva = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.lblDebe = new System.Windows.Forms.Label();
+            this.lblHaber = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -61,42 +68,42 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableLibroDiario);
-            this.panelTabla.Location = new System.Drawing.Point(73, 169);
+            this.panelTabla.Location = new System.Drawing.Point(73, 229);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(624, 491);
+            this.panelTabla.Size = new System.Drawing.Size(800, 380);
             this.panelTabla.TabIndex = 1;
             // 
             // tableLibroDiario
             // 
             this.tableLibroDiario.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tableLibroDiario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableLibroDiario.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableLibroDiario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLibroDiario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.tableLibroDiario.ColumnHeadersHeight = 50;
             this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
             this.ColumnDetalle,
-            this.Column1Debe,
+            this.ColumnDebe,
             this.ColumnHaber});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle6;
             this.tableLibroDiario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLibroDiario.DoubleBuffered = true;
             this.tableLibroDiario.EnableHeadersVisualStyles = false;
@@ -107,9 +114,10 @@
             this.tableLibroDiario.ReadOnly = true;
             this.tableLibroDiario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableLibroDiario.RowHeadersVisible = false;
+            this.tableLibroDiario.RowHeadersWidth = 40;
             this.tableLibroDiario.RowTemplate.Height = 40;
             this.tableLibroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableLibroDiario.Size = new System.Drawing.Size(624, 491);
+            this.tableLibroDiario.Size = new System.Drawing.Size(800, 380);
             this.tableLibroDiario.TabIndex = 0;
             // 
             // ColumnFecha
@@ -124,11 +132,11 @@
             this.ColumnDetalle.Name = "ColumnDetalle";
             this.ColumnDetalle.ReadOnly = true;
             // 
-            // Column1Debe
+            // ColumnDebe
             // 
-            this.Column1Debe.HeaderText = "Debe ($)";
-            this.Column1Debe.Name = "Column1Debe";
-            this.Column1Debe.ReadOnly = true;
+            this.ColumnDebe.HeaderText = "Debe ($)";
+            this.ColumnDebe.Name = "ColumnDebe";
+            this.ColumnDebe.ReadOnly = true;
             // 
             // ColumnHaber
             // 
@@ -148,8 +156,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
@@ -162,9 +169,8 @@
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 40;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(3, 3);
+            this.btnImprimir.Location = new System.Drawing.Point(73, 637);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnImprimir.MaximumSize = new System.Drawing.Size(140, 50);
             this.btnImprimir.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Rotation = 0D;
@@ -195,9 +201,7 @@
             this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregar.IconSize = 40;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(3, 81);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
-            this.btnAgregar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
             this.btnAgregar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Rotation = 0D;
@@ -229,9 +233,7 @@
             this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnModificar.IconSize = 40;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(3, 159);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
-            this.btnModificar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnModificar.Location = new System.Drawing.Point(149, 3);
             this.btnModificar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Rotation = 0D;
@@ -263,9 +265,7 @@
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 40;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(3, 237);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
-            this.btnEliminar.MaximumSize = new System.Drawing.Size(140, 50);
+            this.btnEliminar.Location = new System.Drawing.Point(295, 3);
             this.btnEliminar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Rotation = 0D;
@@ -278,17 +278,13 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.btnImprimir);
             this.flowLayoutPanel1.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(741, 169);
-            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(146, 293);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(73, 164);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(146, 293);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(442, 59);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // lblTitulo
@@ -310,10 +306,101 @@
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 35);
             this.lblPeriodo.TabIndex = 9;
             this.lblPeriodo.Text = "texto periodo";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAjusteIva
+            // 
+            this.btnAjusteIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAjusteIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
+            this.btnAjusteIva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjusteIva.FlatAppearance.BorderSize = 0;
+            this.btnAjusteIva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAjusteIva.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAjusteIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjusteIva.ForeColor = System.Drawing.Color.White;
+            this.btnAjusteIva.IconChar = FontAwesome.Sharp.IconChar.Calculator;
+            this.btnAjusteIva.IconColor = System.Drawing.Color.White;
+            this.btnAjusteIva.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAjusteIva.IconSize = 40;
+            this.btnAjusteIva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAjusteIva.Location = new System.Drawing.Point(651, 167);
+            this.btnAjusteIva.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
+            this.btnAjusteIva.MinimumSize = new System.Drawing.Size(140, 50);
+            this.btnAjusteIva.Name = "btnAjusteIva";
+            this.btnAjusteIva.Rotation = 0D;
+            this.btnAjusteIva.Size = new System.Drawing.Size(222, 50);
+            this.btnAjusteIva.TabIndex = 16;
+            this.btnAjusteIva.Text = "Calcular ajuste IVA";
+            this.btnAjusteIva.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAjusteIva.UseVisualStyleBackColor = false;
+            this.btnAjusteIva.Click += new System.EventHandler(this.btnAjusteIva_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(332, 649);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 24);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Totales";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuElipse6
+            // 
+            this.bunifuElipse6.ElipseRadius = 20;
+            this.bunifuElipse6.TargetControl = this.btnAjusteIva;
+            // 
+            // lblDebe
+            // 
+            this.lblDebe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDebe.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDebe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblDebe.Location = new System.Drawing.Point(472, 649);
+            this.lblDebe.Name = "lblDebe";
+            this.lblDebe.Size = new System.Drawing.Size(198, 24);
+            this.lblDebe.TabIndex = 20;
+            this.lblDebe.Text = "Debe";
+            this.lblDebe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHaber
+            // 
+            this.lblHaber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHaber.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblHaber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHaber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblHaber.Location = new System.Drawing.Point(676, 649);
+            this.lblHaber.Name = "lblHaber";
+            this.lblHaber.Size = new System.Drawing.Size(197, 24);
+            this.lblHaber.TabIndex = 21;
+            this.lblHaber.Text = "Haber";
+            this.lblHaber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(471, 625);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(199, 24);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Debe";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(676, 625);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 24);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Haber";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LibroDiarioForm
             // 
@@ -321,10 +408,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.lblHaber);
+            this.Controls.Add(this.lblDebe);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelTabla);
+            this.Controls.Add(this.btnAjusteIva);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LibroDiarioForm";
             this.Text = "LibroDiarioForm";
@@ -349,10 +443,17 @@
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblPeriodo;
+        private FontAwesome.Sharp.IconButton btnAjusteIva;
+        private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
+        private System.Windows.Forms.Label lblDebe;
+        private System.Windows.Forms.Label lblHaber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1Debe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
-        private System.Windows.Forms.Label lblPeriodo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

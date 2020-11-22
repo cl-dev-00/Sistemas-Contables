@@ -442,6 +442,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(282, 35);
             this.txtBuscar.TabIndex = 45;
             this.txtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // label14
             // 

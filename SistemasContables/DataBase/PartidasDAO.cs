@@ -62,7 +62,7 @@ namespace SistemasContables.DataBase
 
                     //Ingreso las cuentasPartidas a sus respectiva partida a la database
 
-                    this.idPartida = obtenerIdPartidaInsertada(partida.IdLibro);
+                    this.idPartida = obtenerIdUltimaPartida(partida.IdLibro);
 
                     foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                     {
@@ -274,6 +274,7 @@ namespace SistemasContables.DataBase
 
         }
 
+        
         private void insertarCuentaPartida(CuentaPartida cuentaPartida)
         {
             using (SQLiteCommand command = new SQLiteCommand())
@@ -292,7 +293,7 @@ namespace SistemasContables.DataBase
 
         }
 
-        private int obtenerIdPartidaInsertada(int idLibroDiario)
+        private int obtenerIdUltimaPartida(int idLibroDiario)
         {
             int id = 0;
 

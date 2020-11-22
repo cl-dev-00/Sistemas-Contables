@@ -20,7 +20,7 @@ namespace SistemasContables.Views
         private CuentasController cuentaController;
         private PartidasController partidasController;
         private CuentaPartidaController cuentaPartidaController;
-        private List<Cuenta> lista;
+        private List<Cuenta> listaCuenta;
         List<CuentaPartida> listaCuentasPartida;
         private Partida partida;
 
@@ -155,7 +155,7 @@ namespace SistemasContables.Views
 
                 if (cbTipoTransaccion.selectedValue == "Debe")
                 {
-                    tablePartida.Rows.Add("", lista[index].Codigo, lista[index].Nombre, montoTotal, "0");
+                    tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
                     if(switchDebito.Value)
                     {
@@ -169,7 +169,7 @@ namespace SistemasContables.Views
                 }
                 else if (cbTipoTransaccion.selectedValue == "Haber")
                 {
-                    tablePartida.Rows.Add("", lista[index].Codigo, lista[index].Nombre, "0", montoTotal);
+                    tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
 
                     if (switchDebito.Value)
                     {
@@ -224,6 +224,11 @@ namespace SistemasContables.Views
 
             }
 
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
 
         private void dpFecha_onValueChanged(object sender, EventArgs e)
@@ -287,6 +292,9 @@ namespace SistemasContables.Views
                 {
                     tablePartida.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
                 }
+
+                setDatePicker();
+
             }
             else
             {
@@ -337,9 +345,9 @@ namespace SistemasContables.Views
         private void llenarCuentas()
         {
             cuentaController = new CuentasController();
-            lista = cuentaController.getList();
+            listaCuenta = cuentaController.getList();
 
-            foreach (Cuenta cuenta in lista)
+            foreach (Cuenta cuenta in listaCuenta)
             {
                 cbCuenta.AddItem(cuenta.Nombre);
             }
@@ -352,6 +360,17 @@ namespace SistemasContables.Views
             return fechaCompleto[0];
         }
 
+        //el metodo setea el DatePicker cbFecha con la fecha de la partida seleccionada para editar
+        private void setDatePicker()
+        {
+            string[] fechaCompleta = partida.Fecha.Split('/');
+
+            int day = Convert.ToInt32(fechaCompleta[0]);
+            int month = Convert.ToInt32(fechaCompleta[1]);
+            int year = Convert.ToInt32(fechaCompleta[2]);
+
+            dpFecha.Value = new DateTime(year, month, day);
+        }
 
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 15;
@@ -391,7 +410,6 @@ namespace SistemasContables.Views
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
-
 
     }
 }
