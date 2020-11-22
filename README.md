@@ -1,5 +1,7 @@
-<h3>Github en Visual Studio<h3/>
-Para trabajar aprender a Github en Visual Studio visita los siguientes
+<h2>Github en Visual Studio<h2/>
 
-Developer Documentation: https://github.com/github/VisualStudio/tree/master/docs
-Usin Github: https://github.com/github/VisualStudio/blob/master/docs/developer/readme.md
+<p>Para trabajar aprender a Github en Visual Studio visita los siguientes<p/>
+<br>
+<p>Developer Documentation: https://github.com/github/VisualStudio/tree/master/docs<p/>
+<p>Usin Github: https://github.com/github/VisualStudio/blob/master/docs/developer/readme.md<p/>
+
