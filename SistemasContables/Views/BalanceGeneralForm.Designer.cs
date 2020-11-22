@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableBalanceGeneral = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.ColumnActivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,42 +53,42 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableBalanceGeneral);
-            this.panelTabla.Location = new System.Drawing.Point(63, 236);
+            this.panelTabla.Location = new System.Drawing.Point(73, 199);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(816, 416);
+            this.panelTabla.Size = new System.Drawing.Size(800, 400);
             this.panelTabla.TabIndex = 7;
             // 
             // tableBalanceGeneral
             // 
             this.tableBalanceGeneral.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.tableBalanceGeneral.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.tableBalanceGeneral.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableBalanceGeneral.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableBalanceGeneral.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableBalanceGeneral.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableBalanceGeneral.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableBalanceGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableBalanceGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableBalanceGeneral.ColumnHeadersHeight = 50;
             this.tableBalanceGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnActivos,
             this.ColumnDebeActivos,
             this.ColumnPasivos,
             this.ColumnHaberPasivo});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableBalanceGeneral.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableBalanceGeneral.DefaultCellStyle = dataGridViewCellStyle3;
             this.tableBalanceGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableBalanceGeneral.DoubleBuffered = true;
             this.tableBalanceGeneral.EnableHeadersVisualStyles = false;
@@ -101,7 +101,7 @@
             this.tableBalanceGeneral.RowHeadersVisible = false;
             this.tableBalanceGeneral.RowTemplate.Height = 40;
             this.tableBalanceGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBalanceGeneral.Size = new System.Drawing.Size(816, 416);
+            this.tableBalanceGeneral.Size = new System.Drawing.Size(800, 400);
             this.tableBalanceGeneral.TabIndex = 0;
             // 
             // ColumnActivos
@@ -140,26 +140,25 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileExport;
-            this.btnImprimir.IconColor = System.Drawing.Color.White;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 40;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(739, 171);
+            this.btnImprimir.Location = new System.Drawing.Point(73, 143);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnImprimir.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Rotation = 0D;
             this.btnImprimir.Size = new System.Drawing.Size(140, 50);
-            this.btnImprimir.TabIndex = 18;
+            this.btnImprimir.TabIndex = 7;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -183,7 +182,7 @@
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 32);
             this.lblPeriodo.TabIndex = 17;
             this.lblPeriodo.Text = "texto periodo";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

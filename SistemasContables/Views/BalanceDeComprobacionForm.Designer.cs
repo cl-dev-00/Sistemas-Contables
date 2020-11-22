@@ -41,6 +41,11 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblAcreedor = new System.Windows.Forms.Label();
+            this.lblDeudor = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +56,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableBalanceDeComprobacion);
-            this.panelTabla.Location = new System.Drawing.Point(63, 161);
+            this.panelTabla.Location = new System.Drawing.Point(73, 199);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(821, 491);
+            this.panelTabla.Size = new System.Drawing.Size(800, 400);
             this.panelTabla.TabIndex = 7;
             // 
             // tableBalanceDeComprobacion
@@ -99,7 +104,7 @@
             this.tableBalanceDeComprobacion.RowHeadersVisible = false;
             this.tableBalanceDeComprobacion.RowTemplate.Height = 40;
             this.tableBalanceDeComprobacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableBalanceDeComprobacion.Size = new System.Drawing.Size(821, 491);
+            this.tableBalanceDeComprobacion.Size = new System.Drawing.Size(800, 400);
             this.tableBalanceDeComprobacion.TabIndex = 0;
             // 
             // ColumnN
@@ -150,10 +155,69 @@
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 33);
             this.lblPeriodo.TabIndex = 16;
             this.lblPeriodo.Text = "texto periodo";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(674, 619);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 24);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Acreedor";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(469, 619);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(199, 24);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Deudor";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAcreedor
+            // 
+            this.lblAcreedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAcreedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblAcreedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcreedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblAcreedor.Location = new System.Drawing.Point(674, 643);
+            this.lblAcreedor.Name = "lblAcreedor";
+            this.lblAcreedor.Size = new System.Drawing.Size(199, 24);
+            this.lblAcreedor.TabIndex = 31;
+            this.lblAcreedor.Text = "Acreedor";
+            this.lblAcreedor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeudor
+            // 
+            this.lblDeudor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDeudor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDeudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeudor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblDeudor.Location = new System.Drawing.Point(470, 643);
+            this.lblDeudor.Name = "lblDeudor";
+            this.lblDeudor.Size = new System.Drawing.Size(198, 24);
+            this.lblDeudor.TabIndex = 30;
+            this.lblDeudor.Text = "Deudor";
+            this.lblDeudor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(330, 643);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 24);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Totales";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BalanceDeComprobacionForm
             // 
@@ -161,9 +225,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblPeriodo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.lblAcreedor);
             this.Controls.Add(this.panelTabla);
+            this.Controls.Add(this.lblDeudor);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BalanceDeComprobacionForm";
             this.Text = "BalanceDeComprobacionForm";
@@ -183,5 +252,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAcreedor;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAcreedor;
+        private System.Windows.Forms.Label lblDeudor;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -50,9 +50,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableEstadoDeResultados);
-            this.panelTabla.Location = new System.Drawing.Point(63, 161);
+            this.panelTabla.Location = new System.Drawing.Point(73, 199);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(818, 491);
+            this.panelTabla.Size = new System.Drawing.Size(800, 400);
             this.panelTabla.TabIndex = 7;
             // 
             // tableEstadoDeResultados
@@ -97,7 +97,7 @@
             this.tableEstadoDeResultados.RowHeadersVisible = false;
             this.tableEstadoDeResultados.RowTemplate.Height = 40;
             this.tableEstadoDeResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableEstadoDeResultados.Size = new System.Drawing.Size(818, 491);
+            this.tableEstadoDeResultados.Size = new System.Drawing.Size(800, 400);
             this.tableEstadoDeResultados.TabIndex = 0;
             // 
             // ColumnOperacion
@@ -142,7 +142,7 @@
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 35);
             this.lblPeriodo.TabIndex = 18;
             this.lblPeriodo.Text = "texto periodo";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

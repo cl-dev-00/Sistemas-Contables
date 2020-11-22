@@ -156,20 +156,19 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FileExport;
-            this.btnImprimir.IconColor = System.Drawing.Color.White;
+            this.btnImprimir.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.btnImprimir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 40;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(73, 637);
+            this.btnImprimir.Location = new System.Drawing.Point(73, 164);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnImprimir.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnImprimir.Name = "btnImprimir";
@@ -201,7 +200,7 @@
             this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregar.IconSize = 40;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregar.Location = new System.Drawing.Point(299, 3);
             this.btnAgregar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Rotation = 0D;
@@ -233,7 +232,7 @@
             this.btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnModificar.IconSize = 40;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(149, 3);
+            this.btnModificar.Location = new System.Drawing.Point(153, 3);
             this.btnModificar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Rotation = 0D;
@@ -265,7 +264,7 @@
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEliminar.IconSize = 40;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(295, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(7, 3);
             this.btnEliminar.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Rotation = 0D;
@@ -278,11 +277,12 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel1.Controls.Add(this.btnModificar);
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(73, 164);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(431, 164);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(442, 59);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -313,8 +313,8 @@
             // 
             // btnAjusteIva
             // 
-            this.btnAjusteIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAjusteIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
+            this.btnAjusteIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAjusteIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.btnAjusteIva.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAjusteIva.FlatAppearance.BorderSize = 0;
             this.btnAjusteIva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -326,7 +326,7 @@
             this.btnAjusteIva.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAjusteIva.IconSize = 40;
             this.btnAjusteIva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjusteIva.Location = new System.Drawing.Point(651, 167);
+            this.btnAjusteIva.Location = new System.Drawing.Point(73, 637);
             this.btnAjusteIva.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.btnAjusteIva.MinimumSize = new System.Drawing.Size(140, 50);
             this.btnAjusteIva.Name = "btnAjusteIva";

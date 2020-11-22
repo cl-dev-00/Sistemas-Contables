@@ -42,6 +42,11 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblHaber = new System.Windows.Forms.Label();
+            this.lblDebe = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroMayor)).BeginInit();
             this.SuspendLayout();
@@ -52,9 +57,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTabla.Controls.Add(this.tableLibroMayor);
-            this.panelTabla.Location = new System.Drawing.Point(63, 161);
+            this.panelTabla.Location = new System.Drawing.Point(73, 199);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(816, 491);
+            this.panelTabla.Size = new System.Drawing.Size(800, 400);
             this.panelTabla.TabIndex = 7;
             // 
             // tableLibroMayor
@@ -101,7 +106,7 @@
             this.tableLibroMayor.RowHeadersVisible = false;
             this.tableLibroMayor.RowTemplate.Height = 40;
             this.tableLibroMayor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableLibroMayor.Size = new System.Drawing.Size(816, 491);
+            this.tableLibroMayor.Size = new System.Drawing.Size(800, 400);
             this.tableLibroMayor.TabIndex = 0;
             // 
             // ColumnNPartidas
@@ -158,10 +163,69 @@
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 74);
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 37);
             this.lblPeriodo.TabIndex = 15;
             this.lblPeriodo.Text = "texto periodo";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(674, 628);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 24);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Haber";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(469, 628);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(199, 24);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Debe";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHaber
+            // 
+            this.lblHaber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHaber.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblHaber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHaber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblHaber.Location = new System.Drawing.Point(674, 652);
+            this.lblHaber.Name = "lblHaber";
+            this.lblHaber.Size = new System.Drawing.Size(199, 24);
+            this.lblHaber.TabIndex = 26;
+            this.lblHaber.Text = "Haber";
+            this.lblHaber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDebe
+            // 
+            this.lblDebe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDebe.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDebe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblDebe.Location = new System.Drawing.Point(470, 652);
+            this.lblDebe.Name = "lblDebe";
+            this.lblDebe.Size = new System.Drawing.Size(198, 24);
+            this.lblDebe.TabIndex = 25;
+            this.lblDebe.Text = "Debe";
+            this.lblDebe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(330, 652);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 24);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Totales";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LibroMayorForm
             // 
@@ -169,6 +233,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblHaber);
+            this.Controls.Add(this.lblDebe);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelTabla);
@@ -192,5 +261,10 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblHaber;
+        private System.Windows.Forms.Label lblDebe;
+        private System.Windows.Forms.Label label1;
     }
 }
