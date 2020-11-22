@@ -17,16 +17,14 @@ namespace SistemasContables.controller
             this.partidasDAO = new PartidasDAO();
         }
 
-        public void insert(Partida partida)
+        public bool insert(Partida partida)
         {
-            partidasDAO.insert(partida);
+            return partidasDAO.insert(partida);
         }
 
         public List<Partida> getList(int idLibroDiario)
         {
-            List<Partida> lista = this.partidasDAO.getList(idLibroDiario);
-
-            return lista;
+            return partidasDAO.getList(idLibroDiario);
         }
 
         public void update(Partida partida)
@@ -41,9 +39,17 @@ namespace SistemasContables.controller
 
         public Partida getPartida(int n_partida, int idLibro)
         {
-            Partida partida = partidasDAO.getPartida(n_partida, idLibro);
+            return partidasDAO.getPartida(n_partida, idLibro);
+        }
 
-            return partida;
+        public double total(int idLibro, string campoCalcular)
+        {
+            return partidasDAO.total(idLibro, campoCalcular);
+        }
+
+        public bool VerificarAjusteIVA(int idLibro)
+        {
+            return partidasDAO.VerificarAjusteIVA(idLibro);
         }
 
     }

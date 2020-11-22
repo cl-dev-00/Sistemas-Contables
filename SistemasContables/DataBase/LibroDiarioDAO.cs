@@ -51,18 +51,19 @@ namespace SistemasContables.DataBase
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
                     command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
-                    SQLiteDataReader result = command.ExecuteReader();
 
-
-                    if (result.HasRows)
+                    using (SQLiteDataReader result = command.ExecuteReader())
                     {
-
-                        while (result.Read())
+                        if (result.HasRows)
                         {
-                            libroDiario = new LibroDiario();
 
-                            libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
-                            libroDiario.Periodo = result[PERIODO].ToString();
+                            while (result.Read())
+                            {
+                                libroDiario = new LibroDiario();
+
+                                libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
+                                libroDiario.Periodo = result[PERIODO].ToString();
+                            }
                         }
                     }
 

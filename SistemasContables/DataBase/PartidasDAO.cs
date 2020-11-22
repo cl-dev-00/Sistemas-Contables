@@ -40,7 +40,7 @@ namespace SistemasContables.DataBase
             lista = new List<Partida>();
         }
 
-        public void insert(Partida partida)
+        public bool insert(Partida partida)
         {
             try
             {
@@ -77,8 +77,7 @@ namespace SistemasContables.DataBase
 
                 conn.Close();
 
-
-                MessageBox.Show("Se ingreso la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
 
             }
             catch (Exception exception)
@@ -86,6 +85,8 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+
+            return false;
 
         }
 
@@ -104,28 +105,30 @@ namespace SistemasContables.DataBase
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
                     command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
-                    SQLiteDataReader result = command.ExecuteReader();
 
-                    if (result.HasRows)
+                    using(SQLiteDataReader result = command.ExecuteReader())
                     {
-
-                        if (lista.Count > 0)
+                        if (result.HasRows)
                         {
-                            lista.Clear();
-                        }
 
-                        while (result.Read())
-                        {
-                            Partida partida = new Partida();
+                            if (lista.Count > 0)
+                            {
+                                lista.Clear();
+                            }
 
-                            partida.IdPartida = Convert.ToInt32(result[ID_PARTIDA].ToString());
-                            partida.Fecha = result[FECHA].ToString();
-                            partida.Detalle = result[CONCEPTO].ToString();
-                            partida.N_Partida = Convert.ToInt32(result[N_PARTIDA].ToString());
-                            partida.IdLibro = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
-                            partida.ListaCuentasPartida = getListCuentasPartida(partida.IdPartida);
+                            while (result.Read())
+                            {
+                                Partida partida = new Partida();
 
-                            lista.Add(partida);
+                                partida.IdPartida = Convert.ToInt32(result[ID_PARTIDA].ToString());
+                                partida.Fecha = result[FECHA].ToString();
+                                partida.Detalle = result[CONCEPTO].ToString();
+                                partida.N_Partida = Convert.ToInt32(result[N_PARTIDA].ToString());
+                                partida.IdLibro = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
+                                partida.ListaCuentasPartida = getListCuentasPartida(partida.IdPartida);
+
+                                lista.Add(partida);
+                            }
                         }
                     }
 
@@ -244,18 +247,20 @@ namespace SistemasContables.DataBase
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
                     command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
-                    SQLiteDataReader result = command.ExecuteReader();
 
-                    if (result.HasRows)
+                    using(SQLiteDataReader result = command.ExecuteReader())
                     {
-
-                        while (result.Read())
+                        if (result.HasRows)
                         {
-                            partida = new Partida();
 
-                            partida.Fecha = result[FECHA].ToString();
-                            partida.Detalle = result[CONCEPTO].ToString();
+                            while (result.Read())
+                            {
+                                partida = new Partida();
 
+                                partida.Fecha = result[FECHA].ToString();
+                                partida.Detalle = result[CONCEPTO].ToString();
+
+                            }
                         }
                     }
 
@@ -274,7 +279,91 @@ namespace SistemasContables.DataBase
 
         }
 
-        
+        public double total(int idLibro, string campoCalcular)
+        {
+            double total = 0;
+
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = "";
+                    string descripcionDebito = "Debito Fiscal IVA";
+                    string descripcionCredito = "Credito Fiscal IVA";
+
+                    if (campoCalcular == "debito_total")
+                    {
+                        sql = $"SELECT SUM({DEBE}) FROM {TABLE_CUENTA_PARTIDA} INNER JOIN {TABLE_PARTIDA} ";
+                        sql += $"ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
+
+                    } else if(campoCalcular == "credito_total")
+                    {
+                        sql = $"SELECT SUM({HABER}) FROM {TABLE_CUENTA_PARTIDA} INNER JOIN {TABLE_PARTIDA} ";
+                        sql += $"ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
+                    }
+                    else if(campoCalcular == "debito_debe")
+                    {
+
+                        sql = $"SELECT SUM({DEBE}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{NOMBRE_CUENTA} = '{descripcionDebito}'";
+                    }
+                    else if (campoCalcular == "debito_haber")
+                    {
+                        sql = $"SELECT SUM({HABER}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{NOMBRE_CUENTA} =  '{descripcionDebito}'";
+                    }
+                    else if(campoCalcular == "credito_debe")
+                    {
+                        sql = $"SELECT SUM({DEBE}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{NOMBRE_CUENTA} =  '{descripcionCredito}'";
+                    }
+                    else if(campoCalcular == "credito_haber")
+                    {
+                        sql = $"SELECT SUM({HABER}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{NOMBRE_CUENTA} =  '{descripcionCredito}'";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error no se encontro el campo a calcular", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return 0;
+                    }
+
+
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
+                    var result = command.ExecuteScalar();
+
+                    total = result != null ? (double)result : 0;
+
+                }
+
+                conn.Close();
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return total;
+
+        }
+
         private void insertarCuentaPartida(CuentaPartida cuentaPartida)
         {
             using (SQLiteCommand command = new SQLiteCommand())
@@ -303,16 +392,17 @@ namespace SistemasContables.DataBase
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
-                SQLiteDataReader result = command.ExecuteReader();
 
-
-                if (result.HasRows)
+                using(SQLiteDataReader result = command.ExecuteReader())
                 {
-                    while (result.Read())
+                    if (result.HasRows)
                     {
+                        while (result.Read())
+                        {
 
-                        id = Convert.ToInt32(result[ID_PARTIDA].ToString());
+                            id = Convert.ToInt32(result[ID_PARTIDA].ToString());
 
+                        }
                     }
                 }
 
@@ -331,16 +421,19 @@ namespace SistemasContables.DataBase
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@codigo", codigoCuenta));
-                SQLiteDataReader result = command.ExecuteReader();
-
-                if (result.HasRows)
+               
+                using (SQLiteDataReader result = command.ExecuteReader())
                 {
-                    while (result.Read())
+                    if (result.HasRows)
                     {
+                        while (result.Read())
+                        {
 
-                        id = Convert.ToInt32(result[ID_CUENTA].ToString());
+                            id = Convert.ToInt32(result[ID_CUENTA].ToString());
 
+                        }
                     }
+
                 }
 
             }
@@ -361,27 +454,28 @@ namespace SistemasContables.DataBase
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
-                SQLiteDataReader result = command.ExecuteReader();
 
-
-                if (result.HasRows)
+                using (SQLiteDataReader result = command.ExecuteReader())
                 {
-
-                    if (listaCuentasPartida.Count > 0)
+                    if (result.HasRows)
                     {
-                        listaCuentasPartida.Clear();
-                    }
 
-                    while (result.Read())
-                    {
-                        CuentaPartida cuentaPartida = new CuentaPartida();
+                        if (listaCuentasPartida.Count > 0)
+                        {
+                            listaCuentasPartida.Clear();
+                        }
 
-                        cuentaPartida.Codigo = result[CODIGO].ToString();
-                        cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
-                        cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
-                        cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
+                        while (result.Read())
+                        {
+                            CuentaPartida cuentaPartida = new CuentaPartida();
 
-                        listaCuentasPartida.Add(cuentaPartida);
+                            cuentaPartida.Codigo = result[CODIGO].ToString();
+                            cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
+                            cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
+                            cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
+
+                            listaCuentasPartida.Add(cuentaPartida);
+                        }
                     }
                 }
 
@@ -417,16 +511,17 @@ namespace SistemasContables.DataBase
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
                 command.Parameters.Add(new SQLiteParameter("@idLibro", idLibro));
-                SQLiteDataReader result = command.ExecuteReader();
 
-
-                if (result.HasRows)
+                using (SQLiteDataReader result = command.ExecuteReader())
                 {
-                    while (result.Read())
+                    if (result.HasRows)
                     {
+                        while (result.Read())
+                        {
 
-                        id = Convert.ToInt32(result[ID_PARTIDA].ToString());
+                            id = Convert.ToInt32(result[ID_PARTIDA].ToString());
 
+                        }
                     }
                 }
 
@@ -447,6 +542,48 @@ namespace SistemasContables.DataBase
                 command.ExecuteNonQuery();
 
             }
+        }
+
+        public bool VerificarAjusteIVA(int idLibro)
+        {
+            bool verificar = false;
+
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+
+                    string sql = $"SELECT * FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {CONCEPTO} = 'Ajuste de IVA'";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
+
+                    using(SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        if (result.HasRows)
+                        {
+                            while (result.Read())
+                            {
+                                verificar = true;
+                            }
+                        }
+                    }
+
+                }
+
+                conn.Close();
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return verificar;
         }
 
     }

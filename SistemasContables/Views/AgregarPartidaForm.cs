@@ -106,7 +106,25 @@ namespace SistemasContables.Views
 
                 LlenarCuentasPartida(ref partida);
 
-                this.partidasController.insert(partida);
+                bool existeAjusteIVA = partidasController.VerificarAjusteIVA(libroDiario);
+
+                if (existeAjusteIVA)
+                {
+                    partidasController.delete(numeroPartida-1, libroDiario);
+                    partida.N_Partida = numeroPartida-1;
+                }
+
+                bool resultado = partidasController.insert(partida);
+                
+                if(resultado)
+                {
+                    MessageBox.Show("Se ingreso la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo ingresar la partida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
                 this.Close();
             }

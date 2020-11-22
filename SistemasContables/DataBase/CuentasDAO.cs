@@ -52,28 +52,29 @@ namespace SistemasContables.DataBase
                     string sql = $"SELECT * FROM {TABLE}";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    SQLiteDataReader result = command.ExecuteReader();
 
-
-                    if (result.HasRows)
+                    using (SQLiteDataReader result = command.ExecuteReader())
                     {
-                        
-                        if(lista.Count > 0)
+                        if (result.HasRows)
                         {
-                            lista.Clear();
-                        }
 
-                        while (result.Read())
-                        {
-                            Cuenta cuenta = new Cuenta();
+                            if (lista.Count > 0)
+                            {
+                                lista.Clear();
+                            }
 
-                            cuenta.IdCuenta = Convert.ToInt32(result[ID_CUENTA]);
-                            cuenta.Codigo = result[CODIGO].ToString();
-                            cuenta.Nivel = Convert.ToInt32(result[NIVEL]);
-                            cuenta.Nombre = result[NOMBRE_CUENTA].ToString();
-                            cuenta.TipoSaldo = result[TIPO_SALDO].ToString();
+                            while (result.Read())
+                            {
+                                Cuenta cuenta = new Cuenta();
 
-                            lista.Add(cuenta);
+                                cuenta.IdCuenta = Convert.ToInt32(result[ID_CUENTA]);
+                                cuenta.Codigo = result[CODIGO].ToString();
+                                cuenta.Nivel = Convert.ToInt32(result[NIVEL]);
+                                cuenta.Nombre = result[NOMBRE_CUENTA].ToString();
+                                cuenta.TipoSaldo = result[TIPO_SALDO].ToString();
+
+                                lista.Add(cuenta);
+                            }
                         }
                     }
 

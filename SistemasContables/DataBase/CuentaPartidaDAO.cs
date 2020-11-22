@@ -48,29 +48,31 @@ namespace SistemasContables.DataBase
                     int idPartida = obtenerIdPartida(n_partida, idLibro);
 
                     string sql = $"SELECT {TABLE_CUENTA}.{CODIGO}, {TABLE_CUENTA}.{NOMBRE_CUENTA}, {TABLE_CUENTA_PARTIDA}.{DEBE}, {TABLE_CUENTA_PARTIDA}.{HABER} FROM {TABLE_CUENTA} ";
-                    sql += $"INNER JOIN {TABLE_CUENTA_PARTIDA} ON {TABLE_CUENTA}.{ID_CUENTA} = {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} WHERE {ID_PARTIDA} = @idPartida AND {ID_PARTIDA} = @idPartida";
+                    sql += $"INNER JOIN {TABLE_CUENTA_PARTIDA} ON {TABLE_CUENTA}.{ID_CUENTA} = {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} WHERE {ID_PARTIDA} = @idPartida";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
                     command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
-                    SQLiteDataReader result = command.ExecuteReader();
 
-                    if (result.HasRows)
+                    using (SQLiteDataReader result = command.ExecuteReader())
                     {
-                        if (lista.Count > 0)
+                        if (result.HasRows)
                         {
-                            lista.Clear();
-                        }
+                            if (lista.Count > 0)
+                            {
+                                lista.Clear();
+                            }
 
-                        while (result.Read())
-                        {
-                            CuentaPartida cuentaPartida = new CuentaPartida();
+                            while (result.Read())
+                            {
+                                CuentaPartida cuentaPartida = new CuentaPartida();
 
-                            cuentaPartida.Codigo = result[CODIGO].ToString();
-                            cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
-                            cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
-                            cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
+                                cuentaPartida.Codigo = result[CODIGO].ToString();
+                                cuentaPartida.Nombre = result[NOMBRE_CUENTA].ToString();
+                                cuentaPartida.Debe = Convert.ToDouble(result[DEBE].ToString());
+                                cuentaPartida.Haber = Convert.ToDouble(result[HABER].ToString());
 
-                            lista.Add(cuentaPartida);
+                                lista.Add(cuentaPartida);
+                            }
                         }
                     }
 
@@ -100,16 +102,17 @@ namespace SistemasContables.DataBase
                 command.Connection = Conexion.Conn;
                 command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
                 command.Parameters.Add(new SQLiteParameter("@idLibro", idLibro));
-                SQLiteDataReader result = command.ExecuteReader();
 
-
-                if (result.HasRows)
+                using(SQLiteDataReader result = command.ExecuteReader())
                 {
-                    while (result.Read())
+                    if (result.HasRows)
                     {
+                        while (result.Read())
+                        {
 
-                        id = Convert.ToInt32(result[ID_PARTIDA].ToString());
+                            id = Convert.ToInt32(result[ID_PARTIDA].ToString());
 
+                        }
                     }
                 }
 
