@@ -137,26 +137,32 @@ namespace SistemasContables.Views
         // el metodo modifica la partidas y sus partidas
         private void btnEditarPartida_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+            DialogResult res = MessageBox.Show("¿Desea editar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
             {
+                if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+                {
 
-                partida = new Partida();
+                    partida = new Partida();
 
-                partida.Fecha = this.fecha;
-                partida.Detalle = this.txtDescripcion.Text;
-                partida.IdLibro = this.libroDiario;
-                partida.N_Partida = this.numeroPartida;
+                    partida.Fecha = this.fecha;
+                    partida.Detalle = this.txtDescripcion.Text;
+                    partida.IdLibro = this.libroDiario;
+                    partida.N_Partida = this.numeroPartida;
 
-                LlenarCuentasPartida(ref partida);
+                    LlenarCuentasPartida(ref partida);
 
-                this.partidasController.update(partida);
+                    this.partidasController.update(partida);
 
-                this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Debe poner una descripcion de la partida\ny debe tener al menos una cuenta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Debe poner una descripcion de la partida\ny debe tener al menos una cuenta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+                
         }
 
         //el metodo agrega una cuenta

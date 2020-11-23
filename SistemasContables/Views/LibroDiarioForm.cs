@@ -14,7 +14,6 @@ namespace SistemasContables.Views
 {
     public partial class LibroDiarioForm : Form
     {
-        private AgregarPartidaForm agregarPartidaForm;
         private PartidasController partidasController;
         private List<Partida> lista;
         private Partida partidaAux = null;
@@ -42,12 +41,16 @@ namespace SistemasContables.Views
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             accion = "ingresar";
-            agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartidas, accion);
-            this.Parent.Parent.Parent.Visible = false;
-            agregarPartidaForm.ShowDialog();
-            this.Parent.Parent.Parent.Visible = true;
-            llenarTabla();
-            Totales();
+
+            using(AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartidas, accion))
+            {
+                this.Parent.Parent.Parent.Visible = false;
+                agregarPartidaForm.ShowDialog();
+                this.Parent.Parent.Parent.Visible = true;
+                llenarTabla();
+                Totales();
+            }
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -64,12 +67,15 @@ namespace SistemasContables.Views
 
 
                 accion = "editar";
-                agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion);
-                this.Parent.Parent.Parent.Visible = false;
-                agregarPartidaForm.ShowDialog();
-                this.Parent.Parent.Parent.Visible = true;
-                llenarTabla();
-                Totales();
+
+                using(AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion))
+                {
+                    this.Parent.Parent.Parent.Visible = false;
+                    agregarPartidaForm.ShowDialog();
+                    this.Parent.Parent.Parent.Visible = true;
+                    llenarTabla();
+                    Totales();
+                }
 
             }
             else
@@ -82,25 +88,31 @@ namespace SistemasContables.Views
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int indexFila = tableLibroDiario.CurrentRow.Index;
-
-            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
-
-            if (celdaPartida.Contains("Partida"))
+            DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
             {
-                string[] partidaString = celdaPartida.Split(' ');
-                int numeroPartida = Convert.ToInt32(partidaString[2]);
+
+                int indexFila = tableLibroDiario.CurrentRow.Index;
+
+                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
+
+                if (celdaPartida.Contains("Partida"))
+                {
+                    string[] partidaString = celdaPartida.Split(' ');
+                    int numeroPartida = Convert.ToInt32(partidaString[2]);
 
 
-                partidasController.delete(numeroPartida, idLibroDiario);
+                    partidasController.delete(numeroPartida, idLibroDiario);
 
-                llenarTabla();
-                Totales();
+                    llenarTabla();
+                    Totales();
+                }
+                else
+                {
+                    MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         private void btnAjusteIva_Click(object sender, EventArgs e)
