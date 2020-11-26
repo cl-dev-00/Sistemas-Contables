@@ -14,7 +14,7 @@ namespace SistemasContables.DataBase
         private SQLiteConnection conn;
         private int idPartida;
         private int idCuenta;
-        List<Partida> lista = null;
+        private List<Partida> lista = null;
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";

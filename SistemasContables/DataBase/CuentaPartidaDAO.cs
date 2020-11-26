@@ -12,7 +12,7 @@ namespace SistemasContables.DataBase
     public class CuentaPartidaDAO
     {
         private SQLiteConnection conn;
-        List<CuentaPartida> lista;
+        private List<CuentaPartida> lista;
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";

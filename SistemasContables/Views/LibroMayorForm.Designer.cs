@@ -34,11 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroMayor = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ColumnNPartidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
@@ -47,6 +42,11 @@
             this.lblHaber = new System.Windows.Forms.Label();
             this.lblDebe = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroMayor)).BeginInit();
             this.SuspendLayout();
@@ -81,8 +81,8 @@
             this.tableLibroMayor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableLibroMayor.ColumnHeadersHeight = 50;
             this.tableLibroMayor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnNPartidas,
-            this.ColumnCuentas,
+            this.ColumnFecha,
+            this.ColumnCuenta,
             this.ColumnDebe,
             this.ColumnHaber,
             this.ColumnTotales});
@@ -108,36 +108,6 @@
             this.tableLibroMayor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableLibroMayor.Size = new System.Drawing.Size(800, 400);
             this.tableLibroMayor.TabIndex = 0;
-            // 
-            // ColumnNPartidas
-            // 
-            this.ColumnNPartidas.HeaderText = "N° Partida";
-            this.ColumnNPartidas.Name = "ColumnNPartidas";
-            this.ColumnNPartidas.ReadOnly = true;
-            // 
-            // ColumnCuentas
-            // 
-            this.ColumnCuentas.HeaderText = "Cuentas";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            this.ColumnCuentas.ReadOnly = true;
-            // 
-            // ColumnDebe
-            // 
-            this.ColumnDebe.HeaderText = "Debe";
-            this.ColumnDebe.Name = "ColumnDebe";
-            this.ColumnDebe.ReadOnly = true;
-            // 
-            // ColumnHaber
-            // 
-            this.ColumnHaber.HeaderText = "Haber";
-            this.ColumnHaber.Name = "ColumnHaber";
-            this.ColumnHaber.ReadOnly = true;
-            // 
-            // ColumnTotales
-            // 
-            this.ColumnTotales.HeaderText = "Totales";
-            this.ColumnTotales.Name = "ColumnTotales";
-            this.ColumnTotales.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
@@ -227,6 +197,36 @@
             this.label1.Text = "Totales";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            // 
+            // ColumnCuenta
+            // 
+            this.ColumnCuenta.HeaderText = "Cuenta";
+            this.ColumnCuenta.Name = "ColumnCuenta";
+            this.ColumnCuenta.ReadOnly = true;
+            // 
+            // ColumnDebe
+            // 
+            this.ColumnDebe.HeaderText = "Debe";
+            this.ColumnDebe.Name = "ColumnDebe";
+            this.ColumnDebe.ReadOnly = true;
+            // 
+            // ColumnHaber
+            // 
+            this.ColumnHaber.HeaderText = "Haber";
+            this.ColumnHaber.Name = "ColumnHaber";
+            this.ColumnHaber.ReadOnly = true;
+            // 
+            // ColumnTotales
+            // 
+            this.ColumnTotales.HeaderText = "Totales";
+            this.ColumnTotales.Name = "ColumnTotales";
+            this.ColumnTotales.ReadOnly = true;
+            // 
             // LibroMayorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,11 +253,6 @@
         #endregion
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableLibroMayor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNPartidas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
@@ -266,5 +261,10 @@
         private System.Windows.Forms.Label lblHaber;
         private System.Windows.Forms.Label lblDebe;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
     }
 }

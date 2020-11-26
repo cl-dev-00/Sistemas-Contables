@@ -80,18 +80,18 @@
     <Compile Include="controller\CuentaPartidaController.cs" />
     <Compile Include="controller\CuentasController.cs" />
     <Compile Include="controller\LibroDiariosController.cs" />
+    <Compile Include="controller\LibroMayorController.cs" />
     <Compile Include="controller\PartidasController.cs" />
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentaPartidaDAO.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
+    <Compile Include="DataBase\LibroMayorDAO.cs" />
     <Compile Include="DataBase\PartidasDAO.cs" />
     <Compile Include="Models\Cuenta.cs" />
-    <Compile Include="Models\CuentaEnPlantilla.cs" />
     <Compile Include="Models\CuentaPartida.cs" />
     <Compile Include="Models\LibroDiario.cs" />
     <Compile Include="Models\Partida.cs" />
-    <Compile Include="Models\Plantilla.cs" />
     <Compile Include="Views\AgregarPartidaForm.cs">
       <SubType>Form</SubType>
     </Compile>

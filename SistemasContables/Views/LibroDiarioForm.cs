@@ -121,119 +121,7 @@ namespace SistemasContables.Views
 
             if (!existeAjusteIVA)
             {
-                if(partidaAux.ListaCuentasPartida.Count > 0)
-                {
-                    partidaAux.ListaCuentasPartida.Clear();
-                }
-
-                double totalDebito = partidasController.total(idLibroDiario, "debito_total");
-                double totalCredito = partidasController.total(idLibroDiario, "credito_total");
-                double totalDebitoDebe = partidasController.total(idLibroDiario, "debito_debe");
-                double totalDebitoHaber = partidasController.total(idLibroDiario, "debito_haber");
-                double totalCreditoDebe = partidasController.total(idLibroDiario, "credito_debe");
-                double totalCreditoHaber = partidasController.total(idLibroDiario, "credito_haber");
-
-                bool IVAremanente = false;
-                bool IVAimpuesto = false;
-
-
-                //ahora vamos a realizar las T para el Debito Fiscal IVA y Credito Fiscal Iva
-                if (totalDebitoDebe > totalDebitoHaber)
-                {
-                    totalDebito = totalDebitoDebe - totalDebitoHaber;
-                }
-                else if (totalDebitoDebe < totalDebitoHaber)
-                {
-                    totalDebito = totalDebitoHaber - totalDebitoDebe;
-                }
-
-                if (totalCreditoDebe > totalCreditoHaber)
-                {
-                    totalCredito = totalCreditoDebe - totalCreditoHaber;
-                }
-                else if (totalCreditoDebe < totalCreditoHaber)
-                {
-                    totalCredito = totalCreditoHaber - totalCreditoDebe;
-                }
-
-                if (totalDebito > 0 || totalCredito > 0)
-                {
-                    double remanente = 0.0;
-                    double impuesto = 0.0;
-
-                    if (totalCredito > totalDebito)
-                    {
-                        remanente = totalCredito - totalDebito;
-                        IVAremanente = true;
-                    }
-                    else if (totalCredito < totalDebito)
-                    {
-                        impuesto = totalDebito - totalCredito;
-                        IVAimpuesto = true;
-                    }
-
-                    DateTime dateTime = DateTime.Now;
-                    string today = dateTime.Day + "/" + dateTime.Month + "/" + dateTime.Year;
-
-                    partidaAux.Fecha = today;
-                    partidaAux.Detalle = "Ajuste de IVA";
-                    partidaAux.IdLibro = idLibroDiario;
-                    partidaAux.N_Partida = numeroPartidas + 1;
-
-                    totalCredito = Math.Round(totalCredito, 2);
-                    totalDebito = Math.Round(totalDebito, 2);
-                    remanente = Math.Round(remanente, 2);
-                    impuesto = Math.Round(impuesto, 2);
-
-
-                    if (IVAremanente)
-                    {
-                        if (totalDebitoDebe > totalDebitoHaber)
-                        {
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = totalCredito, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Percepciones y retenciones de IVA", Codigo = "110602", Debe = remanente, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = 0, Haber = totalDebito });
-                        }
-                        else if (totalDebitoDebe < totalDebitoHaber)
-                        {
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = totalDebito, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Percepciones y retenciones de IVA", Codigo = "110602", Debe = remanente, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = 0, Haber = totalCredito });
-                        }
-
-                    }
-                    else if (IVAimpuesto)
-                    {
-                        if (totalDebitoDebe > totalDebitoHaber)
-                        {
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = totalCredito, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "RETENCIONES Y DESCUENTOS", Codigo = "2105", Haber = impuesto });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Haber = totalDebito });
-                        }
-                        else if (totalDebitoDebe < totalDebitoHaber)
-                        {
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = totalDebito, Haber = 0 });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "RETENCIONES Y DESCUENTOS", Codigo = "2105", Debe = 0, Haber = impuesto });
-                            partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = 0, Haber = totalCredito });
-                        }
-                    }
-
-                    bool resultado = partidasController.insert(partidaAux);
-
-                    if (!resultado)
-                    {
-                        MessageBox.Show("Ha ourrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                    llenarTabla();
-                    Totales();
-                }
-
-                else
-                {
-                    MessageBox.Show("No se encontraron cuentas de Debito Fiscal IVA o Credito Fiscal IVA\nen las partidas del libro actual", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
+                CalcularAjusteIVA();
             }
             else
             {
@@ -315,6 +203,123 @@ namespace SistemasContables.Views
             }
 
             return total;
+        }
+
+        // el metodo calcula y crea una partida del ajuste de iva del libro diario
+        private void CalcularAjusteIVA()
+        {
+            if (partidaAux.ListaCuentasPartida.Count > 0)
+            {
+                partidaAux.ListaCuentasPartida.Clear();
+            }
+
+            double totalDebito = partidasController.total(idLibroDiario, "debito_total");
+            double totalCredito = partidasController.total(idLibroDiario, "credito_total");
+            double totalDebitoDebe = partidasController.total(idLibroDiario, "debito_debe");
+            double totalDebitoHaber = partidasController.total(idLibroDiario, "debito_haber");
+            double totalCreditoDebe = partidasController.total(idLibroDiario, "credito_debe");
+            double totalCreditoHaber = partidasController.total(idLibroDiario, "credito_haber");
+
+            bool IVAremanente = false;
+            bool IVAimpuesto = false;
+
+
+            //ahora vamos a realizar las T para el Debito Fiscal IVA y Credito Fiscal Iva
+            if (totalDebitoDebe > totalDebitoHaber)
+            {
+                totalDebito = totalDebitoDebe - totalDebitoHaber;
+            }
+            else if (totalDebitoDebe < totalDebitoHaber)
+            {
+                totalDebito = totalDebitoHaber - totalDebitoDebe;
+            }
+
+            if (totalCreditoDebe > totalCreditoHaber)
+            {
+                totalCredito = totalCreditoDebe - totalCreditoHaber;
+            }
+            else if (totalCreditoDebe < totalCreditoHaber)
+            {
+                totalCredito = totalCreditoHaber - totalCreditoDebe;
+            }
+
+            if (totalDebito > 0 || totalCredito > 0)
+            {
+                double remanente = 0.0;
+                double impuesto = 0.0;
+
+                if (totalCredito > totalDebito)
+                {
+                    remanente = totalCredito - totalDebito;
+                    IVAremanente = true;
+                }
+                else if (totalCredito < totalDebito)
+                {
+                    impuesto = totalDebito - totalCredito;
+                    IVAimpuesto = true;
+                }
+
+                DateTime dateTime = DateTime.Now;
+                string today = dateTime.Day + "/" + dateTime.Month + "/" + dateTime.Year;
+
+                partidaAux.Fecha = today;
+                partidaAux.Detalle = "Ajuste de IVA";
+                partidaAux.IdLibro = idLibroDiario;
+                partidaAux.N_Partida = numeroPartidas + 1;
+
+                totalCredito = Math.Round(totalCredito, 2);
+                totalDebito = Math.Round(totalDebito, 2);
+                remanente = Math.Round(remanente, 2);
+                impuesto = Math.Round(impuesto, 2);
+
+
+                if (IVAremanente)
+                {
+                    if (totalDebitoDebe > totalDebitoHaber)
+                    {
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = totalCredito, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Percepciones y retenciones de IVA", Codigo = "110602", Debe = remanente, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = 0, Haber = totalDebito });
+                    }
+                    else if (totalDebitoDebe < totalDebitoHaber)
+                    {
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = totalDebito, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Percepciones y retenciones de IVA", Codigo = "110602", Debe = remanente, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = 0, Haber = totalCredito });
+                    }
+
+                }
+                else if (IVAimpuesto)
+                {
+                    if (totalDebitoDebe > totalDebitoHaber)
+                    {
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = totalCredito, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "RETENCIONES Y DESCUENTOS", Codigo = "2105", Haber = impuesto });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Haber = totalDebito });
+                    }
+                    else if (totalDebitoDebe < totalDebitoHaber)
+                    {
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Debito Fiscal IVA", Codigo = "210702", Debe = totalDebito, Haber = 0 });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "RETENCIONES Y DESCUENTOS", Codigo = "2105", Debe = 0, Haber = impuesto });
+                        partidaAux.ListaCuentasPartida.Add(new CuentaPartida { Nombre = "Credito Fiscal IVA", Codigo = "110601", Debe = 0, Haber = totalCredito });
+                    }
+                }
+
+                bool resultado = partidasController.insert(partidaAux);
+
+                if (!resultado)
+                {
+                    MessageBox.Show("Ha ourrido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                llenarTabla();
+                Totales();
+            }
+
+            else
+            {
+                MessageBox.Show("No se encontraron cuentas de Debito Fiscal IVA o Credito Fiscal IVA\nen las partidas del libro actual", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
     }
