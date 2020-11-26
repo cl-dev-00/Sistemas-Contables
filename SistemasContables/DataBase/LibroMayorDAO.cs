@@ -154,26 +154,22 @@ namespace SistemasContables.DataBase
 
                 conn.Open();
 
-                //codigo = codigo.Replace("\"", "");
-
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
                     string sql = $"SELECT {TABLE_CUENTA}.{CODIGO}, {TABLE_PARTIDA}.{FECHA}, {TABLE_PARTIDA}.{CONCEPTO}, {TABLE_CUENTA_PARTIDA}.{DEBE}, {TABLE_CUENTA_PARTIDA}.{HABER} FROM {TABLE_CUENTA_PARTIDA} ";
                     sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
                     sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
-                    sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE '"+ codigo +"%'";
-                    //MessageBox.Show(codigo);
+                    sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @codigo || '%'";
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    //command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
+                    command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
                     command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
                         if (result.HasRows)
                         {
-                            //MessageBox.Show("hasta aqui");
                             if (listaPartidas.Count > 0)
                             {
                                 listaPartidas.Clear();

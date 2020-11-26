@@ -83,12 +83,6 @@ namespace SistemasContables
             this.WindowState = FormWindowState.Minimized;
         }
 
-        //// mueve la ventana sujetando la barra de titulo
-        //private void barraTitulo_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    ReleaseCapture();
-        //    SendMessage(this.Handle, 0x112, 0xf012, 0);
-        //}
 
         // Displiega o miniza la barra de navegacion
         private void btnMenu_Click(object sender, EventArgs e)
