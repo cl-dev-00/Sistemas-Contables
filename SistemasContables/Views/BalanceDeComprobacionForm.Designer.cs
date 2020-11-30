@@ -34,10 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableBalanceDeComprobacion = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
@@ -46,6 +42,11 @@
             this.lblAcreedor = new System.Windows.Forms.Label();
             this.lblDeudor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             this.tableBalanceDeComprobacion.ColumnHeadersHeight = 50;
             this.tableBalanceDeComprobacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnN,
+            this.ColumnCodigo,
             this.ColumnCuentas,
             this.ColumnDeudor,
             this.ColumnAcreedor});
@@ -106,30 +108,6 @@
             this.tableBalanceDeComprobacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableBalanceDeComprobacion.Size = new System.Drawing.Size(800, 400);
             this.tableBalanceDeComprobacion.TabIndex = 0;
-            // 
-            // ColumnN
-            // 
-            this.ColumnN.HeaderText = "N°";
-            this.ColumnN.Name = "ColumnN";
-            this.ColumnN.ReadOnly = true;
-            // 
-            // ColumnCuentas
-            // 
-            this.ColumnCuentas.HeaderText = "Cuentas";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            this.ColumnCuentas.ReadOnly = true;
-            // 
-            // ColumnDeudor
-            // 
-            this.ColumnDeudor.HeaderText = "Deudor";
-            this.ColumnDeudor.Name = "ColumnDeudor";
-            this.ColumnDeudor.ReadOnly = true;
-            // 
-            // ColumnAcreedor
-            // 
-            this.ColumnAcreedor.HeaderText = "Acreedor";
-            this.ColumnAcreedor.Name = "ColumnAcreedor";
-            this.ColumnAcreedor.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
@@ -219,6 +197,36 @@
             this.label1.Text = "Totales";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ColumnN
+            // 
+            this.ColumnN.HeaderText = "N°";
+            this.ColumnN.Name = "ColumnN";
+            this.ColumnN.ReadOnly = true;
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            // 
+            // ColumnCuentas
+            // 
+            this.ColumnCuentas.HeaderText = "Cuentas";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            this.ColumnCuentas.ReadOnly = true;
+            // 
+            // ColumnDeudor
+            // 
+            this.ColumnDeudor.HeaderText = "Deudor";
+            this.ColumnDeudor.Name = "ColumnDeudor";
+            this.ColumnDeudor.ReadOnly = true;
+            // 
+            // ColumnAcreedor
+            // 
+            this.ColumnAcreedor.HeaderText = "Acreedor";
+            this.ColumnAcreedor.Name = "ColumnAcreedor";
+            this.ColumnAcreedor.ReadOnly = true;
+            // 
             // BalanceDeComprobacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,10 +254,6 @@
         private System.Windows.Forms.Panel panelTabla;
         private Bunifu.Framework.UI.BunifuCustomDataGrid tableBalanceDeComprobacion;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeudor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAcreedor;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.Label label3;
@@ -257,5 +261,10 @@
         private System.Windows.Forms.Label lblAcreedor;
         private System.Windows.Forms.Label lblDeudor;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeudor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAcreedor;
     }
 }
