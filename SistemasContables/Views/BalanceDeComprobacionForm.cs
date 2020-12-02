@@ -33,8 +33,8 @@ namespace SistemasContables.Views
 
             llenarTabla();
 
-            lblDeudor.Text = TotalDeudor().ToString();
-            lblAcreedor.Text = TotalAcreedor().ToString();
+            lblDeudor.Text = "$ " + TotalDeudor().ToString();
+            lblAcreedor.Text = "$ " + TotalAcreedor().ToString();
         }
 
         private void llenarTabla()

@@ -30,8 +30,8 @@ namespace SistemasContables.Views
 
             llenarTablaLibroMayor(libroDiario.IdLibroDiario);
 
-            lblDebe.Text = TotalDebe().ToString();
-            lblHaber.Text = TotalHaber().ToString();
+            lblDebe.Text = "$ " + TotalDebe().ToString();
+            lblHaber.Text = "$ " + TotalHaber().ToString();
         }
 
         public void llenarTablaLibroMayor(int idLibroDiario)
@@ -134,6 +134,11 @@ namespace SistemasContables.Views
                     tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe, partidaAux.ListaCuentasPartida[0].Haber, total);
                 }
 
+            }
+
+            if(listaPartidas.Count > 0)
+            {
+                listaPartidas.Clear();
             }
         }
 
