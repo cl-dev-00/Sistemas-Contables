@@ -68,8 +68,6 @@ namespace SistemasContables.Views
             {
                 string texto = $"Nombre: {cuenta.Nombre}, Codigo: {cuenta.Codigo} ,Nombre: {cuentaPartida.Nombre}, Tipo Saldo: {cuenta.TipoSaldo}, Debe: ${cuentaPartida.Debe}, Haber: ${cuentaPartida.Haber}";
 
-                Console.WriteLine(texto);
-
                 if (tableBalanceDeComprobacion.Rows.Count == 1)
                 {
                     if (cuenta.TipoSaldo == "Deudor")
