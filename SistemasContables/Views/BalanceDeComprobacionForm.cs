@@ -19,8 +19,6 @@ namespace SistemasContables.Views
         private List<CuentaPartida> listaCuentaPartidas;
 
         private int idLibroDiario;
-        private double debe = 0;
-        private double haber = 0;
         private bool exit = false;
 
         public BalanceDeComprobacionForm(LibroDiario libroDiario)
@@ -49,7 +47,12 @@ namespace SistemasContables.Views
                 {
                     tableBalanceDeComprobacion.Rows.Add("", "",cuenta.Nombre, "", "");
 
-                    llenarCuentas(cuenta);                    
+                    llenarCuentas(cuenta);
+
+                    if (listaCuentaPartidas.Count > 0)
+                    {
+                        listaCuentaPartidas.Clear();
+                    }
                 }
 
             }
@@ -58,10 +61,15 @@ namespace SistemasContables.Views
 
         private void llenarCuentas(CuentaPartida cuenta)
         {
+
             listaCuentaPartidas = balanceComprobacionController.getListCuentasPartidas(cuenta.Codigo, idLibroDiario);
 
             foreach (CuentaPartida cuentaPartida in listaCuentaPartidas)
             {
+                string texto = $"Nombre: {cuenta.Nombre}, Codigo: {cuenta.Codigo} ,Nombre: {cuentaPartida.Nombre}, Tipo Saldo: {cuenta.TipoSaldo}, Debe: ${cuentaPartida.Debe}, Haber: ${cuentaPartida.Haber}";
+
+                Console.WriteLine(texto);
+
                 if (tableBalanceDeComprobacion.Rows.Count == 1)
                 {
                     if (cuenta.TipoSaldo == "Deudor")
@@ -94,11 +102,11 @@ namespace SistemasContables.Views
                     {
                         if (tableBalanceDeComprobacion.Rows[i].Cells["ColumnCodigo"].Value.ToString() == cuentaPartida.Codigo)
                         {
-                            debe = Convert.ToDouble(tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value);
-                            haber = Convert.ToDouble(tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value);
 
                             if (cuenta.TipoSaldo == "Deudor")
                             {
+                                double debe = Convert.ToDouble(tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value);
+
                                 if (cuentaPartida.Haber <= 0)
                                 {
                                     tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value = debe += cuentaPartida.Debe;
@@ -110,6 +118,8 @@ namespace SistemasContables.Views
                             }
                             else if (cuenta.TipoSaldo == "Acreedor")
                             {
+                                double haber = Convert.ToDouble(tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value);
+
                                 if (cuentaPartida.Debe <= 0)
                                 {
                                     tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value = haber += cuentaPartida.Haber;
@@ -132,11 +142,13 @@ namespace SistemasContables.Views
 
                     if(!exit)
                     {
+
                         if (cuenta.TipoSaldo == "Deudor")
                         {
                             if (cuentaPartida.Haber <= 0)
                             {
                                 tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre,cuentaPartida.Debe, cuentaPartida.Haber);
+
                             }
                             else if (cuentaPartida.Haber > 0)
                             {
@@ -160,6 +172,7 @@ namespace SistemasContables.Views
                 }
 
             }
+
         }
 
 

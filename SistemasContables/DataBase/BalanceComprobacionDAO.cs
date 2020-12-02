@@ -114,13 +114,9 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+
                         if (result.HasRows)
                         {
-                            if (listaCuentaPartidas.Count > 0)
-                            {
-                                listaCuentaPartidas.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 CuentaPartida cuentaPartida = new CuentaPartida();
@@ -132,7 +128,7 @@ namespace SistemasContables.DataBase
 
                                 listaCuentaPartidas.Add(cuentaPartida);
                             }
-                        }
+                        } 
                     }
 
                 }

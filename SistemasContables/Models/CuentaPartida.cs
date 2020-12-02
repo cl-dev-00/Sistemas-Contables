@@ -46,7 +46,7 @@ namespace SistemasContables.Models
         {
             get
             {
-                return this.debe;
+                return Math.Round(this.debe, 2);
             }
             set
             {
@@ -58,7 +58,7 @@ namespace SistemasContables.Models
         {
             get
             {
-                return this.haber;
+                return Math.Round(this.haber, 2);
             }
             set
             {
