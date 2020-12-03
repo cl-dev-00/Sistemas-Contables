@@ -20,10 +20,16 @@ namespace SistemasContables
     public partial class MainForm : Form
     {
         private LibroDiario libroDiario;
+        private List<LibroDiario> listaLibroDiario;
         private LibroDiariosController libroDiarioController;
         private IconButton btnCurrent;
         private Panel leftPanelBtn;
+
+        private Form currentForm;
         private Color color = Color.FromArgb(27, 156, 252);
+
+        int indexLibroDiario = 0;
+        string currentNameForm = "inicio";
 
         private int PosicionFormX;
         private int PosicionFormY;
@@ -41,7 +47,13 @@ namespace SistemasContables
 
             libroDiarioController = new LibroDiariosController();
 
-            libroDiario = libroDiarioController.getPeriodoLibroDiario(1);
+            listaLibroDiario = libroDiarioController.getList();
+
+            libroDiario = listaLibroDiario[indexLibroDiario];
+
+            lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+
         }
 
         // cierra el programa
@@ -112,6 +124,7 @@ namespace SistemasContables
         // abre el form de inicio en el panel de contenido
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            currentNameForm = "inicio";
             activaButton(this.btnInicio);
             openFormInPane(new InicioForm());
         }
@@ -119,6 +132,7 @@ namespace SistemasContables
         // abre el form del libro diario en el panel de contenido
         private void btnLibroDiario_Click(object sender, EventArgs e)
         {
+            currentNameForm = "libro_diario";
             activaButton(this.btnLibroDiario);
             openFormInPane(new LibroDiarioForm(libroDiario));
         }
@@ -126,6 +140,7 @@ namespace SistemasContables
         // abre el form del libro mayor en el panel de contenido
         private void btnLibroMayor_Click(object sender, EventArgs e)
         {
+            currentNameForm = "libro_mayor";
             activaButton(this.btnLibroMayor);
             openFormInPane(new LibroMayorForm(libroDiario));
         }
@@ -133,6 +148,7 @@ namespace SistemasContables
         // abre el form de balance de comprobacion en el panel de contenido
         private void btnBalanceDeComprobacion_Click(object sender, EventArgs e)
         {
+            currentNameForm = "balance_comprobacion";
             activaButton(this.btnBalanceDeComprobacion);
             openFormInPane(new BalanceDeComprobacionForm(libroDiario));
         }
@@ -140,6 +156,7 @@ namespace SistemasContables
         // abre el form de estado de resultados en el panel de contenido
         private void btnEstadoDeResultados_Click(object sender, EventArgs e)
         {
+            currentNameForm = "estado_resultados";
             activaButton(this.btnEstadoDeResultados);
             openFormInPane(new EstadoDeResultadosForm(libroDiario));
         }
@@ -147,6 +164,7 @@ namespace SistemasContables
         // abre el form de balance general en el panel de contenido
         private void btnBalanceGeneral_Click(object sender, EventArgs e)
         {
+            currentNameForm = "balance_general";
             activaButton(this.btnBalanceGeneral);
             openFormInPane(new BalanceGeneralForm(libroDiario));
         }
@@ -226,12 +244,77 @@ namespace SistemasContables
                 this.panelContenido.Controls.RemoveAt(0);
             }
 
-            Form currentForm = childForm as Form;
+            currentForm = childForm as Form;
             currentForm.TopLevel = false;
             currentForm.Dock = DockStyle.Fill;
             this.panelContenido.Controls.Add(currentForm);
             this.panelContenido.Tag = currentForm;
             currentForm.Show();
+
+        }
+
+        private void btnDeleteLibroDiario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(indexLibroDiario > 0)
+            {
+                indexLibroDiario--;
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+                libroDiario = listaLibroDiario[indexLibroDiario];
+
+                recargarForm();
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(indexLibroDiario < listaLibroDiario.Count-1)
+            {
+                indexLibroDiario++;
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+                libroDiario = listaLibroDiario[indexLibroDiario];
+
+                recargarForm();
+            }
+        }
+
+        private void recargarForm()
+        {
+            if(currentNameForm == "inicio")
+            {
+                openFormInPane(new InicioForm());
+            }
+            else if (currentNameForm == "libro_diario")
+            {
+                openFormInPane(new LibroDiarioForm(libroDiario));
+            }
+            else if (currentNameForm == "libro_mayor")
+            {
+                openFormInPane(new LibroMayorForm(libroDiario));
+            }
+            else if (currentNameForm == "balance_comprobacion")
+            {
+                openFormInPane(new BalanceDeComprobacionForm(libroDiario));
+            }
+            else if (currentNameForm == "estado_resultados")
+            {
+                openFormInPane(new EstadoDeResultadosForm(libroDiario));
+            }
+            else if (currentNameForm == "balance_general")
+            {
+                openFormInPane(new BalanceGeneralForm(libroDiario));
+            }
+
+        }
+
+        private void btnAddLibroDiario_Click(object sender, EventArgs e)
+        {
 
         }
 
@@ -273,5 +356,6 @@ namespace SistemasContables
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
+
     }
 }

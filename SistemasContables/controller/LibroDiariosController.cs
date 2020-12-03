@@ -11,18 +11,26 @@ namespace SistemasContables.controller
     public class LibroDiariosController
     {
 
-        private LibroDiarioDAO libroDiarioDao;
+        private LibroDiarioDAO libroDiarioDAO;
 
         public LibroDiariosController()
         {
-            this.libroDiarioDao = new LibroDiarioDAO();
+            this.libroDiarioDAO = new LibroDiarioDAO();
         }
 
-        public LibroDiario getPeriodoLibroDiario(int idLibroDiario)
+        public bool insert(string periodo)
         {
-            LibroDiario libroDiario = libroDiarioDao.getPeriodoLibroDiario(idLibroDiario);
+            return libroDiarioDAO.insert(periodo);
+        }
 
-            return libroDiario;
+        public List<LibroDiario> getList()
+        {
+            return libroDiarioDAO.getList();
+        }
+
+        public bool delete(int idLibroDiario)
+        {
+            return libroDiarioDAO.delete(idLibroDiario);
         }
 
     }

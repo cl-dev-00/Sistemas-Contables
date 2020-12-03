@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation7 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation8 = new BunifuAnimatorNS.Animation();
             this.AnimacionPanelNavegacion = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
@@ -49,35 +49,42 @@
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.btnDeleteLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.btnAddLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
+            this.btnPrevious = new FontAwesome.Sharp.IconButton();
             this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.MoverVentanaLogo = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.MoverVentanaPanelTop = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.lblPagina = new System.Windows.Forms.Label();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnimacionPanelNavegacion
             // 
             this.AnimacionPanelNavegacion.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.AnimacionPanelNavegacion.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 1;
-            animation3.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 2F;
-            animation3.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation3;
+            animation7.AnimateOnlyDifferences = true;
+            animation7.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.BlindCoeff")));
+            animation7.LeafCoeff = 0F;
+            animation7.MaxTime = 1F;
+            animation7.MinTime = 0F;
+            animation7.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicCoeff")));
+            animation7.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicShift")));
+            animation7.MosaicSize = 1;
+            animation7.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation7.RotateCoeff = 0F;
+            animation7.RotateLimit = 0F;
+            animation7.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.ScaleCoeff")));
+            animation7.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.SlideCoeff")));
+            animation7.TimeCoeff = 2F;
+            animation7.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation7;
             // 
             // panelNavegacion
             // 
@@ -94,9 +101,8 @@
             this.AnimacionPanelNavegacion.SetDecoration(this.panelNavegacion, BunifuAnimatorNS.DecorationType.None);
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 0);
-            this.panelNavegacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelNavegacion.Name = "panelNavegacion";
-            this.panelNavegacion.Size = new System.Drawing.Size(378, 1100);
+            this.panelNavegacion.Size = new System.Drawing.Size(252, 760);
             this.panelNavegacion.TabIndex = 2;
             // 
             // btnBalanceGeneral
@@ -115,13 +121,12 @@
             this.btnBalanceGeneral.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBalanceGeneral.IconSize = 48;
             this.btnBalanceGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBalanceGeneral.Location = new System.Drawing.Point(0, 673);
-            this.btnBalanceGeneral.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBalanceGeneral.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnBalanceGeneral.Location = new System.Drawing.Point(0, 439);
+            this.btnBalanceGeneral.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnBalanceGeneral.Name = "btnBalanceGeneral";
-            this.btnBalanceGeneral.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnBalanceGeneral.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBalanceGeneral.Rotation = 0D;
-            this.btnBalanceGeneral.Size = new System.Drawing.Size(378, 92);
+            this.btnBalanceGeneral.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceGeneral.TabIndex = 21;
             this.btnBalanceGeneral.Text = "Balance general";
             this.btnBalanceGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,13 +150,12 @@
             this.btnEstadoDeResultados.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadoDeResultados.IconSize = 48;
             this.btnEstadoDeResultados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadoDeResultados.Location = new System.Drawing.Point(0, 581);
-            this.btnEstadoDeResultados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnEstadoDeResultados.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnEstadoDeResultados.Location = new System.Drawing.Point(0, 379);
+            this.btnEstadoDeResultados.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnEstadoDeResultados.Name = "btnEstadoDeResultados";
-            this.btnEstadoDeResultados.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnEstadoDeResultados.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEstadoDeResultados.Rotation = 0D;
-            this.btnEstadoDeResultados.Size = new System.Drawing.Size(378, 92);
+            this.btnEstadoDeResultados.Size = new System.Drawing.Size(252, 60);
             this.btnEstadoDeResultados.TabIndex = 20;
             this.btnEstadoDeResultados.Text = "Estado de resultados";
             this.btnEstadoDeResultados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,13 +179,12 @@
             this.btnBalanceDeComprobacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBalanceDeComprobacion.IconSize = 48;
             this.btnBalanceDeComprobacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBalanceDeComprobacion.Location = new System.Drawing.Point(0, 489);
-            this.btnBalanceDeComprobacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBalanceDeComprobacion.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnBalanceDeComprobacion.Location = new System.Drawing.Point(0, 319);
+            this.btnBalanceDeComprobacion.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnBalanceDeComprobacion.Name = "btnBalanceDeComprobacion";
-            this.btnBalanceDeComprobacion.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnBalanceDeComprobacion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBalanceDeComprobacion.Rotation = 0D;
-            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(378, 92);
+            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceDeComprobacion.TabIndex = 19;
             this.btnBalanceDeComprobacion.Text = "Balance de comprobacion";
             this.btnBalanceDeComprobacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,13 +208,12 @@
             this.btnLibroMayor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLibroMayor.IconSize = 48;
             this.btnLibroMayor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibroMayor.Location = new System.Drawing.Point(0, 397);
-            this.btnLibroMayor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLibroMayor.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnLibroMayor.Location = new System.Drawing.Point(0, 259);
+            this.btnLibroMayor.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnLibroMayor.Name = "btnLibroMayor";
-            this.btnLibroMayor.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnLibroMayor.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLibroMayor.Rotation = 0D;
-            this.btnLibroMayor.Size = new System.Drawing.Size(378, 92);
+            this.btnLibroMayor.Size = new System.Drawing.Size(252, 60);
             this.btnLibroMayor.TabIndex = 18;
             this.btnLibroMayor.Text = "Libro Mayor";
             this.btnLibroMayor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,13 +237,12 @@
             this.btnLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLibroDiario.IconSize = 48;
             this.btnLibroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibroDiario.Location = new System.Drawing.Point(0, 305);
-            this.btnLibroDiario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLibroDiario.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnLibroDiario.Location = new System.Drawing.Point(0, 199);
+            this.btnLibroDiario.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnLibroDiario.Name = "btnLibroDiario";
-            this.btnLibroDiario.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnLibroDiario.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLibroDiario.Rotation = 0D;
-            this.btnLibroDiario.Size = new System.Drawing.Size(378, 92);
+            this.btnLibroDiario.Size = new System.Drawing.Size(252, 60);
             this.btnLibroDiario.TabIndex = 17;
             this.btnLibroDiario.Text = "Libro Diario";
             this.btnLibroDiario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,13 +266,12 @@
             this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInicio.IconSize = 48;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(0, 213);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnInicio.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnInicio.Location = new System.Drawing.Point(0, 139);
+            this.btnInicio.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnInicio.Rotation = 0D;
-            this.btnInicio.Size = new System.Drawing.Size(378, 92);
+            this.btnInicio.Size = new System.Drawing.Size(252, 60);
             this.btnInicio.TabIndex = 16;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -295,13 +295,12 @@
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.IconSize = 48;
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 121);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnMenu.MinimumSize = new System.Drawing.Size(375, 92);
+            this.btnMenu.Location = new System.Drawing.Point(0, 79);
+            this.btnMenu.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMenu.Rotation = 0D;
-            this.btnMenu.Size = new System.Drawing.Size(378, 92);
+            this.btnMenu.Size = new System.Drawing.Size(252, 60);
             this.btnMenu.TabIndex = 15;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,9 +316,8 @@
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(378, 121);
+            this.pbLogo.Size = new System.Drawing.Size(252, 79);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 8;
             this.pbLogo.TabStop = false;
@@ -334,10 +332,9 @@
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelTop, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelTop, BunifuAnimatorNS.DecorationType.None);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(378, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelTop.Location = new System.Drawing.Point(252, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1422, 62);
+            this.panelTop.Size = new System.Drawing.Size(948, 40);
             this.panelTop.TabIndex = 5;
             // 
             // btnMinimizar
@@ -352,10 +349,11 @@
             this.btnMinimizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 35;
-            this.btnMinimizar.Location = new System.Drawing.Point(1118, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(744, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Rotation = 0D;
-            this.btnMinimizar.Size = new System.Drawing.Size(76, 62);
+            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMinimizar.UseVisualStyleBackColor = true;
@@ -373,10 +371,11 @@
             this.btnRestoreWindow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestoreWindow.IconSize = 35;
-            this.btnRestoreWindow.Location = new System.Drawing.Point(1194, 0);
+            this.btnRestoreWindow.Location = new System.Drawing.Point(795, 0);
+            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestoreWindow.Name = "btnRestoreWindow";
             this.btnRestoreWindow.Rotation = 0D;
-            this.btnRestoreWindow.Size = new System.Drawing.Size(76, 62);
+            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
             this.btnRestoreWindow.TabIndex = 3;
             this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRestoreWindow.UseVisualStyleBackColor = true;
@@ -395,10 +394,11 @@
             this.btnMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 35;
-            this.btnMaximizar.Location = new System.Drawing.Point(1270, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(846, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Rotation = 0D;
-            this.btnMaximizar.Size = new System.Drawing.Size(76, 62);
+            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
             this.btnMaximizar.TabIndex = 2;
             this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMaximizar.UseVisualStyleBackColor = true;
@@ -417,10 +417,11 @@
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 35;
-            this.btnExit.Location = new System.Drawing.Point(1346, 0);
+            this.btnExit.Location = new System.Drawing.Point(897, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Rotation = 0D;
-            this.btnExit.Size = new System.Drawing.Size(76, 62);
+            this.btnExit.Size = new System.Drawing.Size(51, 40);
             this.btnExit.TabIndex = 1;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -430,15 +431,15 @@
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Controls.Add(this.panelContenido);
+            this.panelContenedor.Controls.Add(this.panelBottom);
             this.panelContenedor.Controls.Add(this.panelTop);
             this.panelContenedor.Controls.Add(this.panelNavegacion);
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, BunifuAnimatorNS.DecorationType.None);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1800, 1100);
+            this.panelContenedor.Size = new System.Drawing.Size(1200, 760);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelContenido
@@ -447,31 +448,138 @@
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenido.Location = new System.Drawing.Point(378, 62);
+            this.panelContenido.Location = new System.Drawing.Point(252, 40);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(1422, 1038);
-            this.panelContenido.TabIndex = 6;
+            this.panelContenido.Size = new System.Drawing.Size(948, 674);
+            this.panelContenido.TabIndex = 8;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Controls.Add(this.btnDeleteLibroDiario);
+            this.panelBottom.Controls.Add(this.btnAddLibroDiario);
+            this.panelBottom.Controls.Add(this.lblPagina);
+            this.panelBottom.Controls.Add(this.btnNext);
+            this.panelBottom.Controls.Add(this.btnPrevious);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panelBottom, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, BunifuAnimatorNS.DecorationType.None);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(252, 714);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(948, 46);
+            this.panelBottom.TabIndex = 7;
+            // 
+            // btnDeleteLibroDiario
+            // 
+            this.btnDeleteLibroDiario.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.btnDeleteLibroDiario.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnDeleteLibroDiario.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDeleteLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDeleteLibroDiario.IconSize = 28;
+            this.btnDeleteLibroDiario.Location = new System.Drawing.Point(324, 1);
+            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
+            this.btnDeleteLibroDiario.Rotation = 0D;
+            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.TabIndex = 3;
+            this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
+            this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
+            // 
+            // btnAddLibroDiario
+            // 
+            this.btnAddLibroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddLibroDiario.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnAddLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnAddLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.btnAddLibroDiario.FlatAppearance.BorderSize = 0;
+            this.btnAddLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAddLibroDiario.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAddLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.btnAddLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddLibroDiario.IconSize = 28;
+            this.btnAddLibroDiario.Location = new System.Drawing.Point(595, 1);
+            this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnAddLibroDiario.Name = "btnAddLibroDiario";
+            this.btnAddLibroDiario.Rotation = 0D;
+            this.btnAddLibroDiario.Size = new System.Drawing.Size(43, 43);
+            this.btnAddLibroDiario.TabIndex = 2;
+            this.btnAddLibroDiario.UseVisualStyleBackColor = false;
+            this.btnAddLibroDiario.Click += new System.EventHandler(this.btnAddLibroDiario_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnNext, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnNext, BunifuAnimatorNS.DecorationType.None);
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
+            this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.IconSize = 28;
+            this.btnNext.Location = new System.Drawing.Point(509, 2);
+            this.btnNext.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Rotation = 0D;
+            this.btnNext.Size = new System.Drawing.Size(43, 43);
+            this.btnNext.TabIndex = 1;
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPrevious.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnPrevious, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnPrevious, BunifuAnimatorNS.DecorationType.None);
+            this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleLeft;
+            this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrevious.IconSize = 28;
+            this.btnPrevious.Location = new System.Drawing.Point(414, 2);
+            this.btnPrevious.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Rotation = 0D;
+            this.btnPrevious.Size = new System.Drawing.Size(43, 43);
+            this.btnPrevious.TabIndex = 0;
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // AnimacionPanelNavegacionBack
             // 
             this.AnimacionPanelNavegacionBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.AnimacionPanelNavegacionBack.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacionBack.DefaultAnimation = animation4;
+            animation8.AnimateOnlyDifferences = true;
+            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
+            animation8.LeafCoeff = 0F;
+            animation8.MaxTime = 1F;
+            animation8.MinTime = 0F;
+            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
+            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
+            animation8.MosaicSize = 0;
+            animation8.Padding = new System.Windows.Forms.Padding(0);
+            animation8.RotateCoeff = 0F;
+            animation8.RotateLimit = 0F;
+            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
+            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
+            animation8.TimeCoeff = 0F;
+            animation8.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacionBack.DefaultAnimation = animation8;
             // 
             // MoverVentanaLogo
             // 
@@ -487,24 +595,38 @@
             this.MoverVentanaPanelTop.TargetControl = this.panelTop;
             this.MoverVentanaPanelTop.Vertical = true;
             // 
+            // lblPagina
+            // 
+            this.lblPagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AnimacionPanelNavegacion.SetDecoration(this.lblPagina, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.lblPagina, BunifuAnimatorNS.DecorationType.None);
+            this.lblPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagina.Location = new System.Drawing.Point(463, 1);
+            this.lblPagina.MaximumSize = new System.Drawing.Size(45, 43);
+            this.lblPagina.Name = "lblPagina";
+            this.lblPagina.Size = new System.Drawing.Size(40, 43);
+            this.lblPagina.TabIndex = 1;
+            this.lblPagina.Text = "Pag";
+            this.lblPagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1800, 1100);
+            this.ClientSize = new System.Drawing.Size(1200, 760);
             this.Controls.Add(this.panelContenedor);
             this.AnimacionPanelNavegacionBack.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1080, 985);
+            this.MinimumSize = new System.Drawing.Size(720, 640);
             this.Name = "MainForm";
             this.Text = "Sistemas Contables";
             this.panelNavegacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -527,9 +649,15 @@
         private FontAwesome.Sharp.IconButton btnMaximizar;
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Panel panelContenido;
         private Bunifu.Framework.UI.BunifuDragControl MoverVentanaLogo;
         private Bunifu.Framework.UI.BunifuDragControl MoverVentanaPanelTop;
+        private System.Windows.Forms.Panel panelBottom;
+        private FontAwesome.Sharp.IconButton btnPrevious;
+        private System.Windows.Forms.Panel panelContenido;
+        private FontAwesome.Sharp.IconButton btnNext;
+        private FontAwesome.Sharp.IconButton btnDeleteLibroDiario;
+        private FontAwesome.Sharp.IconButton btnAddLibroDiario;
+        private System.Windows.Forms.Label lblPagina;
     }
 }
 

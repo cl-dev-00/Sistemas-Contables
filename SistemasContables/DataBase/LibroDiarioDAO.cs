@@ -32,12 +32,41 @@ namespace SistemasContables.DataBase
 
         public LibroDiarioDAO()
         {
-            
+            lista = new List<LibroDiario>();
         }
 
-        public LibroDiario getPeriodoLibroDiario(int idLibroDiario)
+        public bool insert(string periodo)
         {
-            LibroDiario libroDiario = null;
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"INSERT INTO {TABLE}(periodo) VALUES(@periodo)";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@periodo", periodo));
+                    command.ExecuteNonQuery();
+
+                }
+
+                conn.Close();
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+
+        public List<LibroDiario> getList()
+        {
 
             try
             {
@@ -47,22 +76,27 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT * FROM {TABLE} WHERE {ID_LIBRO_DIARIO} = @n_libro";
+                    string sql = $"SELECT * FROM {TABLE}";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
                         if (result.HasRows)
                         {
+                            if(lista.Count > 0)
+                            {
+                                lista.Clear();
+                            }
 
                             while (result.Read())
                             {
-                                libroDiario = new LibroDiario();
+                                LibroDiario libroDiario = new LibroDiario();
 
                                 libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
                                 libroDiario.Periodo = result[PERIODO].ToString();
+
+                                lista.Add(libroDiario);
                             }
                         }
                     }
@@ -78,8 +112,41 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return libroDiario;
+            return lista;
 
         }
+
+        public bool delete(int idLibroDiario)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"DELETE FROM {TABLE} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.ExecuteNonQuery();
+
+                }
+
+                conn.Close();
+
+
+                return true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+
+
     }
 }
