@@ -80,6 +80,11 @@
     <Compile Include="controller\BalanceComprobacionController.cs" />
     <Compile Include="controller\CuentaPartidaController.cs" />
     <Compile Include="controller\CuentasController.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="controller\BalanceGeneralController.cs" />
+    <Compile Include="controller\EstadoDeResultadosController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="controller\LibroDiariosController.cs" />
     <Compile Include="controller\LibroMayorController.cs" />
     <Compile Include="controller\PartidasController.cs" />
@@ -87,6 +92,11 @@
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentaPartidaDAO.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="DataBase\BalanceGeneralDAO.cs" />
+    <Compile Include="DataBase\EstadoDeResultadosDAO.cs" />
+>>>>>>> Stashed changes
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
     <Compile Include="DataBase\LibroMayorDAO.cs" />
     <Compile Include="DataBase\PartidasDAO.cs" />
