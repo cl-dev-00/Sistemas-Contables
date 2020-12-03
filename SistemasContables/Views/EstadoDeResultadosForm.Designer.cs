@@ -52,7 +52,7 @@
             this.panelTabla.Controls.Add(this.tableEstadoDeResultados);
             this.panelTabla.Location = new System.Drawing.Point(73, 199);
             this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(800, 400);
+            this.panelTabla.Size = new System.Drawing.Size(801, 459);
             this.panelTabla.TabIndex = 7;
             // 
             // tableEstadoDeResultados
@@ -97,7 +97,7 @@
             this.tableEstadoDeResultados.RowHeadersVisible = false;
             this.tableEstadoDeResultados.RowTemplate.Height = 40;
             this.tableEstadoDeResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableEstadoDeResultados.Size = new System.Drawing.Size(800, 400);
+            this.tableEstadoDeResultados.Size = new System.Drawing.Size(801, 459);
             this.tableEstadoDeResultados.TabIndex = 0;
             // 
             // ColumnOperacion

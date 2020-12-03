@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\EstadoDeResultadosController.cs" />
     <Compile Include="controller\BalanceComprobacionController.cs" />
     <Compile Include="controller\CuentaPartidaController.cs" />
     <Compile Include="controller\CuentasController.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentaPartidaDAO.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
+    <Compile Include="DataBase\EstadoDeResultadosDAO.cs" />
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
     <Compile Include="DataBase\LibroMayorDAO.cs" />
     <Compile Include="DataBase\PartidasDAO.cs" />
