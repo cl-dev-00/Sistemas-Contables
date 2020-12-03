@@ -50,19 +50,24 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.btnDeleteLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.btnDeleteLibroDiario = new FontAwesome.Sharp.IconButton();
             this.lblPagina = new System.Windows.Forms.Label();
             this.btnNext = new FontAwesome.Sharp.IconButton();
             this.btnPrevious = new FontAwesome.Sharp.IconButton();
             this.AnimacionPanelNavegacionBack = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.MoverVentanaLogo = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.MoverVentanaPanelTop = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.panelContenido.SuspendLayout();
             this.panelBottom.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnimacionPanelNavegacion
@@ -89,6 +94,7 @@
             // panelNavegacion
             // 
             this.panelNavegacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.panelNavegacion.Controls.Add(this.panel2);
             this.panelNavegacion.Controls.Add(this.btnBalanceGeneral);
             this.panelNavegacion.Controls.Add(this.btnEstadoDeResultados);
             this.panelNavegacion.Controls.Add(this.btnBalanceDeComprobacion);
@@ -445,6 +451,7 @@
             // panelContenido
             // 
             this.panelContenido.BackColor = System.Drawing.Color.White;
+            this.panelContenido.Controls.Add(this.panel3);
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, BunifuAnimatorNS.DecorationType.None);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -456,11 +463,7 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.btnDeleteLibroDiario);
-            this.panelBottom.Controls.Add(this.btnAddLibroDiario);
-            this.panelBottom.Controls.Add(this.lblPagina);
-            this.panelBottom.Controls.Add(this.btnNext);
-            this.panelBottom.Controls.Add(this.btnPrevious);
+            this.panelBottom.Controls.Add(this.panel1);
             this.AnimacionPanelNavegacionBack.SetDecoration(this.panelBottom, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, BunifuAnimatorNS.DecorationType.None);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -469,27 +472,21 @@
             this.panelBottom.Size = new System.Drawing.Size(948, 46);
             this.panelBottom.TabIndex = 7;
             // 
-            // btnDeleteLibroDiario
+            // panel1
             // 
-            this.btnDeleteLibroDiario.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeleteLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
-            this.btnDeleteLibroDiario.FlatAppearance.BorderSize = 0;
-            this.btnDeleteLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDeleteLibroDiario.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDeleteLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnDeleteLibroDiario.IconSize = 28;
-            this.btnDeleteLibroDiario.Location = new System.Drawing.Point(324, 1);
-            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
-            this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
-            this.btnDeleteLibroDiario.Rotation = 0D;
-            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
-            this.btnDeleteLibroDiario.TabIndex = 3;
-            this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
-            this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.btnAddLibroDiario);
+            this.panel1.Controls.Add(this.btnDeleteLibroDiario);
+            this.panel1.Controls.Add(this.lblPagina);
+            this.panel1.Controls.Add(this.btnPrevious);
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
+            this.panel1.Location = new System.Drawing.Point(354, 3);
+            this.panel1.MaximumSize = new System.Drawing.Size(314, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 43);
+            this.panel1.TabIndex = 0;
             // 
             // btnAddLibroDiario
             // 
@@ -505,7 +502,7 @@
             this.btnAddLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.btnAddLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddLibroDiario.IconSize = 28;
-            this.btnAddLibroDiario.Location = new System.Drawing.Point(595, 1);
+            this.btnAddLibroDiario.Location = new System.Drawing.Point(207, 0);
             this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
             this.btnAddLibroDiario.Name = "btnAddLibroDiario";
             this.btnAddLibroDiario.Rotation = 0D;
@@ -514,13 +511,35 @@
             this.btnAddLibroDiario.UseVisualStyleBackColor = false;
             this.btnAddLibroDiario.Click += new System.EventHandler(this.btnAddLibroDiario_Click);
             // 
+            // btnDeleteLibroDiario
+            // 
+            this.btnDeleteLibroDiario.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnDeleteLibroDiario, BunifuAnimatorNS.DecorationType.None);
+            this.btnDeleteLibroDiario.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnDeleteLibroDiario.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDeleteLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDeleteLibroDiario.IconSize = 28;
+            this.btnDeleteLibroDiario.Location = new System.Drawing.Point(0, 0);
+            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
+            this.btnDeleteLibroDiario.Rotation = 0D;
+            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.TabIndex = 3;
+            this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
+            this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
+            // 
             // lblPagina
             // 
             this.lblPagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AnimacionPanelNavegacion.SetDecoration(this.lblPagina, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionPanelNavegacionBack.SetDecoration(this.lblPagina, BunifuAnimatorNS.DecorationType.None);
             this.lblPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagina.Location = new System.Drawing.Point(463, 1);
+            this.lblPagina.Location = new System.Drawing.Point(110, -1);
             this.lblPagina.MaximumSize = new System.Drawing.Size(45, 43);
             this.lblPagina.Name = "lblPagina";
             this.lblPagina.Size = new System.Drawing.Size(40, 43);
@@ -538,12 +557,13 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleRight;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleRight;
             this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNext.IconSize = 28;
-            this.btnNext.Location = new System.Drawing.Point(509, 2);
+            this.btnNext.Location = new System.Drawing.Point(152, 0);
             this.btnNext.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnNext.MinimumSize = new System.Drawing.Size(43, 43);
             this.btnNext.Name = "btnNext";
             this.btnNext.Rotation = 0D;
             this.btnNext.Size = new System.Drawing.Size(43, 43);
@@ -561,12 +581,13 @@
             this.btnPrevious.FlatAppearance.BorderSize = 0;
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevious.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleLeft;
+            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
             this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrevious.IconSize = 28;
-            this.btnPrevious.Location = new System.Drawing.Point(414, 2);
+            this.btnPrevious.Location = new System.Drawing.Point(61, 0);
             this.btnPrevious.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnPrevious.MinimumSize = new System.Drawing.Size(43, 43);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Rotation = 0D;
             this.btnPrevious.Size = new System.Drawing.Size(43, 43);
@@ -609,6 +630,25 @@
             this.MoverVentanaPanelTop.TargetControl = this.panelTop;
             this.MoverVentanaPanelTop.Vertical = true;
             // 
+            // panel2
+            // 
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
+            this.panel2.Location = new System.Drawing.Point(252, 714);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 46);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnimacionPanelNavegacionBack.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
+            this.panel3.Location = new System.Drawing.Point(720, 674);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(228, 46);
+            this.panel3.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -626,7 +666,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.panelContenido.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -658,6 +700,9 @@
         private FontAwesome.Sharp.IconButton btnDeleteLibroDiario;
         private FontAwesome.Sharp.IconButton btnAddLibroDiario;
         private System.Windows.Forms.Label lblPagina;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

@@ -30,8 +30,6 @@ namespace SistemasContables.Views
 
             llenarTablaLibroMayor(libroDiario.IdLibroDiario);
 
-            lblDebe.Text = "$ " + TotalDebe().ToString();
-            lblHaber.Text = "$ " + TotalHaber().ToString();
         }
 
         public void llenarTablaLibroMayor(int idLibroDiario)
@@ -140,42 +138,6 @@ namespace SistemasContables.Views
             {
                 listaPartidas.Clear();
             }
-        }
-
-        // el metodo retorna la suma de todas cuentas en de la columna Debe
-        private double TotalDebe()
-        {
-            double total = 0;
-
-            for (int i = 0; i < tableLibroMayor.Rows.Count; i++)
-            {
-
-                if (!string.IsNullOrEmpty(tableLibroMayor.Rows[i].Cells["ColumnDebe"].Value.ToString()))
-                {
-                    total += Convert.ToDouble(tableLibroMayor.Rows[i].Cells["ColumnDebe"].Value.ToString());
-                }
-
-            }
-
-            return total;
-        }
-
-        // el metodo retorna la suma de todas cuentas en de la columna Haber
-        private double TotalHaber()
-        {
-            double total = 0;
-
-            for (int i = 0; i < tableLibroMayor.Rows.Count; i++)
-            {
-
-                if (!string.IsNullOrEmpty(tableLibroMayor.Rows[i].Cells["ColumnHaber"].Value.ToString()))
-                {
-                    total += Convert.ToDouble(tableLibroMayor.Rows[i].Cells["ColumnHaber"].Value.ToString());
-                }
-
-            }
-
-            return total;
         }
 
     }
