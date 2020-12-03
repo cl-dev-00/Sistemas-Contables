@@ -94,6 +94,12 @@
     <Compile Include="Models\CuentaPartida.cs" />
     <Compile Include="Models\LibroDiario.cs" />
     <Compile Include="Models\Partida.cs" />
+    <Compile Include="Views\AgregarLibroDiarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AgregarLibroDiarioForm.Designer.cs">
+      <DependentUpon>AgregarLibroDiarioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AgregarPartidaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\AgregarLibroDiarioForm.resx">
+      <DependentUpon>AgregarLibroDiarioForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AgregarPartidaForm.resx">
       <DependentUpon>AgregarPartidaForm.cs</DependentUpon>
     </EmbeddedResource>

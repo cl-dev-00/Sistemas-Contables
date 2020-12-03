@@ -255,7 +255,31 @@ namespace SistemasContables
 
         private void btnDeleteLibroDiario_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show("¿Desea eliminar el libro diario actual?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
+            {
+                bool resultado = libroDiarioController.delete(libroDiario.IdLibroDiario);
 
+                if(resultado)
+                {
+                    MessageBox.Show("Se elimino el libro diario con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else
+                {
+                    MessageBox.Show("No se logro eliminar el libro diario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+                listaLibroDiario = libroDiarioController.getList();
+
+                indexLibroDiario = 0;
+
+                libroDiario = listaLibroDiario[indexLibroDiario];
+
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+                recargarForm();
+
+            }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -284,9 +308,31 @@ namespace SistemasContables
             }
         }
 
+        private void btnAddLibroDiario_Click(object sender, EventArgs e)
+        {
+            using (AgregarLibroDiarioForm agregarLibroDiarioForm = new AgregarLibroDiarioForm(listaLibroDiario.Count))
+            {
+                this.Visible = false;
+                agregarLibroDiarioForm.ShowDialog();
+                this.Visible = true;
+
+                listaLibroDiario = libroDiarioController.getList();
+
+                indexLibroDiario = listaLibroDiario.Count - 1;
+
+                libroDiario = listaLibroDiario[indexLibroDiario];
+
+                recargarForm();
+
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+            }
+
+        }
+
+        // el metodo regarca el form cada vez que se cambia de libro diario
         private void recargarForm()
         {
-            if(currentNameForm == "inicio")
+            if (currentNameForm == "inicio")
             {
                 openFormInPane(new InicioForm());
             }
@@ -310,11 +356,6 @@ namespace SistemasContables
             {
                 openFormInPane(new BalanceGeneralForm(libroDiario));
             }
-
-        }
-
-        private void btnAddLibroDiario_Click(object sender, EventArgs e)
-        {
 
         }
 
