@@ -1,4 +1,5 @@
 ﻿using Bunifu.Framework.UI;
+using Guna.UI.WinForms;
 using SistemasContables.controller;
 using SistemasContables.Models;
 using System;
@@ -169,37 +170,37 @@ namespace SistemasContables.Views
         private void btnNuevaCuenta_Click(object sender, EventArgs e)
         {
 
-            if(!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.selectedIndex != 0 && cbCuenta.selectedIndex != 0)
+            if(!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
             {
-                int index = cbCuenta.selectedIndex - 1;
+                int index = cbCuenta.SelectedIndex - 1;
 
                 double monto = Convert.ToDouble(txtMonto.Text);
                 double ivaMonto = monto * IVA;
                 double montoTotal = MontoConIVA(monto, ivaMonto);
 
-                if (cbTipoTransaccion.selectedValue == "Debe")
+                if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
                 {
                     tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
-                    if(switchDebito.Value)
+                    if(cbDebito.Checked)
                     {
                         tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
                     } 
-                    else if(switchCredito.Value)
+                    else if(cbCredito.Checked)
                     {
                         tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
                     }
 
                 }
-                else if (cbTipoTransaccion.selectedValue == "Haber")
+                else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
                 {
                     tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
 
-                    if (switchDebito.Value)
+                    if (cbDebito.Checked)
                     {
                         tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
                     }
-                    else if (switchCredito.Value)
+                    else if (cbCredito.Checked)
                     {
                         tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
                     }
@@ -229,6 +230,7 @@ namespace SistemasContables.Views
             }
         }
 
+
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
         {
             // permite del 0 al 9, backspace, y punto decimal
@@ -241,7 +243,7 @@ namespace SistemasContables.Views
             // comprueba que solo sea un decimal
             if (e.KeyChar == 46)
             {
-                if ((sender as BunifuMetroTextbox).Text.IndexOf(e.KeyChar) != -1 || (sender as BunifuMetroTextbox).Text.Length == 0)
+                if ((sender as GunaTextBox).Text.IndexOf(e.KeyChar) != -1 || (sender as GunaTextBox).Text.Length == 0)
                 {
                     e.Handled = true;
                 }
@@ -250,37 +252,11 @@ namespace SistemasContables.Views
 
         }
 
-        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private void dpFecha_onValueChanged(object sender, EventArgs e)
         {
             fecha = FormatoFecha();
 
             tablePartida.Rows[0].Cells[0].Value = fecha;
-        }
-
-        private void switchDebito_OnValueChange(object sender, EventArgs e)
-        {
-            //if (switchDebito.Value == false && switchCredito.Value == true)
-            //{
-            //    switchDebito.Value = true;
-            //    switchCredito.Value = false;
-            //    this.Refresh();
-            //}
-        }
-
-        private void switchCredito_OnValueChange(object sender, EventArgs e)
-        {
-            //if (switchDebito.Value == true && switchCredito.Value == false)
-            //{
-            //    switchDebito.Value = false;
-            //    switchCredito.Value = true;
-            //    MessageBox.Show(switchDebito.Value + " " + switchCredito.Value);
-            //    this.Refresh();
-            //}
         }
 
         // verifica si la accion del formulario es ingresar o editar una partida
@@ -335,7 +311,7 @@ namespace SistemasContables.Views
 
             montoTotal = monto;
 
-            if(switchIncluido.Value)
+            if(cbIncluido.Checked)
             {
                 montoTotal = monto - ivaMonto;
             }
@@ -373,7 +349,7 @@ namespace SistemasContables.Views
 
             foreach (Cuenta cuenta in listaCuenta)
             {
-                cbCuenta.AddItem(cuenta.Nombre);
+                cbCuenta.Items.Add(cuenta.Nombre);
             }
         }
 
@@ -435,5 +411,123 @@ namespace SistemasContables.Views
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
 
+        //validaciones de los checkbox
+
+        private void cbExcento_Click(object sender, EventArgs e)
+        {
+            if(!cbExcento.Checked)
+            {
+                cbExcento.Checked = true;
+            }
+            if(cbMasIva.Checked)
+            {
+                cbMasIva.Checked = false;
+            } 
+            if(cbIncluido.Checked)
+            {
+                cbIncluido.Checked = false;
+            }
+            if (cbDebito.Enabled)
+            {
+                if (cbDebito.Checked)
+                {
+                    cbDebito.Checked = false;
+                }
+
+                cbDebito.Enabled = false;
+            }
+            if (cbCredito.Enabled)
+            {
+                if(cbCredito.Checked)
+                {
+                    cbCredito.Checked = false;
+                }
+
+                cbCredito.Enabled = false;
+            }
+        }
+
+        private void cbMasIva_Click(object sender, EventArgs e)
+        {
+            if (cbExcento.Checked)
+            {
+                cbExcento.Checked = false;
+            }
+            if (!cbMasIva.Checked)
+            {
+                cbMasIva.Checked = true;
+            }
+            if (cbIncluido.Checked)
+            {
+                cbIncluido.Checked = false;
+            }
+            if (!cbDebito.Enabled)
+            {
+                if (!cbDebito.Checked)
+                {
+                    cbDebito.Checked = true;
+                }
+
+                cbDebito.Enabled = true;
+            }
+            if (!cbCredito.Enabled)
+            {
+                cbCredito.Enabled = true;
+            }
+        }
+
+        private void cbIncluido_Click(object sender, EventArgs e)
+        {
+            if (cbExcento.Checked)
+            {
+                cbExcento.Checked = false;
+            }
+            if (cbMasIva.Checked)
+            {
+                cbMasIva.Checked = false;
+            }
+            if (!cbIncluido.Checked)
+            {
+                cbIncluido.Checked = true;
+            }
+            if(!cbDebito.Enabled)
+            {
+                if (!cbDebito.Checked)
+                {
+                    cbDebito.Checked = true;
+                }
+
+                cbDebito.Enabled = true;
+            }
+            if (!cbCredito.Enabled)
+            {
+                cbCredito.Enabled = true;
+            }
+        }
+
+        private void cbDebito_Click(object sender, EventArgs e)
+        {
+            if(!cbDebito.Checked)
+            {
+                cbDebito.Checked = true;
+            }
+            if(cbCredito.Checked)
+            {
+                cbCredito.Checked = false;
+            }
+        }
+
+        private void cbCredito_Click(object sender, EventArgs e)
+        {
+            if (cbDebito.Checked)
+            {
+                cbDebito.Checked = false;
+            }
+            if (!cbCredito.Checked)
+            {
+                cbCredito.Checked = true;
+
+            }
+        }
     }
 }

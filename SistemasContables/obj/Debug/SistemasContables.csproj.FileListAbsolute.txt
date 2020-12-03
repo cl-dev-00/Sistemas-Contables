@@ -52,3 +52,4 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\Siste
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.pdb
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.AgregarPartidaForm.resources
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.AgregarLibroDiarioForm.resources
+C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\Guna.UI.dll
