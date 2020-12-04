@@ -11,7 +11,9 @@ namespace SistemasContables.controller
     public class EstadoDeResultadosController
     {
         private EstadoDeResultadosDAO estadoDeResultadosDAO;
-
+        public double utilidad_neta;
+        public double impuestos_por_pagar;
+        public double reserva_legal;
         public EstadoDeResultadosController()
         {
             estadoDeResultadosDAO = new EstadoDeResultadosDAO();

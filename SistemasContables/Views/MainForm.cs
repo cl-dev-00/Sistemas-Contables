@@ -35,7 +35,12 @@ namespace SistemasContables
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
-        
+
+        private double reserva_legal;
+        private double impuestos_por_pagar;
+        private double utilidad_neta;
+
+
 
         public MainForm()
         {
@@ -158,7 +163,14 @@ namespace SistemasContables
         {
             currentNameForm = "estado_resultados";
             activaButton(this.btnEstadoDeResultados);
-            openFormInPane(new EstadoDeResultadosForm(libroDiario));
+
+            EstadoDeResultadosForm estadoFrom = new EstadoDeResultadosForm(libroDiario);
+
+            openFormInPane(estadoFrom);
+
+            utilidad_neta = estadoFrom.getUtilidad_neta();
+            impuestos_por_pagar = estadoFrom.getImpuestos();
+            reserva_legal = estadoFrom.getReserva();
         }
 
         // abre el form de balance general en el panel de contenido
@@ -166,7 +178,7 @@ namespace SistemasContables
         {
             currentNameForm = "balance_general";
             activaButton(this.btnBalanceGeneral);
-            openFormInPane(new BalanceGeneralForm(libroDiario));
+            openFormInPane(new BalanceGeneralForm(libroDiario, impuestos_por_pagar, reserva_legal, utilidad_neta));
         }
 
         // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
@@ -354,7 +366,7 @@ namespace SistemasContables
             }
             else if (currentNameForm == "balance_general")
             {
-                openFormInPane(new BalanceGeneralForm(libroDiario));
+                openFormInPane(new BalanceGeneralForm(libroDiario, impuestos_por_pagar, reserva_legal, utilidad_neta));
             }
 
         }
