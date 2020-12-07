@@ -25,7 +25,7 @@ namespace SistemasContables
         private IconButton btnCurrent;
         private Panel leftPanelBtn;
 
-        private Form currentForm;
+        private Form currentForm = null;
         private Color color = Color.FromArgb(27, 156, 252);
 
         int indexLibroDiario = 0;
@@ -108,15 +108,15 @@ namespace SistemasContables
 
             if(panelNavegacion.Width == 252)
             {
-                AnimacionPanelNavegacionBack.HideSync(panelNavegacion);
+                panelNavegacion.Visible = false;
 
                 panelNavegacion.Width = 62;
                 pbLogo.Image = Properties.Resources.icon;
 
-                AnimacionPanelNavegacionBack.ShowSync(panelNavegacion);
+                AnimacionPanelNavegacion.ShowSync(panelNavegacion);
             } else
             {
-                AnimacionPanelNavegacion.HideSync(panelNavegacion);
+                panelNavegacion.Visible = false;
 
                 panelNavegacion.Width = 252;
                 pbLogo.Image = Properties.Resources.logo;
@@ -251,6 +251,11 @@ namespace SistemasContables
         // abre un form dentro del panel de contenido
         private void openFormInPane(object childForm)
         {
+            if(currentForm != null)
+            {
+                currentForm.Dispose();
+            }
+
             if (this.panelContenido.Controls.Count > 0)
             {
                 this.panelContenido.Controls.RemoveAt(0);
@@ -265,6 +270,7 @@ namespace SistemasContables
 
         }
 
+        // el metodo elimina el libro diario
         private void btnDeleteLibroDiario_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("¿Desea eliminar el libro diario actual?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -294,6 +300,7 @@ namespace SistemasContables
             }
         }
 
+        // el metodo mueve el libro diario actual al anterior
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             if(indexLibroDiario > 0)
@@ -307,6 +314,7 @@ namespace SistemasContables
             }
         }
 
+        // el metodo mueve el libro diario actual al siguiente
         private void btnNext_Click(object sender, EventArgs e)
         {
             if(indexLibroDiario < listaLibroDiario.Count-1)
@@ -320,6 +328,7 @@ namespace SistemasContables
             }
         }
 
+        // el metodo muestra una ventana para agregar un nuevo libro diario
         private void btnAddLibroDiario_Click(object sender, EventArgs e)
         {
             using (AgregarLibroDiarioForm agregarLibroDiarioForm = new AgregarLibroDiarioForm(listaLibroDiario.Count))

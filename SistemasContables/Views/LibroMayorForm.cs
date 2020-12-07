@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace SistemasContables.Views
         private List<string> listaCodigos;
         private List<Partida> listaPartidas;
         private Partida partida;
+        //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
+        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
         private string nivel3;
 
         public LibroMayorForm(LibroDiario libroDiario)
@@ -120,7 +123,7 @@ namespace SistemasContables.Views
 
                     total = Math.Abs(total);
 
-                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe, partidaAux.ListaCuentasPartida[0].Haber, total);
+                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe.ToString("0.00", formateDecimales), partidaAux.ListaCuentasPartida[0].Haber.ToString("0.00", formateDecimales), total.ToString("0.00", formateDecimales));
 
                 }
                 else if (partida.ListaCuentasPartida[0].TipoSaldo == "Acreedor")
@@ -129,7 +132,7 @@ namespace SistemasContables.Views
 
                     total = Math.Abs(total);
 
-                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe, partidaAux.ListaCuentasPartida[0].Haber, total);
+                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe.ToString("0.00", formateDecimales), partidaAux.ListaCuentasPartida[0].Haber.ToString("0.00", formateDecimales), total.ToString("0.00", formateDecimales));
                 }
 
             }

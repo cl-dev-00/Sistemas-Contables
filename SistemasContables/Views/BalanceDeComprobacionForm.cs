@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace SistemasContables.Views
         private BalanceComprobacionController balanceComprobacionController;
         private List<CuentaPartida> listaCuentas;
         private List<CuentaPartida> listaCuentaPartidas;
+        //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
+        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
 
         private int idLibroDiario;
         private bool exit = false;
@@ -33,8 +36,8 @@ namespace SistemasContables.Views
 
             llenarTabla();
 
-            lblDeudor.Text = "$ " + TotalDeudor().ToString();
-            lblAcreedor.Text = "$ " + TotalAcreedor().ToString();
+            lblDeudor.Text = "$ " + TotalDeudor().ToString("0.00", formateDecimales);
+            lblAcreedor.Text = "$ " + TotalAcreedor().ToString("0.00", formateDecimales);
         }
 
         private void llenarTabla()
@@ -66,7 +69,6 @@ namespace SistemasContables.Views
 
             foreach (CuentaPartida cuentaPartida in listaCuentaPartidas)
             {
-                string texto = $"Nombre: {cuenta.Nombre}, Codigo: {cuenta.Codigo} ,Nombre: {cuentaPartida.Nombre}, Tipo Saldo: {cuenta.TipoSaldo}, Debe: ${cuentaPartida.Debe}, Haber: ${cuentaPartida.Haber}";
 
                 if (tableBalanceDeComprobacion.Rows.Count == 1)
                 {
@@ -74,11 +76,11 @@ namespace SistemasContables.Views
                     {
                         if (cuentaPartida.Haber <= 0)
                         {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe.ToString("0.00", formateDecimales), cuentaPartida.Haber.ToString("0.00", formateDecimales));
                         }
                         else if (cuentaPartida.Haber > 0)
                         {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, 0 - cuentaPartida.Haber, 0);
+                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, (0 - cuentaPartida.Haber).ToString("0.00", formateDecimales), "0.00");
                         }
                     }
                     else if (cuenta.TipoSaldo == "Acreedor")
@@ -89,7 +91,7 @@ namespace SistemasContables.Views
                         }
                         else if (cuentaPartida.Debe > 0)
                         {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, 0, 0 - cuentaPartida.Debe);
+                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, "0.00", (0 - cuentaPartida.Debe).ToString("0.00", formateDecimales));
                         }
                     }
                 }
@@ -107,11 +109,11 @@ namespace SistemasContables.Views
 
                                 if (cuentaPartida.Haber <= 0)
                                 {
-                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value = debe += cuentaPartida.Debe;
+                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value = (debe += cuentaPartida.Debe).ToString("0.00", formateDecimales);
                                 }
                                 else if (cuentaPartida.Haber > 0)
                                 {
-                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value = debe += 0 - cuentaPartida.Haber;
+                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnDeudor"].Value = (debe += 0 - cuentaPartida.Haber).ToString("0.00", formateDecimales);
                                 }
                             }
                             else if (cuenta.TipoSaldo == "Acreedor")
@@ -120,11 +122,11 @@ namespace SistemasContables.Views
 
                                 if (cuentaPartida.Debe <= 0)
                                 {
-                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value = haber += cuentaPartida.Haber;
+                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value = (haber += cuentaPartida.Haber).ToString("0.00", formateDecimales);
                                 }
                                 else if (cuentaPartida.Debe > 0)
                                 {
-                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value = haber += 0 - cuentaPartida.Debe;
+                                    tableBalanceDeComprobacion.Rows[i].Cells["ColumnAcreedor"].Value = (haber += 0 - cuentaPartida.Debe).ToString("0.00", formateDecimales);
                                 }
                             }
 
@@ -145,23 +147,23 @@ namespace SistemasContables.Views
                         {
                             if (cuentaPartida.Haber <= 0)
                             {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre,cuentaPartida.Debe, cuentaPartida.Haber);
+                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre,cuentaPartida.Debe.ToString("0.00", formateDecimales), cuentaPartida.Haber.ToString("0.00", formateDecimales));
 
                             }
                             else if (cuentaPartida.Haber > 0)
                             {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, 0 - cuentaPartida.Haber, 0);
+                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, (0 - cuentaPartida.Haber).ToString("0.00", formateDecimales), "0.00");
                             }
                         }
                         else if (cuenta.TipoSaldo == "Acreedor")
                         {
                             if (cuentaPartida.Debe <= 0)
                             {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe.ToString("0.00", formateDecimales), cuentaPartida.Haber.ToString("0.00", formateDecimales));
                             }
                             else if (cuentaPartida.Debe > 0)
                             {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, 0, 0 - cuentaPartida.Debe);
+                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, "0.00", (0 - cuentaPartida.Debe).ToString("0.00", formateDecimales));
                             }
                         }
 
@@ -189,6 +191,8 @@ namespace SistemasContables.Views
 
             }
 
+            total = Math.Round(total, 2);
+
             return total;
         }
 
@@ -206,6 +210,8 @@ namespace SistemasContables.Views
                 }
 
             }
+
+            total = Math.Round(total, 2);
 
             return total;
         }

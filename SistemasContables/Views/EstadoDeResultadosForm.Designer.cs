@@ -37,7 +37,6 @@
             this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
@@ -143,11 +142,6 @@
             this.ColumnHaber.Name = "ColumnHaber";
             this.ColumnHaber.ReadOnly = true;
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -192,7 +186,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
         private Guna.UI.WinForms.GunaDataGridView tableEstadoDeResultados;

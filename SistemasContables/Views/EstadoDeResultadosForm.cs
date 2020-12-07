@@ -16,8 +16,8 @@ namespace SistemasContables.Views
 
     public partial class EstadoDeResultadosForm : Form
     {
-        //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", nfi)
-        NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
+        //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
+        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
 
         private EstadoDeResultadosController estadoDeResultadosController;
 
@@ -90,15 +90,15 @@ namespace SistemasContables.Views
                 tableEstadoDeResultados.Rows.Clear();
             }
             /* Agregando valores a la tabla*/
-            tableEstadoDeResultados.Rows.Add("", "Ingresos", "$" + Math.Round(ingresos, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( - )", "Costos", "$ " + Math.Round(costos, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Bruta", "$ " + Math.Round(ingresosmenoscostos, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( - )", "Gastos de Operacion", "$ " + Math.Round(gastos_de_operacion, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad de Operación", "$ " + Math.Round(utilidad_de_operacion, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( - )", "Reserva Legal", "$ " + Math.Round(reserva_legal, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Antes de Impuestos", "$ " + Math.Round(utilidad_antes_de_impuestos, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( - )", "Impuestos Por Pagar", "$ " + Math.Round(impuestos_por_pagar, 2).ToString("0.00", nfi));
-            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Neta", "$ " + Math.Round(utilidad_neta, 2).ToString("0.00", nfi));
+            tableEstadoDeResultados.Rows.Add("", "Ingresos", "$" + Math.Round(ingresos, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( - )", "Costos", "$ " + Math.Round(costos, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Bruta", "$ " + Math.Round(ingresosmenoscostos, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( - )", "Gastos de Operacion", "$ " + Math.Round(gastos_de_operacion, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad de Operación", "$ " + Math.Round(utilidad_de_operacion, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( - )", "Reserva Legal", "$ " + Math.Round(reserva_legal, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Antes de Impuestos", "$ " + Math.Round(utilidad_antes_de_impuestos, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( - )", "Impuestos Por Pagar", "$ " + Math.Round(impuestos_por_pagar, 2).ToString("0.00", formateDecimales));
+            tableEstadoDeResultados.Rows.Add("( = )", "Utilidad Neta", "$ " + Math.Round(utilidad_neta, 2).ToString("0.00", formateDecimales));
 
         }
 

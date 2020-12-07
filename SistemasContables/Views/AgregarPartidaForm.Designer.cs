@@ -193,6 +193,7 @@
             // 
             this.txtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscar.BackColor = System.Drawing.Color.Transparent;
             this.txtBuscar.BaseColor = System.Drawing.Color.White;
             this.txtBuscar.BorderColor = System.Drawing.Color.Silver;
             this.txtBuscar.Cursor = System.Windows.Forms.Cursors.IBeam;

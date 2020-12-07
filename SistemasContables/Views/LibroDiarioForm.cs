@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace SistemasContables.Views
         private PartidasController partidasController;
         private List<Partida> lista;
         private Partida partidaAux = null;
+        //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
+        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
 
         private int numeroPartidas;
         private int idLibroDiario;
@@ -58,7 +61,7 @@ namespace SistemasContables.Views
 
             int indexFila = tableLibroDiario.CurrentRow.Index;
 
-            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells[1].Value.ToString();
+            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
 
             if (celdaPartida.Contains("Partida"))
             {
@@ -88,30 +91,32 @@ namespace SistemasContables.Views
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (res == DialogResult.OK)
+            int indexFila = tableLibroDiario.CurrentRow.Index;
+
+            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
+
+            if (celdaPartida.Contains("Partida"))
             {
 
-                int indexFila = tableLibroDiario.CurrentRow.Index;
-
-                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
-
-                if (celdaPartida.Contains("Partida"))
+                DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (res == DialogResult.OK)
                 {
                     string[] partidaString = celdaPartida.Split(' ');
                     int numeroPartida = Convert.ToInt32(partidaString[2]);
-
 
                     partidasController.delete(numeroPartida, idLibroDiario);
 
                     llenarTabla();
                     Totales();
+
                 }
-                else
-                {
-                    MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
             }
+            else
+            {
+                MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             
         }
 
@@ -147,14 +152,14 @@ namespace SistemasContables.Views
 
             foreach (Partida partida in lista)
             {
-                tableLibroDiario.Rows.Add(partida.Fecha, "Partida No " + partida.N_Partida, "", "");
+                tableLibroDiario.Rows.Add(partida.Fecha, "","Partida No " + partida.N_Partida, "", "");
 
                 foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                 {
-                    tableLibroDiario.Rows.Add("", cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                    tableLibroDiario.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe.ToString("0.00", formateDecimales), cuentaPartida.Haber.ToString("0.00", formateDecimales));
                 }
 
-                tableLibroDiario.Rows.Add("", partida.Detalle, "", "");
+                tableLibroDiario.Rows.Add("", "",partida.Detalle, "", "");
             }
 
         }
@@ -165,8 +170,8 @@ namespace SistemasContables.Views
             double totalDebe = TotalDebe();
             double totalHaber = TotalHaber();
 
-            lblDebe.Text = "$ " + totalDebe.ToString();
-            lblHaber.Text = "$ " + totalHaber.ToString();
+            lblDebe.Text = "$ " + totalDebe.ToString("0.00", formateDecimales);
+            lblHaber.Text = "$ " + totalHaber.ToString("0.00", formateDecimales);
         }
 
         // el metodo retorna la suma de todas cuentas en de la columna Debe
@@ -183,6 +188,8 @@ namespace SistemasContables.Views
                 }
 
             }
+
+            total = Math.Round(total, 2);
 
             return total;
         }
@@ -201,6 +208,8 @@ namespace SistemasContables.Views
                 }
 
             }
+
+            total = Math.Round(total, 2);
 
             return total;
         }

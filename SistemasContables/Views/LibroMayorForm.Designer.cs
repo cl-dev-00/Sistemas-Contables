@@ -34,14 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroMayor = new Guna.UI.WinForms.GunaDataGridView();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblPeriodo = new System.Windows.Forms.Label();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblPeriodo = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLibroMayor)).BeginInit();
             this.SuspendLayout();
@@ -127,16 +126,40 @@
             this.tableLibroMayor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableLibroMayor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(179, 21);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(595, 33);
+            this.lblTitulo.TabIndex = 14;
+            this.lblTitulo.Text = "Libro Mayor";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(600, 37);
+            this.lblPeriodo.TabIndex = 15;
+            this.lblPeriodo.Text = "texto periodo";
+            this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ColumnFecha
             // 
-            this.ColumnFecha.FillWeight = 50F;
+            this.ColumnFecha.FillWeight = 60F;
             this.ColumnFecha.HeaderText = "Fecha";
             this.ColumnFecha.Name = "ColumnFecha";
             this.ColumnFecha.ReadOnly = true;
             // 
             // ColumnCuentas
             // 
-            this.ColumnCuentas.FillWeight = 210F;
+            this.ColumnCuentas.FillWeight = 200F;
             this.ColumnCuentas.HeaderText = "Cuentas";
             this.ColumnCuentas.Name = "ColumnCuentas";
             this.ColumnCuentas.ReadOnly = true;
@@ -162,35 +185,6 @@
             this.ColumnTotales.Name = "ColumnTotales";
             this.ColumnTotales.ReadOnly = true;
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.Location = new System.Drawing.Point(179, 21);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(595, 33);
-            this.lblTitulo.TabIndex = 14;
-            this.lblTitulo.Text = "Libro Mayor";
-            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPeriodo
-            // 
-            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeriodo.Location = new System.Drawing.Point(174, 69);
-            this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(600, 37);
-            this.lblPeriodo.TabIndex = 15;
-            this.lblPeriodo.Text = "texto periodo";
-            this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // LibroMayorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +205,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
         private Guna.UI.WinForms.GunaDataGridView tableLibroMayor;

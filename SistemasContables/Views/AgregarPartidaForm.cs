@@ -1,5 +1,4 @@
-﻿using Bunifu.Framework.UI;
-using Guna.UI.WinForms;
+﻿using Guna.UI.WinForms;
 using SistemasContables.controller;
 using SistemasContables.Models;
 using System;
@@ -164,15 +163,6 @@ namespace SistemasContables.Views
             }
 
                 
-        }
-        private void gunaTextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void gunaTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         //el metodo agrega una cuenta
