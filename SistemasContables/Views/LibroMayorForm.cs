@@ -65,7 +65,7 @@ namespace SistemasContables.Views
 
                         while (index < tableLibroMayor.Rows.Count)
                         {
-                            if (tableLibroMayor.Rows[index].Cells["ColumnCuenta"].Value.ToString() == partida.ListaCuentasPartida[0].Nombre)
+                            if (tableLibroMayor.Rows[index].Cells["ColumnCuentas"].Value.ToString() == partida.ListaCuentasPartida[0].Nombre)
                             {
                                 existe = true;
                                 break;

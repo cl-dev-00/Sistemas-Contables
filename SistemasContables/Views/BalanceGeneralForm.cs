@@ -48,7 +48,7 @@ namespace SistemasContables.Views
                     {
                         codigosp.Add(cuenta.Codigo);
 
-                        tableBalanceGeneral.Rows.Add(cuenta.Nombre, "", "");
+                        tableActivos.Rows.Add(cuenta.Nombre, "", "");
 
                         llenarCuentas(libroDiario.IdLibroDiario, cuenta, impuestos_por_pagar, reserva_legal, utilidad_neta);
                     }
@@ -93,25 +93,25 @@ namespace SistemasContables.Views
                     }
 
                     saldoCuentaMayor += saldoPorCuenta;
-                    tableBalanceGeneral.Rows.Add(cuentaPartida.Nombre, Math.Round(saldoPorCuenta, 2).ToString("0.00", nfi) , "");
+                    tableActivos.Rows.Add(cuentaPartida.Nombre, Math.Round(saldoPorCuenta, 2).ToString("0.00", nfi) , "");
                 }
             }
 
             if (cuenta.Codigo == "1")
             {
-                tableBalanceGeneral.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
+                tableActivos.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
                 totalActivos = saldoCuentaMayor;
                 label1.Text = "Total Activos = $" + Math.Round(totalActivos, 2).ToString("0.00", nfi);
             }
             else if (cuenta.Codigo == "2")
             {
-                tableBalanceGeneral.Rows.Add("Impuestos por Pagar", Math.Round(impuestos_por_pagar, 2).ToString("0.00", nfi));
+                tableActivos.Rows.Add("Impuestos por Pagar", Math.Round(impuestos_por_pagar, 2).ToString("0.00", nfi));
                 totalPasivos = saldoCuentaMayor;
             }
             else if (cuenta.Codigo == "3")
             {
-                tableBalanceGeneral.Rows.Add("Utilidad Neta", Math.Round(utilidad_neta, 2).ToString("0.00", nfi));
-                tableBalanceGeneral.Rows.Add("Reserva Legal", Math.Round(reserva_legal, 2).ToString("0.00", nfi) );
+                tableActivos.Rows.Add("Utilidad Neta", Math.Round(utilidad_neta, 2).ToString("0.00", nfi));
+                tableActivos.Rows.Add("Reserva Legal", Math.Round(reserva_legal, 2).ToString("0.00", nfi) );
                 totalPatrimonio = saldoCuentaMayor;
             }
 

@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
-            this.tableEstadoDeResultados = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ColumnOperacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableEstadoDeResultados = new Guna.UI.WinForms.GunaDataGridView();
+            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
@@ -58,70 +58,95 @@
             // tableEstadoDeResultados
             // 
             this.tableEstadoDeResultados.AllowUserToAddRows = false;
+            this.tableEstadoDeResultados.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tableEstadoDeResultados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableEstadoDeResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableEstadoDeResultados.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableEstadoDeResultados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableEstadoDeResultados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tableEstadoDeResultados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tableEstadoDeResultados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableEstadoDeResultados.ColumnHeadersHeight = 50;
+            this.tableEstadoDeResultados.ColumnHeadersHeight = 40;
             this.tableEstadoDeResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnOperacion,
-            this.ColumnCuentas,
-            this.ColumnTotales});
+            this.ColumnDetalle,
+            this.ColumnDebe,
+            this.ColumnHaber});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableEstadoDeResultados.DefaultCellStyle = dataGridViewCellStyle3;
             this.tableEstadoDeResultados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableEstadoDeResultados.DoubleBuffered = true;
             this.tableEstadoDeResultados.EnableHeadersVisualStyles = false;
-            this.tableEstadoDeResultados.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.tableEstadoDeResultados.HeaderForeColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableEstadoDeResultados.Location = new System.Drawing.Point(0, 0);
             this.tableEstadoDeResultados.Name = "tableEstadoDeResultados";
             this.tableEstadoDeResultados.ReadOnly = true;
-            this.tableEstadoDeResultados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableEstadoDeResultados.RowHeadersVisible = false;
+            this.tableEstadoDeResultados.RowHeadersWidth = 40;
             this.tableEstadoDeResultados.RowTemplate.Height = 40;
+            this.tableEstadoDeResultados.RowTemplate.ReadOnly = true;
             this.tableEstadoDeResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableEstadoDeResultados.Size = new System.Drawing.Size(800, 400);
-            this.tableEstadoDeResultados.TabIndex = 0;
+            this.tableEstadoDeResultados.TabIndex = 35;
+            this.tableEstadoDeResultados.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.tableEstadoDeResultados.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.tableEstadoDeResultados.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tableEstadoDeResultados.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.tableEstadoDeResultados.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.tableEstadoDeResultados.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tableEstadoDeResultados.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.tableEstadoDeResultados.ThemeStyle.HeaderStyle.Height = 40;
+            this.tableEstadoDeResultados.ThemeStyle.ReadOnly = true;
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.Height = 40;
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableEstadoDeResultados.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // ColumnOperacion
+            // ColumnDetalle
             // 
-            this.ColumnOperacion.HeaderText = "Operacion";
-            this.ColumnOperacion.Name = "ColumnOperacion";
-            this.ColumnOperacion.ReadOnly = true;
+            this.ColumnDetalle.FillWeight = 50F;
+            this.ColumnDetalle.HeaderText = "Operacion";
+            this.ColumnDetalle.Name = "ColumnDetalle";
+            this.ColumnDetalle.ReadOnly = true;
             // 
-            // ColumnCuentas
+            // ColumnDebe
             // 
-            this.ColumnCuentas.HeaderText = "Cuenta";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            this.ColumnCuentas.ReadOnly = true;
+            this.ColumnDebe.FillWeight = 150F;
+            this.ColumnDebe.HeaderText = "Cuenta";
+            this.ColumnDebe.Name = "ColumnDebe";
+            this.ColumnDebe.ReadOnly = true;
             // 
-            // ColumnTotales
+            // ColumnHaber
             // 
-            this.ColumnTotales.HeaderText = "Totales";
-            this.ColumnTotales.Name = "ColumnTotales";
-            this.ColumnTotales.ReadOnly = true;
+            this.ColumnHaber.HeaderText = "Totales";
+            this.ColumnHaber.Name = "ColumnHaber";
+            this.ColumnHaber.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this.tableEstadoDeResultados;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // lblTitulo
             // 
@@ -167,12 +192,12 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid tableEstadoDeResultados;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOperacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
+        private Guna.UI.WinForms.GunaDataGridView tableEstadoDeResultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
     }
 }

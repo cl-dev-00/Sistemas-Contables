@@ -95,7 +95,7 @@ namespace SistemasContables.Views
         //el metodo agrega la partida
         private void btnAgregarPartida_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+            if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartidas.Rows.Count > 1)
             {
 
                 partida = new Partida();
@@ -141,7 +141,7 @@ namespace SistemasContables.Views
             DialogResult res = MessageBox.Show("¿Desea editar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (res == DialogResult.OK)
             {
-                if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartida.Rows.Count > 1)
+                if (!string.IsNullOrEmpty(txtDescripcion.Text) && tablePartidas.Rows.Count > 1)
                 {
 
                     partida = new Partida();
@@ -165,6 +165,15 @@ namespace SistemasContables.Views
 
                 
         }
+        private void gunaTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void gunaTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         //el metodo agrega una cuenta
         private void btnNuevaCuenta_Click(object sender, EventArgs e)
@@ -180,29 +189,29 @@ namespace SistemasContables.Views
 
                 if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
                 {
-                    tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
+                    tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
                     if(cbDebito.Checked)
                     {
-                        tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
+                        tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
                     } 
                     else if(cbCredito.Checked)
                     {
-                        tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
+                        tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
                     }
 
                 }
                 else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
                 {
-                    tablePartida.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
+                    tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
 
                     if (cbDebito.Checked)
                     {
-                        tablePartida.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
+                        tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
                     }
                     else if (cbCredito.Checked)
                     {
-                        tablePartida.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
+                        tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
                     }
                 }
 
@@ -222,19 +231,19 @@ namespace SistemasContables.Views
         //el metodo elimina una cuenta
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
         {
-            int fila = tablePartida.CurrentRow.Index;
+            int fila = tablePartidas.CurrentRow.Index;
 
             if(fila != 0)
             {
-                this.tablePartida.Rows.RemoveAt(fila);
+                this.tablePartidas.Rows.RemoveAt(fila);
             }
         }
 
-
+        // el metodo realiza las validaciones para txtMonto
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
         {
             // permite del 0 al 9, backspace, y punto decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46)
             {
                 e.Handled = true;
                 return;
@@ -252,11 +261,30 @@ namespace SistemasContables.Views
 
         }
 
+        // el metodo realiza las validaciones para txtBuscar
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // permite de la a-z/A-Z, backspace y space
+            if ((e.KeyChar < 65 || e.KeyChar > 90) && (e.KeyChar < 97 || e.KeyChar > 122) && e.KeyChar != 8 && e.KeyChar != 32)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        // el metodo busca y selecciona una cuenta de cbCuenta
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            int index = cbCuenta.FindString(txtBuscar.Text);
+
+            cbCuenta.SelectedIndex = index;
+        }
+
         private void dpFecha_onValueChanged(object sender, EventArgs e)
         {
             fecha = FormatoFecha();
 
-            tablePartida.Rows[0].Cells[0].Value = fecha;
+            tablePartidas.Rows[0].Cells[0].Value = fecha;
         }
 
         // verifica si la accion del formulario es ingresar o editar una partida
@@ -270,7 +298,7 @@ namespace SistemasContables.Views
 
                 lblTitulo.Text = "Nueva Partida";
 
-                tablePartida.Rows.Add(fecha, "", "Partida No " + numeroPartida, "", "");
+                tablePartidas.Rows.Add(fecha, "", "Partida No " + numeroPartida, "", "");
             }
             else if (accion == "editar")
             {
@@ -282,7 +310,7 @@ namespace SistemasContables.Views
 
                 txtDescripcion.Text = partida.Detalle;
 
-                tablePartida.Rows.Add(partida.Fecha, "", "Partida No " + numeroPartida, "", "");
+                tablePartidas.Rows.Add(partida.Fecha, "", "Partida No " + numeroPartida, "", "");
 
                 cuentaPartidaController = new CuentaPartidaController();
 
@@ -290,7 +318,7 @@ namespace SistemasContables.Views
 
                 foreach(CuentaPartida cuentaPartida in listaCuentasPartida)
                 {
-                    tablePartida.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
+                    tablePartidas.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
                 }
 
                 setDatePicker();
@@ -327,14 +355,14 @@ namespace SistemasContables.Views
 
             partida.ListaCuentasPartida = new List<CuentaPartida>();
 
-            for (int i = 1; i < tablePartida.Rows.Count; i++)
+            for (int i = 1; i < tablePartidas.Rows.Count; i++)
             {
                 CuentaPartida cuentaPartida = new CuentaPartida();
 
-                cuentaPartida.Codigo = tablePartida.Rows[i].Cells[1].Value.ToString();
-                cuentaPartida.Nombre = tablePartida.Rows[i].Cells[2].Value.ToString();
-                cuentaPartida.Debe = Convert.ToDouble(tablePartida.Rows[i].Cells[3].Value);
-                cuentaPartida.Haber = Convert.ToDouble(tablePartida.Rows[i].Cells[4].Value);
+                cuentaPartida.Codigo = tablePartidas.Rows[i].Cells[1].Value.ToString();
+                cuentaPartida.Nombre = tablePartidas.Rows[i].Cells[2].Value.ToString();
+                cuentaPartida.Debe = Convert.ToDouble(tablePartidas.Rows[i].Cells[3].Value);
+                cuentaPartida.Haber = Convert.ToDouble(tablePartidas.Rows[i].Cells[4].Value);
 
                 partida.ListaCuentasPartida.Add(cuentaPartida);
             }
@@ -372,58 +400,19 @@ namespace SistemasContables.Views
             dpFecha.Value = new DateTime(year, month, day);
         }
 
-        //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
-        private int tolerance = 15;
-        private const int WM_NCHITTEST = 132;
-        private const int HTBOTTOMRIGHT = 17;
-        private Rectangle sizeGripRectangle;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case WM_NCHITTEST:
-                    base.WndProc(ref m);
-                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                    if (sizeGripRectangle.Contains(hitPoint))
-                        m.Result = new IntPtr(HTBOTTOMRIGHT);
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
-        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
-            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
-            region.Exclude(sizeGripRectangle);
-            this.panelContenedor.Region = region;
-            this.Invalidate();
-        }
-        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            SolidBrush blueBrush = new SolidBrush(Color.FromArgb(55, 61, 69));
-            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
-            base.OnPaint(e);
-            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
-        }
-
         //validaciones de los checkbox
 
         private void cbExcento_Click(object sender, EventArgs e)
         {
-            if(!cbExcento.Checked)
+            if (!cbExcento.Checked)
             {
                 cbExcento.Checked = true;
             }
-            if(cbMasIva.Checked)
+            if (cbMasIva.Checked)
             {
                 cbMasIva.Checked = false;
-            } 
-            if(cbIncluido.Checked)
+            }
+            if (cbIncluido.Checked)
             {
                 cbIncluido.Checked = false;
             }
@@ -438,7 +427,7 @@ namespace SistemasContables.Views
             }
             if (cbCredito.Enabled)
             {
-                if(cbCredito.Checked)
+                if (cbCredito.Checked)
                 {
                     cbCredito.Checked = false;
                 }
@@ -490,7 +479,7 @@ namespace SistemasContables.Views
             {
                 cbIncluido.Checked = true;
             }
-            if(!cbDebito.Enabled)
+            if (!cbDebito.Enabled)
             {
                 if (!cbDebito.Checked)
                 {
@@ -507,11 +496,11 @@ namespace SistemasContables.Views
 
         private void cbDebito_Click(object sender, EventArgs e)
         {
-            if(!cbDebito.Checked)
+            if (!cbDebito.Checked)
             {
                 cbDebito.Checked = true;
             }
-            if(cbCredito.Checked)
+            if (cbCredito.Checked)
             {
                 cbCredito.Checked = false;
             }
@@ -529,5 +518,45 @@ namespace SistemasContables.Views
 
             }
         }
+
+        //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
+        private int tolerance = 15;
+        private const int WM_NCHITTEST = 132;
+        private const int HTBOTTOMRIGHT = 17;
+        private Rectangle sizeGripRectangle;
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case WM_NCHITTEST:
+                    base.WndProc(ref m);
+                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
+                    if (sizeGripRectangle.Contains(hitPoint))
+                        m.Result = new IntPtr(HTBOTTOMRIGHT);
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
+            }
+        }
+        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
+            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
+            region.Exclude(sizeGripRectangle);
+            this.panelContenedor.Region = region;
+            this.Invalidate();
+        }
+        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            SolidBrush blueBrush = new SolidBrush(Color.FromArgb(55, 61, 69));
+            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
+            base.OnPaint(e);
+            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
+        }
+
     }
 }

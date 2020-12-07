@@ -108,20 +108,20 @@ namespace SistemasContables
 
             if(panelNavegacion.Width == 252)
             {
-                panelNavegacion.Visible = false;
+                AnimacionPanelNavegacionBack.HideSync(panelNavegacion);
 
                 panelNavegacion.Width = 62;
                 pbLogo.Image = Properties.Resources.icon;
 
-                AnimacionPanelNavegacion.Show(panelNavegacion);
+                AnimacionPanelNavegacionBack.ShowSync(panelNavegacion);
             } else
             {
-                panelNavegacion.Visible = false;
+                AnimacionPanelNavegacion.HideSync(panelNavegacion);
 
                 panelNavegacion.Width = 252;
                 pbLogo.Image = Properties.Resources.logo;
 
-                AnimacionPanelNavegacionBack.Show(panelNavegacion);
+                AnimacionPanelNavegacion.ShowSync(panelNavegacion);
             }
 
         }

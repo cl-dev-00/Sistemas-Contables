@@ -13,10 +13,6 @@ namespace SistemasContables.Views
 {
     public partial class AgregarLibroDiarioForm : Form
     {
-        private int PosicionFormX;
-        private int PosicionFormY;
-        private int WindowWidth;
-        private int WindowHeight;
         private LibroDiariosController libroDiarioController;
         private string periodo;
         private string[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre","Octubre", "Noviembre", "Diciembre"};
@@ -59,31 +55,6 @@ namespace SistemasContables.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            // obtengo la posicion de la ventana previo a maximizar la ventana
-            PosicionFormX = this.Location.X;
-            PosicionFormY = this.Location.Y;
-
-            // obtengo la tamaño de la ventana previo a maximizar la ventana
-            WindowWidth = this.Size.Width;
-            WindowHeight = this.Size.Height;
-
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            this.btnMaximizar.Visible = false;
-            this.btnRestoreWindow.Visible = true;
-        }
-
-        private void btnRestoreWindow_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(WindowWidth, WindowHeight);
-            // devulvo a la ventana a la posicion previo a maximizar la ventana
-            this.Location = new Point(PosicionFormX, PosicionFormY);
-            this.btnMaximizar.Visible = true;
-            this.btnRestoreWindow.Visible = false;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -144,6 +115,5 @@ namespace SistemasContables.Views
             base.OnPaint(e);
             ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
-
     }
 }

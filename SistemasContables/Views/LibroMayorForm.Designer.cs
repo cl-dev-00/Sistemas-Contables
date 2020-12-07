@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
-            this.tableLibroMayor = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.tableLibroMayor = new Guna.UI.WinForms.GunaDataGridView();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,76 +60,104 @@
             // tableLibroMayor
             // 
             this.tableLibroMayor.AllowUserToAddRows = false;
+            this.tableLibroMayor.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tableLibroMayor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableLibroMayor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableLibroMayor.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableLibroMayor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLibroMayor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tableLibroMayor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tableLibroMayor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableLibroMayor.ColumnHeadersHeight = 50;
+            this.tableLibroMayor.ColumnHeadersHeight = 40;
             this.tableLibroMayor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
-            this.ColumnCuenta,
+            this.ColumnCuentas,
             this.ColumnDebe,
             this.ColumnHaber,
             this.ColumnTotales});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableLibroMayor.DefaultCellStyle = dataGridViewCellStyle3;
             this.tableLibroMayor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLibroMayor.DoubleBuffered = true;
             this.tableLibroMayor.EnableHeadersVisualStyles = false;
-            this.tableLibroMayor.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.tableLibroMayor.HeaderForeColor = System.Drawing.Color.White;
+            this.tableLibroMayor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableLibroMayor.Location = new System.Drawing.Point(0, 0);
             this.tableLibroMayor.Name = "tableLibroMayor";
             this.tableLibroMayor.ReadOnly = true;
-            this.tableLibroMayor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableLibroMayor.RowHeadersVisible = false;
+            this.tableLibroMayor.RowHeadersWidth = 40;
             this.tableLibroMayor.RowTemplate.Height = 40;
+            this.tableLibroMayor.RowTemplate.ReadOnly = true;
             this.tableLibroMayor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableLibroMayor.Size = new System.Drawing.Size(800, 400);
-            this.tableLibroMayor.TabIndex = 0;
+            this.tableLibroMayor.TabIndex = 16;
+            this.tableLibroMayor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.tableLibroMayor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableLibroMayor.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.tableLibroMayor.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tableLibroMayor.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.tableLibroMayor.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.tableLibroMayor.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLibroMayor.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.tableLibroMayor.ThemeStyle.HeaderStyle.Height = 40;
+            this.tableLibroMayor.ThemeStyle.ReadOnly = true;
+            this.tableLibroMayor.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableLibroMayor.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableLibroMayor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.tableLibroMayor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tableLibroMayor.ThemeStyle.RowsStyle.Height = 40;
+            this.tableLibroMayor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableLibroMayor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // ColumnFecha
             // 
+            this.ColumnFecha.FillWeight = 50F;
             this.ColumnFecha.HeaderText = "Fecha";
             this.ColumnFecha.Name = "ColumnFecha";
             this.ColumnFecha.ReadOnly = true;
             // 
-            // ColumnCuenta
+            // ColumnCuentas
             // 
-            this.ColumnCuenta.HeaderText = "Cuenta";
-            this.ColumnCuenta.Name = "ColumnCuenta";
-            this.ColumnCuenta.ReadOnly = true;
+            this.ColumnCuentas.FillWeight = 210F;
+            this.ColumnCuentas.HeaderText = "Cuentas";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            this.ColumnCuentas.ReadOnly = true;
             // 
             // ColumnDebe
             // 
+            this.ColumnDebe.FillWeight = 80F;
             this.ColumnDebe.HeaderText = "Debe";
             this.ColumnDebe.Name = "ColumnDebe";
             this.ColumnDebe.ReadOnly = true;
             // 
             // ColumnHaber
             // 
+            this.ColumnHaber.FillWeight = 80F;
             this.ColumnHaber.HeaderText = "Haber";
             this.ColumnHaber.Name = "ColumnHaber";
             this.ColumnHaber.ReadOnly = true;
             // 
             // ColumnTotales
             // 
+            this.ColumnTotales.FillWeight = 80F;
             this.ColumnTotales.HeaderText = "Totales";
             this.ColumnTotales.Name = "ColumnTotales";
             this.ColumnTotales.ReadOnly = true;
@@ -137,7 +165,7 @@
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this.tableLibroMayor;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // lblTitulo
             // 
@@ -183,12 +211,12 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid tableLibroMayor;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
+        private Guna.UI.WinForms.GunaDataGridView tableLibroMayor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotales;

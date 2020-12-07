@@ -29,37 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
-            this.tableLibroDiario = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
-            this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
-            this.bunifuElipse4 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnModificar = new FontAwesome.Sharp.IconButton();
-            this.bunifuElipse5 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.btnAjusteIva = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuElipse6 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblDebe = new System.Windows.Forms.Label();
             this.lblHaber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLibroDiario = new Guna.UI.WinForms.GunaDataGridView();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse3 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse4 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse5 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDebe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHaber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTabla.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTabla
@@ -72,87 +71,6 @@
             this.panelTabla.Name = "panelTabla";
             this.panelTabla.Size = new System.Drawing.Size(800, 380);
             this.panelTabla.TabIndex = 1;
-            // 
-            // tableLibroDiario
-            // 
-            this.tableLibroDiario.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableLibroDiario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tableLibroDiario.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.tableLibroDiario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLibroDiario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.tableLibroDiario.ColumnHeadersHeight = 50;
-            this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnFecha,
-            this.ColumnDetalle,
-            this.ColumnDebe,
-            this.ColumnHaber});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle6;
-            this.tableLibroDiario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLibroDiario.DoubleBuffered = true;
-            this.tableLibroDiario.EnableHeadersVisualStyles = false;
-            this.tableLibroDiario.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.tableLibroDiario.HeaderForeColor = System.Drawing.Color.White;
-            this.tableLibroDiario.Location = new System.Drawing.Point(0, 0);
-            this.tableLibroDiario.Name = "tableLibroDiario";
-            this.tableLibroDiario.ReadOnly = true;
-            this.tableLibroDiario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.tableLibroDiario.RowHeadersVisible = false;
-            this.tableLibroDiario.RowHeadersWidth = 40;
-            this.tableLibroDiario.RowTemplate.Height = 40;
-            this.tableLibroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableLibroDiario.Size = new System.Drawing.Size(800, 380);
-            this.tableLibroDiario.TabIndex = 0;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
-            // 
-            // ColumnDetalle
-            // 
-            this.ColumnDetalle.HeaderText = "Detalle";
-            this.ColumnDetalle.Name = "ColumnDetalle";
-            this.ColumnDetalle.ReadOnly = true;
-            // 
-            // ColumnDebe
-            // 
-            this.ColumnDebe.HeaderText = "Debe ($)";
-            this.ColumnDebe.Name = "ColumnDebe";
-            this.ColumnDebe.ReadOnly = true;
-            // 
-            // ColumnHaber
-            // 
-            this.ColumnHaber.HeaderText = "Haber ($)";
-            this.ColumnHaber.Name = "ColumnHaber";
-            this.ColumnHaber.ReadOnly = true;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this.tableLibroDiario;
-            // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 20;
-            this.bunifuElipse2.TargetControl = this.btnImprimir;
             // 
             // btnImprimir
             // 
@@ -178,11 +96,6 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = false;
-            // 
-            // bunifuElipse3
-            // 
-            this.bunifuElipse3.ElipseRadius = 20;
-            this.bunifuElipse3.TargetControl = this.btnAgregar;
             // 
             // btnAgregar
             // 
@@ -211,11 +124,6 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // bunifuElipse4
-            // 
-            this.bunifuElipse4.ElipseRadius = 20;
-            this.bunifuElipse4.TargetControl = this.btnModificar;
-            // 
             // btnModificar
             // 
             this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -242,11 +150,6 @@
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // bunifuElipse5
-            // 
-            this.bunifuElipse5.ElipseRadius = 20;
-            this.bunifuElipse5.TargetControl = this.btnEliminar;
             // 
             // btnEliminar
             // 
@@ -349,11 +252,6 @@
             this.label1.Text = "Totales";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuElipse6
-            // 
-            this.bunifuElipse6.ElipseRadius = 20;
-            this.bunifuElipse6.TargetControl = this.btnAjusteIva;
-            // 
             // lblDebe
             // 
             this.lblDebe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -402,6 +300,128 @@
             this.label3.Text = "Haber";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLibroDiario
+            // 
+            this.tableLibroDiario.AllowUserToAddRows = false;
+            this.tableLibroDiario.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.tableLibroDiario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableLibroDiario.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.tableLibroDiario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLibroDiario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableLibroDiario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.tableLibroDiario.ColumnHeadersHeight = 40;
+            this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnFecha,
+            this.ColumnDetalle,
+            this.ColumnDebe,
+            this.ColumnHaber});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tableLibroDiario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLibroDiario.EnableHeadersVisualStyles = false;
+            this.tableLibroDiario.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableLibroDiario.Location = new System.Drawing.Point(0, 0);
+            this.tableLibroDiario.Name = "tableLibroDiario";
+            this.tableLibroDiario.ReadOnly = true;
+            this.tableLibroDiario.RowHeadersVisible = false;
+            this.tableLibroDiario.RowHeadersWidth = 40;
+            this.tableLibroDiario.RowTemplate.Height = 40;
+            this.tableLibroDiario.RowTemplate.ReadOnly = true;
+            this.tableLibroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableLibroDiario.Size = new System.Drawing.Size(800, 380);
+            this.tableLibroDiario.TabIndex = 3;
+            this.tableLibroDiario.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.tableLibroDiario.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableLibroDiario.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.tableLibroDiario.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tableLibroDiario.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.tableLibroDiario.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.tableLibroDiario.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLibroDiario.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.tableLibroDiario.ThemeStyle.HeaderStyle.Height = 40;
+            this.tableLibroDiario.ThemeStyle.ReadOnly = true;
+            this.tableLibroDiario.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableLibroDiario.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableLibroDiario.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.tableLibroDiario.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tableLibroDiario.ThemeStyle.RowsStyle.Height = 40;
+            this.tableLibroDiario.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableLibroDiario.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.Radius = 10;
+            this.gunaElipse1.TargetControl = this.btnAgregar;
+            // 
+            // gunaElipse2
+            // 
+            this.gunaElipse2.Radius = 10;
+            this.gunaElipse2.TargetControl = this.btnModificar;
+            // 
+            // gunaElipse3
+            // 
+            this.gunaElipse3.Radius = 10;
+            this.gunaElipse3.TargetControl = this.btnEliminar;
+            // 
+            // gunaElipse4
+            // 
+            this.gunaElipse4.Radius = 10;
+            this.gunaElipse4.TargetControl = this.btnImprimir;
+            // 
+            // gunaElipse5
+            // 
+            this.gunaElipse5.Radius = 10;
+            this.gunaElipse5.TargetControl = this.btnAjusteIva;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.FillWeight = 50F;
+            this.ColumnFecha.HeaderText = "Fecha";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            // 
+            // ColumnDetalle
+            // 
+            this.ColumnDetalle.FillWeight = 190F;
+            this.ColumnDetalle.HeaderText = "Detalle";
+            this.ColumnDetalle.Name = "ColumnDetalle";
+            this.ColumnDetalle.ReadOnly = true;
+            // 
+            // ColumnDebe
+            // 
+            this.ColumnDebe.FillWeight = 80F;
+            this.ColumnDebe.HeaderText = "Debe";
+            this.ColumnDebe.Name = "ColumnDebe";
+            this.ColumnDebe.ReadOnly = true;
+            // 
+            // ColumnHaber
+            // 
+            this.ColumnHaber.FillWeight = 80F;
+            this.ColumnHaber.HeaderText = "Haber";
+            this.ColumnHaber.Name = "ColumnHaber";
+            this.ColumnHaber.ReadOnly = true;
+            // 
             // LibroDiarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,20 +443,14 @@
             this.Name = "LibroDiarioForm";
             this.Text = "LibroDiarioForm";
             this.panelTabla.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tableLibroDiario)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid tableLibroDiario;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse4;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btnImprimir;
         private FontAwesome.Sharp.IconButton btnAgregar;
@@ -446,14 +460,19 @@
         private System.Windows.Forms.Label lblPeriodo;
         private FontAwesome.Sharp.IconButton btnAjusteIva;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse6;
         private System.Windows.Forms.Label lblDebe;
         private System.Windows.Forms.Label lblHaber;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI.WinForms.GunaDataGridView tableLibroDiario;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private Guna.UI.WinForms.GunaElipse gunaElipse2;
+        private Guna.UI.WinForms.GunaElipse gunaElipse3;
+        private Guna.UI.WinForms.GunaElipse gunaElipse4;
+        private Guna.UI.WinForms.GunaElipse gunaElipse5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }

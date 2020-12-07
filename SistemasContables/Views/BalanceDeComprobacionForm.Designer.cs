@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
-            this.tableBalanceDeComprobacion = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.tableBalanceDeComprobacion = new Guna.UI.WinForms.GunaDataGridView();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
@@ -65,21 +65,23 @@
             // tableBalanceDeComprobacion
             // 
             this.tableBalanceDeComprobacion.AllowUserToAddRows = false;
+            this.tableBalanceDeComprobacion.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.tableBalanceDeComprobacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableBalanceDeComprobacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableBalanceDeComprobacion.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableBalanceDeComprobacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableBalanceDeComprobacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tableBalanceDeComprobacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tableBalanceDeComprobacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableBalanceDeComprobacion.ColumnHeadersHeight = 50;
+            this.tableBalanceDeComprobacion.ColumnHeadersHeight = 40;
             this.tableBalanceDeComprobacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnN,
             this.ColumnCodigo,
@@ -88,31 +90,52 @@
             this.ColumnAcreedor});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Symbol", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(229)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tableBalanceDeComprobacion.DefaultCellStyle = dataGridViewCellStyle3;
             this.tableBalanceDeComprobacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableBalanceDeComprobacion.DoubleBuffered = true;
             this.tableBalanceDeComprobacion.EnableHeadersVisualStyles = false;
-            this.tableBalanceDeComprobacion.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.tableBalanceDeComprobacion.HeaderForeColor = System.Drawing.Color.White;
+            this.tableBalanceDeComprobacion.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableBalanceDeComprobacion.Location = new System.Drawing.Point(0, 0);
             this.tableBalanceDeComprobacion.Name = "tableBalanceDeComprobacion";
             this.tableBalanceDeComprobacion.ReadOnly = true;
-            this.tableBalanceDeComprobacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tableBalanceDeComprobacion.RowHeadersVisible = false;
+            this.tableBalanceDeComprobacion.RowHeadersWidth = 40;
             this.tableBalanceDeComprobacion.RowTemplate.Height = 40;
+            this.tableBalanceDeComprobacion.RowTemplate.ReadOnly = true;
             this.tableBalanceDeComprobacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableBalanceDeComprobacion.Size = new System.Drawing.Size(800, 400);
-            this.tableBalanceDeComprobacion.TabIndex = 0;
+            this.tableBalanceDeComprobacion.TabIndex = 34;
+            this.tableBalanceDeComprobacion.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.tableBalanceDeComprobacion.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableBalanceDeComprobacion.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.tableBalanceDeComprobacion.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.tableBalanceDeComprobacion.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.tableBalanceDeComprobacion.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.tableBalanceDeComprobacion.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.tableBalanceDeComprobacion.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.tableBalanceDeComprobacion.ThemeStyle.HeaderStyle.Height = 40;
+            this.tableBalanceDeComprobacion.ThemeStyle.ReadOnly = true;
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.Height = 40;
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 7;
-            this.bunifuElipse1.TargetControl = this.tableBalanceDeComprobacion;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // lblTitulo
             // 
@@ -199,30 +222,35 @@
             // 
             // ColumnN
             // 
+            this.ColumnN.FillWeight = 50F;
             this.ColumnN.HeaderText = "N°";
             this.ColumnN.Name = "ColumnN";
             this.ColumnN.ReadOnly = true;
             // 
             // ColumnCodigo
             // 
+            this.ColumnCodigo.FillWeight = 60F;
             this.ColumnCodigo.HeaderText = "Codigo";
             this.ColumnCodigo.Name = "ColumnCodigo";
             this.ColumnCodigo.ReadOnly = true;
             // 
             // ColumnCuentas
             // 
+            this.ColumnCuentas.FillWeight = 230F;
             this.ColumnCuentas.HeaderText = "Cuentas";
             this.ColumnCuentas.Name = "ColumnCuentas";
             this.ColumnCuentas.ReadOnly = true;
             // 
             // ColumnDeudor
             // 
+            this.ColumnDeudor.FillWeight = 80F;
             this.ColumnDeudor.HeaderText = "Deudor";
             this.ColumnDeudor.Name = "ColumnDeudor";
             this.ColumnDeudor.ReadOnly = true;
             // 
             // ColumnAcreedor
             // 
+            this.ColumnAcreedor.FillWeight = 80F;
             this.ColumnAcreedor.HeaderText = "Acreedor";
             this.ColumnAcreedor.Name = "ColumnAcreedor";
             this.ColumnAcreedor.ReadOnly = true;
@@ -252,7 +280,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid tableBalanceDeComprobacion;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
@@ -261,6 +288,7 @@
         private System.Windows.Forms.Label lblAcreedor;
         private System.Windows.Forms.Label lblDeudor;
         private System.Windows.Forms.Label label1;
+        private Guna.UI.WinForms.GunaDataGridView tableBalanceDeComprobacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCuentas;
