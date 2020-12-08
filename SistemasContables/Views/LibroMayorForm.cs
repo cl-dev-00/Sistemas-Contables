@@ -20,7 +20,7 @@ namespace SistemasContables.Views
         private List<Partida> listaPartidas;
         private Partida partida;
         //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
-        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
+        private NumberFormatInfo formatoDecimales = new CultureInfo("en-US", false).NumberFormat;
         private string nivel3;
 
         public LibroMayorForm(LibroDiario libroDiario)
@@ -123,7 +123,7 @@ namespace SistemasContables.Views
 
                     total = Math.Abs(total);
 
-                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe.ToString("0.00", formateDecimales), partidaAux.ListaCuentasPartida[0].Haber.ToString("0.00", formateDecimales), total.ToString("0.00", formateDecimales));
+                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, redondear(partidaAux.ListaCuentasPartida[0].Debe), redondear(partidaAux.ListaCuentasPartida[0].Haber), redondear(total));
 
                 }
                 else if (partida.ListaCuentasPartida[0].TipoSaldo == "Acreedor")
@@ -132,7 +132,7 @@ namespace SistemasContables.Views
 
                     total = Math.Abs(total);
 
-                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, partidaAux.ListaCuentasPartida[0].Debe.ToString("0.00", formateDecimales), partidaAux.ListaCuentasPartida[0].Haber.ToString("0.00", formateDecimales), total.ToString("0.00", formateDecimales));
+                    tableLibroMayor.Rows.Add(partidaAux.Fecha, partidaAux.Detalle, redondear(partidaAux.ListaCuentasPartida[0].Debe), redondear(partidaAux.ListaCuentasPartida[0].Haber), redondear(total));
                 }
 
             }
@@ -141,6 +141,12 @@ namespace SistemasContables.Views
             {
                 listaPartidas.Clear();
             }
+        }
+
+        // el metodo retorna un formato #.00 a los decimales de un string
+        private string redondear(double cantidad)
+        {
+            return cantidad.ToString("0.00", formatoDecimales);
         }
 
     }

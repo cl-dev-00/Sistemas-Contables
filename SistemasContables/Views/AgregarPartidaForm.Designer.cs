@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
             this.cbCuenta = new Guna.UI.WinForms.GunaComboBox();
@@ -151,6 +151,7 @@
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.cbCuenta.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbCuenta.Radius = 5;
             this.cbCuenta.Size = new System.Drawing.Size(272, 34);
             this.cbCuenta.StartIndex = 0;
             this.cbCuenta.TabIndex = 93;
@@ -158,6 +159,7 @@
             // dpFecha
             // 
             this.dpFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dpFecha.BackColor = System.Drawing.Color.Transparent;
             this.dpFecha.BaseColor = System.Drawing.Color.White;
             this.dpFecha.BorderColor = System.Drawing.Color.Silver;
             this.dpFecha.CustomFormat = null;
@@ -173,6 +175,7 @@
             this.dpFecha.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpFecha.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpFecha.OnPressedColor = System.Drawing.Color.Black;
+            this.dpFecha.Radius = 5;
             this.dpFecha.Size = new System.Drawing.Size(304, 35);
             this.dpFecha.TabIndex = 92;
             this.dpFecha.Text = "domingo, 6 de diciembre de 2020";
@@ -204,6 +207,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(672, 90);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
+            this.txtBuscar.Radius = 5;
             this.txtBuscar.Size = new System.Drawing.Size(272, 35);
             this.txtBuscar.TabIndex = 82;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
@@ -286,6 +290,7 @@
             // 
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.txtDescripcion.BaseColor = System.Drawing.Color.White;
             this.txtDescripcion.BorderColor = System.Drawing.Color.Silver;
             this.txtDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -298,11 +303,13 @@
             this.txtDescripcion.MultiLine = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.PasswordChar = '\0';
+            this.txtDescripcion.Radius = 5;
             this.txtDescripcion.Size = new System.Drawing.Size(906, 88);
             this.txtDescripcion.TabIndex = 73;
             // 
             // txtMonto
             // 
+            this.txtMonto.BackColor = System.Drawing.Color.Transparent;
             this.txtMonto.BaseColor = System.Drawing.Color.White;
             this.txtMonto.BorderColor = System.Drawing.Color.Silver;
             this.txtMonto.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -313,6 +320,7 @@
             this.txtMonto.Location = new System.Drawing.Point(40, 90);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.PasswordChar = '\0';
+            this.txtMonto.Radius = 5;
             this.txtMonto.Size = new System.Drawing.Size(216, 35);
             this.txtMonto.TabIndex = 72;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
@@ -337,6 +345,7 @@
             this.cbTipoTransaccion.Name = "cbTipoTransaccion";
             this.cbTipoTransaccion.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.cbTipoTransaccion.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbTipoTransaccion.Radius = 5;
             this.cbTipoTransaccion.Size = new System.Drawing.Size(216, 34);
             this.cbTipoTransaccion.StartIndex = 0;
             this.cbTipoTransaccion.TabIndex = 69;
@@ -568,21 +577,21 @@
             // 
             this.tablePartidas.AllowUserToAddRows = false;
             this.tablePartidas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.tablePartidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablePartidas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tablePartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablePartidas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tablePartidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.tablePartidas.ColumnHeadersHeight = 40;
             this.tablePartidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
@@ -590,14 +599,14 @@
             this.ColumnDetalle,
             this.ColumnDebe,
             this.ColumnHaber});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle9;
             this.tablePartidas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePartidas.EnableHeadersVisualStyles = false;
             this.tablePartidas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -671,7 +680,7 @@
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.panelTop.Controls.Add(this.lblTitulo);
             this.panelTop.Controls.Add(this.btnMinimizar);
             this.panelTop.Controls.Add(this.btnRestoreWindow);

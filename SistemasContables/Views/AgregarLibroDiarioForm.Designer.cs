@@ -79,6 +79,7 @@
             // 
             // dpHasta
             // 
+            this.dpHasta.BackColor = System.Drawing.Color.Transparent;
             this.dpHasta.BaseColor = System.Drawing.Color.White;
             this.dpHasta.BorderColor = System.Drawing.Color.Silver;
             this.dpHasta.CustomFormat = null;
@@ -94,6 +95,7 @@
             this.dpHasta.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpHasta.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpHasta.OnPressedColor = System.Drawing.Color.Black;
+            this.dpHasta.Radius = 5;
             this.dpHasta.Size = new System.Drawing.Size(304, 35);
             this.dpHasta.TabIndex = 92;
             this.dpHasta.Text = "domingo, 6 de diciembre de 2020";
@@ -101,6 +103,7 @@
             // 
             // dpDesde
             // 
+            this.dpDesde.BackColor = System.Drawing.Color.Transparent;
             this.dpDesde.BaseColor = System.Drawing.Color.White;
             this.dpDesde.BorderColor = System.Drawing.Color.Silver;
             this.dpDesde.CustomFormat = null;
@@ -116,6 +119,7 @@
             this.dpDesde.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpDesde.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.dpDesde.OnPressedColor = System.Drawing.Color.Black;
+            this.dpDesde.Radius = 5;
             this.dpDesde.Size = new System.Drawing.Size(304, 35);
             this.dpDesde.TabIndex = 91;
             this.dpDesde.Text = "domingo, 6 de diciembre de 2020";
@@ -212,7 +216,7 @@
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(71)))), ((int)(((byte)(94)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.panelTop.Controls.Add(this.lblTitulo);
             this.panelTop.Controls.Add(this.btnMinimizar);
             this.panelTop.Controls.Add(this.btnExit);

@@ -20,7 +20,7 @@ namespace SistemasContables.Views
         private List<CuentaPartida> listaSaldos;
 
         //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", nfi)
-        private NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
+        private NumberFormatInfo formatoDecimales = new CultureInfo("en-US", false).NumberFormat;
         double totalActivos = 0, totalPasivos = 0, totalPatrimonio = 0;
 
         public BalanceGeneralForm(LibroDiario libroDiario, double impuestos_por_pagar, double reserva_legal, double utilidad_neta)
@@ -37,8 +37,6 @@ namespace SistemasContables.Views
         {
             listaCuentas = balanceGeneralController.getListCuentas();
             List<string> codigosp = new List<string>();
-            //string codigoCuentaPrincipal = null;
-            //string codigoCuentaSaltar = null;//Tengo hueva poner otro nombre
 
             foreach (CuentaPartida cuenta in listaCuentas)
             {
@@ -93,7 +91,7 @@ namespace SistemasContables.Views
                     }
 
                     saldoCuentaMayor += saldoPorCuenta;
-                    tableActivos.Rows.Add(cuentaPartida.Nombre, Math.Round(saldoPorCuenta, 2).ToString("0.00", nfi) , "");
+                    tableActivos.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                 }
             }
 
@@ -101,17 +99,17 @@ namespace SistemasContables.Views
             {
                 tableActivos.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
                 totalActivos = saldoCuentaMayor;
-                label1.Text = "Total Activos = $" + Math.Round(totalActivos, 2).ToString("0.00", nfi);
+                lblActivos.Text = "Total Activos = $" + redondear(Math.Round(totalActivos, 2));
             }
             else if (cuenta.Codigo == "2")
             {
-                tableActivos.Rows.Add("Impuestos por Pagar", Math.Round(impuestos_por_pagar, 2).ToString("0.00", nfi));
+                tableActivos.Rows.Add("Impuestos por Pagar", redondear(Math.Round(impuestos_por_pagar, 2)));
                 totalPasivos = saldoCuentaMayor;
             }
             else if (cuenta.Codigo == "3")
             {
-                tableActivos.Rows.Add("Utilidad Neta", Math.Round(utilidad_neta, 2).ToString("0.00", nfi));
-                tableActivos.Rows.Add("Reserva Legal", Math.Round(reserva_legal, 2).ToString("0.00", nfi) );
+                tableActivos.Rows.Add("Utilidad Neta", redondear(Math.Round(utilidad_neta, 2)));
+                tableActivos.Rows.Add("Reserva Legal", redondear(Math.Round(reserva_legal, 2)));
                 totalPatrimonio = saldoCuentaMayor;
             }
 
@@ -119,8 +117,15 @@ namespace SistemasContables.Views
             double capital = totalPatrimonio + reserva_legal + utilidad_neta;
 
             double pasivos__ = pasivos + capital;
-            label2.Text = "Total Pasivos + Patrimonio = $" + Math.Round(pasivos__, 2).ToString("0.00", nfi);
+            lblPasivosCapital.Text = "Total Pasivos + Patrimonio = $" + redondear(Math.Round(pasivos__, 2));
         }
+
+        // el metodo retorna un formato #.00 a los decimales de un string
+        private string redondear(double cantidad)
+        {
+            return cantidad.ToString("0.00", formatoDecimales);
+        }
+
     }
 }
 

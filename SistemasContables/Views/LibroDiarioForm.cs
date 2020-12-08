@@ -19,7 +19,7 @@ namespace SistemasContables.Views
         private List<Partida> lista;
         private Partida partidaAux = null;
         //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
-        private NumberFormatInfo formateDecimales = new CultureInfo("en-US", false).NumberFormat;
+        private NumberFormatInfo formatoDecimales = new CultureInfo("en-US", false).NumberFormat;
 
         private int numeroPartidas;
         private int idLibroDiario;
@@ -156,7 +156,7 @@ namespace SistemasContables.Views
 
                 foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                 {
-                    tableLibroDiario.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe.ToString("0.00", formateDecimales), cuentaPartida.Haber.ToString("0.00", formateDecimales));
+                    tableLibroDiario.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
                 }
 
                 tableLibroDiario.Rows.Add("", "",partida.Detalle, "", "");
@@ -170,8 +170,8 @@ namespace SistemasContables.Views
             double totalDebe = TotalDebe();
             double totalHaber = TotalHaber();
 
-            lblDebe.Text = "$ " + totalDebe.ToString("0.00", formateDecimales);
-            lblHaber.Text = "$ " + totalHaber.ToString("0.00", formateDecimales);
+            lblDebe.Text = "$ " + redondear(totalDebe);
+            lblHaber.Text = "$ " + redondear(totalHaber);
         }
 
         // el metodo retorna la suma de todas cuentas en de la columna Debe
@@ -212,6 +212,12 @@ namespace SistemasContables.Views
             total = Math.Round(total, 2);
 
             return total;
+        }
+
+        // el metodo retorna un formato #.00 a los decimales de un string
+        private string redondear(double cantidad)
+        {
+            return cantidad.ToString("0.00", formatoDecimales);
         }
 
         // el metodo calcula y crea una partida del ajuste de iva del libro diario
