@@ -39,15 +39,17 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.lblActivos = new System.Windows.Forms.Label();
-            this.lblPasivosCapital = new System.Windows.Forms.Label();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tableActivos = new Guna.UI.WinForms.GunaDataGridView();
             this.ColumnActivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDebeActivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidadActivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablePasivosCapital = new Guna.UI.WinForms.GunaDataGridView();
             this.ColumnPasivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHaberPasivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidadPasivos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblPasivosCapital = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -108,24 +110,15 @@
             // lblActivos
             // 
             this.lblActivos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblActivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivos.Location = new System.Drawing.Point(73, 616);
+            this.lblActivos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblActivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblActivos.Location = new System.Drawing.Point(259, 636);
             this.lblActivos.Name = "lblActivos";
-            this.lblActivos.Size = new System.Drawing.Size(380, 40);
+            this.lblActivos.Size = new System.Drawing.Size(190, 31);
             this.lblActivos.TabIndex = 18;
             this.lblActivos.Text = "total capital";
             this.lblActivos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPasivosCapital
-            // 
-            this.lblPasivosCapital.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPasivosCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPasivosCapital.Location = new System.Drawing.Point(493, 616);
-            this.lblPasivosCapital.Name = "lblPasivosCapital";
-            this.lblPasivosCapital.Size = new System.Drawing.Size(380, 40);
-            this.lblPasivosCapital.TabIndex = 19;
-            this.lblPasivosCapital.Text = "total pasivos + patrimonio";
-            this.lblPasivosCapital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gunaElipse1
             // 
@@ -147,7 +140,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.tablePasivosCapital);
-            this.splitContainer.Size = new System.Drawing.Size(800, 380);
+            this.splitContainer.Size = new System.Drawing.Size(800, 389);
             this.splitContainer.SplitterDistance = 380;
             this.splitContainer.SplitterWidth = 40;
             this.splitContainer.TabIndex = 36;
@@ -174,7 +167,7 @@
             this.tableActivos.ColumnHeadersHeight = 40;
             this.tableActivos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnActivos,
-            this.ColumnDebeActivos});
+            this.ColumnCantidadActivos});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -194,7 +187,7 @@
             this.tableActivos.RowTemplate.Height = 40;
             this.tableActivos.RowTemplate.ReadOnly = true;
             this.tableActivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableActivos.Size = new System.Drawing.Size(380, 380);
+            this.tableActivos.Size = new System.Drawing.Size(380, 389);
             this.tableActivos.TabIndex = 36;
             this.tableActivos.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.tableActivos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -226,12 +219,12 @@
             this.ColumnActivos.Name = "ColumnActivos";
             this.ColumnActivos.ReadOnly = true;
             // 
-            // ColumnDebeActivos
+            // ColumnCantidadActivos
             // 
-            this.ColumnDebeActivos.FillWeight = 65F;
-            this.ColumnDebeActivos.HeaderText = "Cantidad ($)";
-            this.ColumnDebeActivos.Name = "ColumnDebeActivos";
-            this.ColumnDebeActivos.ReadOnly = true;
+            this.ColumnCantidadActivos.FillWeight = 65F;
+            this.ColumnCantidadActivos.HeaderText = "Cantidad ($)";
+            this.ColumnCantidadActivos.Name = "ColumnCantidadActivos";
+            this.ColumnCantidadActivos.ReadOnly = true;
             // 
             // tablePasivosCapital
             // 
@@ -255,7 +248,7 @@
             this.tablePasivosCapital.ColumnHeadersHeight = 40;
             this.tablePasivosCapital.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnPasivos,
-            this.ColumnHaberPasivo});
+            this.ColumnCantidadPasivos});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -275,7 +268,7 @@
             this.tablePasivosCapital.RowTemplate.Height = 40;
             this.tablePasivosCapital.RowTemplate.ReadOnly = true;
             this.tablePasivosCapital.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tablePasivosCapital.Size = new System.Drawing.Size(380, 380);
+            this.tablePasivosCapital.Size = new System.Drawing.Size(380, 389);
             this.tablePasivosCapital.TabIndex = 36;
             this.tablePasivosCapital.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.tablePasivosCapital.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -307,12 +300,47 @@
             this.ColumnPasivos.Name = "ColumnPasivos";
             this.ColumnPasivos.ReadOnly = true;
             // 
-            // ColumnHaberPasivo
+            // ColumnCantidadPasivos
             // 
-            this.ColumnHaberPasivo.FillWeight = 65F;
-            this.ColumnHaberPasivo.HeaderText = "Cantidad ($)";
-            this.ColumnHaberPasivo.Name = "ColumnHaberPasivo";
-            this.ColumnHaberPasivo.ReadOnly = true;
+            this.ColumnCantidadPasivos.FillWeight = 65F;
+            this.ColumnCantidadPasivos.HeaderText = "Cantidad ($)";
+            this.ColumnCantidadPasivos.Name = "ColumnCantidadPasivos";
+            this.ColumnCantidadPasivos.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(69, 636);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 31);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Total Activos = ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(489, 625);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 52);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Total Pasivos + Patrimonio = ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPasivosCapital
+            // 
+            this.lblPasivosCapital.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPasivosCapital.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPasivosCapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasivosCapital.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.lblPasivosCapital.Location = new System.Drawing.Point(679, 636);
+            this.lblPasivosCapital.Name = "lblPasivosCapital";
+            this.lblPasivosCapital.Size = new System.Drawing.Size(190, 31);
+            this.lblPasivosCapital.TabIndex = 38;
+            this.lblPasivosCapital.Text = "total capital";
+            this.lblPasivosCapital.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BalanceGeneralForm
             // 
@@ -320,8 +348,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
-            this.Controls.Add(this.splitContainer);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPasivosCapital);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.lblActivos);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblPeriodo);
@@ -344,14 +374,16 @@
         private System.Windows.Forms.Label lblPeriodo;
         private FontAwesome.Sharp.IconButton btnImprimir;
         private System.Windows.Forms.Label lblActivos;
-        private System.Windows.Forms.Label lblPasivosCapital;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.SplitContainer splitContainer;
         private Guna.UI.WinForms.GunaDataGridView tableActivos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActivos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebeActivos;
         private Guna.UI.WinForms.GunaDataGridView tablePasivosCapital;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActivos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidadActivos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPasivos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaberPasivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidadPasivos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPasivosCapital;
     }
 }

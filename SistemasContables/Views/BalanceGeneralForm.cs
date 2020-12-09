@@ -16,24 +16,41 @@ namespace SistemasContables.Views
     public partial class BalanceGeneralForm : Form
     {
         private BalanceGeneralController balanceGeneralController;
+        private EstadoDeResultadosController estadoDeResultadosController;
         private List<CuentaPartida> listaCuentas;
         private List<CuentaPartida> listaSaldos;
 
+        private int idLibroDiario;
+
+        private double totalActivos;
+        private double totalPasivos;
+        private double totalCapital;
+        private double totalPasivosCapital;
+
+        private double impuestosPorPagar = 0;
+        private double reservaLegal = 0;
+        private double utilidadNeta = 0;
+
         //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", nfi)
         private NumberFormatInfo formatoDecimales = new CultureInfo("en-US", false).NumberFormat;
-        double totalActivos = 0, totalPasivos = 0, totalPatrimonio = 0;
 
-        public BalanceGeneralForm(LibroDiario libroDiario, double impuestos_por_pagar, double reserva_legal, double utilidad_neta)
+        public BalanceGeneralForm(LibroDiario libroDiario)
         {
             InitializeComponent();
 
+            idLibroDiario = libroDiario.IdLibroDiario;
             lblPeriodo.Text = libroDiario.Periodo;
 
             balanceGeneralController = new BalanceGeneralController();
+            estadoDeResultadosController =  new EstadoDeResultadosController();
 
-            llenarTabla(libroDiario, impuestos_por_pagar, reserva_legal, utilidad_neta);
+            calcularEstadoDeResultados();
+            llenarTabla(libroDiario);
+
+            lblActivos.Text = "$ " + redondear(totalActivos);
+            lblPasivosCapital.Text = "$ " + redondear(totalPasivosCapital);
         }
-        private void llenarTabla(LibroDiario libroDiario, double impuestos_por_pagar, double reserva_legal, double utilidad_neta)
+        private void llenarTabla(LibroDiario libroDiario)
         {
             listaCuentas = balanceGeneralController.getListCuentas();
             List<string> codigosp = new List<string>();
@@ -46,15 +63,22 @@ namespace SistemasContables.Views
                     {
                         codigosp.Add(cuenta.Codigo);
 
-                        tableActivos.Rows.Add(cuenta.Nombre, "", "");
+                        if (cuenta.TipoSaldo == "Deudor")
+                        {
+                            tableActivos.Rows.Add(cuenta.Nombre, "", "");
+                        }
+                        else if (cuenta.TipoSaldo == "Acreedor")
+                        {
+                            tablePasivosCapital.Rows.Add(cuenta.Nombre, "", "");
+                        }
 
-                        llenarCuentas(libroDiario.IdLibroDiario, cuenta, impuestos_por_pagar, reserva_legal, utilidad_neta);
+                        llenarCuentas(libroDiario.IdLibroDiario, cuenta);
                     }
                 }
             }
         }
 
-        private void llenarCuentas(int idLibroDiario, CuentaPartida cuenta, double impuestos_por_pagar, double reserva_legal, double utilidad_neta)
+        private void llenarCuentas(int idLibroDiario, CuentaPartida cuenta)
         {
             listaSaldos = balanceGeneralController.getListSaldos(idLibroDiario, cuenta.Codigo);
 
@@ -84,40 +108,77 @@ namespace SistemasContables.Views
                     if (cuentaPartida.TipoSaldo == "Deudor")
                     {
                         saldoPorCuenta = saldoDebe - saldoHaber;
+                        saldoCuentaMayor += saldoPorCuenta;
+
+                        tableActivos.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                     }
                     else if (cuentaPartida.TipoSaldo == "Acreedor")
                     {
                         saldoPorCuenta = saldoHaber - saldoDebe;
+                        saldoCuentaMayor += saldoPorCuenta;
+
+                        tablePasivosCapital.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                     }
 
-                    saldoCuentaMayor += saldoPorCuenta;
-                    tableActivos.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                 }
             }
 
             if (cuenta.Codigo == "1")
             {
-                tableActivos.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
+                if(cuenta.TipoSaldo == "Deudor")
+                {
+                    tableActivos.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
+                } else if(cuenta.TipoSaldo == "Acreedor")
+                {
+                    tablePasivosCapital.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
+                }
+
                 totalActivos = saldoCuentaMayor;
-                lblActivos.Text = "Total Activos = $" + redondear(Math.Round(totalActivos, 2));
+
             }
             else if (cuenta.Codigo == "2")
             {
-                tableActivos.Rows.Add("Impuestos por Pagar", redondear(Math.Round(impuestos_por_pagar, 2)));
+                tablePasivosCapital.Rows.Add("Impuestos por Pagar", redondear(Math.Round(impuestosPorPagar, 2)));
+            
                 totalPasivos = saldoCuentaMayor;
             }
             else if (cuenta.Codigo == "3")
             {
-                tableActivos.Rows.Add("Utilidad Neta", redondear(Math.Round(utilidad_neta, 2)));
-                tableActivos.Rows.Add("Reserva Legal", redondear(Math.Round(reserva_legal, 2)));
-                totalPatrimonio = saldoCuentaMayor;
+                tablePasivosCapital.Rows.Add("Utilidad Neta", redondear(Math.Round(utilidadNeta, 2)));
+                tablePasivosCapital.Rows.Add("Reserva Legal", redondear(Math.Round(reservaLegal, 2)));
+            
+                totalCapital = saldoCuentaMayor;
             }
 
-            double pasivos = totalPasivos + impuestos_por_pagar;
-            double capital = totalPatrimonio + reserva_legal + utilidad_neta;
+            totalPasivosCapital = totalPasivos + totalCapital + impuestosPorPagar + reservaLegal + utilidadNeta;
 
-            double pasivos__ = pasivos + capital;
-            lblPasivosCapital.Text = "Total Pasivos + Patrimonio = $" + redondear(Math.Round(pasivos__, 2));
+        }
+
+        //el metodo calcula el ompuestosPorPagar, reservaLegal y la utilidadNeta
+        private void calcularEstadoDeResultados()
+        {
+            double ingresos = estadoDeResultadosController.getTotalIngresos(idLibroDiario);
+            double costos = estadoDeResultadosController.getTotalCostos(idLibroDiario);
+            double gastos = estadoDeResultadosController.getTotalGastos(idLibroDiario);
+            double utilidadDeOperacion = 0;
+            double utilidadAntesdeimpuestos = 0;
+
+            double ingresosMenosCostos = ingresos - costos;
+
+            utilidadDeOperacion = ingresosMenosCostos - gastos;
+            reservaLegal = (ingresosMenosCostos - gastos) * 0.07;
+            utilidadAntesdeimpuestos = (utilidadDeOperacion) - ((utilidadDeOperacion) * 0.07);
+
+            if (ingresos < 150000)
+            {
+                impuestosPorPagar = utilidadAntesdeimpuestos * 0.25;
+            }
+            else
+            {
+                impuestosPorPagar = utilidadAntesdeimpuestos * 0.3;
+            }
+
+            utilidadNeta = utilidadAntesdeimpuestos - impuestosPorPagar;
         }
 
         // el metodo retorna un formato #.00 a los decimales de un string

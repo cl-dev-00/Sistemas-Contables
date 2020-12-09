@@ -36,11 +36,6 @@ namespace SistemasContables
         private int WindowWidth;
         private int WindowHeight;
 
-        private double reserva_legal;
-        private double impuestos_por_pagar;
-        private double utilidad_neta;
-
-
 
         public MainForm()
         {
@@ -53,12 +48,8 @@ namespace SistemasContables
             libroDiarioController = new LibroDiariosController();
 
             listaLibroDiario = libroDiarioController.getList();
-
             libroDiario = listaLibroDiario[indexLibroDiario];
-
             lblPagina.Text = (indexLibroDiario + 1).ToString();
-
-
         }
 
         // cierra el programa
@@ -164,13 +155,7 @@ namespace SistemasContables
             currentNameForm = "estado_resultados";
             activaButton(this.btnEstadoDeResultados);
 
-            EstadoDeResultadosForm estadoFrom = new EstadoDeResultadosForm(libroDiario);
-
-            openFormInPane(estadoFrom);
-
-            utilidad_neta = estadoFrom.getUtilidad_neta();
-            impuestos_por_pagar = estadoFrom.getImpuestos();
-            reserva_legal = estadoFrom.getReserva();
+            openFormInPane(new EstadoDeResultadosForm(libroDiario));
         }
 
         // abre el form de balance general en el panel de contenido
@@ -178,96 +163,7 @@ namespace SistemasContables
         {
             currentNameForm = "balance_general";
             activaButton(this.btnBalanceGeneral);
-            openFormInPane(new BalanceGeneralForm(libroDiario, impuestos_por_pagar, reserva_legal, utilidad_neta));
-        }
-
-        // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
-        private void activaButton(object senderBtn)
-        {
-            if(senderBtn != null && panelNavegacion.Width == 252)
-            {
-                disabledButton();
-
-                // Estilos del button
-                btnCurrent = (IconButton)senderBtn;
-                //btnCurrent.BackColor = color;
-
-                //// Estilos del button
-                //btnCurrent = (IconButton)senderBtn;
-                //btnCurrent.ForeColor = color;
-                //btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
-                //btnCurrent.IconColor = color;
-                //btnCurrent.ImageAlign = ContentAlignment.MiddleRight;
-                //btnCurrent.TextImageRelation = TextImageRelation.TextBeforeImage;
-
-                //// Estilos del panel izquierdo del button
-                leftPanelBtn.BackColor = color;
-                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                leftPanelBtn.Visible = true;
-                leftPanelBtn.BringToFront();
-            } else
-            {
-                disabledButton();
-
-                // Estilos del button
-                btnCurrent = (IconButton)senderBtn;
-                //btnCurrent.BackColor = color;
-
-                //// Estilos del button
-                //btnCurrent = (IconButton)senderBtn;
-                //btnCurrent.IconColor = color;
-
-                // Estilos del panel izquierdo del button
-                leftPanelBtn.BackColor = color;
-                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
-                leftPanelBtn.Visible = true;
-                leftPanelBtn.BringToFront();
-
-
-            }
-        }
-
-        // cambia los estilos del button que esten en el panel de navegacion cuando se desactiva
-        private void disabledButton()
-        {
-            if (btnCurrent != null)
-            {
-                // Estilos del button
-                //btnCurrent.BackColor = color;
-
-                //// Estilos del button
-                //btnCurrent.ForeColor = Color.White;
-                //btnCurrent.TextAlign = ContentAlignment.MiddleCenter;
-                //btnCurrent.IconColor = Color.White;
-                //btnCurrent.ImageAlign = ContentAlignment.MiddleLeft;
-                //btnCurrent.TextImageRelation = TextImageRelation.ImageBeforeText;
-
-                // Estilos del panel izquierdo del button
-                leftPanelBtn.Visible = false;
-
-            }
-        }
-
-        // abre un form dentro del panel de contenido
-        private void openFormInPane(object childForm)
-        {
-            if(currentForm != null)
-            {
-                currentForm.Dispose();
-            }
-
-            if (this.panelContenido.Controls.Count > 0)
-            {
-                this.panelContenido.Controls.RemoveAt(0);
-            }
-
-            currentForm = childForm as Form;
-            currentForm.TopLevel = false;
-            currentForm.Dock = DockStyle.Fill;
-            this.panelContenido.Controls.Add(currentForm);
-            this.panelContenido.Tag = currentForm;
-            currentForm.Show();
-
+            openFormInPane(new BalanceGeneralForm(libroDiario));
         }
 
         // el metodo elimina el libro diario
@@ -350,6 +246,71 @@ namespace SistemasContables
 
         }
 
+        // cambia los estilos del button que esten en el panel de navegacion cuando se haga click
+        private void activaButton(object senderBtn)
+        {
+            if (senderBtn != null && panelNavegacion.Width == 252)
+            {
+                disabledButton();
+
+                btnCurrent = (IconButton)senderBtn;
+
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.BackColor = color;
+                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                leftPanelBtn.Visible = true;
+                leftPanelBtn.BringToFront();
+            }
+            else
+            {
+                disabledButton();
+
+                btnCurrent = (IconButton)senderBtn;
+
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.BackColor = color;
+                leftPanelBtn.Location = new Point(0, btnCurrent.Location.Y);
+                leftPanelBtn.Visible = true;
+                leftPanelBtn.BringToFront();
+
+
+            }
+        }
+
+        // cambia los estilos del button que esten en el panel de navegacion cuando se desactiva
+        private void disabledButton()
+        {
+            if (btnCurrent != null)
+            {
+
+                // Estilos del panel izquierdo del button
+                leftPanelBtn.Visible = false;
+
+            }
+        }
+
+        // abre un form dentro del panel de contenido
+        private void openFormInPane(object childForm)
+        {
+            if (currentForm != null)
+            {
+                currentForm.Dispose();
+            }
+
+            if (this.panelContenido.Controls.Count > 0)
+            {
+                this.panelContenido.Controls.RemoveAt(0);
+            }
+
+            currentForm = childForm as Form;
+            currentForm.TopLevel = false;
+            currentForm.Dock = DockStyle.Fill;
+            this.panelContenido.Controls.Add(currentForm);
+            this.panelContenido.Tag = currentForm;
+            currentForm.Show();
+
+        }
+
         // el metodo regarca el form cada vez que se cambia de libro diario
         private void recargarForm()
         {
@@ -375,7 +336,7 @@ namespace SistemasContables
             }
             else if (currentNameForm == "balance_general")
             {
-                openFormInPane(new BalanceGeneralForm(libroDiario, impuestos_por_pagar, reserva_legal, utilidad_neta));
+                openFormInPane(new BalanceGeneralForm(libroDiario));
             }
 
         }

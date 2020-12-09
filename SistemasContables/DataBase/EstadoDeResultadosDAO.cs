@@ -18,8 +18,6 @@ namespace SistemasContables.DataBase
         private Double ingresos = 0.0;
         private Double costos = 0.0;
         private Double gastos = 0.0;
-        //vacia la tabla
-
 
         private const string TABLE_PARTIDA = "partida";
         private const string ID_PARTIDA = "idPartida";
@@ -40,13 +38,10 @@ namespace SistemasContables.DataBase
 
         public EstadoDeResultadosDAO()
         {
-            double _ingresos = this.ingresos;
-            double _costos = this.costos;
-            double _gastos = this.gastos;
 
         }
 
-        public double getIngresos_(int idLibroDiario)
+        public double getTotalIngresos(int idLibroDiario)
         {
 
             try
@@ -91,7 +86,7 @@ namespace SistemasContables.DataBase
             return ingresos;
         }
 
-        public double getCostos_(int idLibroDiario)
+        public double getTotalCostos(int idLibroDiario)
         {
 
             try
@@ -135,7 +130,7 @@ namespace SistemasContables.DataBase
             return costos;
         }
 
-        public double getGastos_(int idLibroDiario)
+        public double getTotalGastos(int idLibroDiario)
         {
 
             try
