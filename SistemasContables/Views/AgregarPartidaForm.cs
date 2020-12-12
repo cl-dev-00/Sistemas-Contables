@@ -267,7 +267,14 @@ namespace SistemasContables.Views
         {
             int index = cbCuenta.FindString(txtBuscar.Text);
 
-            cbCuenta.SelectedIndex = index;
+            if(index != -1)
+            {
+                cbCuenta.SelectedIndex = index;
+            } else
+            {
+                cbCuenta.SelectedIndex = 0;
+            }
+
         }
 
         private void dpFecha_onValueChanged(object sender, EventArgs e)

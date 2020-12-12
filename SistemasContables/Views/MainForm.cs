@@ -185,7 +185,7 @@ namespace SistemasContables
 
                 listaLibroDiario = libroDiarioController.getList();
 
-                indexLibroDiario = 0;
+                indexLibroDiario = listaLibroDiario.Count - 1;
 
                 libroDiario = listaLibroDiario[indexLibroDiario];
 

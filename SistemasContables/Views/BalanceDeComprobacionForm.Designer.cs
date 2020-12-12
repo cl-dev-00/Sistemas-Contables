@@ -44,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblAcreedor = new System.Windows.Forms.Label();
             this.lblDeudor = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).BeginInit();
             this.SuspendLayout();
@@ -197,7 +196,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(199, 24);
             this.label3.TabIndex = 33;
-            this.label3.Text = "Acreedor";
+            this.label3.Text = "Total Acreedor";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -208,7 +207,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 24);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Deudor";
+            this.label2.Text = "Total Deudor";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblAcreedor
@@ -217,7 +216,7 @@
             this.lblAcreedor.BackColor = System.Drawing.Color.White;
             this.lblAcreedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcreedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.lblAcreedor.Location = new System.Drawing.Point(674, 643);
+            this.lblAcreedor.Location = new System.Drawing.Point(674, 655);
             this.lblAcreedor.Name = "lblAcreedor";
             this.lblAcreedor.Size = new System.Drawing.Size(199, 24);
             this.lblAcreedor.TabIndex = 31;
@@ -230,23 +229,12 @@
             this.lblDeudor.BackColor = System.Drawing.Color.White;
             this.lblDeudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeudor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.lblDeudor.Location = new System.Drawing.Point(470, 643);
+            this.lblDeudor.Location = new System.Drawing.Point(470, 655);
             this.lblDeudor.Name = "lblDeudor";
             this.lblDeudor.Size = new System.Drawing.Size(198, 24);
             this.lblDeudor.TabIndex = 30;
             this.lblDeudor.Text = "Deudor";
             this.lblDeudor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(330, 643);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 24);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Totales";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BalanceDeComprobacionForm
             // 
@@ -261,7 +249,6 @@
             this.Controls.Add(this.lblAcreedor);
             this.Controls.Add(this.panelTabla);
             this.Controls.Add(this.lblDeudor);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BalanceDeComprobacionForm";
             this.Text = "BalanceDeComprobacionForm";
@@ -279,7 +266,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblAcreedor;
         private System.Windows.Forms.Label lblDeudor;
-        private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaDataGridView tableBalanceDeComprobacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;

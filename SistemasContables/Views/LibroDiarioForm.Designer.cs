@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableLibroDiario = new Guna.UI.WinForms.GunaDataGridView();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +47,6 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.btnAjusteIva = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblDebe = new System.Windows.Forms.Label();
             this.lblHaber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,21 +76,21 @@
             // 
             this.tableLibroDiario.AllowUserToAddRows = false;
             this.tableLibroDiario.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.tableLibroDiario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.tableLibroDiario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableLibroDiario.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableLibroDiario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLibroDiario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tableLibroDiario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableLibroDiario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.tableLibroDiario.ColumnHeadersHeight = 40;
             this.tableLibroDiario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
@@ -99,14 +98,14 @@
             this.ColumnDetalle,
             this.ColumnDebe,
             this.ColumnHaber});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableLibroDiario.DefaultCellStyle = dataGridViewCellStyle12;
             this.tableLibroDiario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLibroDiario.EnableHeadersVisualStyles = false;
             this.tableLibroDiario.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -347,24 +346,13 @@
             this.btnAjusteIva.UseVisualStyleBackColor = false;
             this.btnAjusteIva.Click += new System.EventHandler(this.btnAjusteIva_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(332, 649);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 24);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Totales";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblDebe
             // 
             this.lblDebe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDebe.BackColor = System.Drawing.Color.White;
             this.lblDebe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDebe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.lblDebe.Location = new System.Drawing.Point(472, 649);
+            this.lblDebe.Location = new System.Drawing.Point(471, 663);
             this.lblDebe.Name = "lblDebe";
             this.lblDebe.Size = new System.Drawing.Size(198, 24);
             this.lblDebe.TabIndex = 20;
@@ -377,7 +365,7 @@
             this.lblHaber.BackColor = System.Drawing.Color.White;
             this.lblHaber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHaber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.lblHaber.Location = new System.Drawing.Point(676, 649);
+            this.lblHaber.Location = new System.Drawing.Point(675, 663);
             this.lblHaber.Name = "lblHaber";
             this.lblHaber.Size = new System.Drawing.Size(197, 24);
             this.lblHaber.TabIndex = 21;
@@ -388,22 +376,22 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(471, 625);
+            this.label2.Location = new System.Drawing.Point(471, 630);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 24);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Debe";
+            this.label2.Text = "Total Debe";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(676, 625);
+            this.label3.Location = new System.Drawing.Point(676, 630);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(199, 24);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Haber";
+            this.label3.Text = "Total Haber";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gunaElipse1
@@ -442,7 +430,6 @@
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblHaber);
             this.Controls.Add(this.lblDebe);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPeriodo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -468,7 +455,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblPeriodo;
         private FontAwesome.Sharp.IconButton btnAjusteIva;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDebe;
         private System.Windows.Forms.Label lblHaber;
         private System.Windows.Forms.Label label2;
