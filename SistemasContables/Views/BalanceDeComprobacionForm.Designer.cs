@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableBalanceDeComprobacion = new Guna.UI.WinForms.GunaDataGridView();
+            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,11 +45,6 @@
             this.lblAcreedor = new System.Windows.Forms.Label();
             this.lblDeudor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ColumnN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDeudor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAcreedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableBalanceDeComprobacion)).BeginInit();
             this.SuspendLayout();
@@ -131,6 +130,41 @@
             this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableBalanceDeComprobacion.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // ColumnN
+            // 
+            this.ColumnN.FillWeight = 50F;
+            this.ColumnN.HeaderText = "N°";
+            this.ColumnN.Name = "ColumnN";
+            this.ColumnN.ReadOnly = true;
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.FillWeight = 60F;
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            // 
+            // ColumnCuentas
+            // 
+            this.ColumnCuentas.FillWeight = 230F;
+            this.ColumnCuentas.HeaderText = "Cuentas";
+            this.ColumnCuentas.Name = "ColumnCuentas";
+            this.ColumnCuentas.ReadOnly = true;
+            // 
+            // ColumnDeudor
+            // 
+            this.ColumnDeudor.FillWeight = 80F;
+            this.ColumnDeudor.HeaderText = "Deudor";
+            this.ColumnDeudor.Name = "ColumnDeudor";
+            this.ColumnDeudor.ReadOnly = true;
+            // 
+            // ColumnAcreedor
+            // 
+            this.ColumnAcreedor.FillWeight = 80F;
+            this.ColumnAcreedor.HeaderText = "Acreedor";
+            this.ColumnAcreedor.Name = "ColumnAcreedor";
+            this.ColumnAcreedor.ReadOnly = true;
+            // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -180,7 +214,7 @@
             // lblAcreedor
             // 
             this.lblAcreedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAcreedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblAcreedor.BackColor = System.Drawing.Color.White;
             this.lblAcreedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcreedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.lblAcreedor.Location = new System.Drawing.Point(674, 643);
@@ -193,7 +227,7 @@
             // lblDeudor
             // 
             this.lblDeudor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDeudor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDeudor.BackColor = System.Drawing.Color.White;
             this.lblDeudor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeudor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.lblDeudor.Location = new System.Drawing.Point(470, 643);
@@ -213,41 +247,6 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Totales";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ColumnN
-            // 
-            this.ColumnN.FillWeight = 50F;
-            this.ColumnN.HeaderText = "N°";
-            this.ColumnN.Name = "ColumnN";
-            this.ColumnN.ReadOnly = true;
-            // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.FillWeight = 60F;
-            this.ColumnCodigo.HeaderText = "Codigo";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            // 
-            // ColumnCuentas
-            // 
-            this.ColumnCuentas.FillWeight = 230F;
-            this.ColumnCuentas.HeaderText = "Cuentas";
-            this.ColumnCuentas.Name = "ColumnCuentas";
-            this.ColumnCuentas.ReadOnly = true;
-            // 
-            // ColumnDeudor
-            // 
-            this.ColumnDeudor.FillWeight = 80F;
-            this.ColumnDeudor.HeaderText = "Deudor";
-            this.ColumnDeudor.Name = "ColumnDeudor";
-            this.ColumnDeudor.ReadOnly = true;
-            // 
-            // ColumnAcreedor
-            // 
-            this.ColumnAcreedor.FillWeight = 80F;
-            this.ColumnAcreedor.HeaderText = "Acreedor";
-            this.ColumnAcreedor.Name = "ColumnAcreedor";
-            this.ColumnAcreedor.ReadOnly = true;
             // 
             // BalanceDeComprobacionForm
             // 

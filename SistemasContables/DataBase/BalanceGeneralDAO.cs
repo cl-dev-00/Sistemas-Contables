@@ -13,7 +13,7 @@ namespace SistemasContables.DataBase
     class BalanceGeneralDAO
     {
         private SQLiteConnection conn;
-        private List<CuentaPartida> listaCuentas;
+        private List<Cuenta> listaCuentas;
         private List<CuentaPartida> listaSaldos;
 
         private const string TABLE_PARTIDA = "partida";
@@ -32,11 +32,11 @@ namespace SistemasContables.DataBase
 
         public BalanceGeneralDAO()
         {
-            listaCuentas = new List<CuentaPartida>();
+            listaCuentas = new List<Cuenta>();
             listaSaldos = new List<CuentaPartida>();
         }
 
-        public List<CuentaPartida> getListCuentas()
+        public List<Cuenta> getListCuentas()
         {
             try
             {
@@ -46,7 +46,7 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA}";
+                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA} WHERE codigo='1' OR codigo='2' OR codigo='3'";
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;

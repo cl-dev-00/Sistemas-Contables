@@ -17,7 +17,7 @@ namespace SistemasContables.controller
             balanceGeneralDAO = new BalanceGeneralDAO();
         }
 
-        public List<CuentaPartida> getListCuentas()
+        public List<Cuenta> getListCuentas()
         {
             return balanceGeneralDAO.getListCuentas();
         }

@@ -17,15 +17,10 @@ namespace SistemasContables.Views
     {
         private BalanceGeneralController balanceGeneralController;
         private EstadoDeResultadosController estadoDeResultadosController;
-        private List<CuentaPartida> listaCuentas;
+        private List<Cuenta> listaCuentas;
         private List<CuentaPartida> listaSaldos;
 
         private int idLibroDiario;
-
-        private double totalActivos;
-        private double totalPasivos;
-        private double totalCapital;
-        private double totalPasivosCapital;
 
         private double impuestosPorPagar = 0;
         private double reservaLegal = 0;
@@ -47,44 +42,39 @@ namespace SistemasContables.Views
             calcularEstadoDeResultados();
             llenarTabla(libroDiario);
 
-            lblActivos.Text = "$ " + redondear(totalActivos);
-            lblPasivosCapital.Text = "$ " + redondear(totalPasivosCapital);
+            lblActivos.Text = "$ " + redondear(TotalActivos());
+            lblPasivosCapital.Text = "$ " + redondear(TotalPasivosCapital());
         }
         private void llenarTabla(LibroDiario libroDiario)
         {
             listaCuentas = balanceGeneralController.getListCuentas();
             List<string> codigosp = new List<string>();
 
-            foreach (CuentaPartida cuenta in listaCuentas)
+            foreach (Cuenta cuenta in listaCuentas)
             {
-                if (cuenta.Codigo == "1" || cuenta.Codigo == "2" || cuenta.Codigo == "3")
+                if (!codigosp.Contains(cuenta.Codigo))
                 {
-                    if (!codigosp.Contains(cuenta.Codigo))
+                    codigosp.Add(cuenta.Codigo);
+
+                    if (cuenta.TipoSaldo == "Deudor")
                     {
-                        codigosp.Add(cuenta.Codigo);
-
-                        if (cuenta.TipoSaldo == "Deudor")
-                        {
-                            tableActivos.Rows.Add(cuenta.Nombre, "", "");
-                        }
-                        else if (cuenta.TipoSaldo == "Acreedor")
-                        {
-                            tablePasivosCapital.Rows.Add(cuenta.Nombre, "", "");
-                        }
-
-                        llenarCuentas(libroDiario.IdLibroDiario, cuenta);
+                        tableActivos.Rows.Add(cuenta.Nombre, "", "");
                     }
+                    else if (cuenta.TipoSaldo == "Acreedor")
+                    {
+                        tablePasivosCapital.Rows.Add(cuenta.Nombre, "", "");
+                    }
+
+                    llenarCuentas(libroDiario.IdLibroDiario, cuenta);
                 }
             }
         }
 
-        private void llenarCuentas(int idLibroDiario, CuentaPartida cuenta)
+        private void llenarCuentas(int idLibroDiario, Cuenta cuenta)
         {
             listaSaldos = balanceGeneralController.getListSaldos(idLibroDiario, cuenta.Codigo);
 
             List<string> codigos = new List<string>();
-
-            double saldoCuentaMayor = 0;
 
             foreach (CuentaPartida cuentaPartida in listaSaldos)
             {
@@ -108,14 +98,12 @@ namespace SistemasContables.Views
                     if (cuentaPartida.TipoSaldo == "Deudor")
                     {
                         saldoPorCuenta = saldoDebe - saldoHaber;
-                        saldoCuentaMayor += saldoPorCuenta;
 
                         tableActivos.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                     }
                     else if (cuentaPartida.TipoSaldo == "Acreedor")
                     {
                         saldoPorCuenta = saldoHaber - saldoDebe;
-                        saldoCuentaMayor += saldoPorCuenta;
 
                         tablePasivosCapital.Rows.Add(cuentaPartida.Nombre, redondear(Math.Round(saldoPorCuenta, 2)), "");
                     }
@@ -123,34 +111,16 @@ namespace SistemasContables.Views
                 }
             }
 
-            if (cuenta.Codigo == "1")
-            {
-                if(cuenta.TipoSaldo == "Deudor")
-                {
-                    tableActivos.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
-                } else if(cuenta.TipoSaldo == "Acreedor")
-                {
-                    tablePasivosCapital.Rows.Add("Total " + cuenta.Nombre, saldoCuentaMayor);
-                }
-
-                totalActivos = saldoCuentaMayor;
-
-            }
-            else if (cuenta.Codigo == "2")
+            if (cuenta.Codigo == "2")
             {
                 tablePasivosCapital.Rows.Add("Impuestos por Pagar", redondear(Math.Round(impuestosPorPagar, 2)));
-            
-                totalPasivos = saldoCuentaMayor;
             }
             else if (cuenta.Codigo == "3")
             {
                 tablePasivosCapital.Rows.Add("Utilidad Neta", redondear(Math.Round(utilidadNeta, 2)));
                 tablePasivosCapital.Rows.Add("Reserva Legal", redondear(Math.Round(reservaLegal, 2)));
-            
-                totalCapital = saldoCuentaMayor;
             }
 
-            totalPasivosCapital = totalPasivos + totalCapital + impuestosPorPagar + reservaLegal + utilidadNeta;
 
         }
 
@@ -179,6 +149,46 @@ namespace SistemasContables.Views
             }
 
             utilidadNeta = utilidadAntesdeimpuestos - impuestosPorPagar;
+        }
+
+        // el metodo retorna la suma de todos los activos
+        private double TotalActivos()
+        {
+            double total = 0;
+
+            for (int i = 0; i < tableActivos.Rows.Count; i++)
+            {
+
+                if (!string.IsNullOrEmpty(tableActivos.Rows[i].Cells["ColumnCantidadActivos"].Value.ToString()))
+                {
+                    total += Convert.ToDouble(tableActivos.Rows[i].Cells["ColumnCantidadActivos"].Value.ToString());
+                }
+
+            }
+
+            total = Math.Round(total, 2);
+
+            return total;
+        }
+
+        // el metodo retorna la suma de todos los pasivos + patrimonios
+        private double TotalPasivosCapital()
+        {
+            double total = 0;
+
+            for (int i = 0; i < tablePasivosCapital.Rows.Count; i++)
+            {
+
+                if (!string.IsNullOrEmpty(tablePasivosCapital.Rows[i].Cells["ColumnCantidadPasivos"].Value.ToString()))
+                {
+                    total += Convert.ToDouble(tablePasivosCapital.Rows[i].Cells["ColumnCantidadPasivos"].Value.ToString());
+                }
+
+            }
+
+            total = Math.Round(total, 2);
+
+            return total;
         }
 
         // el metodo retorna un formato #.00 a los decimales de un string

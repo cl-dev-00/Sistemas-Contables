@@ -60,8 +60,6 @@ namespace SistemasContables.DataBase
                     command.Parameters.Add(new SQLiteParameter("@id_libro_diario", partida.IdLibro));
                     command.ExecuteNonQuery();
 
-                    //Ingreso las cuentasPartidas a sus respectiva partida a la database
-
                     this.idPartida = obtenerIdUltimaPartida(partida.IdLibro);
 
                     foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
