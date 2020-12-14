@@ -345,7 +345,10 @@ namespace SistemasContables.DataBase
                     command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
                     var result = command.ExecuteScalar();
 
-                    total = result != null ? (double)result : 0;
+                    if (!string.IsNullOrEmpty(result.ToString()))
+                    {
+                        total = Convert.ToDouble(result);
+                    }
 
                 }
 

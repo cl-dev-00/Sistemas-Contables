@@ -43,13 +43,14 @@ namespace SistemasContables
             leftPanelBtn = new Panel();
             leftPanelBtn.Size = new Size(7, btnInicio.Height);
             panelNavegacion.Controls.Add(leftPanelBtn);
-            openFormInPane(new InicioForm());
 
             libroDiarioController = new LibroDiariosController();
 
             listaLibroDiario = libroDiarioController.getList();
             libroDiario = listaLibroDiario[indexLibroDiario];
             lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+            openFormInPane(new InicioForm(libroDiarioController));
         }
 
         // cierra el programa
@@ -122,7 +123,7 @@ namespace SistemasContables
         {
             currentNameForm = "inicio";
             activaButton(this.btnInicio);
-            openFormInPane(new InicioForm());
+            openFormInPane(new InicioForm(libroDiarioController));
         }
 
         // abre el form del libro diario en el panel de contenido
@@ -316,7 +317,7 @@ namespace SistemasContables
         {
             if (currentNameForm == "inicio")
             {
-                openFormInPane(new InicioForm());
+                openFormInPane(new InicioForm(libroDiarioController));
             }
             else if (currentNameForm == "libro_diario")
             {

@@ -93,7 +93,7 @@ namespace SistemasContables.DataBase
 
                     if(!string.IsNullOrEmpty(result.ToString()))
                     {
-                        total = result != null ? (double)result : 0;
+                        total = Convert.ToDouble(result);
                     }
 
 
@@ -139,7 +139,7 @@ namespace SistemasContables.DataBase
 
                     if (!string.IsNullOrEmpty(result.ToString()))
                     {
-                        total = result != null ? (double)result : 0;
+                        total = Convert.ToDouble(result);
                     }
 
                 }

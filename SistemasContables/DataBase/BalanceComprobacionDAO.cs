@@ -40,7 +40,6 @@ namespace SistemasContables.DataBase
         public List<CuentaPartida> getListCuentas()
         {
 
-
             try
             {
                 conn = Conexion.Conn;

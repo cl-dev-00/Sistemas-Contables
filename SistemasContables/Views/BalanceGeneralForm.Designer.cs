@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblPasivosCapital = new System.Windows.Forms.Label();
             this.splitContainerLbl = new System.Windows.Forms.SplitContainer();
+            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -343,7 +344,7 @@
             this.lblPasivosCapital.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.lblPasivosCapital.Location = new System.Drawing.Point(159, 0);
             this.lblPasivosCapital.Name = "lblPasivosCapital";
-            this.lblPasivosCapital.Size = new System.Drawing.Size(185, 64);
+            this.lblPasivosCapital.Size = new System.Drawing.Size(149, 64);
             this.lblPasivosCapital.TabIndex = 38;
             this.lblPasivosCapital.Text = "total capital";
             this.lblPasivosCapital.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -370,12 +371,25 @@
             this.splitContainerLbl.SplitterWidth = 40;
             this.splitContainerLbl.TabIndex = 40;
             // 
+            // label
+            // 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(228, 115);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(500, 50);
+            this.label.TabIndex = 41;
+            this.label.Text = "EXPRESADO EN DOLARES DE LOS ESTADOS UNIDOS DE NORTEAMERICA";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BalanceGeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(948, 710);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.splitContainerLbl);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.btnImprimir);
@@ -415,5 +429,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblPasivosCapital;
         private System.Windows.Forms.SplitContainer splitContainerLbl;
+        private System.Windows.Forms.Label label;
     }
 }

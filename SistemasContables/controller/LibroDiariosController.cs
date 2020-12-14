@@ -33,5 +33,9 @@ namespace SistemasContables.controller
             return libroDiarioDAO.delete(idLibroDiario);
         }
 
+        public double total(string cuentaCalcular)
+        {
+            return libroDiarioDAO.total(cuentaCalcular);
+        }
     }
 }
