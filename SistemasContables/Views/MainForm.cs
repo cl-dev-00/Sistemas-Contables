@@ -21,6 +21,7 @@ namespace SistemasContables
     {
         private LibroDiario libroDiario;
         private List<LibroDiario> listaLibroDiario;
+        private List<int> listaYears;
         private LibroDiariosController libroDiarioController;
         private IconButton btnCurrent;
         private Panel leftPanelBtn;
@@ -45,12 +46,14 @@ namespace SistemasContables
             panelNavegacion.Controls.Add(leftPanelBtn);
 
             libroDiarioController = new LibroDiariosController();
-
+            listaYears = new List<int>();
             listaLibroDiario = libroDiarioController.getList();
             libroDiario = listaLibroDiario[indexLibroDiario];
             lblPagina.Text = (indexLibroDiario + 1).ToString();
 
-            openFormInPane(new InicioForm(libroDiarioController));
+            llenarListaYears();
+
+            openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
         }
 
         // cierra el programa
@@ -123,7 +126,7 @@ namespace SistemasContables
         {
             currentNameForm = "inicio";
             activaButton(this.btnInicio);
-            openFormInPane(new InicioForm(libroDiarioController));
+            openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
         }
 
         // abre el form del libro diario en el panel de contenido
@@ -192,8 +195,8 @@ namespace SistemasContables
 
                 lblPagina.Text = (indexLibroDiario + 1).ToString();
 
+                llenarListaYears();
                 recargarForm();
-
             }
         }
 
@@ -207,7 +210,11 @@ namespace SistemasContables
 
                 libroDiario = listaLibroDiario[indexLibroDiario];
 
-                recargarForm();
+                if (currentNameForm != "inicio")
+                {
+                    recargarForm();
+                }
+
             }
         }
 
@@ -221,7 +228,11 @@ namespace SistemasContables
 
                 libroDiario = listaLibroDiario[indexLibroDiario];
 
-                recargarForm();
+                if(currentNameForm != "inicio")
+                {
+                    recargarForm();
+                }
+
             }
         }
 
@@ -240,9 +251,11 @@ namespace SistemasContables
 
                 libroDiario = listaLibroDiario[indexLibroDiario];
 
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+
+                llenarListaYears();
                 recargarForm();
 
-                lblPagina.Text = (indexLibroDiario + 1).ToString();
             }
 
         }
@@ -317,7 +330,7 @@ namespace SistemasContables
         {
             if (currentNameForm == "inicio")
             {
-                openFormInPane(new InicioForm(libroDiarioController));
+                openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
             }
             else if (currentNameForm == "libro_diario")
             {
@@ -340,6 +353,27 @@ namespace SistemasContables
                 openFormInPane(new BalanceGeneralForm(libroDiario));
             }
 
+        }
+
+        // el metodo llena las lista de años necesario para la informacion de inicio
+        private void llenarListaYears()
+        {
+            if(listaYears.Count > 0)
+            {
+                listaYears.Clear();
+            }
+
+            foreach(LibroDiario libroDiario in listaLibroDiario)
+            {
+                string[] periodoTokens = libroDiario.Periodo.Split(' ');
+
+                int year = Convert.ToInt32(periodoTokens[5]);
+
+                listaYears.Add(year);
+            }
+
+            // obtengo unicamente los años no duplicados
+            listaYears = listaYears.Distinct().ToList();
         }
 
         //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------

@@ -164,11 +164,11 @@ namespace SistemasContables.DataBase
 
         }
 
-        public double total(string cuentaCalcular)
+        public double total(string cuentaCalcular, int idLibroDiario)
         {
             double total = 0;
-            double debe = DebeOrHaber(cuentaCalcular, DEBE);
-            double haber = DebeOrHaber(cuentaCalcular, HABER);
+            double debe = DebeOrHaber(cuentaCalcular, DEBE, idLibroDiario);
+            double haber = DebeOrHaber(cuentaCalcular, HABER, idLibroDiario);
             
             total = debe + haber;
 
@@ -176,7 +176,7 @@ namespace SistemasContables.DataBase
 
         }
 
-        private double DebeOrHaber(string cuentaCalcular, string campoCalcular)
+        private double DebeOrHaber(string cuentaCalcular, string campoCalcular,  int idLibroDiario)
         {
             double total = 0;
 
@@ -188,8 +188,12 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = queryString(cuentaCalcular, campoCalcular);
-                    
+                    string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{campoCalcular}) FROM {TABLE_CUENTA_PARTIDA} ";
+                    sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                    sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                    sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND ";
+                    sql += queryString(cuentaCalcular, campoCalcular);
+
                     if (string.IsNullOrEmpty(sql))
                     {
                         conn.Close();
@@ -200,6 +204,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
+                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
                     var result = command.ExecuteScalar();
 
                     if (!string.IsNullOrEmpty(result.ToString()))
@@ -223,32 +228,31 @@ namespace SistemasContables.DataBase
 
         private string queryString(string cuentaCalcular, string campoCalcular)
         {
-            string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{campoCalcular}) FROM {TABLE_CUENTA_PARTIDA} ";
-            sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+            string sql = "";
 
             if (cuentaCalcular == "activos")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '1%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '1%'";
             }
             else if (cuentaCalcular == "pasivos")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '2%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '2%'";
             }
             else if (cuentaCalcular == "ingresos")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '5%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '5%'";
             }
             else if (cuentaCalcular == "costos")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '41%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '41%'";
             }
             else if (cuentaCalcular == "gastos")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '42%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '42%'";
             }
             else if (cuentaCalcular == "capital")
             {
-                sql += $"WHERE {TABLE_CUENTA}.{CODIGO} LIKE '31%'";
+                sql += $"{TABLE_CUENTA}.{CODIGO} LIKE '31%'";
             }
             else
             {

@@ -31,6 +31,11 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblGastos = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,6 +64,8 @@
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.cbFilterYear = new Guna.UI.WinForms.GunaComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel5.SuspendLayout();
@@ -365,7 +372,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel6);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(45, 53);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(45, 56);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(865, 286);
             this.flowLayoutPanel1.TabIndex = 19;
@@ -386,20 +393,56 @@
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
+            chartArea1.Name = "chart";
             this.chart.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend";
             this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(45, 399);
             this.chart.Name = "chart";
-            series1.BorderWidth = 5;
-            series1.ChartArea = "ChartArea1";
+            series1.BorderWidth = 3;
+            series1.ChartArea = "chart";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            series1.Legend = "Legend1";
-            series1.Name = "grafico";
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            series1.Legend = "Legend";
+            series1.Name = "Activos";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "chart";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            series2.Legend = "Legend";
+            series2.Name = "Capital";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "chart";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(69)))), ((int)(((byte)(89)))));
+            series3.Legend = "Legend";
+            series3.Name = "Pasivos";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "chart";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            series4.Legend = "Legend";
+            series4.Name = "Ingresos";
+            series5.BorderWidth = 3;
+            series5.ChartArea = "chart";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            series5.Legend = "Legend";
+            series5.Name = "Costos";
+            series6.BorderWidth = 3;
+            series6.ChartArea = "chart";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            series6.Legend = "Legend";
+            series6.Name = "Gastos";
             this.chart.Series.Add(series1);
+            this.chart.Series.Add(series2);
+            this.chart.Series.Add(series3);
+            this.chart.Series.Add(series4);
+            this.chart.Series.Add(series5);
+            this.chart.Series.Add(series6);
             this.chart.Size = new System.Drawing.Size(852, 299);
             this.chart.TabIndex = 23;
             this.chart.Text = "x";
@@ -409,9 +452,9 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(50, 18);
+            this.label13.Location = new System.Drawing.Point(50, 15);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(250, 23);
+            this.label13.Size = new System.Drawing.Size(250, 33);
             this.label13.TabIndex = 25;
             this.label13.Text = "Informacion General";
             // 
@@ -425,6 +468,41 @@
             this.label14.Size = new System.Drawing.Size(310, 32);
             this.label14.TabIndex = 26;
             this.label14.Text = "Rendimiento de la empresa";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbFilterYear
+            // 
+            this.cbFilterYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFilterYear.BackColor = System.Drawing.Color.Transparent;
+            this.cbFilterYear.BaseColor = System.Drawing.Color.White;
+            this.cbFilterYear.BorderColor = System.Drawing.Color.Silver;
+            this.cbFilterYear.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbFilterYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterYear.FocusedColor = System.Drawing.Color.Empty;
+            this.cbFilterYear.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.cbFilterYear.ForeColor = System.Drawing.Color.Black;
+            this.cbFilterYear.FormattingEnabled = true;
+            this.cbFilterYear.Items.AddRange(new object[] {
+            "Todos"});
+            this.cbFilterYear.Location = new System.Drawing.Point(822, 13);
+            this.cbFilterYear.Name = "cbFilterYear";
+            this.cbFilterYear.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            this.cbFilterYear.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbFilterYear.Size = new System.Drawing.Size(84, 33);
+            this.cbFilterYear.StartIndex = 0;
+            this.cbFilterYear.TabIndex = 27;
+            this.cbFilterYear.SelectedValueChanged += new System.EventHandler(this.cbFilterYear_SelectedValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(646, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 33);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Filtrar por año:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InicioForm
             // 
@@ -433,6 +511,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(943, 710);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbFilterYear);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.chart);
@@ -493,5 +573,7 @@
         private System.Windows.Forms.Label lblIngresos;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private Guna.UI.WinForms.GunaComboBox cbFilterYear;
+        private System.Windows.Forms.Label label2;
     }
 }

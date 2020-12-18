@@ -171,7 +171,7 @@ namespace SistemasContables.Views
 
             if(!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
             {
-                int index = cbCuenta.SelectedIndex - 1;
+                int index = cbCuenta.SelectedIndex - 3;
 
                 double monto = Convert.ToDouble(txtMonto.Text);
                 double ivaMonto = monto * IVA;

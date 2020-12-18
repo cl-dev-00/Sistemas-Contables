@@ -1,4 +1,5 @@
 ﻿using SistemasContables.controller;
+using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,29 +17,35 @@ namespace SistemasContables.Views
     {
         //Lo uso para que sea punto ( . ) el separador de decimales, va cuando se hace .ToString("", formatoDecimales)
         private NumberFormatInfo formatoDecimales = new CultureInfo("en-US", false).NumberFormat;
+        private LibroDiariosController libroDiarioController;
+        List<LibroDiario> listaLibroDiario;
 
-        public InicioForm(LibroDiariosController libroDiarioController)
+        public InicioForm(LibroDiariosController libroDiarioController, List<LibroDiario> listaLibroDiario, List<int> listaYears)
         {
             InitializeComponent();
-            this.chart.Series["grafico"].Points.AddXY("Enero", 10);
-            this.chart.Series["grafico"].Points.AddXY("Febrero", 20);
-            this.chart.Series["grafico"].Points.AddXY("Marzo", 40);
-            this.chart.Series["grafico"].Points.AddXY("Abril", 25);
-            this.chart.Series["grafico"].Points.AddXY("Mayo", 60);
-            this.chart.Series["grafico"].Points.AddXY("Junio", 40);
-            this.chart.Series["grafico"].Points.AddXY("Julio", 65);
-            this.chart.Series["grafico"].Points.AddXY("Agosto", 40);
-            this.chart.Series["grafico"].Points.AddXY("Septiembre", 25);
-            this.chart.Series["grafico"].Points.AddXY("Octubre", 60);
-            this.chart.Series["grafico"].Points.AddXY("Noviembre", 40);
-            this.chart.Series["grafico"].Points.AddXY("Diciembre", 65);
 
-            lblActivos.Text = "$ " + redondear(libroDiarioController.total("activos"));
-            lblCapital.Text = "$ " + redondear(libroDiarioController.total("capital"));
-            lblPasivos.Text = "$ " + redondear(libroDiarioController.total("pasivos"));
-            lblIngresos.Text = "$ " + redondear(libroDiarioController.total("ingresos"));
-            lblCostos.Text = "$ " + redondear(libroDiarioController.total("costos"));
-            lblGastos.Text = "$ " + redondear(libroDiarioController.total("gastos"));
+            this.libroDiarioController = libroDiarioController;
+
+            this.listaLibroDiario = listaLibroDiario;
+
+            llenarCbFilterYear(listaYears);
+            totalLibrosDiarios(listaLibroDiario);
+        }
+
+        // el metodo filtra los datos de las graficas cada vez que se cambia de año
+        private void cbFilterYear_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cbFilterYear.SelectedItem.ToString() != "Todos")
+            {
+                int year = Convert.ToInt32(cbFilterYear.SelectedItem);
+
+                clearGraficos();
+                totalYear(listaLibroDiario, year);
+            } else
+            {
+                clearGraficos();
+                totalLibrosDiarios(listaLibroDiario);
+            }
 
         }
 
@@ -46,6 +53,154 @@ namespace SistemasContables.Views
         private string redondear(double cantidad)
         {
             return cantidad.ToString("0.00", formatoDecimales);
+        }
+
+        private void totalLibrosDiarios(List<LibroDiario> listaLibroDiario)
+        {
+            double activos = 0;
+            double capital = 0;
+            double pasivos = 0;
+            double ingresos = 0;
+            double costos = 0;
+            double gastos = 0;
+            int year = getYear(listaLibroDiario[0]);
+            int yearCurrent;
+
+            for (int i = 0; i < listaLibroDiario.Count; i++)
+            {
+                LibroDiario libroDiario = listaLibroDiario[i];
+
+                yearCurrent = getYear(libroDiario);
+
+                if (yearCurrent != year)
+                {
+                    llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
+
+                    activos = 0;
+                    capital = 0;
+                    pasivos = 0;
+                    ingresos = 0;
+                    costos = 0;
+                    gastos = 0;
+                    year = getYear(libroDiario);
+                } else if((i+1) > listaLibroDiario.Count-1)
+                {
+                    llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
+                }
+
+                activos += libroDiarioController.total("activos", libroDiario.IdLibroDiario);
+                capital += libroDiarioController.total("capital", libroDiario.IdLibroDiario);
+                pasivos += libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
+                ingresos += libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
+                costos += libroDiarioController.total("costos", libroDiario.IdLibroDiario);
+                gastos += libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
+            }
+            
+
+            lblActivos.Text = redondear(activos);
+            lblCapital.Text = redondear(capital);
+            lblPasivos.Text = redondear(pasivos);
+            lblIngresos.Text = redondear(ingresos);
+            lblCostos.Text = redondear(costos);
+            lblGastos.Text = redondear(gastos);
+        }
+
+        private void totalYear(List<LibroDiario> listaLibroDiario, int year)
+        {
+            double activos = 0;
+            double capital = 0;
+            double pasivos = 0;
+            double ingresos = 0;
+            double costos = 0;
+            double gastos = 0;
+
+            for (int i = 0; i < listaLibroDiario.Count; i++)
+            {
+                int yearCurrent = getYear(listaLibroDiario[i]);
+
+                if(yearCurrent == year)
+                {
+                    string month = getMonth(listaLibroDiario[i]);
+
+                    LibroDiario libroDiario = listaLibroDiario[i];
+
+                    activos = 0;
+                    capital = 0;
+                    pasivos = 0;
+                    ingresos = 0;
+                    costos = 0;
+                    gastos = 0;
+
+                    activos += libroDiarioController.total("activos", libroDiario.IdLibroDiario);
+                    capital += libroDiarioController.total("capital", libroDiario.IdLibroDiario);
+                    pasivos += libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
+                    ingresos += libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
+                    costos += libroDiarioController.total("costos", libroDiario.IdLibroDiario);
+                    gastos += libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
+
+                    llenarGraficos(month, activos, capital, pasivos, ingresos, costos, gastos);
+                }
+            }
+
+            lblActivos.Text = redondear(activos);
+            lblCapital.Text = redondear(capital);
+            lblPasivos.Text = redondear(pasivos);
+            lblIngresos.Text = redondear(ingresos);
+            lblCostos.Text = redondear(costos);
+            lblGastos.Text = redondear(gastos);
+        }
+
+        // el metodo llena el combobox para filtrar la informacion por años
+        private void llenarCbFilterYear(List<int> listaYears)
+        {
+            foreach(int year in listaYears)
+            {
+                cbFilterYear.Items.Add(year);
+            }
+        }
+
+        // el metodo llena los graficos
+        private void llenarGraficos(string yearOrMonth, double activos, double capital, double pasivos, double ingresos, double costos, double gastos)
+        {
+            chart.Series["Activos"].Points.AddXY(yearOrMonth, activos);
+            chart.Series["Capital"].Points.AddXY(yearOrMonth, capital);
+            chart.Series["Pasivos"].Points.AddXY(yearOrMonth, pasivos);
+            chart.Series["Ingresos"].Points.AddXY(yearOrMonth, ingresos);
+            chart.Series["Costos"].Points.AddXY(yearOrMonth, costos);
+            chart.Series["Gastos"].Points.AddXY(yearOrMonth, gastos);
+
+        }
+
+        // el vacia las graficas
+        private void clearGraficos()
+        {
+            chart.Series["Activos"].Points.Clear();
+            chart.Series["Capital"].Points.Clear();
+            chart.Series["Pasivos"].Points.Clear();
+            chart.Series["Ingresos"].Points.Clear();
+            chart.Series["Costos"].Points.Clear();
+            chart.Series["Gastos"].Points.Clear();
+
+        }
+
+        // el metodo obtiene el año en que empieza del libro diario
+        private int getYear(LibroDiario libroDiario)
+        {
+            string[] periodoTokens = libroDiario.Periodo.Split(' ');
+
+            int year = Convert.ToInt32(periodoTokens[5]);
+
+            return year;
+        }
+
+        // el metodo obtiene el mes en que empieza del libro diario
+        private string getMonth(LibroDiario libroDiario)
+        {
+            string[] periodoTokens = libroDiario.Periodo.Split(' ');
+
+            string month = periodoTokens[3];
+
+            return month;
         }
 
     }
