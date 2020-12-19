@@ -57,100 +57,55 @@ namespace SistemasContables.Views
 
         private void totalLibrosDiarios(List<LibroDiario> listaLibroDiario)
         {
-            double totalActivos = 0;
-            double totalCapital = 0;
-            double totalPasivos = 0;
-            double totalIngresos = 0;
-            double totalCostos = 0;
-            double totalGastos = 0;
-            double activos = 0;
-            double capital = 0;
-            double pasivos = 0;
-            double ingresos = 0;
-            double costos = 0;
-            double gastos = 0;
-            int year = getYear(listaLibroDiario[0]);
-            int yearCurrent;
-
-            for (int i = 0; i < listaLibroDiario.Count; i++)
+            if (listaLibroDiario.Count > 0)
             {
-                LibroDiario libroDiario = listaLibroDiario[i];
 
-                yearCurrent = getYear(libroDiario);
+                double totalActivos = 0;
+                double totalCapital = 0;
+                double totalPasivos = 0;
+                double totalIngresos = 0;
+                double totalCostos = 0;
+                double totalGastos = 0;
+                double activos = 0;
+                double capital = 0;
+                double pasivos = 0;
+                double ingresos = 0;
+                double costos = 0;
+                double gastos = 0;
+                int year = getYear(listaLibroDiario[0]);
+                int yearCurrent;
 
-                if (yearCurrent != year)
+                for (int i = 0; i < listaLibroDiario.Count; i++)
                 {
-                    llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
-
-                    activos = 0;
-                    capital = 0;
-                    pasivos = 0;
-                    ingresos = 0;
-                    costos = 0;
-                    gastos = 0;
-
-                    year = getYear(libroDiario);
-
-                } else if((i+1) > listaLibroDiario.Count-1)
-                {
-                    llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
-                }
-
-                activos += libroDiarioController.total("activos", libroDiario.IdLibroDiario);
-                capital += libroDiarioController.total("capital", libroDiario.IdLibroDiario);
-                pasivos += libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
-                ingresos += libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
-                costos += libroDiarioController.total("costos", libroDiario.IdLibroDiario);
-                gastos += libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
-
-                totalActivos += activos;
-                totalCapital += capital;
-                totalPasivos += pasivos;
-                totalIngresos += ingresos;
-                totalCostos += costos;
-                totalGastos += gastos;
-            }
-
-
-            lblActivos.Text = redondear(totalActivos);
-            lblCapital.Text = redondear(totalCapital);
-            lblPasivos.Text = redondear(totalPasivos);
-            lblIngresos.Text = redondear(totalIngresos);
-            lblCostos.Text = redondear(totalCostos);
-            lblGastos.Text = redondear(totalGastos);
-        }
-
-        private void totalYear(List<LibroDiario> listaLibroDiario, int year)
-        {
-            double totalActivos = 0;
-            double totalCapital = 0;
-            double totalPasivos = 0;
-            double totalIngresos = 0;
-            double totalCostos = 0;
-            double totalGastos = 0;
-            double activos = 0;
-            double capital = 0;
-            double pasivos = 0;
-            double ingresos = 0;
-            double costos = 0;
-            double gastos = 0;
-
-            for (int i = 0; i < listaLibroDiario.Count; i++)
-            {
-                int yearCurrent = getYear(listaLibroDiario[i]);
-
-                if(yearCurrent == year)
-                {
-                    string month = getMonth(listaLibroDiario[i]);
-
                     LibroDiario libroDiario = listaLibroDiario[i];
 
-                    activos = libroDiarioController.total("activos", libroDiario.IdLibroDiario);
-                    capital = libroDiarioController.total("capital", libroDiario.IdLibroDiario);
-                    pasivos = libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
-                    ingresos = libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
-                    costos = libroDiarioController.total("costos", libroDiario.IdLibroDiario);
-                    gastos = libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
+                    yearCurrent = getYear(libroDiario);
+
+                    if (yearCurrent != year)
+                    {
+                        llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
+
+                        activos = 0;
+                        capital = 0;
+                        pasivos = 0;
+                        ingresos = 0;
+                        costos = 0;
+                        gastos = 0;
+
+                        year = getYear(libroDiario);
+
+                    }
+                    else if ((i + 1) > listaLibroDiario.Count - 1)
+                    {
+                        llenarGraficos(year.ToString(), activos, capital, pasivos, ingresos, costos, gastos);
+                    }
+
+                    activos += libroDiarioController.total("activos", libroDiario.IdLibroDiario);
+                    capital += libroDiarioController.total("capital", libroDiario.IdLibroDiario);
+                    pasivos += libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
+                    ingresos += libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
+                    costos += libroDiarioController.total("costos", libroDiario.IdLibroDiario);
+                    gastos += libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
 
                     totalActivos += activos;
                     totalCapital += capital;
@@ -158,17 +113,72 @@ namespace SistemasContables.Views
                     totalIngresos += ingresos;
                     totalCostos += costos;
                     totalGastos += gastos;
-
-                    llenarGraficos(month, activos, capital, pasivos, ingresos, costos, gastos);
                 }
-            }
 
-            lblActivos.Text = redondear(totalActivos);
-            lblCapital.Text = redondear(totalCapital);
-            lblPasivos.Text = redondear(totalPasivos);
-            lblIngresos.Text = redondear(totalIngresos);
-            lblCostos.Text = redondear(totalCostos);
-            lblGastos.Text = redondear(totalGastos);
+
+                lblActivos.Text = redondear(totalActivos);
+                lblCapital.Text = redondear(totalCapital);
+                lblPasivos.Text = redondear(totalPasivos);
+                lblIngresos.Text = redondear(totalIngresos);
+                lblCostos.Text = redondear(totalCostos);
+                lblGastos.Text = redondear(totalGastos);
+
+            }
+        }
+
+        private void totalYear(List<LibroDiario> listaLibroDiario, int year)
+        {
+            if (listaLibroDiario.Count > 0)
+            {
+                double totalActivos = 0;
+                double totalCapital = 0;
+                double totalPasivos = 0;
+                double totalIngresos = 0;
+                double totalCostos = 0;
+                double totalGastos = 0;
+                double activos = 0;
+                double capital = 0;
+                double pasivos = 0;
+                double ingresos = 0;
+                double costos = 0;
+                double gastos = 0;
+
+                for (int i = 0; i < listaLibroDiario.Count; i++)
+                {
+                    int yearCurrent = getYear(listaLibroDiario[i]);
+
+                    if (yearCurrent == year)
+                    {
+                        string month = getMonth(listaLibroDiario[i]);
+
+                        LibroDiario libroDiario = listaLibroDiario[i];
+
+                        activos = libroDiarioController.total("activos", libroDiario.IdLibroDiario);
+                        capital = libroDiarioController.total("capital", libroDiario.IdLibroDiario);
+                        pasivos = libroDiarioController.total("pasivos", libroDiario.IdLibroDiario);
+                        ingresos = libroDiarioController.total("ingresos", libroDiario.IdLibroDiario);
+                        costos = libroDiarioController.total("costos", libroDiario.IdLibroDiario);
+                        gastos = libroDiarioController.total("gastos", libroDiario.IdLibroDiario);
+
+                        totalActivos += activos;
+                        totalCapital += capital;
+                        totalPasivos += pasivos;
+                        totalIngresos += ingresos;
+                        totalCostos += costos;
+                        totalGastos += gastos;
+
+                        llenarGraficos(month, activos, capital, pasivos, ingresos, costos, gastos);
+                    }
+                }
+
+                lblActivos.Text = redondear(totalActivos);
+                lblCapital.Text = redondear(totalCapital);
+                lblPasivos.Text = redondear(totalPasivos);
+                lblIngresos.Text = redondear(totalIngresos);
+                lblCostos.Text = redondear(totalCostos);
+                lblGastos.Text = redondear(totalGastos);
+
+            }
         }
 
         // el metodo llena el combobox para filtrar la informacion por años

@@ -142,6 +142,9 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
+                    deleteCuentasPartidas(idLibroDiario);
+                    deletePartidas(idLibroDiario);
+
                     string sql = $"DELETE FROM {TABLE_LIBRO_DIARIO} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
@@ -160,6 +163,38 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
+            }
+
+        }
+
+        private void deletePartidas(int idLibroDiario)
+        {
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                command.ExecuteNonQuery();
+            }
+
+        }
+
+        private void deleteCuentasPartidas(int idLibroDiario)
+        {
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                string sql = $"DELETE FROM {TABLE_CUENTA_PARTIDA} WHERE {ID_PARTIDA} IN ";
+                sql += $"(SELECT {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} FROM {TABLE_CUENTA_PARTIDA} "; 
+                sql += $"INNER JOIN {TABLE_PARTIDA} ON ";
+                sql += $"{TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario)";
+                command.CommandText = sql;
+                command.Connection = Conexion.Conn;
+                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                command.ExecuteNonQuery();
             }
 
         }
