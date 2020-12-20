@@ -58,66 +58,69 @@ namespace SistemasContables.Views
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
-            int indexFila = tableLibroDiario.CurrentRow.Index;
-
-            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
-
-            if (celdaPartida.Contains("Partida"))
+            if (idLibroDiario != -1)
             {
-                string[] partidaString = celdaPartida.Split(' ');
-                int numeroPartida = Convert.ToInt32(partidaString[2]);
+                int indexFila = tableLibroDiario.CurrentRow.Index;
 
+                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
 
-                accion = "editar";
-
-                using(AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion))
+                if (celdaPartida.Contains("Partida"))
                 {
-                    this.Parent.Parent.Parent.Visible = false;
-                    agregarPartidaForm.ShowDialog();
-                    this.Parent.Parent.Parent.Visible = true;
-                    llenarTabla();
-                    Totales();
+                    string[] partidaString = celdaPartida.Split(' ');
+                    int numeroPartida = Convert.ToInt32(partidaString[2]);
+
+
+                    accion = "editar";
+
+                    using (AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion))
+                    {
+                        this.Parent.Parent.Parent.Visible = false;
+                        agregarPartidaForm.ShowDialog();
+                        this.Parent.Parent.Parent.Visible = true;
+                        llenarTabla();
+                        Totales();
+                    }
+
                 }
-
+                else
+                {
+                    MessageBox.Show("Para editar una partida Selecciona la fila que corresponda\n a la partidano, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Para editar una partida Selecciona la fila que corresponda\n a la partidano, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
         }
 
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int indexFila = tableLibroDiario.CurrentRow.Index;
-
-            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
-
-            if (celdaPartida.Contains("Partida"))
+            if (idLibroDiario != -1)
             {
+                int indexFila = tableLibroDiario.CurrentRow.Index;
 
-                DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (res == DialogResult.OK)
+                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
+
+                if (celdaPartida.Contains("Partida"))
                 {
-                    string[] partidaString = celdaPartida.Split(' ');
-                    int numeroPartida = Convert.ToInt32(partidaString[2]);
 
-                    partidasController.delete(numeroPartida, idLibroDiario);
+                    DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (res == DialogResult.OK)
+                    {
+                        string[] partidaString = celdaPartida.Split(' ');
+                        int numeroPartida = Convert.ToInt32(partidaString[2]);
 
-                    llenarTabla();
-                    Totales();
+                        partidasController.delete(numeroPartida, idLibroDiario);
 
+                        llenarTabla();
+                        Totales();
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
-            else
-            {
-                MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            
         }
 
         private void btnAjusteIva_Click(object sender, EventArgs e)

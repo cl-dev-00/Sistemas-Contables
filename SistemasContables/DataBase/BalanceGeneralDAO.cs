@@ -9,26 +9,11 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    //Esta clase se esta implementando temporalmente con metodos y propiedades de la clase BalanceComprobacionDAO
-    class BalanceGeneralDAO
+    class BalanceGeneralDAO : DAO
     {
         private SQLiteConnection conn;
         private List<Cuenta> listaCuentas;
         private List<CuentaPartida> listaSaldos;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
 
         public BalanceGeneralDAO()
         {
@@ -53,13 +38,13 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaCuentas.Count > 0)
+                        {
+                            listaCuentas.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-                            if (listaCuentas.Count > 0)
-                            {
-                                listaCuentas.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 CuentaPartida cuenta = new CuentaPartida();
@@ -97,8 +82,6 @@ namespace SistemasContables.DataBase
                     sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
                     sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @numeroLibro || '%'";
                     
-                    
-
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
                     command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
@@ -106,13 +89,13 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaSaldos.Count > 0)
+                        {
+                            listaSaldos.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-                            if (listaSaldos.Count > 0)
-                            {
-                                listaSaldos.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 CuentaPartida cuenta = new CuentaPartida();

@@ -9,28 +9,10 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    class BalanceComprobacionDAO
+    class BalanceComprobacionDAO : DAO
     {
-        private SQLiteConnection conn;
         private List<CuentaPartida> listaCuentas;
         private List<CuentaPartida> listaCuentaPartidas;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string N_PARTIDA = "n_partida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-        private const string FECHA = "fecha";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-        private const string CONCEPTO = "concepto";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
 
         public BalanceComprobacionDAO()
         {
@@ -55,13 +37,13 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaCuentas.Count > 0)
+                        {
+                            listaCuentas.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-                            if (listaCuentas.Count > 0)
-                            {             
-                                listaCuentas.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 CuentaPartida cuenta = new CuentaPartida();
@@ -113,6 +95,10 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaCuentaPartidas.Count > 0)
+                        {
+                            listaCuentaPartidas.Clear();
+                        }
 
                         if (result.HasRows)
                         {

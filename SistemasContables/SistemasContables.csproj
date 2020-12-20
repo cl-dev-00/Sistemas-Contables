@@ -90,6 +90,7 @@
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentaPartidaDAO.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
+    <Compile Include="DataBase\DAO.cs" />
     <Compile Include="DataBase\EstadoDeResultadosDAO.cs" />
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
     <Compile Include="DataBase\LibroMayorDAO.cs" />

@@ -9,32 +9,13 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    class EstadoDeResultadosDAO
+    class EstadoDeResultadosDAO : DAO
     {
-        private SQLiteConnection conn;
-
         private Double Debe = 0.00;
         private Double Haber = 0.00;
         private Double ingresos = 0.0;
         private Double costos = 0.0;
         private Double gastos = 0.0;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string N_PARTIDA = "n_partida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-        private const string FECHA = "fecha";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-        private const string CONCEPTO = "concepto";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
 
         public EstadoDeResultadosDAO()
         {

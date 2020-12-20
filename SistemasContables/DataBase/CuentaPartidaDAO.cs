@@ -9,24 +9,9 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    public class CuentaPartidaDAO
+    public class CuentaPartidaDAO : DAO
     {
-        private SQLiteConnection conn;
         private List<CuentaPartida> lista;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string N_PARTIDA = "n_partida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
 
         public CuentaPartidaDAO()
         {
@@ -35,8 +20,6 @@ namespace SistemasContables.DataBase
 
         public List<CuentaPartida> getList(int n_partida, int idLibro)
         {
-
-
             try
             {
                 conn = Conexion.Conn;

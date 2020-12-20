@@ -51,11 +51,6 @@ namespace SistemasContables.Views
                     tableBalanceDeComprobacion.Rows.Add("", "",cuenta.Nombre, "", "");
 
                     llenarCuentas(cuenta);
-
-                    if (listaCuentaPartidas.Count > 0)
-                    {
-                        listaCuentaPartidas.Clear();
-                    }
                 }
 
             }

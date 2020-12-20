@@ -104,9 +104,9 @@
             this.lblGastos.ForeColor = System.Drawing.Color.White;
             this.lblGastos.Location = new System.Drawing.Point(133, 79);
             this.lblGastos.Name = "lblGastos";
-            this.lblGastos.Size = new System.Drawing.Size(59, 20);
+            this.lblGastos.Size = new System.Drawing.Size(34, 20);
             this.lblGastos.TabIndex = 2;
-            this.lblGastos.Text = "$1000";
+            this.lblGastos.Text = "$ 0";
             // 
             // label8
             // 
@@ -151,9 +151,9 @@
             this.lblCostos.ForeColor = System.Drawing.Color.White;
             this.lblCostos.Location = new System.Drawing.Point(128, 79);
             this.lblCostos.Name = "lblCostos";
-            this.lblCostos.Size = new System.Drawing.Size(59, 20);
+            this.lblCostos.Size = new System.Drawing.Size(34, 20);
             this.lblCostos.TabIndex = 2;
-            this.lblCostos.Text = "$1000";
+            this.lblCostos.Text = "$ 0";
             // 
             // label10
             // 
@@ -198,9 +198,9 @@
             this.lblIngresos.ForeColor = System.Drawing.Color.White;
             this.lblIngresos.Location = new System.Drawing.Point(128, 79);
             this.lblIngresos.Name = "lblIngresos";
-            this.lblIngresos.Size = new System.Drawing.Size(59, 20);
+            this.lblIngresos.Size = new System.Drawing.Size(34, 20);
             this.lblIngresos.TabIndex = 2;
-            this.lblIngresos.Text = "$1000";
+            this.lblIngresos.Text = "$ 0";
             // 
             // label12
             // 
@@ -243,9 +243,9 @@
             this.lblPasivos.ForeColor = System.Drawing.Color.White;
             this.lblPasivos.Location = new System.Drawing.Point(134, 79);
             this.lblPasivos.Name = "lblPasivos";
-            this.lblPasivos.Size = new System.Drawing.Size(59, 20);
+            this.lblPasivos.Size = new System.Drawing.Size(34, 20);
             this.lblPasivos.TabIndex = 2;
-            this.lblPasivos.Text = "$1000";
+            this.lblPasivos.Text = "$ 0";
             // 
             // label6
             // 
@@ -290,9 +290,9 @@
             this.lblCapital.ForeColor = System.Drawing.Color.White;
             this.lblCapital.Location = new System.Drawing.Point(128, 79);
             this.lblCapital.Name = "lblCapital";
-            this.lblCapital.Size = new System.Drawing.Size(59, 20);
+            this.lblCapital.Size = new System.Drawing.Size(34, 20);
             this.lblCapital.TabIndex = 2;
-            this.lblCapital.Text = "$1000";
+            this.lblCapital.Text = "$ 0";
             // 
             // label4
             // 
@@ -337,9 +337,9 @@
             this.lblActivos.ForeColor = System.Drawing.Color.White;
             this.lblActivos.Location = new System.Drawing.Point(128, 79);
             this.lblActivos.Name = "lblActivos";
-            this.lblActivos.Size = new System.Drawing.Size(59, 20);
+            this.lblActivos.Size = new System.Drawing.Size(34, 20);
             this.lblActivos.TabIndex = 2;
-            this.lblActivos.Text = "$1000";
+            this.lblActivos.Text = "$ 0";
             // 
             // label1
             // 

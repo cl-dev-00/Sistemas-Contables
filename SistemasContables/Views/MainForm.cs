@@ -20,6 +20,7 @@ namespace SistemasContables
     public partial class MainForm : Form
     {
         private LibroDiario libroDiario;
+        private LibroDiario voidLibroDiario;
         private List<LibroDiario> listaLibroDiario;
         private List<int> listaYears;
         private LibroDiariosController libroDiarioController;
@@ -48,11 +49,12 @@ namespace SistemasContables
             libroDiarioController = new LibroDiariosController();
             listaYears = new List<int>();
             listaLibroDiario = libroDiarioController.getList();
-            libroDiario = listaLibroDiario[indexLibroDiario];
-            lblPagina.Text = (indexLibroDiario + 1).ToString();
+            voidLibroDiario = new LibroDiario();
+            voidLibroDiario.IdLibroDiario = -1;
+            voidLibroDiario.Periodo = "";
 
+            updateDataLibroDiario();
             llenarListaYears();
-
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
         }
 
@@ -191,10 +193,7 @@ namespace SistemasContables
 
                 indexLibroDiario = listaLibroDiario.Count - 1;
 
-                libroDiario = listaLibroDiario[indexLibroDiario];
-
-                lblPagina.Text = (indexLibroDiario + 1).ToString();
-
+                updateDataLibroDiario();
                 llenarListaYears();
                 recargarForm();
             }
@@ -206,9 +205,8 @@ namespace SistemasContables
             if(indexLibroDiario > 0)
             {
                 indexLibroDiario--;
-                lblPagina.Text = (indexLibroDiario + 1).ToString();
 
-                libroDiario = listaLibroDiario[indexLibroDiario];
+                updateDataLibroDiario();
 
                 if (currentNameForm != "inicio")
                 {
@@ -224,11 +222,10 @@ namespace SistemasContables
             if(indexLibroDiario < listaLibroDiario.Count-1)
             {
                 indexLibroDiario++;
-                lblPagina.Text = (indexLibroDiario + 1).ToString();
 
-                libroDiario = listaLibroDiario[indexLibroDiario];
+                updateDataLibroDiario();
 
-                if(currentNameForm != "inicio")
+                if (currentNameForm != "inicio")
                 {
                     recargarForm();
                 }
@@ -249,10 +246,7 @@ namespace SistemasContables
 
                 indexLibroDiario = listaLibroDiario.Count - 1;
 
-                libroDiario = listaLibroDiario[indexLibroDiario];
-
-                lblPagina.Text = (indexLibroDiario + 1).ToString();
-
+                updateDataLibroDiario();
                 llenarListaYears();
                 recargarForm();
 
@@ -322,6 +316,23 @@ namespace SistemasContables
             this.panelContenido.Controls.Add(currentForm);
             this.panelContenido.Tag = currentForm;
             currentForm.Show();
+
+        }
+
+        // el metodo verifica que halla un o varios libro diario
+        private void updateDataLibroDiario()
+        {
+            if(listaLibroDiario.Count > 0)
+            {
+                libroDiario = listaLibroDiario[indexLibroDiario];
+                lblPagina.Text = (indexLibroDiario + 1).ToString();
+            } else
+            {
+                lblPagina.Text = "0";
+                indexLibroDiario = -1;
+
+                libroDiario = voidLibroDiario;
+            }
 
         }
 

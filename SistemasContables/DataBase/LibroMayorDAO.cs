@@ -9,29 +9,11 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    public class LibroMayorDAO
+    public class LibroMayorDAO : DAO
     {
-        private SQLiteConnection conn;
         private List<string> listaCodigos;
         private List<Partida> listaPartidas;
         private CuentaPartida cuentaPartida;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string N_PARTIDA = "n_partida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-        private const string FECHA = "fecha";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-        private const string CONCEPTO = "concepto";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
 
         public LibroMayorDAO()
         {
@@ -42,7 +24,6 @@ namespace SistemasContables.DataBase
 
         public List<string> getListCodigos(int idLibroDiario)
         {
-
 
             try
             {
@@ -64,13 +45,13 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaCodigos.Count > 0)
+                        {
+                            listaCodigos.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-                            if (listaCodigos.Count > 0)
-                            {
-                                listaCodigos.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 listaCodigos.Add(result[CODIGO].ToString());
@@ -168,13 +149,13 @@ namespace SistemasContables.DataBase
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (listaPartidas.Count > 0)
+                        {
+                            listaPartidas.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-                            if (listaPartidas.Count > 0)
-                            {
-                                listaPartidas.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 Partida partidaAux = new Partida();

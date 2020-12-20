@@ -9,31 +9,11 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    public class PartidasDAO
+    public class PartidasDAO : DAO
     {
-        private SQLiteConnection conn;
         private int idPartida;
         private int idCuenta;
         private List<Partida> lista = null;
-
-        private const string TABLE_PARTIDA = "partida";
-        private const string ID_PARTIDA = "idPartida";
-        private const string FECHA = "fecha";
-        private const string CONCEPTO = "concepto";
-        private const string N_PARTIDA = "n_partida";
-        private const string ID_LIBRO_DIARIO = "n_libro";
-
-        private const string TABLE_CUENTA_PARTIDA = "cuenta_partida";
-        private const string ID_CUENTA_PARTIDA = "id_cuenta_partida";
-        private const string ID_CUENTA = "idCuenta";
-        private const string DEBE = "debe";
-        private const string HABER = "haber";
-
-        private const string TABLE_CUENTA = "cuenta";
-        private const string CODIGO = "codigo";
-        private const string NIVEL = "nivel";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
 
         public PartidasDAO()
         {
@@ -106,14 +86,13 @@ namespace SistemasContables.DataBase
 
                     using(SQLiteDataReader result = command.ExecuteReader())
                     {
+                        if (lista.Count > 0)
+                        {
+                            lista.Clear();
+                        }
+
                         if (result.HasRows)
                         {
-
-                            if (lista.Count > 0)
-                            {
-                                lista.Clear();
-                            }
-
                             while (result.Read())
                             {
                                 Partida partida = new Partida();
@@ -458,13 +437,13 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteDataReader result = command.ExecuteReader())
                 {
+                    if (listaCuentasPartida.Count > 0)
+                    {
+                        listaCuentasPartida.Clear();
+                    }
+
                     if (result.HasRows)
                     {
-
-                        if (listaCuentasPartida.Count > 0)
-                        {
-                            listaCuentasPartida.Clear();
-                        }
 
                         while (result.Read())
                         {

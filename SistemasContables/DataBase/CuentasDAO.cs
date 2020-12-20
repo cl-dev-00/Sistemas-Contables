@@ -9,29 +9,9 @@ using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
 {
-    public class CuentasDAO
+    public class CuentasDAO : DAO
     {
-        private SQLiteConnection conn;
         private List<Cuenta> lista;
-
-        private const string TABLE = "cuenta";
-        private const string ID_CUENTA = "idCuenta";
-        private const string CODIGO = "codigo";
-        private const string NIVEL = "nivel";
-        private const string NOMBRE_CUENTA = "nombreCuenta";
-        private const string TIPO_SALDO = "tipoSaldo";
-
-        public List<Cuenta> Lista
-        {
-            get
-            {
-                return this.lista;
-            }
-            set
-            {
-                this.lista = value;
-            }
-        }
 
         public CuentasDAO()
         {
@@ -49,7 +29,7 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT * FROM {TABLE}";
+                    string sql = $"SELECT * FROM {TABLE_CUENTA}";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
 
