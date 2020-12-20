@@ -37,11 +37,6 @@ namespace SistemasContables.Views
 
         public void llenarTablaLibroMayor(int idLibroDiario)
         {
-            if(tableLibroMayor.Rows.Count > 0)
-            {
-                tableLibroMayor.Rows.Clear();
-            }
-
             nivel3 = "";
             double totalMontos = 0;
 
@@ -137,10 +132,6 @@ namespace SistemasContables.Views
 
             }
 
-            if(listaPartidas.Count > 0)
-            {
-                listaPartidas.Clear();
-            }
         }
 
         // el metodo retorna un formato #.00 a los decimales de un string

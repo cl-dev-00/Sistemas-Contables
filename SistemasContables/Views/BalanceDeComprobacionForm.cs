@@ -46,13 +46,9 @@ namespace SistemasContables.Views
 
             foreach(CuentaPartida cuenta in listaCuentas)
             {
-                if(cuenta.Codigo == "1" || cuenta.Codigo == "2" || cuenta.Codigo == "31" || cuenta.Codigo == "5" || cuenta.Codigo == "41" || cuenta.Codigo == "42")
-                {
-                    tableBalanceDeComprobacion.Rows.Add("", "",cuenta.Nombre, "", "");
+                tableBalanceDeComprobacion.Rows.Add("", "",cuenta.Nombre, "", "");
 
-                    llenarCuentas(cuenta);
-                }
-
+                llenarCuentas(cuenta);
             }
 
         }
@@ -67,28 +63,7 @@ namespace SistemasContables.Views
 
                 if (tableBalanceDeComprobacion.Rows.Count == 1)
                 {
-                    if (cuenta.TipoSaldo == "Deudor")
-                    {
-                        if (cuentaPartida.Haber <= 0)
-                        {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
-                        }
-                        else if (cuentaPartida.Haber > 0)
-                        {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(0 - cuentaPartida.Haber), "0.00");
-                        }
-                    }
-                    else if (cuenta.TipoSaldo == "Acreedor")
-                    {
-                        if (cuentaPartida.Debe <= 0)
-                        {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, cuentaPartida.Debe, cuentaPartida.Haber);
-                        }
-                        else if (cuentaPartida.Debe > 0)
-                        {
-                            tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, "0.00", redondear((0 - cuentaPartida.Debe)));
-                        }
-                    }
+                    llenarFila(cuenta, cuentaPartida);
                 }
                 else if (tableBalanceDeComprobacion.Rows.Count > 1)
                 {
@@ -137,31 +112,7 @@ namespace SistemasContables.Views
 
                     if(!exit)
                     {
-
-                        if (cuenta.TipoSaldo == "Deudor")
-                        {
-                            if (cuentaPartida.Haber <= 0)
-                            {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
-
-                            }
-                            else if (cuentaPartida.Haber > 0)
-                            {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(0 - cuentaPartida.Haber), "0.00");
-                            }
-                        }
-                        else if (cuenta.TipoSaldo == "Acreedor")
-                        {
-                            if (cuentaPartida.Debe <= 0)
-                            {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
-                            }
-                            else if (cuentaPartida.Debe > 0)
-                            {
-                                tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, "0.00", redondear(0 - cuentaPartida.Debe));
-                            }
-                        }
-
+                        llenarFila(cuenta, cuentaPartida);
                     }
 
                 }
@@ -170,6 +121,33 @@ namespace SistemasContables.Views
 
         }
 
+        // el metodo llena una fila con una cuenta
+        private void llenarFila(CuentaPartida cuenta, CuentaPartida cuentaPartida)
+        {
+            if (cuenta.TipoSaldo == "Deudor")
+            {
+                if (cuentaPartida.Haber <= 0)
+                {
+                    tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
+
+                }
+                else if (cuentaPartida.Haber > 0)
+                {
+                    tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(0 - cuentaPartida.Haber), "0.00");
+                }
+            }
+            else if (cuenta.TipoSaldo == "Acreedor")
+            {
+                if (cuentaPartida.Debe <= 0)
+                {
+                    tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
+                }
+                else if (cuentaPartida.Debe > 0)
+                {
+                    tableBalanceDeComprobacion.Rows.Add(cuentaPartida.IdPartida, cuentaPartida.Codigo, cuentaPartida.Nombre, "0.00", redondear(0 - cuentaPartida.Debe));
+                }
+            }
+        }
 
         // el metodo retorna la suma de todas cuentas en de la columna Debe
         private double TotalDeudor()

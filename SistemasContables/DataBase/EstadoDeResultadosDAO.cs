@@ -11,11 +11,11 @@ namespace SistemasContables.DataBase
 {
     class EstadoDeResultadosDAO : DAO
     {
-        private Double Debe = 0.00;
-        private Double Haber = 0.00;
-        private Double ingresos = 0.0;
-        private Double costos = 0.0;
-        private Double gastos = 0.0;
+        private Double Debe = 0;
+        private Double Haber = 0;
+        private Double ingresos = 0;
+        private Double costos = 0;
+        private Double gastos = 0;
 
         public EstadoDeResultadosDAO()
         {
@@ -68,8 +68,8 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
-                    command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
+                    command.Parameters.AddWithValue("@codigo", codigo);
                     var result = command.ExecuteScalar();
 
                     if(!string.IsNullOrEmpty(result.ToString()))
@@ -114,8 +114,8 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
-                    command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
+                    command.Parameters.AddWithValue("@codigo", codigo);
                     var result = command.ExecuteScalar();
 
                     if (!string.IsNullOrEmpty(result.ToString()))

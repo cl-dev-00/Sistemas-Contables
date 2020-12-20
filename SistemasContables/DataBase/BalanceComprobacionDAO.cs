@@ -30,7 +30,8 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA} WHERE nivel = 1 OR nivel = 2";
+                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA} ";
+                    sql += $"WHERE {CODIGO} = '1' OR {CODIGO} = '2' OR {CODIGO} = '31' OR {CODIGO} = '5' OR {CODIGO} = '41' OR {CODIGO} = '42'";
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
@@ -73,8 +74,6 @@ namespace SistemasContables.DataBase
 
         public List<CuentaPartida> getListCuentasPartidas(string codigo, int idLibroDiario)
         {
-
-
             try
             {
                 conn = Conexion.Conn;
@@ -90,8 +89,8 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.Parameters.AddWithValue("@codigo", codigo);
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {

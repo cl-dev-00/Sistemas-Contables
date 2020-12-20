@@ -39,6 +39,8 @@ namespace SistemasContables.Views
 
             partidaAux = new Partida();
             partidaAux.ListaCuentasPartida = new List<CuentaPartida>();
+
+            disableButtons();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -58,69 +60,63 @@ namespace SistemasContables.Views
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (idLibroDiario != -1)
+            int indexFila = tableLibroDiario.CurrentRow.Index;
+
+            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
+
+            if (celdaPartida.Contains("Partida"))
             {
-                int indexFila = tableLibroDiario.CurrentRow.Index;
+                string[] partidaString = celdaPartida.Split(' ');
+                int numeroPartida = Convert.ToInt32(partidaString[2]);
 
-                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
 
-                if (celdaPartida.Contains("Partida"))
+                accion = "editar";
+
+                using (AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion))
                 {
-                    string[] partidaString = celdaPartida.Split(' ');
-                    int numeroPartida = Convert.ToInt32(partidaString[2]);
-
-
-                    accion = "editar";
-
-                    using (AgregarPartidaForm agregarPartidaForm = new AgregarPartidaForm(this.partidasController, idLibroDiario, numeroPartida, accion))
-                    {
-                        this.Parent.Parent.Parent.Visible = false;
-                        agregarPartidaForm.ShowDialog();
-                        this.Parent.Parent.Parent.Visible = true;
-                        llenarTabla();
-                        Totales();
-                    }
-
+                    this.Parent.Parent.Parent.Visible = false;
+                    agregarPartidaForm.ShowDialog();
+                    this.Parent.Parent.Parent.Visible = true;
+                    llenarTabla();
+                    Totales();
                 }
-                else
-                {
-                    MessageBox.Show("Para editar una partida Selecciona la fila que corresponda\n a la partidano, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
+            }
+            else
+            {
+                MessageBox.Show("Para editar una partida Selecciona la fila que corresponda\n a la partidano, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (idLibroDiario != -1)
+            int indexFila = tableLibroDiario.CurrentRow.Index;
+
+            string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
+
+            if (celdaPartida.Contains("Partida"))
             {
-                int indexFila = tableLibroDiario.CurrentRow.Index;
 
-                string celdaPartida = tableLibroDiario.Rows[indexFila].Cells["ColumnDetalle"].Value.ToString();
-
-                if (celdaPartida.Contains("Partida"))
+                DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (res == DialogResult.OK)
                 {
+                    string[] partidaString = celdaPartida.Split(' ');
+                    int numeroPartida = Convert.ToInt32(partidaString[2]);
 
-                    DialogResult res = MessageBox.Show("¿Desea eliminar la partida seleccionada?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (res == DialogResult.OK)
-                    {
-                        string[] partidaString = celdaPartida.Split(' ');
-                        int numeroPartida = Convert.ToInt32(partidaString[2]);
+                    partidasController.delete(numeroPartida, idLibroDiario);
 
-                        partidasController.delete(numeroPartida, idLibroDiario);
+                    llenarTabla();
+                    Totales();
 
-                        llenarTabla();
-                        Totales();
-
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Para eliminar una partida Selecciona la fila que corresponda\n a la partida, no seleccione una fila de cuenta o detalle", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btnAjusteIva_Click(object sender, EventArgs e)
@@ -152,6 +148,18 @@ namespace SistemasContables.Views
             lista = partidasController.getList(idLibroDiario);
 
             numeroPartidas = lista.Count;
+
+            if(lista.Count > 0)
+            {
+                btnModificar.Visible = true;
+                btnEliminar.Visible = true;
+                btnAjusteIva.Visible = true;
+            } else
+            {
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                btnAjusteIva.Visible = false;
+            }
 
             foreach (Partida partida in lista)
             {
@@ -221,6 +229,25 @@ namespace SistemasContables.Views
         private string redondear(double cantidad)
         {
             return cantidad.ToString("0.00", formatoDecimales);
+        }
+
+        // el metodo verifica que halla un libro y que este tenga al menos una partida
+        private void disableButtons()
+        {
+            if(idLibroDiario == -1)
+            {
+                btnAgregar.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                btnAjusteIva.Visible = false;
+                btnImprimir.Visible = false;
+            }
+            else if(tableLibroDiario.Rows.Count < 1)
+            {
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                btnAjusteIva.Visible = false;
+            } 
         }
 
         // el metodo calcula y crea una partida del ajuste de iva del libro diario

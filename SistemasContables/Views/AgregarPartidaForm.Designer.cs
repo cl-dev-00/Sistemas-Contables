@@ -29,24 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.gunaGroupBox2 = new Guna.UI.WinForms.GunaGroupBox();
+            this.rbDebito = new Guna.UI.WinForms.GunaRadioButton();
+            this.rbCredito = new Guna.UI.WinForms.GunaRadioButton();
             this.cbCuenta = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
+            this.rbIncluido = new Guna.UI.WinForms.GunaRadioButton();
+            this.rbMasIva = new Guna.UI.WinForms.GunaRadioButton();
+            this.rbExcento = new Guna.UI.WinForms.GunaRadioButton();
             this.dpFecha = new Guna.UI.WinForms.GunaDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscar = new Guna.UI.WinForms.GunaTextBox();
-            this.cbIncluido = new Guna.UI.WinForms.GunaCheckBox();
-            this.cbMasIva = new Guna.UI.WinForms.GunaCheckBox();
-            this.cbExcento = new Guna.UI.WinForms.GunaCheckBox();
-            this.cbCredito = new Guna.UI.WinForms.GunaCheckBox();
-            this.cbDebito = new Guna.UI.WinForms.GunaCheckBox();
             this.txtDescripcion = new Guna.UI.WinForms.GunaTextBox();
             this.txtMonto = new Guna.UI.WinForms.GunaTextBox();
             this.cbTipoTransaccion = new Guna.UI.WinForms.GunaComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblPartida = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
             this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
             this.label14 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tablePartidas = new Guna.UI.WinForms.GunaDataGridView();
@@ -81,6 +81,8 @@
             this.gunaElipse4 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panelContenedor.SuspendLayout();
             this.panelContenido.SuspendLayout();
+            this.gunaGroupBox2.SuspendLayout();
+            this.gunaGroupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablePartidas)).BeginInit();
@@ -100,26 +102,21 @@
             // panelContenido
             // 
             this.panelContenido.BackColor = System.Drawing.Color.White;
+            this.panelContenido.Controls.Add(this.gunaGroupBox2);
             this.panelContenido.Controls.Add(this.cbCuenta);
+            this.panelContenido.Controls.Add(this.gunaGroupBox1);
             this.panelContenido.Controls.Add(this.dpFecha);
             this.panelContenido.Controls.Add(this.label4);
             this.panelContenido.Controls.Add(this.txtBuscar);
-            this.panelContenido.Controls.Add(this.cbIncluido);
-            this.panelContenido.Controls.Add(this.cbMasIva);
-            this.panelContenido.Controls.Add(this.cbExcento);
-            this.panelContenido.Controls.Add(this.cbCredito);
-            this.panelContenido.Controls.Add(this.cbDebito);
             this.panelContenido.Controls.Add(this.txtDescripcion);
             this.panelContenido.Controls.Add(this.txtMonto);
             this.panelContenido.Controls.Add(this.cbTipoTransaccion);
-            this.panelContenido.Controls.Add(this.label7);
             this.panelContenido.Controls.Add(this.label10);
             this.panelContenido.Controls.Add(this.lblPartida);
             this.panelContenido.Controls.Add(this.label12);
             this.panelContenido.Controls.Add(this.label3);
             this.panelContenido.Controls.Add(this.flowLayoutPanel1);
             this.panelContenido.Controls.Add(this.label14);
-            this.panelContenido.Controls.Add(this.label2);
             this.panelContenido.Controls.Add(this.label1);
             this.panelContenido.Controls.Add(this.panel1);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -128,6 +125,50 @@
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(1000, 730);
             this.panelContenido.TabIndex = 7;
+            // 
+            // gunaGroupBox2
+            // 
+            this.gunaGroupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGroupBox2.BaseColor = System.Drawing.Color.White;
+            this.gunaGroupBox2.BorderColor = System.Drawing.Color.White;
+            this.gunaGroupBox2.Controls.Add(this.rbDebito);
+            this.gunaGroupBox2.Controls.Add(this.rbCredito);
+            this.gunaGroupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaGroupBox2.LineColor = System.Drawing.Color.White;
+            this.gunaGroupBox2.Location = new System.Drawing.Point(507, 59);
+            this.gunaGroupBox2.Name = "gunaGroupBox2";
+            this.gunaGroupBox2.Size = new System.Drawing.Size(125, 139);
+            this.gunaGroupBox2.TabIndex = 3;
+            this.gunaGroupBox2.Text = "Tipo de pago";
+            this.gunaGroupBox2.TextLocation = new System.Drawing.Point(0, 8);
+            // 
+            // rbDebito
+            // 
+            this.rbDebito.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbDebito.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbDebito.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbDebito.Enabled = false;
+            this.rbDebito.FillColor = System.Drawing.Color.White;
+            this.rbDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDebito.Location = new System.Drawing.Point(6, 35);
+            this.rbDebito.Name = "rbDebito";
+            this.rbDebito.Size = new System.Drawing.Size(79, 22);
+            this.rbDebito.TabIndex = 1;
+            this.rbDebito.Text = "Debito";
+            // 
+            // rbCredito
+            // 
+            this.rbCredito.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbCredito.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbCredito.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbCredito.Enabled = false;
+            this.rbCredito.FillColor = System.Drawing.Color.White;
+            this.rbCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCredito.Location = new System.Drawing.Point(6, 75);
+            this.rbCredito.Name = "rbCredito";
+            this.rbCredito.Size = new System.Drawing.Size(85, 22);
+            this.rbCredito.TabIndex = 0;
+            this.rbCredito.Text = "Credito";
             // 
             // cbCuenta
             // 
@@ -155,6 +196,66 @@
             this.cbCuenta.Size = new System.Drawing.Size(272, 34);
             this.cbCuenta.StartIndex = 0;
             this.cbCuenta.TabIndex = 93;
+            // 
+            // gunaGroupBox1
+            // 
+            this.gunaGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGroupBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaGroupBox1.BorderColor = System.Drawing.Color.White;
+            this.gunaGroupBox1.Controls.Add(this.rbIncluido);
+            this.gunaGroupBox1.Controls.Add(this.rbMasIva);
+            this.gunaGroupBox1.Controls.Add(this.rbExcento);
+            this.gunaGroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaGroupBox1.LineColor = System.Drawing.Color.White;
+            this.gunaGroupBox1.Location = new System.Drawing.Point(290, 59);
+            this.gunaGroupBox1.Name = "gunaGroupBox1";
+            this.gunaGroupBox1.Size = new System.Drawing.Size(194, 139);
+            this.gunaGroupBox1.TabIndex = 0;
+            this.gunaGroupBox1.Text = "Configuracion del IVA";
+            this.gunaGroupBox1.TextLocation = new System.Drawing.Point(0, 8);
+            // 
+            // rbIncluido
+            // 
+            this.rbIncluido.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbIncluido.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbIncluido.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbIncluido.FillColor = System.Drawing.Color.White;
+            this.rbIncluido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbIncluido.Location = new System.Drawing.Point(6, 115);
+            this.rbIncluido.Name = "rbIncluido";
+            this.rbIncluido.Size = new System.Drawing.Size(88, 22);
+            this.rbIncluido.TabIndex = 2;
+            this.rbIncluido.Text = "Incluido";
+            this.rbIncluido.Click += new System.EventHandler(this.rbIncluido_Click);
+            // 
+            // rbMasIva
+            // 
+            this.rbMasIva.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbMasIva.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbMasIva.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbMasIva.FillColor = System.Drawing.Color.White;
+            this.rbMasIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMasIva.Location = new System.Drawing.Point(6, 75);
+            this.rbMasIva.Name = "rbMasIva";
+            this.rbMasIva.Size = new System.Drawing.Size(68, 22);
+            this.rbMasIva.TabIndex = 1;
+            this.rbMasIva.Text = "+IVA";
+            this.rbMasIva.Click += new System.EventHandler(this.rbMasIva_Click);
+            // 
+            // rbExcento
+            // 
+            this.rbExcento.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbExcento.Checked = true;
+            this.rbExcento.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbExcento.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.rbExcento.FillColor = System.Drawing.Color.White;
+            this.rbExcento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbExcento.Location = new System.Drawing.Point(6, 35);
+            this.rbExcento.Name = "rbExcento";
+            this.rbExcento.Size = new System.Drawing.Size(91, 22);
+            this.rbExcento.TabIndex = 0;
+            this.rbExcento.Text = "Excento";
+            this.rbExcento.Click += new System.EventHandler(this.rbExcento_Click);
             // 
             // dpFecha
             // 
@@ -212,79 +313,6 @@
             this.txtBuscar.TabIndex = 82;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
-            // 
-            // cbIncluido
-            // 
-            this.cbIncluido.BaseColor = System.Drawing.Color.White;
-            this.cbIncluido.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbIncluido.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.cbIncluido.FillColor = System.Drawing.Color.White;
-            this.cbIncluido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIncluido.Location = new System.Drawing.Point(286, 173);
-            this.cbIncluido.Name = "cbIncluido";
-            this.cbIncluido.Size = new System.Drawing.Size(100, 26);
-            this.cbIncluido.TabIndex = 80;
-            this.cbIncluido.Text = "Incluido";
-            this.cbIncluido.Click += new System.EventHandler(this.cbIncluido_Click);
-            // 
-            // cbMasIva
-            // 
-            this.cbMasIva.BaseColor = System.Drawing.Color.White;
-            this.cbMasIva.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbMasIva.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.cbMasIva.FillColor = System.Drawing.Color.White;
-            this.cbMasIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMasIva.Location = new System.Drawing.Point(286, 135);
-            this.cbMasIva.Name = "cbMasIva";
-            this.cbMasIva.Size = new System.Drawing.Size(81, 26);
-            this.cbMasIva.TabIndex = 79;
-            this.cbMasIva.Text = "+ IVA";
-            this.cbMasIva.Click += new System.EventHandler(this.cbMasIva_Click);
-            // 
-            // cbExcento
-            // 
-            this.cbExcento.BaseColor = System.Drawing.Color.White;
-            this.cbExcento.Checked = true;
-            this.cbExcento.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbExcento.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.cbExcento.FillColor = System.Drawing.Color.White;
-            this.cbExcento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbExcento.Location = new System.Drawing.Point(286, 95);
-            this.cbExcento.Name = "cbExcento";
-            this.cbExcento.Size = new System.Drawing.Size(103, 26);
-            this.cbExcento.TabIndex = 78;
-            this.cbExcento.Text = "Excento";
-            this.cbExcento.Click += new System.EventHandler(this.cbExcento_Click);
-            // 
-            // cbCredito
-            // 
-            this.cbCredito.BaseColor = System.Drawing.Color.White;
-            this.cbCredito.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbCredito.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.cbCredito.Enabled = false;
-            this.cbCredito.FillColor = System.Drawing.Color.White;
-            this.cbCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCredito.Location = new System.Drawing.Point(503, 139);
-            this.cbCredito.Name = "cbCredito";
-            this.cbCredito.Size = new System.Drawing.Size(96, 26);
-            this.cbCredito.TabIndex = 76;
-            this.cbCredito.Text = "Credito";
-            this.cbCredito.Click += new System.EventHandler(this.cbCredito_Click);
-            // 
-            // cbDebito
-            // 
-            this.cbDebito.BaseColor = System.Drawing.Color.White;
-            this.cbDebito.CheckedOffColor = System.Drawing.Color.Gray;
-            this.cbDebito.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.cbDebito.Enabled = false;
-            this.cbDebito.FillColor = System.Drawing.Color.White;
-            this.cbDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDebito.Location = new System.Drawing.Point(503, 99);
-            this.cbDebito.Name = "cbDebito";
-            this.cbDebito.Size = new System.Drawing.Size(89, 26);
-            this.cbDebito.TabIndex = 75;
-            this.cbDebito.Text = "Debito";
-            this.cbDebito.Click += new System.EventHandler(this.cbDebito_Click);
             // 
             // txtDescripcion
             // 
@@ -349,17 +377,6 @@
             this.cbTipoTransaccion.Size = new System.Drawing.Size(216, 34);
             this.cbTipoTransaccion.StartIndex = 0;
             this.cbTipoTransaccion.TabIndex = 69;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(499, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 23);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "Tipo de pago";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -540,17 +557,6 @@
             this.label14.Text = "Tipo de cuenta";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(282, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Configuracion del IVA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -577,21 +583,21 @@
             // 
             this.tablePartidas.AllowUserToAddRows = false;
             this.tablePartidas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tablePartidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablePartidas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tablePartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablePartidas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tablePartidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.tablePartidas.ColumnHeadersHeight = 40;
             this.tablePartidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
@@ -599,14 +605,14 @@
             this.ColumnDetalle,
             this.ColumnDebe,
             this.ColumnHaber});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle6;
             this.tablePartidas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePartidas.EnableHeadersVisualStyles = false;
             this.tablePartidas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -837,7 +843,10 @@
             this.Text = "AgregarPartidaForm";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);
-            this.panelContenido.PerformLayout();
+            this.gunaGroupBox2.ResumeLayout(false);
+            this.gunaGroupBox2.PerformLayout();
+            this.gunaGroupBox1.ResumeLayout(false);
+            this.gunaGroupBox1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tablePartidas)).EndInit();
@@ -857,7 +866,6 @@
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -868,17 +876,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPartida;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton btnAgregarPartida;
         private Guna.UI.WinForms.GunaComboBox cbTipoTransaccion;
         private Guna.UI.WinForms.Licensing licensing1;
         private Guna.UI.WinForms.GunaTextBox txtMonto;
-        private Guna.UI.WinForms.GunaCheckBox cbCredito;
-        private Guna.UI.WinForms.GunaCheckBox cbDebito;
         private Guna.UI.WinForms.GunaTextBox txtDescripcion;
-        private Guna.UI.WinForms.GunaCheckBox cbIncluido;
-        private Guna.UI.WinForms.GunaCheckBox cbMasIva;
-        private Guna.UI.WinForms.GunaCheckBox cbExcento;
         private System.Windows.Forms.Label label4;
         private Guna.UI.WinForms.GunaTextBox txtBuscar;
         private Guna.UI.WinForms.GunaDateTimePicker dpFecha;
@@ -895,5 +897,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDebe;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHaber;
+        private Guna.UI.WinForms.GunaGroupBox gunaGroupBox1;
+        private Guna.UI.WinForms.GunaRadioButton rbIncluido;
+        private Guna.UI.WinForms.GunaRadioButton rbMasIva;
+        private Guna.UI.WinForms.GunaRadioButton rbExcento;
+        private Guna.UI.WinForms.GunaGroupBox gunaGroupBox2;
+        private Guna.UI.WinForms.GunaRadioButton rbDebito;
+        private Guna.UI.WinForms.GunaRadioButton rbCredito;
     }
 }

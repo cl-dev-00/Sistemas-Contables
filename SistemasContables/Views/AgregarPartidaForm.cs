@@ -152,7 +152,10 @@ namespace SistemasContables.Views
 
                     LlenarCuentasPartida(ref partida);
 
-                    this.partidasController.update(partida);
+                    if (partidasController.update(partida))
+                    {
+                        MessageBox.Show("Se ha modificado la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
                     this.Close();
                 }
@@ -181,11 +184,11 @@ namespace SistemasContables.Views
                 {
                     tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
-                    if(cbDebito.Checked)
+                    if(rbDebito.Checked)
                     {
                         tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
                     } 
-                    else if(cbCredito.Checked)
+                    else if(rbCredito.Checked)
                     {
                         tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
                     }
@@ -195,11 +198,11 @@ namespace SistemasContables.Views
                 {
                     tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
 
-                    if (cbDebito.Checked)
+                    if (rbDebito.Checked)
                     {
                         tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
                     }
-                    else if (cbCredito.Checked)
+                    else if (rbCredito.Checked)
                     {
                         tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
                     }
@@ -336,7 +339,7 @@ namespace SistemasContables.Views
 
             montoTotal = monto;
 
-            if(cbIncluido.Checked)
+            if(rbIncluido.Checked)
             {
                 montoTotal = monto - ivaMonto;
             }
@@ -397,122 +400,62 @@ namespace SistemasContables.Views
             dpFecha.Value = new DateTime(year, month, day);
         }
 
-        //validaciones de los checkbox
+        //validaciones de los radios buttons
 
-        private void cbExcento_Click(object sender, EventArgs e)
+        private void rbExcento_Click(object sender, EventArgs e)
         {
-            if (!cbExcento.Checked)
+            if (rbDebito.Enabled)
             {
-                cbExcento.Checked = true;
-            }
-            if (cbMasIva.Checked)
-            {
-                cbMasIva.Checked = false;
-            }
-            if (cbIncluido.Checked)
-            {
-                cbIncluido.Checked = false;
-            }
-            if (cbDebito.Enabled)
-            {
-                if (cbDebito.Checked)
+                if (rbDebito.Checked)
                 {
-                    cbDebito.Checked = false;
+                    rbDebito.Checked = false;
                 }
 
-                cbDebito.Enabled = false;
+                rbDebito.Enabled = false;
             }
-            if (cbCredito.Enabled)
+            if (rbCredito.Enabled)
             {
-                if (cbCredito.Checked)
+                if (rbCredito.Checked)
                 {
-                    cbCredito.Checked = false;
+                    rbCredito.Checked = false;
                 }
 
-                cbCredito.Enabled = false;
+                rbCredito.Enabled = false;
             }
         }
 
-        private void cbMasIva_Click(object sender, EventArgs e)
+        private void rbMasIva_Click(object sender, EventArgs e)
         {
-            if (cbExcento.Checked)
+            if (!rbCredito.Enabled)
             {
-                cbExcento.Checked = false;
+                rbCredito.Enabled = true;
             }
-            if (!cbMasIva.Checked)
+            if (!rbDebito.Enabled)
             {
-                cbMasIva.Checked = true;
-            }
-            if (cbIncluido.Checked)
-            {
-                cbIncluido.Checked = false;
-            }
-            if (!cbDebito.Enabled)
-            {
-                if (!cbDebito.Checked)
+                if (!rbDebito.Checked)
                 {
-                    cbDebito.Checked = true;
+                    rbDebito.Checked = true;
                 }
 
-                cbDebito.Enabled = true;
+                rbDebito.Enabled = true;
             }
-            if (!cbCredito.Enabled)
-            {
-                cbCredito.Enabled = true;
-            }
+            
         }
 
-        private void cbIncluido_Click(object sender, EventArgs e)
+        private void rbIncluido_Click(object sender, EventArgs e)
         {
-            if (cbExcento.Checked)
+            if (!rbDebito.Enabled)
             {
-                cbExcento.Checked = false;
-            }
-            if (cbMasIva.Checked)
-            {
-                cbMasIva.Checked = false;
-            }
-            if (!cbIncluido.Checked)
-            {
-                cbIncluido.Checked = true;
-            }
-            if (!cbDebito.Enabled)
-            {
-                if (!cbDebito.Checked)
+                if (!rbDebito.Checked)
                 {
-                    cbDebito.Checked = true;
+                    rbDebito.Checked = true;
                 }
 
-                cbDebito.Enabled = true;
+                rbDebito.Enabled = true;
             }
-            if (!cbCredito.Enabled)
+            if (!rbCredito.Enabled)
             {
-                cbCredito.Enabled = true;
-            }
-        }
-
-        private void cbDebito_Click(object sender, EventArgs e)
-        {
-            if (!cbDebito.Checked)
-            {
-                cbDebito.Checked = true;
-            }
-            if (cbCredito.Checked)
-            {
-                cbCredito.Checked = false;
-            }
-        }
-
-        private void cbCredito_Click(object sender, EventArgs e)
-        {
-            if (cbDebito.Checked)
-            {
-                cbDebito.Checked = false;
-            }
-            if (!cbCredito.Checked)
-            {
-                cbCredito.Checked = true;
-
+                rbCredito.Enabled = true;
             }
         }
 

@@ -34,10 +34,10 @@ namespace SistemasContables.DataBase
                     sql += "VALUES(NULL, @fecha, @concepto, @n_partida, @id_libro_diario);";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@fecha", partida.Fecha));
-                    command.Parameters.Add(new SQLiteParameter("@concepto", partida.Detalle));
-                    command.Parameters.Add(new SQLiteParameter("@n_partida", partida.N_Partida));
-                    command.Parameters.Add(new SQLiteParameter("@id_libro_diario", partida.IdLibro));
+                    command.Parameters.AddWithValue("@fecha", partida.Fecha);
+                    command.Parameters.AddWithValue("@concepto", partida.Detalle);
+                    command.Parameters.AddWithValue("@n_partida", partida.N_Partida);
+                    command.Parameters.AddWithValue("@id_libro_diario", partida.IdLibro);
                     command.ExecuteNonQuery();
 
                     this.idPartida = obtenerIdUltimaPartida(partida.IdLibro);
@@ -62,9 +62,8 @@ namespace SistemasContables.DataBase
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                return false;
             }
-
-            return false;
 
         }
 
@@ -82,9 +81,9 @@ namespace SistemasContables.DataBase
                     string sql = $"SELECT * FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @n_libro";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@n_libro", idLibroDiario));
+                    command.Parameters.AddWithValue("@n_libro", idLibroDiario);
 
-                    using(SQLiteDataReader result = command.ExecuteReader())
+                    using (SQLiteDataReader result = command.ExecuteReader())
                     {
                         if (lista.Count > 0)
                         {
@@ -113,7 +112,6 @@ namespace SistemasContables.DataBase
 
                 conn.Close();
 
-
             }
             catch (Exception exception)
             {
@@ -124,7 +122,7 @@ namespace SistemasContables.DataBase
 
         }
 
-        public void update(Partida partida)
+        public bool update(Partida partida)
         {
             try
             {
@@ -137,9 +135,9 @@ namespace SistemasContables.DataBase
                     string sql = $"UPDATE {TABLE_PARTIDA} SET {FECHA} = @fecha, {CONCEPTO} = @concepto WHERE {N_PARTIDA} =  @n_partida";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@fecha", partida.Fecha));
-                    command.Parameters.Add(new SQLiteParameter("@concepto", partida.Detalle));
-                    command.Parameters.Add(new SQLiteParameter("@n_partida", partida.N_Partida));
+                    command.Parameters.AddWithValue("@fecha", partida.Fecha);
+                    command.Parameters.AddWithValue("@concepto", partida.Detalle);
+                    command.Parameters.AddWithValue("@n_partida", partida.N_Partida);
                     command.ExecuteNonQuery();
 
                     //Ingreso las cuentasPartidas a sus respectiva partida a la database
@@ -161,12 +159,13 @@ namespace SistemasContables.DataBase
 
                 conn.Close();
 
-                MessageBox.Show("Se ha modificado la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                return true;
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                return false;
             }
         }
 
@@ -189,7 +188,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                    command.Parameters.AddWithValue("@n_partida", n_partida);
                     command.ExecuteNonQuery();
 
                     reorderPartidas(n_partida);
@@ -223,9 +222,9 @@ namespace SistemasContables.DataBase
                     string sql = $"SELECT {FECHA}, {CONCEPTO} FROM {TABLE_PARTIDA} WHERE {ID_PARTIDA} = @idPartida";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                    command.Parameters.AddWithValue("@idPartida", idPartida);
 
-                    using(SQLiteDataReader result = command.ExecuteReader())
+                    using (SQLiteDataReader result = command.ExecuteReader())
                     {
                         if (result.HasRows)
                         {
@@ -321,7 +320,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
                     var result = command.ExecuteScalar();
 
                     if (!string.IsNullOrEmpty(result.ToString()))
@@ -350,12 +349,13 @@ namespace SistemasContables.DataBase
             {
                 string sql = $"INSERT INTO  {TABLE_CUENTA_PARTIDA}({ID_CUENTA_PARTIDA}, {ID_CUENTA}, {ID_PARTIDA}, {DEBE}, {HABER}) ";
                 sql += "VALUES (NULL, @idCuenta, @idPartida, @debe, @haber);";
+
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idCuenta", cuentaPartida.IdCuenta));
-                command.Parameters.Add(new SQLiteParameter("@idPartida", cuentaPartida.IdPartida));
-                command.Parameters.Add(new SQLiteParameter("@debe", cuentaPartida.Debe));
-                command.Parameters.Add(new SQLiteParameter("@haber", cuentaPartida.Haber));
+                command.Parameters.AddWithValue("@idCuenta", cuentaPartida.IdCuenta);
+                command.Parameters.AddWithValue("@idPartida", cuentaPartida.IdPartida);
+                command.Parameters.AddWithValue("@debe", cuentaPartida.Debe);
+                command.Parameters.AddWithValue("@haber", cuentaPartida.Haber);
                 command.ExecuteNonQuery();
 
             }
@@ -371,7 +371,7 @@ namespace SistemasContables.DataBase
                 string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} =@idLibroDiario ORDER BY {ID_PARTIDA} DESC LIMIT 1;";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
 
                 using(SQLiteDataReader result = command.ExecuteReader())
                 {
@@ -400,7 +400,7 @@ namespace SistemasContables.DataBase
                 string sql = $"SELECT {ID_CUENTA} FROM {TABLE_CUENTA} WHERE {CODIGO} = @codigo";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@codigo", codigoCuenta));
+                command.Parameters.AddWithValue("@codigo", codigoCuenta);
                
                 using (SQLiteDataReader result = command.ExecuteReader())
                 {
@@ -433,7 +433,7 @@ namespace SistemasContables.DataBase
 
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                command.Parameters.AddWithValue("@idPartida", idPartida);
 
                 using (SQLiteDataReader result = command.ExecuteReader())
                 {
@@ -474,7 +474,7 @@ namespace SistemasContables.DataBase
 
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                command.Parameters.AddWithValue("@idPartida", idPartida);
                 command.ExecuteNonQuery();
 
             }
@@ -489,8 +489,8 @@ namespace SistemasContables.DataBase
                 string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida AND {ID_LIBRO_DIARIO} = @idLibro;";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
-                command.Parameters.Add(new SQLiteParameter("@idLibro", idLibro));
+                command.Parameters.AddWithValue("@n_partida", n_partida);
+                command.Parameters.AddWithValue("@idLibro", idLibro);
 
                 using (SQLiteDataReader result = command.ExecuteReader())
                 {
@@ -518,7 +518,7 @@ namespace SistemasContables.DataBase
 
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
+                command.Parameters.AddWithValue("@n_partida", n_partida);
                 command.ExecuteNonQuery();
 
             }
@@ -540,7 +540,7 @@ namespace SistemasContables.DataBase
                     string sql = $"SELECT * FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND {CONCEPTO} = 'Ajuste de IVA'";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibro));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
 
                     using(SQLiteDataReader result = command.ExecuteReader())
                     {

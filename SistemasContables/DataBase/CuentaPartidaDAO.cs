@@ -34,7 +34,7 @@ namespace SistemasContables.DataBase
                     sql += $"INNER JOIN {TABLE_CUENTA_PARTIDA} ON {TABLE_CUENTA}.{ID_CUENTA} = {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} WHERE {ID_PARTIDA} = @idPartida";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idPartida", idPartida));
+                    command.Parameters.AddWithValue("@idPartida", idPartida);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
@@ -83,8 +83,8 @@ namespace SistemasContables.DataBase
                 string sql = $"SELECT {ID_PARTIDA} FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida AND {ID_LIBRO_DIARIO} = @idLibro;";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@n_partida", n_partida));
-                command.Parameters.Add(new SQLiteParameter("@idLibro", idLibro));
+                command.Parameters.AddWithValue("@n_partida", n_partida);
+                command.Parameters.AddWithValue("@idLibro", idLibro);
 
                 using(SQLiteDataReader result = command.ExecuteReader())
                 {

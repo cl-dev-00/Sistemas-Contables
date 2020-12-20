@@ -15,7 +15,7 @@ namespace SistemasContables.DataBase
 
         public CuentasDAO()
         {
-            this.lista = new List<Cuenta>();
+            lista = new List<Cuenta>();
         }
 
         public List<Cuenta> getList()
@@ -68,7 +68,7 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return this.lista;
+            return lista;
 
         }
 

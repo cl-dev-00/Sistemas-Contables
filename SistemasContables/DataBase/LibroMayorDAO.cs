@@ -41,7 +41,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
@@ -91,7 +91,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@nivel3", nivel3));
+                    command.Parameters.AddWithValue("@nivel3", nivel3);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {
@@ -144,8 +144,8 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@codigo", codigo));
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.Parameters.AddWithValue("@codigo", codigo);
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {

@@ -31,7 +31,7 @@ namespace SistemasContables.DataBase
                     string sql = $"INSERT INTO {TABLE_LIBRO_DIARIO}(periodo) VALUES(@periodo)";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@periodo", periodo));
+                    command.Parameters.AddWithValue("@periodo", periodo);
                     command.ExecuteNonQuery();
 
                 }
@@ -115,7 +115,7 @@ namespace SistemasContables.DataBase
                     string sql = $"DELETE FROM {TABLE_LIBRO_DIARIO} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
                     command.ExecuteNonQuery();
 
                 }
@@ -142,7 +142,7 @@ namespace SistemasContables.DataBase
                 string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
                 command.ExecuteNonQuery();
             }
 
@@ -160,7 +160,7 @@ namespace SistemasContables.DataBase
                 sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario)";
                 command.CommandText = sql;
                 command.Connection = Conexion.Conn;
-                command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
                 command.ExecuteNonQuery();
             }
 
@@ -206,7 +206,7 @@ namespace SistemasContables.DataBase
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
                     var result = command.ExecuteScalar();
 
                     if (!string.IsNullOrEmpty(result.ToString()))

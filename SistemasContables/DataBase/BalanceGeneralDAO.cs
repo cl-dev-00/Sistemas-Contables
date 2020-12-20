@@ -11,7 +11,6 @@ namespace SistemasContables.DataBase
 {
     class BalanceGeneralDAO : DAO
     {
-        private SQLiteConnection conn;
         private List<Cuenta> listaCuentas;
         private List<CuentaPartida> listaSaldos;
 
@@ -31,7 +30,7 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA} WHERE codigo='1' OR codigo='2' OR codigo='3'";
+                    string sql = $"SELECT {CODIGO}, {NOMBRE_CUENTA}, {TIPO_SALDO} FROM {TABLE_CUENTA} WHERE {CODIGO}='1' OR {CODIGO}='2' OR {CODIGO}='3'";
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
@@ -84,8 +83,8 @@ namespace SistemasContables.DataBase
                     
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.Add(new SQLiteParameter("@idLibroDiario", idLibroDiario));
-                    command.Parameters.Add(new SQLiteParameter("@numeroLibro", numeroLibro));
+                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
+                    command.Parameters.AddWithValue("@numeroLibro", numeroLibro);
 
                     using (SQLiteDataReader result = command.ExecuteReader())
                     {

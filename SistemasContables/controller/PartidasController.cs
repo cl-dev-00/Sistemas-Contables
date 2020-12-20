@@ -14,7 +14,7 @@ namespace SistemasContables.controller
 
         public PartidasController()
         {
-            this.partidasDAO = new PartidasDAO();
+            partidasDAO = new PartidasDAO();
         }
 
         public bool insert(Partida partida)
@@ -27,9 +27,9 @@ namespace SistemasContables.controller
             return partidasDAO.getList(idLibroDiario);
         }
 
-        public void update(Partida partida)
+        public bool update(Partida partida)
         {
-            partidasDAO.update(partida);
+            return partidasDAO.update(partida);
         }
 
         public void delete(int n_partida, int idLibro)

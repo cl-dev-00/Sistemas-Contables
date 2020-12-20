@@ -339,29 +339,26 @@ namespace SistemasContables
         // el metodo regarca el form cada vez que se cambia de libro diario
         private void recargarForm()
         {
-            if (currentNameForm == "inicio")
+            switch(currentNameForm)
             {
-                openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
-            }
-            else if (currentNameForm == "libro_diario")
-            {
-                openFormInPane(new LibroDiarioForm(libroDiario));
-            }
-            else if (currentNameForm == "libro_mayor")
-            {
-                openFormInPane(new LibroMayorForm(libroDiario));
-            }
-            else if (currentNameForm == "balance_comprobacion")
-            {
-                openFormInPane(new BalanceDeComprobacionForm(libroDiario));
-            }
-            else if (currentNameForm == "estado_resultados")
-            {
-                openFormInPane(new EstadoDeResultadosForm(libroDiario));
-            }
-            else if (currentNameForm == "balance_general")
-            {
-                openFormInPane(new BalanceGeneralForm(libroDiario));
+                case "inicio":
+                    openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
+                    break;
+                case "libro_diario":
+                    openFormInPane(new LibroDiarioForm(libroDiario));
+                    break;
+                case "libro_mayor":
+                    openFormInPane(new LibroMayorForm(libroDiario));
+                    break;
+                case "balance_comprobacion":
+                    openFormInPane(new BalanceDeComprobacionForm(libroDiario));
+                    break;
+                case "estado_resultados":
+                    openFormInPane(new EstadoDeResultadosForm(libroDiario));
+                    break;
+                case "balance_general":
+                    openFormInPane(new BalanceGeneralForm(libroDiario));
+                    break;
             }
 
         }
