@@ -29,28 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation2 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panelContenido = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblPagina = new System.Windows.Forms.Label();
-            this.gunaDragTopPanel = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
-            this.btnNext = new FontAwesome.Sharp.IconButton();
-            this.btnAddLibroDiario = new FontAwesome.Sharp.IconButton();
-            this.btnDeleteLibroDiario = new FontAwesome.Sharp.IconButton();
-            this.btnPrevious = new FontAwesome.Sharp.IconButton();
-            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
-            this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
-            this.btnMaximizar = new FontAwesome.Sharp.IconButton();
-            this.btnExit = new FontAwesome.Sharp.IconButton();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
             this.btnEstadoDeResultados = new FontAwesome.Sharp.IconButton();
             this.btnBalanceDeComprobacion = new FontAwesome.Sharp.IconButton();
@@ -59,13 +41,32 @@
             this.btnInicio = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
+            this.btnMaximizar = new FontAwesome.Sharp.IconButton();
+            this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelContenido = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
+            this.btnAddLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.btnDeleteLibroDiario = new FontAwesome.Sharp.IconButton();
+            this.lblPagina = new System.Windows.Forms.Label();
+            this.btnPrevious = new FontAwesome.Sharp.IconButton();
+            this.gunaDragTopPanel = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
+            this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
             this.panelNavegacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panelContenido.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNavegacion
@@ -94,297 +95,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 46);
             this.panel2.TabIndex = 1;
-            // 
-            // panelTop
-            // 
-            this.panelTop.BackColor = System.Drawing.Color.White;
-            this.panelTop.Controls.Add(this.btnMinimizar);
-            this.panelTop.Controls.Add(this.btnRestoreWindow);
-            this.panelTop.Controls.Add(this.btnMaximizar);
-            this.panelTop.Controls.Add(this.btnExit);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelTop, Guna.UI.Animation.DecorationType.None);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(252, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(948, 40);
-            this.panelTop.TabIndex = 5;
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.White;
-            this.panelContenedor.Controls.Add(this.panelContenido);
-            this.panelContenedor.Controls.Add(this.panelBottom);
-            this.panelContenedor.Controls.Add(this.panelTop);
-            this.panelContenedor.Controls.Add(this.panelNavegacion);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, Guna.UI.Animation.DecorationType.None);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1200, 760);
-            this.panelContenedor.TabIndex = 3;
-            // 
-            // panelContenido
-            // 
-            this.panelContenido.BackColor = System.Drawing.Color.White;
-            this.panelContenido.Controls.Add(this.panel3);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, Guna.UI.Animation.DecorationType.None);
-            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenido.Location = new System.Drawing.Point(252, 40);
-            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
-            this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(948, 674);
-            this.panelContenido.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AnimacionPanelNavegacion.SetDecoration(this.panel3, Guna.UI.Animation.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(720, 674);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(228, 46);
-            this.panel3.TabIndex = 2;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.Controls.Add(this.panel1);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, Guna.UI.Animation.DecorationType.None);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(252, 714);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(948, 46);
-            this.panelBottom.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel1.Controls.Add(this.btnNext);
-            this.panel1.Controls.Add(this.btnAddLibroDiario);
-            this.panel1.Controls.Add(this.btnDeleteLibroDiario);
-            this.panel1.Controls.Add(this.lblPagina);
-            this.panel1.Controls.Add(this.btnPrevious);
-            this.AnimacionPanelNavegacion.SetDecoration(this.panel1, Guna.UI.Animation.DecorationType.None);
-            this.panel1.Location = new System.Drawing.Point(354, 3);
-            this.panel1.MaximumSize = new System.Drawing.Size(314, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 43);
-            this.panel1.TabIndex = 0;
-            // 
-            // lblPagina
-            // 
-            this.lblPagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AnimacionPanelNavegacion.SetDecoration(this.lblPagina, Guna.UI.Animation.DecorationType.None);
-            this.lblPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagina.Location = new System.Drawing.Point(110, -1);
-            this.lblPagina.MaximumSize = new System.Drawing.Size(45, 43);
-            this.lblPagina.Name = "lblPagina";
-            this.lblPagina.Size = new System.Drawing.Size(40, 43);
-            this.lblPagina.TabIndex = 1;
-            this.lblPagina.Text = "Pag";
-            this.lblPagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gunaDragTopPanel
-            // 
-            this.gunaDragTopPanel.TargetControl = this.panelTop;
-            // 
-            // gunaDragTituloIcon
-            // 
-            this.gunaDragTituloIcon.TargetControl = this.pbLogo;
-            // 
-            // AnimacionPanelNavegacion
-            // 
-            this.AnimacionPanelNavegacion.AnimationType = Guna.UI.Animation.AnimationType.HorizSlide;
-            this.AnimacionPanelNavegacion.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation1;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnNext, Guna.UI.Animation.DecorationType.None);
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleRight;
-            this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNext.IconSize = 28;
-            this.btnNext.Location = new System.Drawing.Point(152, 0);
-            this.btnNext.MaximumSize = new System.Drawing.Size(43, 43);
-            this.btnNext.MinimumSize = new System.Drawing.Size(43, 43);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Rotation = 0D;
-            this.btnNext.Size = new System.Drawing.Size(43, 43);
-            this.btnNext.TabIndex = 1;
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnAddLibroDiario
-            // 
-            this.btnAddLibroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddLibroDiario.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnAddLibroDiario, Guna.UI.Animation.DecorationType.None);
-            this.btnAddLibroDiario.FlatAppearance.BorderSize = 0;
-            this.btnAddLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAddLibroDiario.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnAddLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
-            this.btnAddLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddLibroDiario.IconSize = 28;
-            this.btnAddLibroDiario.Location = new System.Drawing.Point(207, 0);
-            this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
-            this.btnAddLibroDiario.Name = "btnAddLibroDiario";
-            this.btnAddLibroDiario.Rotation = 0D;
-            this.btnAddLibroDiario.Size = new System.Drawing.Size(43, 43);
-            this.btnAddLibroDiario.TabIndex = 2;
-            this.btnAddLibroDiario.UseVisualStyleBackColor = false;
-            this.btnAddLibroDiario.Click += new System.EventHandler(this.btnAddLibroDiario_Click);
-            // 
-            // btnDeleteLibroDiario
-            // 
-            this.btnDeleteLibroDiario.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeleteLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnDeleteLibroDiario, Guna.UI.Animation.DecorationType.None);
-            this.btnDeleteLibroDiario.FlatAppearance.BorderSize = 0;
-            this.btnDeleteLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDeleteLibroDiario.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDeleteLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnDeleteLibroDiario.IconSize = 28;
-            this.btnDeleteLibroDiario.Location = new System.Drawing.Point(0, 0);
-            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
-            this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
-            this.btnDeleteLibroDiario.Rotation = 0D;
-            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
-            this.btnDeleteLibroDiario.TabIndex = 3;
-            this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
-            this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnPrevious.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnPrevious, Guna.UI.Animation.DecorationType.None);
-            this.btnPrevious.FlatAppearance.BorderSize = 0;
-            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrevious.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
-            this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
-            this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrevious.IconSize = 28;
-            this.btnPrevious.Location = new System.Drawing.Point(61, 0);
-            this.btnPrevious.MaximumSize = new System.Drawing.Size(43, 43);
-            this.btnPrevious.MinimumSize = new System.Drawing.Size(43, 43);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Rotation = 0D;
-            this.btnPrevious.Size = new System.Drawing.Size(43, 43);
-            this.btnPrevious.TabIndex = 0;
-            this.btnPrevious.UseVisualStyleBackColor = false;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnMinimizar, Guna.UI.Animation.DecorationType.None);
-            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.btnMinimizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMinimizar.IconSize = 35;
-            this.btnMinimizar.Location = new System.Drawing.Point(744, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Rotation = 0D;
-            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
-            this.btnMinimizar.TabIndex = 4;
-            this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnRestoreWindow
-            // 
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnRestoreWindow, Guna.UI.Animation.DecorationType.None);
-            this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
-            this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreWindow.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnRestoreWindow.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.btnRestoreWindow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRestoreWindow.IconSize = 35;
-            this.btnRestoreWindow.Location = new System.Drawing.Point(795, 0);
-            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRestoreWindow.Name = "btnRestoreWindow";
-            this.btnRestoreWindow.Rotation = 0D;
-            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
-            this.btnRestoreWindow.TabIndex = 3;
-            this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRestoreWindow.UseVisualStyleBackColor = true;
-            this.btnRestoreWindow.Visible = false;
-            this.btnRestoreWindow.Click += new System.EventHandler(this.btnRestoreWindow_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnMaximizar, Guna.UI.Animation.DecorationType.None);
-            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btnMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMaximizar.IconSize = 35;
-            this.btnMaximizar.Location = new System.Drawing.Point(846, 0);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Rotation = 0D;
-            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
-            this.btnMaximizar.TabIndex = 2;
-            this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnExit
-            // 
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnExit, Guna.UI.Animation.DecorationType.None);
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(47)))), ((int)(((byte)(6)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
-            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnExit.IconSize = 35;
-            this.btnExit.Location = new System.Drawing.Point(897, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Rotation = 0D;
-            this.btnExit.Size = new System.Drawing.Size(51, 40);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnBalanceGeneral
             // 
@@ -595,25 +305,321 @@
             this.pbLogo.TabIndex = 8;
             this.pbLogo.TabStop = false;
             // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.White;
+            this.panelTop.Controls.Add(this.btnMinimizar);
+            this.panelTop.Controls.Add(this.btnRestoreWindow);
+            this.panelTop.Controls.Add(this.btnMaximizar);
+            this.panelTop.Controls.Add(this.btnExit);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelTop, Guna.UI.Animation.DecorationType.None);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(252, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(948, 40);
+            this.panelTop.TabIndex = 5;
+            // 
+            // btnMinimizar
+            // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnMinimizar, Guna.UI.Animation.DecorationType.None);
+            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnMinimizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimizar.IconSize = 35;
+            this.btnMinimizar.Location = new System.Drawing.Point(744, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Rotation = 0D;
+            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
+            this.btnMinimizar.TabIndex = 4;
+            this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnRestoreWindow
+            // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnRestoreWindow, Guna.UI.Animation.DecorationType.None);
+            this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
+            this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestoreWindow.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnRestoreWindow.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            this.btnRestoreWindow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRestoreWindow.IconSize = 35;
+            this.btnRestoreWindow.Location = new System.Drawing.Point(795, 0);
+            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRestoreWindow.Name = "btnRestoreWindow";
+            this.btnRestoreWindow.Rotation = 0D;
+            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
+            this.btnRestoreWindow.TabIndex = 3;
+            this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRestoreWindow.UseVisualStyleBackColor = true;
+            this.btnRestoreWindow.Visible = false;
+            this.btnRestoreWindow.Click += new System.EventHandler(this.btnRestoreWindow_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnMaximizar, Guna.UI.Animation.DecorationType.None);
+            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.btnMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMaximizar.IconSize = 35;
+            this.btnMaximizar.Location = new System.Drawing.Point(846, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Rotation = 0D;
+            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
+            this.btnMaximizar.TabIndex = 2;
+            this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnExit
+            // 
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnExit, Guna.UI.Animation.DecorationType.None);
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(47)))), ((int)(((byte)(6)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.btnExit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExit.IconSize = 35;
+            this.btnExit.Location = new System.Drawing.Point(897, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Rotation = 0D;
+            this.btnExit.Size = new System.Drawing.Size(51, 40);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Controls.Add(this.panelContenido);
+            this.panelContenedor.Controls.Add(this.panelBottom);
+            this.panelContenedor.Controls.Add(this.panelTop);
+            this.panelContenedor.Controls.Add(this.panelNavegacion);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, Guna.UI.Animation.DecorationType.None);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1200, 760);
+            this.panelContenedor.TabIndex = 3;
+            // 
+            // panelContenido
+            // 
+            this.panelContenido.BackColor = System.Drawing.Color.White;
+            this.panelContenido.Controls.Add(this.panel3);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, Guna.UI.Animation.DecorationType.None);
+            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenido.Location = new System.Drawing.Point(252, 40);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
+            this.panelContenido.Name = "panelContenido";
+            this.panelContenido.Size = new System.Drawing.Size(948, 674);
+            this.panelContenido.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnimacionPanelNavegacion.SetDecoration(this.panel3, Guna.UI.Animation.DecorationType.None);
+            this.panel3.Location = new System.Drawing.Point(720, 674);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(228, 46);
+            this.panel3.TabIndex = 2;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Controls.Add(this.panel1);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, Guna.UI.Animation.DecorationType.None);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(252, 714);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(948, 46);
+            this.panelBottom.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.btnAddLibroDiario);
+            this.panel1.Controls.Add(this.btnDeleteLibroDiario);
+            this.panel1.Controls.Add(this.lblPagina);
+            this.panel1.Controls.Add(this.btnPrevious);
+            this.AnimacionPanelNavegacion.SetDecoration(this.panel1, Guna.UI.Animation.DecorationType.None);
+            this.panel1.Location = new System.Drawing.Point(354, 3);
+            this.panel1.MaximumSize = new System.Drawing.Size(314, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 43);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnNext, Guna.UI.Animation.DecorationType.None);
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleRight;
+            this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.IconSize = 28;
+            this.btnNext.Location = new System.Drawing.Point(152, 0);
+            this.btnNext.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnNext.MinimumSize = new System.Drawing.Size(43, 43);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Rotation = 0D;
+            this.btnNext.Size = new System.Drawing.Size(43, 43);
+            this.btnNext.TabIndex = 1;
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnAddLibroDiario
+            // 
+            this.btnAddLibroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddLibroDiario.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnAddLibroDiario, Guna.UI.Animation.DecorationType.None);
+            this.btnAddLibroDiario.FlatAppearance.BorderSize = 0;
+            this.btnAddLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAddLibroDiario.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAddLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
+            this.btnAddLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAddLibroDiario.IconSize = 28;
+            this.btnAddLibroDiario.Location = new System.Drawing.Point(207, 0);
+            this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnAddLibroDiario.Name = "btnAddLibroDiario";
+            this.btnAddLibroDiario.Rotation = 0D;
+            this.btnAddLibroDiario.Size = new System.Drawing.Size(43, 43);
+            this.btnAddLibroDiario.TabIndex = 2;
+            this.btnAddLibroDiario.UseVisualStyleBackColor = false;
+            this.btnAddLibroDiario.Click += new System.EventHandler(this.btnAddLibroDiario_Click);
+            // 
+            // btnDeleteLibroDiario
+            // 
+            this.btnDeleteLibroDiario.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteLibroDiario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnDeleteLibroDiario, Guna.UI.Animation.DecorationType.None);
+            this.btnDeleteLibroDiario.FlatAppearance.BorderSize = 0;
+            this.btnDeleteLibroDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteLibroDiario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnDeleteLibroDiario.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDeleteLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDeleteLibroDiario.IconSize = 28;
+            this.btnDeleteLibroDiario.Location = new System.Drawing.Point(0, 0);
+            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
+            this.btnDeleteLibroDiario.Rotation = 0D;
+            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
+            this.btnDeleteLibroDiario.TabIndex = 3;
+            this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
+            this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
+            // 
+            // lblPagina
+            // 
+            this.lblPagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AnimacionPanelNavegacion.SetDecoration(this.lblPagina, Guna.UI.Animation.DecorationType.None);
+            this.lblPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagina.Location = new System.Drawing.Point(110, -1);
+            this.lblPagina.MaximumSize = new System.Drawing.Size(45, 43);
+            this.lblPagina.Name = "lblPagina";
+            this.lblPagina.Size = new System.Drawing.Size(40, 43);
+            this.lblPagina.TabIndex = 1;
+            this.lblPagina.Text = "Pag";
+            this.lblPagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPrevious.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnPrevious, Guna.UI.Animation.DecorationType.None);
+            this.btnPrevious.FlatAppearance.BorderSize = 0;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronCircleLeft;
+            this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
+            this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrevious.IconSize = 28;
+            this.btnPrevious.Location = new System.Drawing.Point(61, 0);
+            this.btnPrevious.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnPrevious.MinimumSize = new System.Drawing.Size(43, 43);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Rotation = 0D;
+            this.btnPrevious.Size = new System.Drawing.Size(43, 43);
+            this.btnPrevious.TabIndex = 0;
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // gunaDragTopPanel
+            // 
+            this.gunaDragTopPanel.TargetControl = this.panelTop;
+            // 
+            // gunaDragTituloIcon
+            // 
+            this.gunaDragTituloIcon.TargetControl = this.pbLogo;
+            // 
+            // AnimacionPanelNavegacion
+            // 
+            this.AnimacionPanelNavegacion.AnimationType = Guna.UI.Animation.AnimationType.HorizSlide;
+            this.AnimacionPanelNavegacion.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation2;
+            // 
+            // gunaResize
+            // 
+            this.gunaResize.TargetForm = this;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 760);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1203, 760);
             this.Controls.Add(this.panelContenedor);
             this.AnimacionPanelNavegacion.SetDecoration(this, Guna.UI.Animation.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(720, 640);
+            this.MinimumSize = new System.Drawing.Size(1203, 760);
             this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.Text = "Sistemas Contables";
             this.panelNavegacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -649,6 +655,7 @@
         private Guna.UI.WinForms.GunaTransition gunaTransition1;
         private Guna.UI.WinForms.GunaTransition gunaTransition2;
         private Guna.UI.WinForms.GunaTransition AnimacionPanelNavegacion;
+        private Guna.UI.WinForms.GunaResize gunaResize;
     }
 }
 

@@ -15,7 +15,7 @@ namespace SistemasContables.Views
 {
     public partial class AgregarPartidaForm : Form
     {
-        const double IVA = 0.13;
+        private const double IVA = 0.13;
 
         private CuentasController cuentaController;
         private PartidasController partidasController;
@@ -172,43 +172,48 @@ namespace SistemasContables.Views
         private void btnNuevaCuenta_Click(object sender, EventArgs e)
         {
 
-            if(!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
+            if (!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
             {
                 int index = cbCuenta.SelectedIndex - 3;
 
-                double monto = Convert.ToDouble(txtMonto.Text);
-                double ivaMonto = monto * IVA;
-                double montoTotal = MontoConIVA(monto, ivaMonto);
-
-                if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
+                if (listaCuenta[index].Nivel != 1 && listaCuenta[index].Nivel != 2)
                 {
-                    tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
-                    if(rbDebito.Checked)
+                    double monto = Convert.ToDouble(txtMonto.Text);
+                    double montoTotal = MontoSinIVA(monto);
+                    double ivaMonto = CalcularIVA(montoTotal);
+
+                    if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
                     {
-                        tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
-                    } 
-                    else if(rbCredito.Checked)
-                    {
-                        tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
+                        tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
+
+                        if (rbDebito.Checked)
+                        {
+                            tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
+                        }
+                        else if (rbCredito.Checked)
+                        {
+                            tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
+                        }
+
                     }
+                    else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
+                    {
+                        tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
+
+                        if (rbDebito.Checked)
+                        {
+                            tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
+                        }
+                        else if (rbCredito.Checked)
+                        {
+                            tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
+                        }
+                    }
+
+                    txtMonto.Text = null;
 
                 }
-                else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
-                {
-                    tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
-
-                    if (rbDebito.Checked)
-                    {
-                        tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
-                    }
-                    else if (rbCredito.Checked)
-                    {
-                        tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
-                    }
-                }
-
-                txtMonto.Text = null;
 
             }
 
@@ -218,8 +223,6 @@ namespace SistemasContables.Views
             }
 
         }
-
-
 
         //el metodo elimina una cuenta
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
@@ -280,6 +283,40 @@ namespace SistemasContables.Views
 
         }
 
+        //validaciones de los radios buttons
+
+        private void rbExcento_CheckedChanged(object sender, EventArgs e)
+        {
+            rbDebito.Checked = false;
+            rbCredito.Checked = false;
+
+            rbDebito.Enabled = false;
+            rbCredito.Enabled = false;
+        }
+
+        private void rbMasIva_CheckedChanged(object sender, EventArgs e)
+        {
+            rbDebito.Enabled = true;
+            rbCredito.Enabled = true;
+
+            if (!rbDebito.Checked && !rbCredito.Checked)
+            {
+                rbDebito.Checked = true;
+            }
+
+        }
+
+        private void rbIncluido_CheckedChanged(object sender, EventArgs e)
+        {
+            rbDebito.Enabled = true;
+            rbCredito.Enabled = true;
+
+            if (!rbDebito.Checked && !rbCredito.Checked)
+            {
+                rbDebito.Checked = true;
+            }
+        }
+
         private void dpFecha_onValueChanged(object sender, EventArgs e)
         {
             fecha = FormatoFecha();
@@ -333,7 +370,7 @@ namespace SistemasContables.Views
         }
 
         // evalua el iva y el debito y credito fiscal para insertar la respectiva fila
-        private double MontoConIVA(double monto, double ivaMonto)
+        private double MontoSinIVA(double monto)
         {
             double montoTotal = 0;
 
@@ -341,13 +378,37 @@ namespace SistemasContables.Views
 
             if(rbIncluido.Checked)
             {
-                montoTotal = monto - ivaMonto;
+                montoTotal = monto / (IVA + 1);
             }
 
-            return montoTotal;
+            return Math.Round(montoTotal, 2);
 
         }
 
+        // el metodo calcula el iva del monto
+        private double CalcularIVA(double monto)
+        {
+            double iva = 0;
+
+            if (rbIncluido.Checked || rbMasIva.Checked)
+            {
+                iva = monto * IVA;
+            }
+
+            return Math.Round(iva, 2);
+        }
+
+        // el metodo calcula el monto total
+        private double CalcularTotal(double monto, double iva)
+        {
+            double total = monto;
+
+            if(rbMasIva.Checked)
+            {
+                total = monto + iva;
+            }
+            return Math.Round(total, 2);
+        }
 
         // el metodo llena las cuentas de la partida
         private void LlenarCuentasPartida(ref Partida partida)
@@ -399,104 +460,6 @@ namespace SistemasContables.Views
 
             dpFecha.Value = new DateTime(year, month, day);
         }
-
-        //validaciones de los radios buttons
-
-        private void rbExcento_Click(object sender, EventArgs e)
-        {
-            if (rbDebito.Enabled)
-            {
-                if (rbDebito.Checked)
-                {
-                    rbDebito.Checked = false;
-                }
-
-                rbDebito.Enabled = false;
-            }
-            if (rbCredito.Enabled)
-            {
-                if (rbCredito.Checked)
-                {
-                    rbCredito.Checked = false;
-                }
-
-                rbCredito.Enabled = false;
-            }
-        }
-
-        private void rbMasIva_Click(object sender, EventArgs e)
-        {
-            if (!rbCredito.Enabled)
-            {
-                rbCredito.Enabled = true;
-            }
-            if (!rbDebito.Enabled)
-            {
-                if (!rbDebito.Checked)
-                {
-                    rbDebito.Checked = true;
-                }
-
-                rbDebito.Enabled = true;
-            }
-            
-        }
-
-        private void rbIncluido_Click(object sender, EventArgs e)
-        {
-            if (!rbDebito.Enabled)
-            {
-                if (!rbDebito.Checked)
-                {
-                    rbDebito.Checked = true;
-                }
-
-                rbDebito.Enabled = true;
-            }
-            if (!rbCredito.Enabled)
-            {
-                rbCredito.Enabled = true;
-            }
-        }
-
-        //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
-        private int tolerance = 15;
-        private const int WM_NCHITTEST = 132;
-        private const int HTBOTTOMRIGHT = 17;
-        private Rectangle sizeGripRectangle;
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case WM_NCHITTEST:
-                    base.WndProc(ref m);
-                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                    if (sizeGripRectangle.Contains(hitPoint))
-                        m.Result = new IntPtr(HTBOTTOMRIGHT);
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
-        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
-            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
-            region.Exclude(sizeGripRectangle);
-            this.panelContenedor.Region = region;
-            this.Invalidate();
-        }
-        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            SolidBrush blueBrush = new SolidBrush(Color.FromArgb(55, 61, 69));
-            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
-            base.OnPaint(e);
-            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
-        }
-
+        
     }
 }
