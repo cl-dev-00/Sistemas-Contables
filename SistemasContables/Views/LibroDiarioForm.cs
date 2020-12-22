@@ -1,11 +1,13 @@
-﻿using SistemasContables.controller;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using SistemasContables.controller;
 using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,9 @@ namespace SistemasContables.Views
         private int numeroPartidas;
         private int idLibroDiario;
         private string accion;
+        private Paragraph title;
+        private Paragraph periodo;
+
 
         public LibroDiarioForm(LibroDiario libroDiario)
         {
@@ -41,6 +46,18 @@ namespace SistemasContables.Views
             partidaAux.ListaCuentasPartida = new List<CuentaPartida>();
 
             disableButtons();
+
+            // texto para el documento en pdf
+            Font titleFont = FontFactory.GetFont("Arial", 22);
+            Font periodoFont = FontFactory.GetFont("Arial", 16);
+            
+            title = new Paragraph(lblTitulo.Text, titleFont);
+            title.Alignment = Element.ALIGN_CENTER;
+            title.SpacingAfter = 20;
+
+            periodo = new Paragraph(lblPeriodo.Text, periodoFont);
+            periodo.Alignment = Element.ALIGN_CENTER;
+            periodo.SpacingAfter = 20;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -135,6 +152,81 @@ namespace SistemasContables.Views
 
         }
 
+        // el metodo exporta el balance general en un documento pdf
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            using(SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PDF (*.pdf)|*.pdf";
+                saveFileDialog.FileName = "Libro Diario.pdf";
+                bool fileError = false;
+
+                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(saveFileDialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(saveFileDialog.FileName);
+                        } catch (Exception exception)
+                        {
+                            fileError = true;
+                            MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(tableLibroDiario.Columns.Count);
+
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in tableLibroDiario.Columns)
+                            {
+                                PdfPHeaderCell pdfCell = new PdfPHeaderCell() 
+                                {
+                                    Phrase=   new Phrase(column.HeaderText) 
+                                };
+                                pdfTable.AddCell(pdfCell);
+                            }
+
+                            foreach (DataGridViewRow row in tableLibroDiario.Rows)
+                            {
+                                foreach(DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                            {
+                                using(Document pdfDoc = new Document(PageSize.A4, 20f, 20f, 20f, 20f))
+                                {
+                                    PdfWriter.GetInstance(pdfDoc, stream);
+                                    pdfDoc.Open();
+                                    pdfDoc.Add(title);
+                                    pdfDoc.Add(periodo);
+                                    pdfDoc.Add(pdfTable);
+                                    pdfDoc.Close();
+                                    stream.Close();
+                                }
+
+                            }
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    
+                }
+
+            }
+        }
 
         //el metodo llena la tabla del libro diario
         private void llenarTabla()
@@ -154,11 +246,13 @@ namespace SistemasContables.Views
                 btnModificar.Visible = true;
                 btnEliminar.Visible = true;
                 btnAjusteIva.Visible = true;
+                btnExportar.Visible = true;
             } else
             {
                 btnModificar.Visible = false;
                 btnEliminar.Visible = false;
                 btnAjusteIva.Visible = false;
+                btnExportar.Visible = false;
             }
 
             foreach (Partida partida in lista)
@@ -240,13 +334,14 @@ namespace SistemasContables.Views
                 btnModificar.Visible = false;
                 btnEliminar.Visible = false;
                 btnAjusteIva.Visible = false;
-                btnImprimir.Visible = false;
+                btnExportar.Visible = false;
             }
             else if(tableLibroDiario.Rows.Count < 1)
             {
                 btnModificar.Visible = false;
                 btnEliminar.Visible = false;
                 btnAjusteIva.Visible = false;
+                btnExportar.Visible = false;
             } 
         }
 

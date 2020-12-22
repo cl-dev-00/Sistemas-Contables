@@ -184,11 +184,11 @@ namespace SistemasContables.DataBase
 
                     deleteCuentaPartida(idPartida);
 
-                    string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {N_PARTIDA} = @n_partida";
+                    string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {ID_PARTIDA} = @idPartida";
 
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@n_partida", n_partida);
+                    command.Parameters.AddWithValue("@idPartida", idPartida);
                     command.ExecuteNonQuery();
 
                     reorderPartidas(n_partida);

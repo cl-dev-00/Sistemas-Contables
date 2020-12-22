@@ -81,3 +81,6 @@ C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\obj\Debug\Si
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.csproj.CopyComplete
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.exe
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.pdb
+C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\itextsharp.dll
+C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\itextsharp.xml
