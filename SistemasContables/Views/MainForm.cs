@@ -384,6 +384,9 @@ namespace SistemasContables
 
             // obtengo unicamente los años no duplicados
             listaYears = listaYears.Distinct().ToList();
+
+            // inverto el orden de la lista
+            listaYears.Reverse();
         }
 
     }

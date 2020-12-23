@@ -29,7 +29,7 @@ namespace SistemasContables.DataBase
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
-                    string sql = $"SELECT * FROM {TABLE_CUENTA}";
+                    string sql = $"SELECT * FROM {TABLE_CUENTA} ORDER BY {NOMBRE_CUENTA}";
                     command.CommandText = sql;
                     command.Connection = Conexion.Conn;
 

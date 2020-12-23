@@ -36,7 +36,6 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\Syste
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\EntityFramework.xml
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\System.Data.SQLite.xml
-C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.csprojAssemblyReference.cache
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.BalanceDeComprobacionForm.resources
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.BalanceGeneralForm.resources
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.EstadoDeResultadosForm.resources
