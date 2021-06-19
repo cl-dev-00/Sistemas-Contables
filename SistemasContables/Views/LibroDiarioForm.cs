@@ -261,7 +261,7 @@ namespace SistemasContables.Views
 
                 foreach (CuentaPartida cuentaPartida in partida.ListaCuentasPartida)
                 {
-                    tableLibroDiario.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber));
+                    tableLibroDiario.Rows.Add("", cuentaPartida.Codigo, cuentaPartida.Nombre, redondear(cuentaPartida.Debe), redondear(cuentaPartida.Haber), null, null);
                 }
 
                 tableLibroDiario.Rows.Add("", "",partida.Detalle, "", "");

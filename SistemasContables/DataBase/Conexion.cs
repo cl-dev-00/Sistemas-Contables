@@ -37,7 +37,7 @@ namespace SistemasContables.DataBase
             }
         }
 
-        public Conexion()
+        private Conexion()
         {
             
         }

@@ -398,18 +398,6 @@ namespace SistemasContables.Views
             return Math.Round(iva, 2);
         }
 
-        // el metodo calcula el monto total
-        private double CalcularTotal(double monto, double iva)
-        {
-            double total = monto;
-
-            if(rbMasIva.Checked)
-            {
-                total = monto + iva;
-            }
-            return Math.Round(total, 2);
-        }
-
         // el metodo llena las cuentas de la partida
         private void LlenarCuentasPartida(ref Partida partida)
         {

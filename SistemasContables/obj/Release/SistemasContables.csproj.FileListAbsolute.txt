@@ -29,3 +29,4 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Release\Sis
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Release\SistemasContables.csproj.CopyComplete
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Release\SistemasContables.exe
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Release\SistemasContables.pdb
+C:\Users\carlo\source\repos\Sistemas-Contables\SistemasContables\obj\Release\SistemasContables.csprojAssemblyReference.cache

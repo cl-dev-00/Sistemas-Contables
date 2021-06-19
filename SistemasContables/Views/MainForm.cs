@@ -57,6 +57,8 @@ namespace SistemasContables
 
             updateDataLibroDiario();
             llenarListaYears();
+
+            activaButton(this.btnInicio);
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
         }
 
@@ -103,8 +105,6 @@ namespace SistemasContables
         // Displiega o miniza la barra de navegacion
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            disabledButton();
-
             if(panelNavegacion.Width == 252)
             {
                 panelNavegacion.Visible = false;

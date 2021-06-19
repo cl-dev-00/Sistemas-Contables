@@ -51,7 +51,6 @@ C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\Siste
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.pdb
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.AgregarPartidaForm.resources
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.Views.AgregarLibroDiarioForm.resources
-C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\Guna.UI.dll
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\bin\Debug\SistemasContables.exe.config
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\bin\Debug\SistemasContables.exe
 C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\bin\Debug\SistemasContables.pdb
@@ -83,3 +82,4 @@ C:\Users\DELL\Documents\GitHub\Sistemas-Contables\SistemasContables\obj\Debug\Si
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\itextsharp.dll
 C:\Users\carlo\Source\Repos\Sistemas-Contables\SistemasContables\bin\Debug\itextsharp.xml
+C:\Users\carlo\source\repos\Sistemas-Contables\SistemasContables\obj\Debug\SistemasContables.csprojAssemblyReference.cache
